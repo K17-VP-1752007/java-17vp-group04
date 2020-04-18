@@ -1,0 +1,32 @@
+package vehicle;
+
+public class Truck extends Vehicle{
+	private float maximum_weight;
+	
+	Truck() {
+		super();
+		maximum_weight = 0;
+	}
+	
+	Truck(String id, String mod, String colo, int pass, String bra, double cost, float max_weight) {
+		super(id, mod, colo, pass, bra, cost);
+		maximum_weight = max_weight;
+	}
+	
+	float getWeight() {return maximum_weight;}
+	void setWeight(float max_weight) {maximum_weight = max_weight;}
+	
+	
+	
+	public void ViewRecord() {}
+	
+	public void AddRecord() {}
+	
+	public void ModifyRecord() {}
+
+	@Override
+	public void Display() {
+		// TODO Auto-generated method stub
+		
+	}
+}
