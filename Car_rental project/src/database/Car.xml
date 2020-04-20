@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><data>
+	<car>
+		<id>1000</id>
+		<brand>BMW</brand>
+		<model>M5</model>
+		<type>Sedan</type>
+		<color>Black</color>
+		<km>200</km>
+		<passenger>4</passenger>
+		<reserved>no</reserved></car>
+	<car>
+		<id>1001</id>
+		<brand>Porsche</brand>
+		<model>Macan</model>
+		<type>SUV</type>
+		<color>White</color>
+		<km>100.0</km>
+		<passenger>7</passenger>
+		<reserved>no</reserved>
+	</car>
+</data>

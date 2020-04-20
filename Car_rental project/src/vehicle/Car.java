@@ -3,7 +3,7 @@ package vehicle;
 public class Car extends Vehicle {
 	private String type;
 	
-	Car() {
+	public Car() {
 		super();
 		type = null;
 	}
@@ -12,6 +12,8 @@ public class Car extends Vehicle {
 		super(id, mod, col, pass, bra, cost);
 		type = typ;
 	}
+	
+	
 	
 	String getType() {return type;}
 	void setType(String typ) {type = typ;}
