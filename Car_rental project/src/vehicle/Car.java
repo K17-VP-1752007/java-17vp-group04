@@ -18,12 +18,18 @@ public class Car extends Vehicle {
 	String getType() {return type;}
 	void setType(String typ) {type = typ;}
 	
+	@Override
+	public void ViewRecord() {
+		System.out.println("Record: " + getRecord());
+	}
 	
-	public void ViewRecord() {}
 	
-	public void AddRecord() {}
-	
-	public void ModifyRecord() {}
+	public void ModifyRecord(double km, int rent, String date, double income) {
+		getRecord().setKm_travel(km);
+		getRecord().setTotalRent(rent);
+		getRecord().setLast_date_rent(date);
+		getRecord().setIncome_generate(income);
+	}
 
 	@Override
 	public void Display() {

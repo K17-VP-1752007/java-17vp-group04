@@ -20,9 +20,8 @@ public class Truck extends Vehicle{
 	
 	public void ViewRecord() {}
 	
-	public void AddRecord() {}
 	
-	public void ModifyRecord() {}
+	public void ModifyRecord(double km, int rent, String date, double income) {}
 
 	@Override
 	public void Display() {

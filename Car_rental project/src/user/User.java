@@ -42,7 +42,7 @@ public abstract class User {
 	public void setPassword(String pass) {password = pass;}
 	
 	
-	public abstract void Login();
+	public abstract boolean Login();
 	
-	public abstract void Logout();
+	public abstract boolean Logout();
 }

@@ -1,29 +1,27 @@
 package vehicle;
 
 public class Rental_record {
-	private String vehicleID;
-	private double km_travel;
-	private int totalRent;
-	private String last_date_rent;
-	private double income_generate;
+	
+	private double km_travel; // tong so km di dc
+	private int totalRent; // tong so lan cho thue
+	private String last_date_rent; // ngay cho thue gan nha
+	private double income_generate; // tong so tien thue do xe nay tao ra
 	
 	Rental_record(){
-		setVehicleID(null);
+
 		setKm_travel(0);
 		setTotalRent(0);
 		setLast_date_rent(null);
 		setIncome_generate(0);
 	}
-	Rental_record(String id, double km, int total, String date, double income){
-		setVehicleID(id);
+	Rental_record(double km, int total, String date, double income){
 		setKm_travel(km);
 		setTotalRent(total);
 		setLast_date_rent(date);
 		setIncome_generate(income);
 	}
 	
-	public String getVehicleID() {return vehicleID;}
-	public void setVehicleID(String vehicleID) {this.vehicleID = vehicleID;}
+	
 	
 	public double getKm_travel() {return km_travel;}
 	public void setKm_travel(double km_travel) {this.km_travel = km_travel;}
@@ -38,6 +36,9 @@ public class Rental_record {
 	public void setIncome_generate(double income_generate) {this.income_generate = income_generate;}
 	
 	
-	public void DisplayRecord() {}
+	@Override
+	public String toString() {
+		return "km_travel:" + km_travel + "\nNumber of rent: " + totalRent + "\nLast date rent: " + last_date_rent + "\nTotal income: " + income_generate;
+	}
 	
 }
