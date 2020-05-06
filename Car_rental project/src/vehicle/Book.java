@@ -43,8 +43,9 @@ public class Book {
 	
 	
 	
-	boolean findVehicle() {}
+	//boolean findVehicle() {}
 	
 	void BookVehicle() {
+		vehicle.setReserved(true);
 	}
 }

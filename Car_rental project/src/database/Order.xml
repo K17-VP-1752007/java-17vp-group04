@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<data>
+        
+    <order>
+                
+        <orderID>O1000</orderID>
+                
+        <customerID>1000C</customerID>
+                
+        <name>John Wick</name>
+                
+        <vehicleID>C1000</vehicleID>
+                
+        <startDate>20/6/2000</startDate>
+                
+        <returnDate>12/7/2000</returnDate>
+                
+        <license>ABD2006</license>
+                
+        <rentType>2</rentType>
+                
+        <totalCost>2000000</totalCost>
+            
+    </order>
+    
+    <order>
+        <orderID>01000</orderID>
+        <customerID>1001C</customerID>
+        <name>Borden</name>
+        <vehicleID>C1001</vehicleID>
+        <startDate>21/2/2010</startDate>
+        <returnDate>23/2010</returnDate>
+        <license>CBSA1200</license>
+        <rentType>1</rentType>
+        <totalCost>100.0</totalCost>
+    </order>
+</data>
