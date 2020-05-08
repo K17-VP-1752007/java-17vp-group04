@@ -66,12 +66,12 @@ public class Member extends User {
 		setCMND(CMND);
 		try {
 			//doc file
-			File file = new File("src/database/Member.xml");
+			File file = new File("src/database/member.xml");
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(file);
 			
-			NodeList id_list = doc.getElementsByTagName("ID");
+			NodeList id_list = doc.getElementsByTagName("id");
 			
 			//lay ra memberID cuoi cung nam trong file xml sau do thi tien hanh + 1 -> ra dc memberID moi
 			String last_id = id_list.item(id_list.getLength() - 1).getTextContent();
@@ -84,17 +84,17 @@ public class Member extends User {
 			Node member = doc.createElement("member");
 			
 			//ID
-			Element id = doc.createElement("ID");
+			Element id = doc.createElement("id");
 			id.appendChild(doc.createTextNode(memberID));
 			member.appendChild(id);
 			
 			//name
-			Element name = doc.createElement("name");
+			Element name = doc.createElement("username");
 			name.appendChild(doc.createTextNode(getName()));
 			member.appendChild(name);
 			
 			//phone
-			Element p_number = doc.createElement("phone");
+			Element p_number = doc.createElement("phonenumber");
 			p_number.appendChild(doc.createTextNode(getNumber()));
 			member.appendChild(p_number);
 			
@@ -104,7 +104,7 @@ public class Member extends User {
 			member.appendChild(licence);
 			
 			//login name
-			Element login_name = doc.createElement("login");
+			Element login_name = doc.createElement("loginname");
 			login_name.appendChild(doc.createTextNode(getLogin_name()));
 			member.appendChild(login_name);
 			
@@ -132,13 +132,13 @@ public class Member extends User {
 	public void ViewProfile() {
 		try {
 			//doc file
-			File file = new File("src/database/Member.xml");
+			File file = new File("src/database/member.xml");
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(file);
 			
 			Node data = doc.getFirstChild();
-			NodeList memberID_list = doc.getElementsByTagName("ID");
+			NodeList memberID_list = doc.getElementsByTagName("id");
 			
 			for(int i = 0; i < memberID_list.getLength(); i++) {
 				if(getID().equals(memberID_list.item(i).getTextContent())) {
