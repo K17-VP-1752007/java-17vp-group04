@@ -42,6 +42,71 @@ public class Admin extends User {
 	
 	public void DeleteVehicle() {}
 	
+	public void AddTruck(Truck tr) {
+		try {
+			//doc file
+			File file = new File("src/database/Order.xml");
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			
+			//lay tag <data> la tag root, sau do tao 1 node truck
+			Node data = doc.getFirstChild();
+			Node truck = doc.createElement("truck");
+			
+			//tao tag <orderID> va them gia tri sau do add no vao node order
+			Element id = doc.createElement("orderID");
+			id.appendChild(doc.createTextNode(tr.getOrder()));
+			truck.appendChild(id);
+			
+			Element customer = doc.createElement("customerID");
+			customer.appendChild(doc.createTextNode(tr.getCustomer()));
+			truck.appendChild(customer);
+			
+			Element name = doc.createElement("name");
+			name.appendChild(doc.createTextNode(tr.getName()));
+			truck.appendChild(name);
+			
+			Element vehicle = doc.createElement("vehicleID");
+			vehicle.appendChild(doc.createTextNode(tr.getVehicle()));
+			truck.appendChild(vehicle);
+			
+			Element start_date = doc.createElement("startDate");
+			start_date.appendChild(doc.createTextNode(tr.getStart()));
+			truck.appendChild(start_date);
+			
+			Element return_date = doc.createElement("returnDate");
+			return_date.appendChild(doc.createTextNode(tr.getEnd()));
+			truck.appendChild(return_date);
+			
+			Element license = doc.createElement("license");
+			license.appendChild(doc.createTextNode(tr.getLicense()));
+			truck.appendChild(license);
+			
+			Element rent_type = doc.createElement("rentType");
+			rent_type.appendChild(doc.createTextNode(Integer.toString(tr.getRentType())));// ph chuyen int thanh chuoi trc khi tao text
+			truck.appendChild(rent_type);
+			
+			Element cost = doc.createElement("totalCost");
+			cost.appendChild(doc.createTextNode(Double.toString(tr.getCost())));
+			truck.appendChild(cost);
+			
+			// add node truck vao node data
+			data.appendChild(truck);
+			
+			//cap nhat lai file xml
+			UpdateXml(file, doc);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void ModifyTruck() {}
+	
+	public void DeleteTruck() {}
+	
 	public static void AddOrder(Order ord) {
 		try {
 			//doc file
