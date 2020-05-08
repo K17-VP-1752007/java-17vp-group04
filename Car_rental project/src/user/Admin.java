@@ -15,6 +15,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import order.Order;
+import vehicle.Car;
+import vehicle.Truck;
+import vehicle.Vehicle;
 
 public class Admin extends User {
 	
@@ -36,11 +39,94 @@ public class Admin extends User {
 	
 	//public boolean Logout() {}
 	
-	public void AddVehicle() {}
+	public void AddCar(Car c) {
+			try {
+				File file = new File("src/database/Car.xml");
+				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+				DocumentBuilder builder = factory.newDocumentBuilder();
+				Document doc = builder.parse(file);
+				
+				Node data = doc.getFirstChild();
+				Node car = doc.createElement("car");
+				
+				Element id = doc.createElement("id");
+				id.appendChild(doc.createTextNode(c.getID()));
+				car.appendChild(id);
+				
+				Element model = doc.createElement("model");
+				model.appendChild(doc.createTextNode(c.getModel()));
+				car.appendChild(model);
+				
+				Element color = doc.createElement("color");
+				color.appendChild(doc.createTextNode(c.getColor()));
+				car.appendChild(color);
+				
+				Element passengers = doc.createElement("passengers");
+				passengers.appendChild(doc.createTextNode(Integer.toString(c.getPassenger())));// ph chuyen int thanh chuoi trc khi tao text
+				car.appendChild(passengers);
+				
+				Element brand = doc.createElement("brand");
+				brand.appendChild(doc.createTextNode(c.getBrand()));
+				car.appendChild(brand);
+				
+				Element reserved = doc.createElement("reserved");
+				reserved.appendChild(doc.createTextNode(Boolean.toString(c.isReserved())));
+				car.appendChild(reserved);
+				
+				Element init_cost = doc.createElement("init_cost");
+				init_cost.appendChild(doc.createTextNode(Double.toString(c.getCost())));
+				car.appendChild(init_cost);
+				
+				Element type = doc.createElement("type");
+				type.appendChild(doc.createTextNode(c.getType()));
+				car.appendChild(type);
+				
+				// add node order vao node data
+				data.appendChild(car);
+				
+				//cap nhat lai file xml
+				UpdateXml(file, doc);
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+	}
 	
-	public void ModifyVehicle() {}
+	public void ModifyCar() {}
 	
-	public void DeleteVehicle() {}
+	public void DeleteCar(String carID) {
+		try {
+			//doc file
+			File file = new File("src/database/Car.xml");
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			
+			Node data = doc.getFirstChild();
+			NodeList id_list = doc.getElementsByTagName("id");
+			
+			for(int i = 0; i < id_list.getLength();i++) {
+				String id = id_list.item(i).getTextContent();
+				if(id.equals(carID)) {
+					Node car = id_list.item(i).getParentNode();
+					data.removeChild(car);
+					break;
+				}
+			}
+			
+			doc.normalize();
+			
+			UpdateXml(file, doc);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	public void AddTruck(Truck t) {}
+	
+	public void ModifyTruck() {}
+	
+	public void DeleteTruck() {}
 	
 	public static void AddOrder(Order ord) {
 		try {
@@ -100,7 +186,6 @@ public class Admin extends User {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	public void ModifyOrder(Order ord) {

@@ -2,6 +2,7 @@ package vehicle;
 
 public abstract class Vehicle {
 	
+	static int num;
 	private String ID;
 	private String model;
 	private String color;
@@ -22,8 +23,8 @@ public abstract class Vehicle {
 		setRecord(new Rental_record());
 	}
 	
-	Vehicle(String id, String mod, String col, int pass, String bra, double cost) {
-		ID = id;
+	Vehicle(String ID, String mod, String col, int pass, String bra, double cost) {
+		ID = ID;
 		model = mod;
 		color = col;
 		passengers = pass;
@@ -33,26 +34,26 @@ public abstract class Vehicle {
 		setRecord(new Rental_record());
 	}
 	
-	String getID() {return ID;}
-	void setID(String id) {ID = id;}
+	public String getID() {return ID;}
+	public void setID(String id) {ID = id;}
 	
-	String getModel() {return model;}
-	void setModel(String mod) {model = mod;}
+	public String getModel() {return model;}
+	public void setModel(String mod) {model = mod;}
 	
-	String getColor() {return color;}
+	public String getColor() {return color;}
 	void setColor(String col) {color = col;}
 	
-	int getPassenger() {return passengers;}
-	void setPassenger(int pass) {passengers = pass;}
+	public int getPassenger() {return passengers;}
+	public void setPassenger(int pass) {passengers = pass;}
 	
-	String getBrand() {return brand;}
-	void setBrand(String bran) {brand = bran;}
+	public String getBrand() {return brand;}
+	public void setBrand(String bran) {brand = bran;}
 	
-	boolean isReserved() {return reserved;}
-	void setReserved(boolean check) {reserved = check;}
+	public boolean isReserved() {return reserved;}
+	public void setReserved(boolean check) {reserved = check;}
 	
-	double getCost() {return init_cost;}
-	void setCost(double cost) {init_cost = cost;}
+	public double getCost() {return init_cost;}
+	public void setCost(double cost) {init_cost = cost;}
 	
 	public Rental_record getRecord() {
 		return record;
@@ -62,7 +63,7 @@ public abstract class Vehicle {
 		this.record = record;
 	}
 	
-	public abstract void Display();
+	public abstract void Display(int num);
 	
 	public abstract void ViewRecord();
 	

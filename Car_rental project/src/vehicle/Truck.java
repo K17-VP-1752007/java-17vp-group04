@@ -24,7 +24,7 @@ public class Truck extends Vehicle{
 	public void ModifyRecord(double km, int rent, String date, double income) {}
 
 	@Override
-	public void Display() {
+	public void Display(int num) {
 		// TODO Auto-generated method stub
 		
 	}

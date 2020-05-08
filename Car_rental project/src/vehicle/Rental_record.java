@@ -1,7 +1,7 @@
 package vehicle;
 
 public class Rental_record {
-	
+	private String id_vehicle;
 	private double km_travel; // tong so km di dc
 	private int totalRent; // tong so lan cho thue
 	private String last_date_rent; // ngay cho thue gan nha
@@ -21,8 +21,6 @@ public class Rental_record {
 		setIncome_generate(income);
 	}
 	
-	
-	
 	public double getKm_travel() {return km_travel;}
 	public void setKm_travel(double km_travel) {this.km_travel = km_travel;}
 	
@@ -39,6 +37,12 @@ public class Rental_record {
 	@Override
 	public String toString() {
 		return "km_travel:" + km_travel + "\nNumber of rent: " + totalRent + "\nLast date rent: " + last_date_rent + "\nTotal income: " + income_generate;
+	}
+	public String getId_vehicle() {
+		return id_vehicle;
+	}
+	public void setId_vehicle(String id_vehicle) {
+		this.id_vehicle = id_vehicle;
 	}
 	
 }
