@@ -20,37 +20,50 @@ import vehicle.Vehicle;
 
 public class Member extends User {
 	
-	private String birth_date;
+	private String Licence;
+	private String CMND;
 	
 	
 	Member(){
 		super();
-		setBirth_date(null);
+		setLicence(null);
+		setCMND(null);
 	}
 	
-	Member(String id, String name, String number, String login, String pass, String birth){
-		super(id, name, number, login, pass);
-		setBirth_date(birth);
+	Member(String id, String name, String p_number, String login, String pass, String lic, String CMND){
+		super(id, name, p_number, login, pass);
+		setLicence(lic);
+		setCMND(CMND);
 	}
 	
-	public String getBirth_date() {
-		return birth_date;
+	public String getLicence() {
+		return Licence;
 	}
 
-	public void setBirth_date(String birth_date) {
-		this.birth_date = birth_date;
+	public void setLicence(String lic) {
+		this.Licence = lic;
 	}
+	
+	public String getCMND() {
+		return CMND;
+	}
+
+	public void setCMND(String cMND) {
+		CMND = cMND;
+	}
+	
 	
 	//public boolean Login() {}
 	
 	//public boolean Logout() {}
 	
-	public void CreateAccount(String member_name, String phone, String birth, String login, String pass) {
+	public void CreateAccount(String member_name, String phone, String lic, String login, String pass, String CMND) {
 		setName(member_name);
 		setNumber(phone);
-		setBirth_date(birth);
+		setLicence(lic);
 		setLogin_name(login);
 		setPassword(pass);
+		setCMND(CMND);
 		try {
 			//doc file
 			File file = new File("src/database/Member.xml");
@@ -86,9 +99,9 @@ public class Member extends User {
 			member.appendChild(p_number);
 			
 			//birth date
-			Element birth_date = doc.createElement("birth");
-			birth_date.appendChild(doc.createTextNode(getBirth_date()));
-			member.appendChild(birth_date);
+			Element licence = doc.createElement("licence");
+			licence.appendChild(doc.createTextNode(getLicence()));
+			member.appendChild(licence);
 			
 			//login name
 			Element login_name = doc.createElement("login");
@@ -100,6 +113,11 @@ public class Member extends User {
 			Element password = doc.createElement("password");
 			password.appendChild(doc.createTextNode(getPassword()));
 			member.appendChild(password);
+			
+			//CMND
+			Element cmnd = doc.createElement("CMND");
+			cmnd.appendChild(doc.createTextNode(getCMND()));
+			member.appendChild(cmnd);
 			
 			data.appendChild(member);
 			
@@ -158,5 +176,4 @@ public class Member extends User {
 			e.printStackTrace();
 		}
 	}
-	
 }
