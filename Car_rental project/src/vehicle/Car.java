@@ -52,10 +52,10 @@ public class Car extends Vehicle {
 			Document doc = builder.parse(file);
 			doc.getDocumentElement().normalize();
 			
-			//Lay danh sach cac tag <order>...</order>
+			//Lay danh sach cac tag <car>...</car>
 			NodeList car_list = doc.getElementsByTagName("car");
 			
-			//Lay ra tag order nam o vi tri thu "num"
+			//Lay ra tag car nam o vi tri thu "num"
 			Node car_node = car_list.item(num);
 			Element element = (Element) car_node;
 			
