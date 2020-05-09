@@ -176,7 +176,33 @@ public class Admin extends User {
 	
 	public void ModifyTruck() {}
 	
-	public void DeleteTruck() {}
+	public void DeleteTruck(String trID) {	
+		try {
+			//doc file
+			File file = new File("src/database/Truck.xml");
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			
+			Node data = doc.getFirstChild();
+			NodeList id_list = doc.getElementsByTagName("id");
+			
+			for(int i = 0; i < id_list.getLength();i++) {
+				String id = id_list.item(i).getTextContent();
+				if(id.equals(trID)) {
+					Node truck = id_list.item(i).getParentNode();
+					data.removeChild(truck);
+					break;
+				}
+			}
+			
+			doc.normalize();
+			
+			UpdateXml(file, doc);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 	
 	public static void AddOrder(Order ord) {
 		try {

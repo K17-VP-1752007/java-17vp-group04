@@ -8,8 +8,9 @@ public class main {
 		// TODO Auto-generated method stub
 //		Vehicle v1 = new Car("C1020", "bcd","blue",7,"BMW",2500000,"SUV");
 		Admin user = new Admin();
-		Truck T1 = new Truck("T4000", "RAM CHASSIS X", "black", 4, "RAM", 1200000,14500.25);
-		user.AddTruck((Truck) T1);
+//		Truck T1 = new Truck("T4000", "RAM CHASSIS X", "black", 4, "RAM", 1200000,14500.25);
+//		user.AddTruck((Truck) T1);
+		user.DeleteTruck("T4000");
 //		v1.ViewRecord();
 //		v1.ModifyRecord(200, 10, "01/06/1999", 70000);
 //		v1.ViewRecord();
