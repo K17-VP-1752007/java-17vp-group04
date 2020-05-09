@@ -122,16 +122,10 @@ public class Admin extends User {
 		}
 	}
 	
-	public void AddTruck(Truck t) {}
-	
-	public void ModifyTruck() {}
-	
-	public void DeleteTruck() {}
-	
 	public void AddTruck(Truck tr) {
 		try {
 			//doc file
-			File file = new File("src/database/Order.xml");
+			File file = new File("src/database/Truck.xml");
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(file);
@@ -140,42 +134,33 @@ public class Admin extends User {
 			Node data = doc.getFirstChild();
 			Node truck = doc.createElement("truck");
 			
-			//tao tag <orderID> va them gia tri sau do add no vao node order
-			Element id = doc.createElement("orderID");
-			id.appendChild(doc.createTextNode(tr.getOrder()));
+			Element id = doc.createElement("id");
+			id.appendChild(doc.createTextNode(tr.getID()));
 			truck.appendChild(id);
 			
-			Element customer = doc.createElement("customerID");
-			customer.appendChild(doc.createTextNode(tr.getCustomer()));
-			truck.appendChild(customer);
+			Element model = doc.createElement("model");
+			model.appendChild(doc.createTextNode(tr.getModel()));
+			truck.appendChild(model);
 			
-			Element name = doc.createElement("name");
-			name.appendChild(doc.createTextNode(tr.getName()));
-			truck.appendChild(name);
+			Element col = doc.createElement("color");
+			col.appendChild(doc.createTextNode(tr.getColor()));
+			truck.appendChild(col);
 			
-			Element vehicle = doc.createElement("vehicleID");
-			vehicle.appendChild(doc.createTextNode(tr.getVehicle()));
-			truck.appendChild(vehicle);
+			Element pas = doc.createElement("passenger");
+			pas.appendChild(doc.createTextNode(Integer.toString(tr.getPassenger())));
+			truck.appendChild(pas);
 			
-			Element start_date = doc.createElement("startDate");
-			start_date.appendChild(doc.createTextNode(tr.getStart()));
-			truck.appendChild(start_date);
+			Element brand = doc.createElement("brand");
+			brand.appendChild(doc.createTextNode(tr.getBrand()));
+			truck.appendChild(brand);
 			
-			Element return_date = doc.createElement("returnDate");
-			return_date.appendChild(doc.createTextNode(tr.getEnd()));
-			truck.appendChild(return_date);
-			
-			Element license = doc.createElement("license");
-			license.appendChild(doc.createTextNode(tr.getLicense()));
-			truck.appendChild(license);
-			
-			Element rent_type = doc.createElement("rentType");
-			rent_type.appendChild(doc.createTextNode(Integer.toString(tr.getRentType())));// ph chuyen int thanh chuoi trc khi tao text
-			truck.appendChild(rent_type);
-			
-			Element cost = doc.createElement("totalCost");
+			Element cost = doc.createElement("cost");
 			cost.appendChild(doc.createTextNode(Double.toString(tr.getCost())));
 			truck.appendChild(cost);
+			
+			Element max = doc.createElement("maxw");
+			max.appendChild(doc.createTextNode(Double.toString(tr.getWeight())));
+			truck.appendChild(max);
 			
 			// add node truck vao node data
 			data.appendChild(truck);

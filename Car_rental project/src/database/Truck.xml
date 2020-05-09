@@ -1,93 +1,524 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
+                    
+    
+    
+    
     <truck>
+                                        
+        
+        
+        
         <id>T3000</id>
+                                        
+        
+        
+        
         <model>Navara E</model>
-	<color>black</color>
-	<passenger>4</passenger>
-	<brand>Nissan</brand>
-        <cost>1500000</cost> 
-        <reserved>no</reserved>
-    </truck>
-     <truck>
-        <id>T3100</id>
-        <model>Tacoma</model>
- 	<color>silver</color>
-	<passenger>4</passenger>
-	<brand>Toyota</brand>
-        <cost>850000</cost> 
-        <reserved>no</reserved>
-    </truck>
-     <truck>
-        <id>T3200</id>
-        <model>SIERRA AT4</model>
-        <color>white</color>
- 	<passenger>4</passenger>
-	<brand>GMC</brand>  
- 	<cost>1000000</cost> 
-        <reserved>no</reserved>
-    </truck>
-     <truck>
-        <id>T3300</id>
- 	<model>RAM CHASSIS CAB</model>
- 	<color>white</color>
-  	<passenger>2</passenger>
-        <brand>RAM</brand>
-       	<cost>1000000</cost> 
-        <reserved>no</reserved>
-    </truck>
-     <truck>
-        <id>T3400</id>
-	<model>Ridgeline RTL 2WD</model>
-	<color>Deep Scarlet</color>
-	<passenger>4</passenger>
-        <brand>HONDA</brand>
-        <cost>1200000</cost> 
-        <reserved>no</reserved>
-    </truck>
-     <truck>
-        <id>T3500</id>
-	<model>SILVERRADO HD</model>
-	<color>Obsidian Blue Pearl</color>
-        <brand>Chevrolet</brand>
+                                	
+        
+        
+        
+        <color>black</color>
+                                	
+        
+        
+        
         <passenger>4</passenger>
-        <cost>1500000</cost> 
-        <reserved></reserved>
-    </truck>
-     <truck>
-        <id>T3600</id>
-	<model>XLT Passenger Van</model>
-	<color>blue</color>
-        <brand>Ford</brand>
-        <passenger>10</passenger>
-        <cost>900000</cost> 
+                                	
+        
+        
+        
+        <brand>Nissan</brand>
+                                        
+        
+        
+        
+        <cost>1500000</cost>
+                                 
+	
+        
+        
+        
+        <maxw>15000.0</maxw>
+                                        
+        
+        
+        
         <reserved>no</reserved>
+                                    
+    
+    
+    
     </truck>
-     <truck>
-        <id>T3700</id>
-	<model>Volvo VNX 740</model>
- 	<color>black</color>
-        <brand>Volvo</brand>
+                     
+    
+    
+    
+    <truck>
+                                        
+        
+        
+        
+        <id>T3100</id>
+                                        
+        
+        
+        
+        <model>Tacoma</model>
+                                 	
+        
+        
+        
+        <color>silver</color>
+                                	
+        
+        
+        
+        <passenger>4</passenger>
+                                	
+        
+        
+        
+        <brand>Toyota</brand>
+                                        
+        
+        
+        
+        <cost>850000</cost>
+                                 
+	
+        
+        
+        
+        <maxw>17500.75</maxw>
+                                        
+        
+        
+        
+        <reserved>no</reserved>
+                                    
+    
+    
+    
+    </truck>
+                     
+    
+    
+    
+    <truck>
+                                        
+        
+        
+        
+        <id>T3200</id>
+                                        
+        
+        
+        
+        <model>SIERRA AT4</model>
+                                        
+        
+        
+        
+        <color>white</color>
+                                 	
+        
+        
+        
+        <passenger>4</passenger>
+                                	
+        
+        
+        
+        <brand>GMC</brand>
+                                  
+ 	
+        
+        
+        
+        <cost>1000000</cost>
+                                 
+	
+        
+        
+        
+        <maxw>10250.70</maxw>
+                                        
+        
+        
+        
+        <reserved>no</reserved>
+                                    
+    
+    
+    
+    </truck>
+                     
+    
+    
+    
+    <truck>
+                                        
+        
+        
+        
+        <id>T3300</id>
+                                 	
+        
+        
+        
+        <model>RAM CHASSIS CAB</model>
+                                 	
+        
+        
+        
+        <color>white</color>
+                                  	
+        
+        
+        
         <passenger>2</passenger>
-	<cost>1300000</cost> 
-        <reserved>no</reserved>
-    </truck>
-     <truck>
-        <id>T3800</id>
-	<model>SIERRA CHASSIS</model>
-	<color>white</color>
-        <brand>SIERRA</brand>
-        <passenger>2</passenger>
-      	<cost>800000</cost> 
-        <reserved>no</reserved>
-    </truck>
-     <truck>
-        <id>T3900</id>
-	<model>RAM PROMASTER CITY</model>
-	<color>white</color>
+                                        
+        
+        
+        
         <brand>RAM</brand>
-        <passenger>8</passenger>
-       	<cost>2000000</cost> 
+                                       	
+        
+        
+        
+        <cost>1000000</cost>
+                                 
+	
+        
+        
+        
+        <maxw>15000.85</maxw>
+                                        
+        
+        
+        
         <reserved>no</reserved>
+                                    
+    
+    
+    
+    </truck>
+                     
+    
+    
+    
+    <truck>
+                                        
+        
+        
+        
+        <id>T3400</id>
+                                	
+        
+        
+        
+        <model>Ridgeline RTL 2WD</model>
+                                	
+        
+        
+        
+        <color>Deep Scarlet</color>
+                                	
+        
+        
+        
+        <passenger>4</passenger>
+                                        
+        
+        
+        
+        <brand>HONDA</brand>
+                                        
+        
+        
+        
+        <cost>1200000</cost>
+                                 
+	
+        
+        
+        
+        <maxw>10800.35</maxw>
+                                        
+        
+        
+        
+        <reserved>no</reserved>
+                                    
+    
+    
+    
+    </truck>
+                     
+    
+    
+    
+    <truck>
+                                        
+        
+        
+        
+        <id>T3500</id>
+                                	
+        
+        
+        
+        <model>SILVERRADO HD</model>
+                                	
+        
+        
+        
+        <color>Obsidian Blue Pearl</color>
+                                        
+        
+        
+        
+        <brand>Chevrolet</brand>
+                                        
+        
+        
+        
+        <passenger>4</passenger>
+                                        
+        
+        
+        
+        <cost>1500000</cost>
+                                 
+	
+        
+        
+        
+        <maxw>20000.05</maxw>
+                                        
+        
+        
+        
+        <reserved/>
+                                    
+    
+    
+    
+    </truck>
+                     
+    
+    
+    
+    <truck>
+                                        
+        
+        
+        
+        <id>T3600</id>
+                                	
+        
+        
+        
+        <model>XLT Passenger Van</model>
+                                	
+        
+        
+        
+        <color>blue</color>
+                                        
+        
+        
+        
+        <brand>Ford</brand>
+                                        
+        
+        
+        
+        <passenger>10</passenger>
+                                        
+        
+        
+        
+        <cost>900000</cost>
+                                 
+	
+        
+        
+        
+        <maxw>17050.55</maxw>
+                                        
+        
+        
+        
+        <reserved>no</reserved>
+                                    
+    
+    
+    
+    </truck>
+                     
+    
+    
+    
+    <truck>
+                                        
+        
+        
+        
+        <id>T3700</id>
+                                	
+        
+        
+        
+        <model>Volvo VNX 740</model>
+                                 	
+        
+        
+        
+        <color>black</color>
+                                        
+        
+        
+        
+        <brand>Volvo</brand>
+                                        
+        
+        
+        
+        <passenger>2</passenger>
+                                	
+        
+        
+        
+        <cost>1300000</cost>
+                                 
+	
+        
+        
+        
+        <maxw>19050.40</maxw>
+                                        
+        
+        
+        
+        <reserved>no</reserved>
+                                    
+    
+    
+    
+    </truck>
+                     
+    
+    
+    
+    <truck>
+                                        
+        
+        
+        
+        <id>T3800</id>
+                                	
+        
+        
+        
+        <model>SIERRA CHASSIS</model>
+                                	
+        
+        
+        
+        <color>white</color>
+                                        
+        
+        
+        
+        <brand>SIERRA</brand>
+                                        
+        
+        
+        
+        <passenger>2</passenger>
+                                      	
+        
+        
+        
+        <cost>800000</cost>
+                                 
+	
+        
+        
+        
+        <maxw>23100.20</maxw>
+                                        
+        
+        
+        
+        <reserved>no</reserved>
+                                    
+    
+    
+    
+    </truck>
+                     
+    
+    
+    
+    <truck>
+                                        
+        
+        
+        
+        <id>T3900</id>
+                                	
+        
+        
+        
+        <model>RAM PROMASTER CITY</model>
+                                	
+        
+        
+        
+        <color>white</color>
+                                        
+        
+        
+        
+        <brand>RAM</brand>
+                                        
+        
+        
+        
+        <passenger>8</passenger>
+                                       	
+        
+        
+        
+        <cost>2000000</cost>
+                                 
+	
+        
+        
+        
+        <maxw>19500.25</maxw>
+                                        
+        
+        
+        
+        <reserved>no</reserved>
+                                    
+    
+    
+    
+    </truck>
+    
+    <truck>
+        <id/>
+        <model>RAM CHASSIS X</model>
+        <color>black</color>
+        <passenger>4</passenger>
+        <brand>RAM</brand>
+        <cost>1200000.0</cost>
+        <maxw>14500.25</maxw>
     </truck>
 </data>

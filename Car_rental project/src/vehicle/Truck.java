@@ -1,21 +1,20 @@
 package vehicle;
 
 public class Truck extends Vehicle{
-	private float maximum_weight;
+	private double maximum_weight;
 	
 	Truck() {
 		super();
 		maximum_weight = 0;
 	}
 	
-	Truck(String id, String mod, String colo, int pass, String bra, double cost, float max_weight) {
+	public Truck(String id, String mod, String colo, int pass, String bra, double cost, double max_weight) {
 		super(id, mod, colo, pass, bra, cost);
 		maximum_weight = max_weight;
 	}
 	
-	float getWeight() {return maximum_weight;}
-	void setWeight(float max_weight) {maximum_weight = max_weight;}
-	
+	public double getWeight() {return maximum_weight;}
+	public void setWeight(double max_weight) {maximum_weight = max_weight;}
 	
 	
 	public void ViewRecord() {}
