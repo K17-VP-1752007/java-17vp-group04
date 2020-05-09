@@ -1,8 +1,6 @@
 package vehicle;
 
 public abstract class Vehicle {
-	
-	static int num;
 	private String ID;
 	private String model;
 	private String color;
@@ -23,8 +21,8 @@ public abstract class Vehicle {
 		setRecord(new Rental_record());
 	}
 	
-	Vehicle(String ID, String mod, String col, int pass, String bra, double cost) {
-		ID = ID;
+	Vehicle(String id, String mod, String col, int pass, String bra, double cost) {
+		ID = id;
 		model = mod;
 		color = col;
 		passengers = pass;
