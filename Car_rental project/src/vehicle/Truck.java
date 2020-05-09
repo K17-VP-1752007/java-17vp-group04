@@ -13,14 +13,20 @@ public class Truck extends Vehicle{
 		maximum_weight = max_weight;
 	}
 	
+	@Override
+	public void ViewRecord() {
+		System.out.println("Record: " + getRecord());
+	}
+	
 	public double getWeight() {return maximum_weight;}
 	public void setWeight(double max_weight) {maximum_weight = max_weight;}
 	
-	
-	public void ViewRecord() {}
-	
-	
-	public void ModifyRecord(double km, int rent, String date, double income) {}
+	public void ModifyRecord(double km, int rent, String date, double income) {
+		getRecord().setKm_travel(km);
+		getRecord().setTotalRent(rent);
+		getRecord().setLast_date_rent(date);
+		getRecord().setIncome_generate(income);
+	}
 
 	@Override
 	public void Display(int num) {
