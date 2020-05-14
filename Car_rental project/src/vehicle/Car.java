@@ -1,6 +1,7 @@
 package vehicle;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -30,8 +31,34 @@ public class Car extends Vehicle {
 	
 	@Override
 	public void ViewRecord() {
-		System.out.println("Record: " + getRecord());
+		try {
+			
+			File file = new File("src/database/record_car.xml");
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			doc.getDocumentElement().normalize();
+			
+			NodeList id_record_car_list = doc.getElementsByTagName("vehicleID");
+			for(int i = 0; i < id_record_car_list.getLength(); i++) {
+				if(this.getID().equals(id_record_car_list.item(i).getTextContent())) {
+					Node record = id_record_car_list.item(i).getParentNode();
+					Element element = (Element) record;
+					
+					this.getRecord().setId_vehicle(element.getElementsByTagName("vehicleID").item(0).getTextContent());
+					this.getRecord().setKm_travel(Double.parseDouble(element.getElementsByTagName("km").item(0).getTextContent()));
+					this.getRecord().setTotalRent(Integer.parseInt(element.getElementsByTagName("totalRent").item(0).getTextContent()));
+					this.getRecord().setLast_date_rent(element.getElementsByTagName("lastRent").item(0).getTextContent());
+					String income = element.getElementsByTagName("income").item(0).getTextContent();
+					this.getRecord().setIncome_generate(Double.parseDouble(income));
+				}
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
+	
 	
 	
 	public void ModifyRecord(double km, int rent, String date, double income) {
@@ -41,8 +68,7 @@ public class Car extends Vehicle {
 		getRecord().setIncome_generate(income);
 	}
 
-	@Override
-	public void Display(int num) {
+	/*public ArrayList<Car> DisplayCar(int num) {
 		// TODO Auto-generated method stub
 		try {
 			//Doc tu file xml doc len
@@ -51,6 +77,9 @@ public class Car extends Vehicle {
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(file);
 			doc.getDocumentElement().normalize();
+			
+			ArrayList<Car> list_of_car = new ArrayList<Car>();
+			
 			
 			//Lay danh sach cac tag <order>...</order>
 			NodeList car_list = doc.getElementsByTagName("car");
@@ -67,15 +96,20 @@ public class Car extends Vehicle {
 			setBrand(element.getElementsByTagName("brand").item(0).getTextContent());
 			setReserved(Boolean.parseBoolean(element.getElementsByTagName("reserved").item(0).getTextContent()));
 			setCost(Double.parseDouble(element.getElementsByTagName("init_cost").item(0).getTextContent()));
-			setType(element.getElementsByTagName("type").item(0).getTextContent());		
+			setType(element.getElementsByTagName("type").item(0).getTextContent());	
+			
+			list_of_car.add(this);
+			
+			return list_of_car;
 					
 		}catch(Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-	}
+	}*/
 	
 	public String toString() {
-		return("ID: " + getID() + "\n" + "Model: " + getModel() + "\n" + "Color: " + getColor() + "\n" + "Passenger: " + getPassenger() + "\n" + "Brand: " + getBrand() + "\n" + "Cost: " + getCost() + "\n" + "Type: " + getType());
+		return("ID: " + getID() + "\n" + "Model: " + getModel() + "\n" + "Color: " + getColor() + "\n" + "Passenger: " + getPassenger() + "\n" + "Brand: " + getBrand() + "\n" + "Cost: " + getCost() + "\n" + "Type: " + getType() + "\nRent record: " + getRecord());
 	}
 }
 	
