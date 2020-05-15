@@ -67,50 +67,6 @@ public class Car extends Vehicle {
 		getRecord().setLast_date_rent(date);
 		getRecord().setIncome_generate(income);
 	}
-
-	/*public ArrayList<Car> DisplayCar(int num) {
-		// TODO Auto-generated method stub
-		try {
-			//Doc tu file xml doc len
-			File file = new File("src/database/Car.xml");
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(file);
-			doc.getDocumentElement().normalize();
-			
-<<<<<<< HEAD
-			//Lay danh sach cac tag <car>...</car>
-=======
-			ArrayList<Car> list_of_car = new ArrayList<Car>();
-			
-			
-			//Lay danh sach cac tag <order>...</order>
->>>>>>> my_branch
-			NodeList car_list = doc.getElementsByTagName("car");
-			
-			//Lay ra tag car nam o vi tri thu "num"
-			Node car_node = car_list.item(num);
-			Element element = (Element) car_node;
-			
-			//Gan gia tri lay tu tag order tren vao object Order
-			setID(element.getElementsByTagName("id").item(0).getTextContent());
-			setModel(element.getElementsByTagName("model").item(0).getTextContent());
-			setColor(element.getElementsByTagName("color").item(0).getTextContent());
-			setPassenger(Integer.parseInt(element.getElementsByTagName("passengers").item(0).getTextContent()));
-			setBrand(element.getElementsByTagName("brand").item(0).getTextContent());
-			setReserved(Boolean.parseBoolean(element.getElementsByTagName("reserved").item(0).getTextContent()));
-			setCost(Double.parseDouble(element.getElementsByTagName("init_cost").item(0).getTextContent()));
-			setType(element.getElementsByTagName("type").item(0).getTextContent());	
-			
-			list_of_car.add(this);
-			
-			return list_of_car;
-					
-		}catch(Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}*/
 	
 	public String toString() {
 		return("ID: " + getID() + "\n" + "Model: " + getModel() + "\n" + "Color: " + getColor() + "\n" + "Passenger: " + getPassenger() + "\n" + "Brand: " + getBrand() + "\n" + "Cost: " + getCost() + "\n" + "Type: " + getType() + "\nRent record: " + getRecord());

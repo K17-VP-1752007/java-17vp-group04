@@ -11,6 +11,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import user.Admin;
+import user.Member;
 import vehicle.Car;
 import vehicle.Vehicle;
 import vehicle.VehicleList;
@@ -19,9 +20,7 @@ import vehicle.Truck;
 public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		VehicleList vl = new VehicleList();
-		vl.ReadAllCar();
-		vl.ReadAllTruck();
+		Member m = new Member();
 		
 	}
 
