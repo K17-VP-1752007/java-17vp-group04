@@ -60,6 +60,32 @@ public class Truck extends Vehicle{
 		getRecord().setTotalRent(rent);
 		getRecord().setLast_date_rent(date);
 		getRecord().setIncome_generate(income);
+		
+		try {
+			
+			File file = new File("src/database/record_truck.xml");
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			
+			NodeList id_record_list = doc.getElementsByTagName("vehicleID");
+			for(int i = 0; i < id_record_list.getLength(); i++) {
+				if(this.getID().equals(id_record_list.item(i).getTextContent())) {
+					Node record = id_record_list.item(i).getParentNode();
+					Element element = (Element) record;
+					
+					element.getElementsByTagName("km").item(0).setTextContent(Double.toString(km));
+					element.getElementsByTagName("totalRent").item(0).setTextContent(Integer.toString(rent));
+					element.getElementsByTagName("lastRent").item(0).setTextContent(date);
+					element.getElementsByTagName("income").item(0).setTextContent(Double.toString(income));
+					
+				}
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	

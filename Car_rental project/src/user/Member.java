@@ -56,27 +56,18 @@ public class Member extends User {
 	
 	
 	
-	public Member Login(String login_name, String password) {
-		ArrayList<Member> member_list = ReadAllMember();
-		for(int i = 0; i < member_list.size(); i++) {
-			String login = member_list.get(i).getLogin_name();
-			String pass = member_list.get(i).getPassword();
-			if(login_name.equals(login) && password.equals(pass)) {
-				return member_list.get(i);
-			}
+	public boolean Login(String login_name, String password) {
+		if(this.getLogin_name().equals(login_name) && this.getPassword().equals(password)) {
+			return true;
 		}
-		return null;
+		else{
+			return false;
+		}
 	}
 	
 	//public boolean Logout() {}
 	
 	public void CreateAccount(String member_name, String phone, String lic, String login, String pass, String CMND) {
-		setName(member_name);
-		setNumber(phone);
-		setLicence(lic);
-		setLogin_name(login);
-		setPassword(pass);
-		setCMND(CMND);
 		try {
 			//doc file
 			File file = new File("src/database/member.xml");
@@ -103,33 +94,33 @@ public class Member extends User {
 			
 			//name
 			Element name = doc.createElement("username");
-			name.appendChild(doc.createTextNode(getName()));
+			name.appendChild(doc.createTextNode(member_name));
 			member.appendChild(name);
 			
 			//phone
 			Element p_number = doc.createElement("phonenumber");
-			p_number.appendChild(doc.createTextNode(getNumber()));
+			p_number.appendChild(doc.createTextNode(phone));
 			member.appendChild(p_number);
 			
 			//birth date
 			Element licence = doc.createElement("licence");
-			licence.appendChild(doc.createTextNode(getLicence()));
+			licence.appendChild(doc.createTextNode(lic));
 			member.appendChild(licence);
 			
 			//login name
 			Element login_name = doc.createElement("loginname");
-			login_name.appendChild(doc.createTextNode(getLogin_name()));
+			login_name.appendChild(doc.createTextNode(login));
 			member.appendChild(login_name);
 			
 			
 			//password
 			Element password = doc.createElement("password");
-			password.appendChild(doc.createTextNode(getPassword()));
+			password.appendChild(doc.createTextNode(pass));
 			member.appendChild(password);
 			
 			//CMND
 			Element cmnd = doc.createElement("CMND");
-			cmnd.appendChild(doc.createTextNode(getCMND()));
+			cmnd.appendChild(doc.createTextNode(CMND));
 			member.appendChild(cmnd);
 			
 			data.appendChild(member);
@@ -142,15 +133,24 @@ public class Member extends User {
 		}
 	}
 	
-	public void ViewProfile() {
+	public String[] ViewProfile() {
+		String[] profile = new String[6];
 		
+		profile[1] = this.getName();
+		profile[2] = this.getNumber();
+		profile[3] = this.getLogin_name();
+		profile[4] = this.getPassword();
+		profile[5] = this.getLicence();
+		profile[6] = this.getCMND();
+		
+		return profile;
 	}
 	
 	public void EditProfile() {}
 	
-	public void ViewVehicle() {}
-	
-	public void Rent(Vehicle v) {}
+	public void Rent(Vehicle v) {
+		
+	}
 
 	
 	
@@ -170,38 +170,4 @@ public class Member extends User {
 		}
 	}
 	
-	public static ArrayList<Member> ReadAllMember(){
-		try {
-			
-			//doc file
-			File file = new File("src/database/member.xml");
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(file);
-			
-			ArrayList<Member> list_of_member = new ArrayList<Member>();
-			
-			NodeList member_list = doc.getElementsByTagName("member");
-			for(int i = 0; i < member_list.getLength(); i++) {
-				Member m = new Member();
-				Node member = member_list.item(i);
-				Element element = (Element) member;
-				
-				m.setID(element.getElementsByTagName("id").item(0).getTextContent());
-				m.setName(element.getElementsByTagName("username").item(0).getTextContent());
-				m.setNumber(element.getElementsByTagName("phonenumber").item(0).getTextContent());
-				m.setLogin_name(element.getElementsByTagName("loginname").item(0).getTextContent());
-				m.setPassword(element.getElementsByTagName("password").item(0).getTextContent());
-				m.setLicence(element.getElementsByTagName("license").item(0).getTextContent());
-				m.setCMND(element.getElementsByTagName("CMND").item(0).getTextContent());
-				
-				list_of_member.add(m);
-			}
-			return list_of_member;
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
 }
