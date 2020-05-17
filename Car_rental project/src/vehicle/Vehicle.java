@@ -1,6 +1,5 @@
 package vehicle;
 
-
 public abstract class Vehicle {
 	private String ID;
 	private String model;
@@ -62,11 +61,13 @@ public abstract class Vehicle {
 		this.record = record;
 	}
 	
+	public abstract void Display(int num);
 	
 	public abstract void ViewRecord();
 	
 	
 	public abstract void ModifyRecord(double km, int rent, String date, double income);
+
 	
 	
 }

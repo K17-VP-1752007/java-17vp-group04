@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
     <record>
         <vehicleID>T3000</vehicleID>
@@ -12,7 +12,7 @@
         <km>205.04</km>
         <totalRent>4</totalRent>
         <lastRent>30/01/2015</lastRent>
-        <income>7425000</income>
+        <income>7425000‬</income>
     </record>
     <record>
         <vehicleID>T3200</vehicleID>
@@ -26,7 +26,7 @@
         <km>125.1</km>
         <totalRent>6</totalRent>
         <lastRent>24/04/2018</lastRent>
-        <income>15000000</income>
+        <income>15000000‬</income>
     </record>
     <record>
         <vehicleID>T3400</vehicleID>
