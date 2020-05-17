@@ -23,7 +23,7 @@ class RegisterFrame extends JFrame implements ActionListener {
     JButton resetButton = new JButton("RESET");
     JCheckBox showPassword = new JCheckBox("Show Password");
 
-    LoginFrame() {
+    RegisterFrame() {
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
@@ -93,7 +93,7 @@ class RegisterFrame extends JFrame implements ActionListener {
             userText = userTextField.getText();
             pwdText = passwordField.getText();
             if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
-                JOptionPane.showMessageDialog(this, "Login Successful");
+                JOptionPane.showMessageDialog(this, "Register Successful");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Username or Password");
             }
@@ -118,7 +118,7 @@ class RegisterFrame extends JFrame implements ActionListener {
 public class Register {
     public static void main(String[] a) {
         RegisterFrame frame = new RegisterFrame();
-        frame.setTitle("Login Form");
+        frame.setTitle("Register Form");
         frame.setVisible(true);
         frame.setBounds(10, 10, 400, 580);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
