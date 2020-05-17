@@ -1,16 +1,5 @@
 package order;
 
-import java.io.File;
-
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 public class Order {
 	
 	static int num;
@@ -27,7 +16,7 @@ public class Order {
 	private int rent_type;
 	private double total_cost;
 	
-	Order(){
+	public Order(){
 		orderID = null;
 		customerID = null;
 		customerName = null;
@@ -78,36 +67,4 @@ public class Order {
 	public double getCost() {return total_cost;}
 	public void setCost(double cost) {total_cost = cost;}
 	
-	
-	public void DisplayOrder(int num) {
-		try {
-			//Doc tu file xml doc len
-			File file = new File("src/database/Order.xml");
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(file);
-			doc.getDocumentElement().normalize();
-			
-			//Lay danh sach cac tag <order>...</order>
-			NodeList order_list = doc.getElementsByTagName("order");
-			
-			//Lay ra tag order nam o vi tri thu "num"
-			Node order_node = order_list.item(num);
-			Element element = (Element) order_node;
-			
-			//Gan gia tri lay tu tag order tren vao object Order
-			this.orderID = element.getElementsByTagName("orderID").item(0).getTextContent();
-			this.customerID = element.getElementsByTagName("customerID").item(0).getTextContent();
-			this.customerName = element.getElementsByTagName("name").item(0).getTextContent();
-			this.vehicleID = element.getElementsByTagName("vehicleID").item(0).getTextContent();
-			this.startDate = element.getElementsByTagName("startDate").item(0).getTextContent();
-			this.returnDate = element.getElementsByTagName("returnDate").item(0).getTextContent();
-			this.license_plate = element.getElementsByTagName("license").item(0).getTextContent();
-			this.rent_type = Integer.parseInt(element.getElementsByTagName("rentType").item(0).getTextContent());
-			this.total_cost = Double.parseDouble(element.getElementsByTagName("totalCost").item(0).getTextContent());		
-					
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
 }
