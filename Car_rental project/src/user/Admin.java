@@ -74,7 +74,7 @@ public class Admin extends User {
 				reserved.appendChild(doc.createTextNode(Boolean.toString(c.isReserved())));
 				car.appendChild(reserved);
 				
-				Element init_cost = doc.createElement("init_cost");
+				Element init_cost = doc.createElement("cost");
 				init_cost.appendChild(doc.createTextNode(Double.toString(c.getCost())));
 				car.appendChild(init_cost);
 				
@@ -109,7 +109,7 @@ public class Admin extends User {
 					Node carNode = id_car_list.item(i).getParentNode();
 					Element element = (Element) carNode;
 					element.getElementsByTagName("color").item(0).setTextContent(color);
-					element.getElementsByTagName("init_cost").item(0).setTextContent(Double.toString(cost));
+					element.getElementsByTagName("cost").item(0).setTextContent(Double.toString(cost));
 					break;
 				}
 			}
