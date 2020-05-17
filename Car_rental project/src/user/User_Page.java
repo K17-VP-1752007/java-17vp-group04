@@ -72,6 +72,18 @@ class Image extends JFrame
          Logger.getLogger(Image.class.getName()).log(Level.SEVERE, null, ex);
      }
 
+       
+  	public void run(){
+  	int n = 1;
+      try {
+  		 do {
+  			Thread.sleep(500);
+  		 }while(n == 1);
+  	 }catch (InterruptedException exc) {
+  		System.out.println("Interrupted.");
+  	 }
+  	}
+}
 //   	public void run(){
 //   	int n = 1;
 //       try {
