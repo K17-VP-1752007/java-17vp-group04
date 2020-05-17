@@ -1,6 +1,5 @@
 package user;
 import java.io.File;
-import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -74,7 +73,7 @@ public class Admin extends User {
 				reserved.appendChild(doc.createTextNode(Boolean.toString(c.isReserved())));
 				car.appendChild(reserved);
 				
-				Element init_cost = doc.createElement("cost");
+				Element init_cost = doc.createElement("init_cost");
 				init_cost.appendChild(doc.createTextNode(Double.toString(c.getCost())));
 				car.appendChild(init_cost);
 				
@@ -93,35 +92,7 @@ public class Admin extends User {
 			}
 	}
 	
-	public void ModifyCar(String carID, String color, double cost) {
-		try {
-			//doc file
-			File file = new File("src/database/Car.xml");
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(file);
-			
-			// lay ra danh sach cac tag ID
-			NodeList id_car_list = doc.getElementsByTagName("id");
-			for(int i = 0; i < id_car_list.getLength(); i++) {
-				// neu id xe = carID -> lay tag cha
-				if(carID.equals(id_car_list.item(i).getTextContent())) {
-					Node carNode = id_car_list.item(i).getParentNode();
-					Element element = (Element) carNode;
-					element.getElementsByTagName("color").item(0).setTextContent(color);
-					element.getElementsByTagName("cost").item(0).setTextContent(Double.toString(cost));
-					break;
-				}
-			}
-			
-			doc.normalize();
-			UpdateXml(file, doc);
-			
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+	public void ModifyCar() {}
 	
 	public void DeleteCar(String carID) {
 		try {
@@ -203,33 +174,7 @@ public class Admin extends User {
 		
 	}
 	
-	public void ModifyTruck(String truckID, String color, double cost, double weight) {
-		try {
-			
-			File file = new File("src/database/Truck.xml");
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(file);
-			
-			NodeList id_truck_list = doc.getElementsByTagName("id");
-			for(int i = 0; i < id_truck_list.getLength(); i++) {
-				if(truckID.equals(id_truck_list.item(i).getTextContent())) {
-					Node truckNode = id_truck_list.item(i).getParentNode();
-					Element element = (Element) truckNode;
-					element.getElementsByTagName("color").item(0).setTextContent(color);
-					element.getElementsByTagName("cost").item(0).setTextContent(Double.toString(cost));
-					element.getElementsByTagName("maxw").item(0).setTextContent(Double.toString(weight));
-					break;
-				}
-			}
-			
-			doc.normalize();
-			UpdateXml(file, doc);
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+	public void ModifyTruck() {}
 	
 	public void DeleteTruck(String trID) {	
 		try {
@@ -319,30 +264,19 @@ public class Admin extends User {
 		}
 	}
 	
-	public void ModifyOrder(String orderID, String customername, String return_date) {
+	public void ModifyOrder(Order ord) {
 		try {
 			
+			//doc file
 			File file = new File("src/database/Order.xml");
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(file);
 			
-			NodeList id_order_list = doc.getElementsByTagName("orderID");
-			for(int i = 0; i < id_order_list.getLength(); i++) {
-				if(orderID.equals(id_order_list.item(0).getTextContent())) {
-					Node order = id_order_list.item(i).getParentNode();
-					Element element = (Element) order;
-					element.getElementsByTagName("name").item(0).setTextContent(customername);
-					element.getElementsByTagName("returnDate").item(0).setTextContent(return_date);
-					break;
-				}
-			}
 			
-			doc.normalize();
-			UpdateXml(file, doc);
 			
-		}catch(Exception e) {
-			e.printStackTrace();
+		}catch(Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 	
