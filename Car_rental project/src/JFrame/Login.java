@@ -47,7 +47,7 @@ class LoginFrame extends JFrame implements ActionListener {
         resetButton.setBounds(220, 310, 100, 30);
         hyperlink.setBounds(215, 360, 150, 30);
         createAccount.setBounds(50, 410, 150, 30);
-        hyperlink1.setBounds(185, 410, 150, 30);
+        hyperlink1.setBounds(195, 410, 150, 30);
 
     }
 
