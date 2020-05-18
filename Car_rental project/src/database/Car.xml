@@ -87,7 +87,7 @@
         
         
         
-        <init_cost>9500000</init_cost>
+        <cost>9500000</cost>
                                                                                 		
         
         
@@ -197,7 +197,7 @@
         
         
         
-        <init_cost>8250000</init_cost>
+        <cost>8250000</cost>
                                                                                 		
         
         
@@ -307,7 +307,7 @@
         
         
         
-        <init_cost>10500000</init_cost>
+        <cost>10500000</cost>
                                                                                 		
         
         
@@ -417,7 +417,7 @@
         
         
         
-        <init_cost>1000000</init_cost>
+        <cost>1000000</cost>
                                                                                 		
         
         
@@ -527,7 +527,7 @@
         
         
         
-        <init_cost>1750000</init_cost>
+        <cost>1750000</cost>
                                                                                 		
         
         
@@ -637,7 +637,7 @@
         
         
         
-        <init_cost>750000</init_cost>
+        <cost>750000</cost>
                                                                                 		
         
         
@@ -747,7 +747,7 @@
         
         
         
-        <init_cost>1850000</init_cost>
+        <cost>1850000</cost>
                                                                                 		
         
         
@@ -857,7 +857,7 @@
         
         
         
-        <init_cost>1150000</init_cost>
+        <cost>1150000</cost>
                                                                                 		
         
         
@@ -967,7 +967,7 @@
         
         
         
-        <init_cost>7500000</init_cost>
+        <cost>7500000</cost>
                                                                                 		
         
         
@@ -1077,7 +1077,7 @@
         
         
         
-        <init_cost>7500000</init_cost>
+        <cost>7500000</cost>
                                                                                 		
         
         
@@ -1187,7 +1187,7 @@
         
         
         
-        <init_cost>1150000</init_cost>
+        <cost>1150000</cost>
                                                                                 		
         
         
@@ -1297,7 +1297,7 @@
         
         
         
-        <init_cost>750000</init_cost>
+        <cost>750000</cost>
                                                                                 		
         
         
@@ -1407,7 +1407,7 @@
         
         
         
-        <init_cost>750000</init_cost>
+        <cost>750000</cost>
                                                                                 		
         
         
@@ -1517,7 +1517,7 @@
         
         
         
-        <init_cost>1350000</init_cost>
+        <cost>1350000</cost>
                                                                                 		
         
         
@@ -1627,7 +1627,7 @@
         
         
         
-        <init_cost>1200000</init_cost>
+        <cost>1200000</cost>
                                                                                 		
         
         
@@ -1737,7 +1737,7 @@
         
         
         
-        <init_cost>1000000</init_cost>
+        <cost>1000000</cost>
                                                                                 		
         
         
@@ -1847,7 +1847,7 @@
         
         
         
-        <init_cost>1500000</init_cost>
+        <cost>1500000</cost>
                                                                                 		
         
         
@@ -1957,7 +1957,7 @@
         
         
         
-        <init_cost>1000000</init_cost>
+        <cost>1000000</cost>
                                                                                 		
         
         
@@ -2067,7 +2067,7 @@
         
         
         
-        <init_cost>2050000</init_cost>
+        <cost>2050000</cost>
                                                                                 		
         
         
@@ -2177,7 +2177,7 @@
         
         
         
-        <init_cost>1950000</init_cost>
+        <cost>1950000</cost>
                                                                                 		
         
         

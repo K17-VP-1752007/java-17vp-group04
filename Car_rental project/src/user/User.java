@@ -42,7 +42,5 @@ public abstract class User {
 	public void setPassword(String pass) {password = pass;}
 	
 	
-	public abstract boolean Login();
 	
-	public abstract boolean Logout();
 }
