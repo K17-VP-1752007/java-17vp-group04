@@ -151,6 +151,32 @@ public class Admin extends User {
 		}
 	}
 	
+	public void AddImg(Truck tr) {
+		try {
+			//doc file
+			File file = new File("src/database/test.xml");
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			
+			//lay tag <data> la tag root, sau do tao 1 node truck
+			Node data = doc.getFirstChild();
+			Node truck = doc.createElement("truck");
+			
+			Element id = doc.createElement("img");
+			id.appendChild(doc.createTextNode(tr.getID()));
+			truck.appendChild(id);
+			// add node truck vao node data
+						data.appendChild(truck);
+						
+						//cap nhat lai file xml
+						UpdateXml(file, doc);
+						
+					} catch(Exception e) {
+						e.printStackTrace();
+					}	
+				}
+	
 	public void AddTruck(Truck tr) {
 		try {
 			//doc file
