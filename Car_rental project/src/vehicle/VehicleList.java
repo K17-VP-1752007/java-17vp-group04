@@ -24,19 +24,22 @@ public class VehicleList {
 		truckList = t;
 	}
 	
-	
 	public ArrayList<Car> getCarlist() {
 		return carlist;
 	}
+	
 	public void setCarlist(ArrayList<Car> carlist) {
 		this.carlist = carlist;
 	}
+	
 	public ArrayList<Truck> getTruckList() {
 		return truckList;
 	}
+	
 	public void setTruckList(ArrayList<Truck> truckList) {
 		this.truckList = truckList;
 	}
+	
 	public void ReadAllCar() {
 		try {
 			File file = new File("src/database/Car.xml");
@@ -58,20 +61,17 @@ public class VehicleList {
 				c.setBrand(element.getElementsByTagName("brand").item(0).getTextContent());
 				c.setReserved(Boolean.parseBoolean(element.getElementsByTagName("reserved").item(0).getTextContent()));
 				c.setCost(Double.parseDouble(element.getElementsByTagName("init_cost").item(0).getTextContent()));
+				c.setImg(element.getElementsByTagName("img").item(0).getTextContent());
 				c.setType(element.getElementsByTagName("type").item(0).getTextContent());
 				c.ViewRecord();
 				
-				
 				this.carlist.add(c);
 				
-			}
-			
-			
+			}	
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	public void ReadAllTruck() {
 		try {
@@ -91,14 +91,15 @@ public class VehicleList {
 				t.setModel(element.getElementsByTagName("model").item(0).getTextContent());
 				t.setColor(element.getElementsByTagName("color").item(0).getTextContent());
 				t.setBrand(element.getElementsByTagName("brand").item(0).getTextContent());
+				t.setPassenger(Integer.parseInt(element.getElementsByTagName("passenger").item(0).getTextContent()));
 				t.setReserved(Boolean.parseBoolean(element.getElementsByTagName("reserved").item(0).getTextContent()));
 				t.setCost(Double.parseDouble(element.getElementsByTagName("cost").item(0).getTextContent()));
 				t.setWeight(Double.parseDouble(element.getElementsByTagName("maxw").item(0).getTextContent()));
+				t.setImg(element.getElementsByTagName("img").item(0).getTextContent());
 				t.ViewRecord();
+				
 				this.truckList.add(t);
-			}
-			
-			
+			}	
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -113,9 +114,27 @@ public class VehicleList {
 		return null;
 	}
 	
+	public Car searchCarByID(String id) {
+		for(int i = 0; i < this.carlist.size(); i++) {
+			if(id.equals(this.carlist.get(i).getID())) {
+				return this.carlist.get(i);
+			}
+		}
+		return null;
+	}
+	
 	public Truck searchTruckByName(String model) {
 		for(int i = 0; i < this.truckList.size(); i++) {
 			if(model.equals(this.truckList.get(i).getModel())) {
+				return this.truckList.get(i);
+			}
+		}
+		return null;
+	}
+	
+	public Truck searchTruckByID(String id) {
+		for(int i = 0; i < this.truckList.size(); i++) {
+			if(id.equals(this.truckList.get(i).getID())) {
 				return this.truckList.get(i);
 			}
 		}

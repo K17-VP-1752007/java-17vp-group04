@@ -26,7 +26,6 @@ class cardlay extends Thread{
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setResizable(false);	
-		frame.add(pic);
 	}
 	
 	public void addControl(){
@@ -43,7 +42,7 @@ class cardlay extends Thread{
 		JPanel down = new JPanel();
 		JPanel log = new JPanel();
 		JPanel texts = new JPanel();
-		
+	
 		JButton car = new JButton("Car works");
 		JButton truck = new JButton("Truck works");
 		
@@ -88,6 +87,7 @@ class cardlay extends Thread{
 		pic.setPreferredSize(new Dimension(470, 448));
 		pic.setBorder(LineBorder.createBlackLineBorder());
 		pic.setSize(469, 447);
+		frame.add(pic);
 		
 		pic.setBounds(5, 110, 677, 380);
 		out.setBounds(608, 7, 77, 30);

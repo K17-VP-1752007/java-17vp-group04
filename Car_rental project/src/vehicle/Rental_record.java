@@ -7,8 +7,7 @@ public class Rental_record {
 	private String last_date_rent; // ngay cho thue gan nha
 	private double income_generate; // tong so tien thue do xe nay tao ra
 	
-	Rental_record(){
-
+	public Rental_record(){
 		setKm_travel(0);
 		setTotalRent(0);
 		setLast_date_rent(null);

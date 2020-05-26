@@ -10,6 +10,7 @@ public abstract class Vehicle {
 	private boolean reserved;
 	private double init_cost;
 	private Rental_record record;
+	private String img;
 	
 	Vehicle() {
 		ID = null;
@@ -19,10 +20,11 @@ public abstract class Vehicle {
 		brand = null;
 		reserved = false;
 		init_cost = 0;
+		img = null;
 		setRecord(new Rental_record());
 	}
 	
-	Vehicle(String id, String mod, String col, int pass, String bra, double cost) {
+	Vehicle(String id, String mod, String col, int pass, String bra, double cost, String im) {
 		ID = id;
 		model = mod;
 		color = col;
@@ -30,6 +32,7 @@ public abstract class Vehicle {
 		brand = bra;
 		reserved = false;
 		init_cost = cost;
+		img = im;
 		setRecord(new Rental_record());
 	}
 	
@@ -53,6 +56,9 @@ public abstract class Vehicle {
 	
 	public double getCost() {return init_cost;}
 	public void setCost(double cost) {init_cost = cost;}
+	
+	public String getImg() {return img;}
+	public void setImg(String im) {img = im;}
 	
 	public Rental_record getRecord() {
 		return record;

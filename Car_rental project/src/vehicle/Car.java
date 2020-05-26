@@ -19,12 +19,10 @@ public class Car extends Vehicle {
 		type = null;
 	}
 	
-	public Car(String id, String mod, String col, int pass, String bra, double cost, String typ) {
-		super(id, mod, col, pass, bra, cost);
+	public Car(String id, String mod, String col, int pass, String bra, double cost, String img, String typ) {
+		super(id, mod, col, pass, bra, cost, img);
 		type = typ;
 	}
-	
-	
 	
 	public String getType() {return type;}
 	public void setType(String typ) {type = typ;}
@@ -53,13 +51,11 @@ public class Car extends Vehicle {
 					this.getRecord().setIncome_generate(Double.parseDouble(income));
 				}
 			}
-			
+		
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
 	
 	public void ModifyRecord(double km, int rent, String date, double income) {
 		getRecord().setKm_travel(km);
@@ -88,7 +84,6 @@ public class Car extends Vehicle {
 				}
 			}
 			
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -98,5 +93,3 @@ public class Car extends Vehicle {
 		return("ID: " + getID() + "\n" + "Model: " + getModel() + "\n" + "Color: " + getColor() + "\n" + "Passenger: " + getPassenger() + "\n" + "Brand: " + getBrand() + "\n" + "Cost: " + getCost() + "\n" + "Type: " + getType() + "\nRent record: " + getRecord());
 	}
 }
-	
-	

@@ -20,8 +20,13 @@ import vehicle.Truck;
 public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		
+		VehicleList A = new VehicleList();
+		A.ReadAllTruck();
+		int i = 3001;
+		Truck t = new Truck();
+		t = A.searchTruckByID(String.valueOf(i));
+		String value = t.getImg();
+		System.out.print(value);
 	}
 
 }

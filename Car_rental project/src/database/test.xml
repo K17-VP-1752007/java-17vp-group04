@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
     <truck>
-      <img>src/user/navara.jpg</img>                                                  
+	<id>3000</id>
+	<model>Navara E</model>
+	<color>black</color>
+	<passenger>4</passenger>
+	<brand>Nissan</brand>
+	<cost>1500000</cost>
+	<maxw>15000.0</maxw>
+      	<img>src/user/nissan_navaraE.jpg</img>   
+	<reserved>no</reserved>                                               
+    </truck>
+
+    <truck>
+	<id>3001</id>
+	<model>Navara A</model>
+	<color>blacke</color>
+	<passenger>1</passenger>
+	<brand>Nissane</brand>
+	<cost>15000001</cost>
+	<maxw>15000.01</maxw>
+      	<img>src/user/sierra_chassis.jpg</img>   
+	<reserved>no</reserved>                                               
+    </truck>
+
+    <truck>
+	<id>3002</id>
+	<model>Navara I</model>
+	<color>blackq</color>
+	<passenger>7</passenger>
+	<brand>Nissanaw</brand>
+	<cost>150000012</cost>
+	<maxw>15000.024</maxw>
+      	<img>src/user/toyota_tacoma.jpg</img>   
+	<reserved>no</reserved>                                               
     </truck>
 </data>

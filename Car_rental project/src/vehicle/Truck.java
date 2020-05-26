@@ -13,16 +13,15 @@ import org.w3c.dom.NodeList;
 public class Truck extends Vehicle{
 	private double maximum_weight;
 	
-	Truck() {
+	public Truck() {
 		super();
 		maximum_weight = 0;
 	}
 	
-	public Truck(String id, String mod, String colo, int pass, String bra, double cost, double max_weight) {
-		super(id, mod, colo, pass, bra, cost);
+	public Truck(String id, String mod, String colo, int pass, String bra, double cost, String img, double max_weight) {
+		super(id, mod, colo, pass, bra, cost, img);
 		maximum_weight = max_weight;
 	}
-	
 	
 	public double getWeight() {return maximum_weight;}
 	public void setWeight(double max_weight) {maximum_weight = max_weight;}
@@ -42,7 +41,7 @@ public class Truck extends Vehicle{
 				if(this.getID().equals(id_record_car_list.item(i).getTextContent())) {
 					Node record = id_record_car_list.item(i).getParentNode();
 					Element element = (Element) record;
-					
+			
 					this.getRecord().setId_vehicle(element.getElementsByTagName("vehicleID").item(0).getTextContent());
 					this.getRecord().setKm_travel(Double.parseDouble(element.getElementsByTagName("km").item(0).getTextContent()));
 					this.getRecord().setTotalRent(Integer.parseInt(element.getElementsByTagName("totalRent").item(0).getTextContent()));
@@ -55,6 +54,8 @@ public class Truck extends Vehicle{
 			e.printStackTrace();
 		}
 	}
+	
+	
 	public void ModifyRecord(double km, int rent, String date, double income) {
 		getRecord().setKm_travel(km);
 		getRecord().setTotalRent(rent);
@@ -82,11 +83,8 @@ public class Truck extends Vehicle{
 				}
 			}
 			
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-
-	
 }
