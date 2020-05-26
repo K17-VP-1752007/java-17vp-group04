@@ -10,13 +10,13 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import user.Image;
-import vehicle.Rental_record;
 import vehicle.Truck;
 import vehicle.VehicleList;
 
 class RentTruck extends JFrame{
 	JLabel pic;
 	int i = 3000;
+	int current;
 	JLabel finalpic;
 	String value;
 	String id;
@@ -324,6 +324,7 @@ class RentTruck extends JFrame{
 			i = Integer.parseInt(id);
 			m1.show(Middle, "C1");
 			
+			
 			if(i == 3000)
 			{
 				i = 3003;
@@ -347,7 +348,7 @@ class RentTruck extends JFrame{
 			setPicture(finalpic,value);
 			i = Integer.parseInt(id);
 			m2.show(Middle, "C2");
-			
+			current = i;
 			
 			if(i == 3002)
 			{
@@ -369,9 +370,9 @@ class RentTruck extends JFrame{
 				CardLayout c3 = (CardLayout)Renting.getLayout();
 				c3.show(Renting, "C3");
 				CardLayout m2=(CardLayout)Middle.getLayout();
-				findPic(i);
+				findPic(current);
 				setPicture(finalpic,value);
-				i = Integer.parseInt(id);
+//				i = Integer.parseInt(id);
 				m2.show(Middle, "C3");
 			}
 			});

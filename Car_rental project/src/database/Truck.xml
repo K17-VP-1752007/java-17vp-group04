@@ -8,7 +8,7 @@
        <brand>Nissan</brand>
        <cost>1500000</cost>
         <maxw>15000.0</maxw>
-        <img>src/user/nissan_navaraE.jpg</img>
+        <img>src/user/Truck_Image/nissan_navaraE.jpg</img>
         <reserved>no</reserved>
     </truck>
                              
@@ -20,7 +20,7 @@
         <brand>Toyota</brand>
         <cost>850000</cost>
         <maxw>17500.75</maxw>
-        <img>src/user/toyota_tacoma.jpg</img>
+        <img>src/user/Truck_Image/toyota_tacoma.jpg</img>
         <reserved>no</reserved>
     </truck>
                              
@@ -84,7 +84,7 @@
                                                         
         
         
-        <img>src/user/GMC_SIERRA_AT4.jpg</img>
+        <img>src/user/Truck_Image/GMC_SIERRA_AT4.jpg</img>
         
         
         <reserved>no</reserved>
@@ -155,7 +155,7 @@
                                                         
         
         
-        <img>src/user/ram_chassis_cab.jpg</img>
+        <img>src/user/Truck_Image/ram_chassis_cab.jpg</img>
         
         
         <reserved>no</reserved>
@@ -226,7 +226,7 @@
                                                         
         
         
-        <img>src/user/honda_ridgeline_rtl.jpg</img>
+        <img>src/user/Truck_Image/honda_ridgeline_rtl.jpg</img>
         
         
         <reserved>no</reserved>
@@ -297,7 +297,7 @@
                                                         
         
         
-        <img>src/user/honda_silverradoHD.jpg</img>
+        <img>src/user/Truck_Image/honda_silverradoHD.jpg</img>
         
         
         <reserved/>
@@ -368,7 +368,7 @@
                                                         
         
         
-        <img>src/user/xltpassenger.jpg</img>
+        <img>src/user/Truck_Image/xltpassenger.jpg</img>
         
         
         <reserved>no</reserved>
@@ -439,7 +439,7 @@
                                                         
         
         
-        <img>src/user/volvo_vnx_740.jpg</img>
+        <img>src/user/Truck_Image/volvo_vnx_740.jpg</img>
         
         
         <reserved>no</reserved>
@@ -510,7 +510,7 @@
                                                         
         
         
-        <img>src/user/sierra_chassis.jpg</img>
+        <img>src/user/Truck_Image/sierra_chassis.jpg</img>
         
         
         <reserved>no</reserved>
@@ -581,7 +581,7 @@
                                                         
         
         
-        <img>src/user/ram_promaster_city.jpg</img>
+        <img>src/user/Truck_Image/ram_promaster_city.jpg</img>
         
         
         <reserved>no</reserved>
