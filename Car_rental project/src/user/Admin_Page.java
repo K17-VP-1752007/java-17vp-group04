@@ -109,7 +109,7 @@ class cardlay extends Thread{
 		Center.setVisible(false);
 		
 		final JPanel Card1 = new JPanel();
-		Card1.setLayout(new BorderLayout());
+		Card1.setLayout(new BorderLayout(0,10));
 		
 		JPanel searchCarPanel = new JPanel();
 	    Card1.add(searchCarPanel, BorderLayout.NORTH);
@@ -121,58 +121,67 @@ class cardlay extends Thread{
 	    searchCarPanel.add(textSearch);
 		searchCarPanel.add(searchbutton);
 	    
+		JPanel infoBigPanel = new JPanel();
+		infoBigPanel.setLayout(new BoxLayout(infoBigPanel, BoxLayout.LINE_AXIS));
+		Card1.add(infoBigPanel, BorderLayout.CENTER);
+		
 		JPanel infoPanelCar = new JPanel();
-	    infoPanelCar.setLayout(new BoxLayout(infoPanelCar, BoxLayout.PAGE_AXIS));
-	    Card1.add(infoPanelCar, BorderLayout.CENTER);
+		infoPanelCar.setLayout(new BorderLayout(20, 0));
+		
+		infoBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
+		infoBigPanel.add(infoPanelCar);
+		infoBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
+		
+		JPanel minilabel = new JPanel();
+		minilabel.setLayout(new GridLayout(8,1,0,10));
+		
+		JPanel minitext= new JPanel();
+		minitext.setLayout(new GridLayout(8,1,0,10));
 		
 		JLabel id_car = new JLabel("ID");
 		JTextField textID = new JTextField();
-		textID.setPreferredSize(new Dimension(0,10));
 		
 		JLabel model = new JLabel("Model");
 		JTextField textModel = new JTextField();
-		textModel.setPreferredSize(new Dimension(0,10));
 		
 		JLabel color = new JLabel("Color");
 		JTextField textColor = new JTextField();
-		textColor.setPreferredSize(new Dimension(0,10));
 		
 		JLabel passengers = new JLabel("Passengers");
 		JTextField textPass = new JTextField();
-		textPass.setPreferredSize(new Dimension(0,10));
 		
 		JLabel brand = new JLabel("Brand");
 		JTextField textBrand = new JTextField();
-		textBrand.setPreferredSize(new Dimension(0,10));
 		
 		JLabel reserved = new JLabel("Reserved");
 		JTextField textReserved = new JTextField();
-		textReserved.setPreferredSize(new Dimension(0,10));
 		
 		JLabel cost = new JLabel("Cost");
 		JTextField textCost = new JTextField();
-		textCost.setPreferredSize(new Dimension(0,10));
 		
 		JLabel type = new JLabel("Type");
 		JTextField textType = new JTextField();
-		textType.setPreferredSize(new Dimension(0,10));
 		
-		infoPanelCar.add(id_car);
-		infoPanelCar.add(textID);
-		infoPanelCar.add(model);
-		infoPanelCar.add(textModel);
-		infoPanelCar.add(color);
-		infoPanelCar.add(textColor);
-		infoPanelCar.add(passengers);
-		infoPanelCar.add(textPass);
-		infoPanelCar.add(brand);
-		infoPanelCar.add(textBrand);
-		infoPanelCar.add(reserved);
-		infoPanelCar.add(textReserved);
-		infoPanelCar.add(cost);
-		infoPanelCar.add(textCost);
-		infoPanelCar.add(type);
-		infoPanelCar.add(textType);
+		minilabel.add(id_car);
+		minilabel.add(model);
+		minilabel.add(color);
+		minilabel.add(passengers);
+		minilabel.add(brand);
+		minilabel.add(reserved);
+		minilabel.add(cost);
+		minilabel.add(type);
+		
+		minitext.add(textID);
+		minitext.add(textModel);
+		minitext.add(textColor);
+		minitext.add(textPass);
+		minitext.add(textBrand);
+		minitext.add(textReserved);
+		minitext.add(textCost);
+		minitext.add(textType);
+		
+		infoPanelCar.add(minilabel, BorderLayout.WEST);
+		infoPanelCar.add(minitext, BorderLayout.CENTER);
 		
 		JButton add = new JButton("Add car");
 		JButton modi = new JButton("Modify car");
@@ -185,84 +194,185 @@ class cardlay extends Thread{
 		minicard.add(del);
 		
 		final JPanel Card2 = new JPanel();
-		Card2.setLayout(new BorderLayout());
+		Card2.setLayout(new BorderLayout(0,10));
+		
 		JPanel searchTruckPanel = new JPanel();
 	    Card2.add(searchTruckPanel, BorderLayout.NORTH);
 		
-	    JTextField textSearch1 = new JTextField();
-		textSearch1.setPreferredSize(new Dimension(250,23));
-	    JButton searchbutton1 = new JButton("Search Truck");
+	    JTextField textSearchTruck = new JTextField();
+		textSearchTruck.setPreferredSize(new Dimension(250,23));
+	    JButton searchTruckbutton = new JButton("Search Truck");
 	    
-	    searchTruckPanel.add(textSearch1);
-		searchTruckPanel.add(searchbutton1);
+	    searchTruckPanel.add(textSearchTruck);
+		searchTruckPanel.add(searchTruckbutton);
 	    
+		JPanel infoTruckBigPanel = new JPanel();
+		infoTruckBigPanel.setLayout(new BoxLayout(infoTruckBigPanel, BoxLayout.LINE_AXIS));
+		Card2.add(infoTruckBigPanel, BorderLayout.CENTER);
+		
 		JPanel infoPanelTruck = new JPanel();
-	    infoPanelTruck.setLayout(new BoxLayout(infoPanelTruck, BoxLayout.PAGE_AXIS));
-	    Card2.add(infoPanelTruck, BorderLayout.CENTER);
+		infoPanelTruck.setLayout(new BorderLayout(20, 0));
+		
+		infoTruckBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
+		infoTruckBigPanel.add(infoPanelTruck);
+		infoTruckBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
+		
+		JPanel minilabeltruck = new JPanel();
+		minilabeltruck.setLayout(new GridLayout(8,1,0,10));
+		
+		JPanel minitexttruck = new JPanel();
+		minitexttruck.setLayout(new GridLayout(8,1,0,10));
 		
 		JLabel id_truck = new JLabel("ID");
 		JTextField textID_truck = new JTextField();
-		textID_truck.setPreferredSize(new Dimension(0,10));
 		
 		JLabel model_truck = new JLabel("Model");
 		JTextField textModel_truck = new JTextField();
-		textModel_truck.setPreferredSize(new Dimension(0,10));
 		
 		JLabel color_truck = new JLabel("Color");
 		JTextField textColor_truck = new JTextField();
-		textColor_truck.setPreferredSize(new Dimension(0,10));
 		
 		JLabel passengers_truck = new JLabel("Passengers");
 		JTextField textPass_truck = new JTextField();
-		textPass_truck.setPreferredSize(new Dimension(0,10));
 		
 		JLabel brand_truck = new JLabel("Brand");
 		JTextField textBrand_truck = new JTextField();
-		textBrand_truck.setPreferredSize(new Dimension(0,10));
 		
 		JLabel cost_truck = new JLabel("Cost");
-		JTextField textCost_truck = new JTextField();
-		textCost_truck.setPreferredSize(new Dimension(0,10));
+		JTextField textCostTruck = new JTextField();
 		
 		JLabel max_w = new JLabel("Max weight");
-		JTextField textMax_w = new JTextField();
-		textMax_w.setPreferredSize(new Dimension(0,10));
+		JTextField textMaxW = new JTextField();
 		
 		JLabel reserved_truck = new JLabel("Reserved");
 		JTextField textReservedTruck = new JTextField();
-		textReservedTruck.setPreferredSize(new Dimension(0,10));
 		
-		infoPanelTruck.add(id_truck);
-		infoPanelTruck.add(textID_truck);
-		infoPanelTruck.add(model_truck);
-		infoPanelTruck.add(textModel_truck);
-		infoPanelTruck.add(color_truck);
-		infoPanelTruck.add(textColor_truck);
-		infoPanelTruck.add(passengers_truck);
-		infoPanelTruck.add(textPass_truck);
-		infoPanelTruck.add(brand_truck);
-		infoPanelTruck.add(textBrand_truck);
-		infoPanelTruck.add(cost_truck);
-		infoPanelTruck.add(textCost_truck);
-		infoPanelTruck.add(max_w);
-		infoPanelTruck.add(textMax_w);
-		infoPanelTruck.add(reserved_truck);
-		infoPanelTruck.add(textReservedTruck);
+		minilabeltruck.add(id_truck);
+		minilabeltruck.add(model_truck);
+		minilabeltruck.add(color_truck);
+		minilabeltruck.add(passengers_truck);
+		minilabeltruck.add(brand_truck);
+		minilabeltruck.add(cost_truck);
+		minilabeltruck.add(max_w);
+		minilabeltruck.add(reserved_truck);
+		
+		minitexttruck.add(textID_truck);
+		minitexttruck.add(textModel_truck);
+		minitexttruck.add(textColor_truck);
+		minitexttruck.add(textPass_truck);
+		minitexttruck.add(textBrand_truck);
+		minitexttruck.add(textCostTruck);
+		minitexttruck.add(textMaxW);
+		minitexttruck.add(textReservedTruck);
+		
+		infoPanelTruck.add(minilabeltruck, BorderLayout.WEST);
+		infoPanelTruck.add(minitexttruck, BorderLayout.CENTER);
 		
 		JButton add_truck = new JButton("Add truck");
 		JButton modi_truck = new JButton("Modify truck");
 		JButton del_truck = new JButton("Delete truck");
 		
-		JPanel minicard_truck = new JPanel();
-	    Card2.add(minicard_truck, BorderLayout.SOUTH);
-		minicard_truck.add(add_truck);
-		minicard_truck.add(modi_truck);
-		minicard_truck.add(del_truck);
+		JPanel minicardtruck = new JPanel();
+	    Card2.add(minicardtruck, BorderLayout.SOUTH);
+		minicardtruck.add(add_truck);
+		minicardtruck.add(modi_truck);
+		minicardtruck.add(del_truck);
+		
+		final JPanel Card3 = new JPanel();
+		Card3.setLayout(new BorderLayout(0,10));
+		
+		JPanel searchOrderPanel = new JPanel();
+	    Card3.add(searchOrderPanel, BorderLayout.NORTH);
+		
+	    JTextField textSearchOrder = new JTextField();
+		textSearchOrder.setPreferredSize(new Dimension(250,23));
+	    JButton searchOrderbutton = new JButton("Search Order");
+	    
+	    searchOrderPanel.add(textSearchOrder);
+		searchOrderPanel.add(searchOrderbutton);
+	    
+		JPanel infoOrderBigPanel = new JPanel();
+		infoOrderBigPanel.setLayout(new BoxLayout(infoOrderBigPanel, BoxLayout.LINE_AXIS));
+		Card3.add(infoOrderBigPanel, BorderLayout.CENTER);
+		
+		JPanel infoPanelOrder = new JPanel();
+		infoPanelOrder.setLayout(new BorderLayout(20, 0));
+		
+		infoOrderBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
+		infoOrderBigPanel.add(infoPanelOrder);
+		infoOrderBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
+		
+		JPanel minilabelorder = new JPanel();
+		minilabelorder.setLayout(new GridLayout(9,1,0,10));
+		
+		JPanel minitextorder = new JPanel();
+		minitextorder.setLayout(new GridLayout(9,1,0,10));
+		
+		JLabel order_ID = new JLabel("Order ID");
+		JTextField textID_order = new JTextField();
+		
+		JLabel customer_ID = new JLabel("Customer ID");
+		JTextField textCustomer_ID= new JTextField();
+		
+		JLabel name = new JLabel("Name");
+		JTextField textName = new JTextField();
+		
+		JLabel vehicle_ID = new JLabel("Vehicle ID");
+		JTextField textVehicle_ID = new JTextField();
+		
+		JLabel startDate = new JLabel("Start Date");
+		JTextField textStartDate = new JTextField();
+		
+		JLabel returnDate = new JLabel("Return Date");
+		JTextField textReturnDate = new JTextField();
+		
+		JLabel license = new JLabel("License");
+		JTextField textLicense = new JTextField();
+		
+		JLabel rentType = new JLabel("Rent Type");
+		JTextField textRentType = new JTextField();
+		
+		JLabel totalCost = new JLabel("Total cost");
+		JTextField textTotalCost = new JTextField();
+		
+		minilabelorder.add(order_ID);
+		minilabelorder.add(customer_ID);
+		minilabelorder.add(name);
+		minilabelorder.add(vehicle_ID);
+		minilabelorder.add(startDate);
+		minilabelorder.add(returnDate);
+		minilabelorder.add(license);
+		minilabelorder.add(rentType);
+		minilabelorder.add(totalCost);
+		
+		minitextorder.add(textID_order);
+		minitextorder.add(textCustomer_ID);
+		minitextorder.add(textName);
+		minitextorder.add(textVehicle_ID);
+		minitextorder.add(textStartDate);
+		minitextorder.add(textReturnDate);
+		minitextorder.add(textLicense);
+		minitextorder.add(textRentType);
+		minitextorder.add(textTotalCost);
+		
+		infoPanelOrder.add(minilabelorder, BorderLayout.WEST);
+		infoPanelOrder.add(minitextorder, BorderLayout.CENTER);
+		
+		JButton add_order= new JButton("Add order");
+		JButton modi_order = new JButton("Modify order");
+		JButton del_order = new JButton("Delete order");
+		
+		JPanel minicardorder = new JPanel();
+	    Card3.add(minicardorder, BorderLayout.SOUTH);
+		minicardorder.add(add_order);
+		minicardorder.add(modi_order);
+		minicardorder.add(del_order);
 		
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
+		Center.add(Card3,"C3");
 		Border.add(Center,BorderLayout.CENTER);
-		Container con=frame.getContentPane();
+		Container con = frame.getContentPane();
 		con.add(Border);
 		
 		car.addActionListener(new ActionListener() {
@@ -271,7 +381,7 @@ class cardlay extends Thread{
 		
 		public void actionPerformed(ActionEvent arg0) {
 			Center.setVisible(true);
-			CardLayout cl=(CardLayout)Center.getLayout();
+			CardLayout cl = (CardLayout)Center.getLayout();
 			cl.show(Center, "C1");
 		}
 		});
@@ -282,8 +392,19 @@ class cardlay extends Thread{
 		
 		public void actionPerformed(ActionEvent arg0) {
 			Center.setVisible(true);
-			CardLayout cl=(CardLayout)Center.getLayout();
+			CardLayout cl = (CardLayout)Center.getLayout();
 			cl.show(Center, "C2");
+		}
+		});
+		
+		order.addActionListener(new ActionListener() {
+			
+		@Override
+		
+		public void actionPerformed(ActionEvent arg0) {
+			Center.setVisible(true);
+			CardLayout cl = (CardLayout)Center.getLayout();
+			cl.show(Center, "C3");
 		}
 		});
 	}

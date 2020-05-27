@@ -1,2208 +1,242 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1000</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <id>1000</id>
         <model>Wigo</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>Black</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Toyota</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>9500000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>250</cost>
         <type>Sedan</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/toyota_wigo.jpg</img>
     </car>
                                         	
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1001</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <id>1001</id>
         <model>Brio</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>Red</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Honda</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>8250000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>200</cost>
         <type>Sedan</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/Honda_Brio.jpg</img>
     </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1002</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <id>1002</id>
         <model>Civic</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>White</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Honda</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>10500000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>350</cost>
         <type>Sedan</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/honda_civic.jpg</img>
     </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1003</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <id>1003</id>
         <model>Santa Fe</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>Black</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>7</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Hyundai</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>1000000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>300</cost>
         <type>SUV</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/hyundai_santaFe.jpg</img>
     </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
     
     <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1004</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <id>1004</id>
         <model>Panamera</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>Orange</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Porsche</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>1750000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>400</cost>
         <type>Coupe</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/porsche_panamera.jpg</img>
     </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      
     <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1005</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <id>1005</id> 
         <model>Fiesta</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>Silver</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Ford</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>750000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>200</cost>
         <type>Hatchback</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/ford_fiesta.jpg</img>
     </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
     
     <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1006</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <id>1006</id>
         <model>A5</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>Blue</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Audi</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>1850000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <reserved>no</reserved> 
+        <cost>250</cost>
         <type>Sedan</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/audi_A5.jpg</img>
     </car>
-                                        	
     
-    
-    
-    
-    
-    
-    
-    
-    
-    <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1007</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    <car> 
+        <id>1007</id>
         <model>Captiva</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>Blue</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>7</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Chevrolet</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>1150000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>200</cost>
         <type>SUV</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/chevrolet_captiva.jpg</img>
     </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1008</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+         
+    <car> 
+        <id>1008</id> 
         <model>K3</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>White</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Kia</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>7500000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>150</cost>
         <type>Sedan</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/kia_k3.jpg</img>
     </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
     
     <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1009</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <model>mu-X</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <color>Red</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <id>1009</id> 
+        <model>mu-X</model> 
+        <color>Red</color> 
         <passengers>7</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <brand>Isuzu</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <brand>Isuzu</brand> 
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>7500000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>150</cost>
         <type>SUV</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/isuzu_muX.jpg</img>
     </car>
-                                        	
     
-    
-    
-    
-    
-    
-    
-    
-    
-    <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1010</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    <car> 
+        <id>1010</id>
         <model>Terra</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>Brown</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>7</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Nissan</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>1150000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>350</cost>
         <type>SUV</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/nissan_terra.jpg</img>
     </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1011</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <id>1011</id>
         <model>Attrage</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>White</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Mitsubishi</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>750000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>150</cost>
         <type>Sedan</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/mitsubishi_attrage.jpg</img>
     </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      
     <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1012</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <id>1012</id>
         <model>Mulsanne Speed</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <color>Black</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <passengers>4</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <brand>Bentley</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>750000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <cost>450</cost>
         <type>Sedan</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        <img>src/user/Car_Image/bentley_mulsanne_speed.jpg</img>
     </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1013</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <model>Discovery Sport SE</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <color>White</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <passengers>7</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <brand>Land Rover</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>1350000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <type>CUV</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1014</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <model>C300 AMG</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <color>White</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <brand>Mercedes</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>1200000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <type>Sedan</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1015</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <model>3 Luxury</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <color>Red</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <brand>Mazda</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>1000000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <type>Sedan</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1016</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <model>AMG GLE 43 4Matic Coupe</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <color>White</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <brand>Mercedes</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>1500000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <type>Sedan</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1017</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <model>Trailblazer</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <color>Black</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <passengers>7</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <brand>Chevrolet</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>1000000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <type>SUV</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1018</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <model>Telluride</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <color>Black</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <passengers>8</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <brand>Kia</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>2050000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <type>SUV</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </car>
-                                        	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <car>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>C1019</id>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <model>520i</model>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <color>Silver</color>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <passengers>5</passengers>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <brand>BMW</brand>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <reserved>no</reserved>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>1950000</cost>
-                                                                                		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <type>Sedan</type>
-                                                                                	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </car>
-            
-    
-    
-    
 
+    <car>
+        <id>1013</id>
+        <model>Discovery Sport SE</model>
+        <color>White</color>
+        <passengers>7</passengers>
+        <brand>Land Rover</brand>
+        <reserved>no</reserved>
+        <cost>450</cost>
+        <type>CUV</type>
+        <img>src/user/Car_Image/landrover_discoverySE.jpg</img>
+    </car>
+    
+    <car>
+        <id>1014</id>
+        <model>C300 AMG</model>
+        <color>White</color>
+        <passengers>5</passengers>
+        <brand>Mercedes</brand>
+        <reserved>no</reserved>
+        <cost>500</cost>
+        <type>Sedan</type>
+        <img>src/user/Car_Image/mercedes_C300.jpg</img>
+    </car>
+          
+    <car>
+        <id>1015</id>
+        <model>3 Luxury</model>
+        <color>Red</color>
+        <passengers>5</passengers>
+        <brand>Mazda</brand>
+        <reserved>no</reserved>
+        <cost>300</cost>
+        <type>Sedan</type>
+        <img>src/user/Car_Image/mazda_3_luxury.jpg</img>
+    </car>
+       
+    <car>
+        <id>1016</id>
+        <model>AMG GLE 43 4Matic Coupe</model>
+        <color>White</color>
+        <passengers>5</passengers>
+        <brand>Mercedes</brand>
+        <reserved>no</reserved>
+        <cost>350</cost>
+        <type>Sedan</type>
+        <img>src/user/Car_Image/mercedes_AMG_GLE.jpg</img>
+    </car>
+    
+    <car>
+        <id>1017</id>
+        <model>Trailblazer</model>
+        <color>Black</color>
+        <passengers>7</passengers>
+        <brand>Chevrolet</brand>
+        <reserved>no</reserved>
+        <cost>350</cost>
+        <type>SUV</type>
+        <img>src/user/Car_Image/chevrolet_traiblazer.jpg</img>
+    </car>
+    
+    <car>
+        <id>1018</id>
+        <model>Telluride</model>
+        <color>Black</color>
+        <passengers>8</passengers>
+        <brand>Kia</brand>
+        <reserved>no</reserved>
+        <cost>500</cost>
+        <type>SUV</type>
+        <img>src/user/Car_Image/kia_telluride.jpg</img>
+    </car>
+    
+    <car>
+        <id>1019</id>
+        <model>520i</model>
+        <color>Silver</color>
+        <passengers>5</passengers>
+        <brand>BMW</brand>
+        <reserved>no</reserved>
+        <cost>500</cost>
+        <type>Sedan</type>
+        <img>src/user/Car_Image/bmw_520i.jpg</img>
+    </car>
 </data>

@@ -5,56 +5,56 @@
         <km>104.35</km>
         <totalRent>2</totalRent>
         <lastRent>20/03/2016</lastRent>
-        <income>4700000</income>
+        <income>1000</income>
     </record>
     <record>
         <vehicleID>3001</vehicleID>
         <km>205.04</km>
         <totalRent>4</totalRent>
         <lastRent>30/01/2015</lastRent>
-        <income>7425000</income>
+        <income>1000</income>
     </record>
     <record>
         <vehicleID>3002</vehicleID>
         <km>504.1</km>
         <totalRent>12</totalRent>
         <lastRent>10/06/2019</lastRent>
-        <income>5400000</income>
+        <income>4200</income>
     </record>
     <record>
         <vehicleID>3003</vehicleID>
         <km>125.1</km>
         <totalRent>6</totalRent>
         <lastRent>24/04/2018</lastRent>
-        <income>15000000</income>
+        <income>2700</income>
     </record>
     <record>
         <vehicleID>3004</vehicleID>
         <km>4000</km>
         <totalRent>15</totalRent>
         <lastRent>01/09/2015</lastRent>
-        <income>74500000</income>
+        <income>9000</income>
     </record>
     <record>
         <vehicleID>3005</vehicleID>
         <km>475.3</km>
         <totalRent>8</totalRent>
         <lastRent>15/01/2018</lastRent>
-        <income>17500000</income>
+        <income>4000</income>
     </record>
     <record>
         <vehicleID>3006</vehicleID>
         <km>340.9</km>
         <totalRent>4</totalRent>
         <lastRent>27/06/2012</lastRent>
-        <income>12520000</income>
+        <income>1000</income>
     </record>
     <record>
         <vehicleID>3007</vehicleID>
         <km>200.5</km>
         <totalRent>2</totalRent>
         <lastRent>09/03/2019</lastRent>
-        <income>5000000</income>
+        <income>1100</income>
     </record>
     <record>
         <vehicleID>3008</vehicleID>
@@ -68,6 +68,6 @@
         <km>50</km>
         <totalRent>7</totalRent>
         <lastRent>10/05/2014</lastRent>
-        <income>3500000</income>
+        <income>4900</income>
     </record>
 </data>

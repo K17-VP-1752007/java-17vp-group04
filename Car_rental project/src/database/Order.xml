@@ -1,37 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
-            
-    
     <order>
-                        
-        
-        <orderID>O1000</orderID>
-                        
-        
-        <customerID>1000C</customerID>
-                        
-        
+        <orderID>2000</orderID>
+        <customerID>4000</customerID>
         <name>John Wick</name>
-        <vehicleID>C1000</vehicleID>
-
-
+        <vehicleID>1000</vehicleID>
         <startDate>20/6/2000</startDate>
-                        
-        
         <returnDate>12/7/2000</returnDate>
-                        
-        
-        <license>ABD2006</license>
-                        
-        
+        <license>B1</license>
         <rentType>2</rentType>
-                        
-        
         <totalCost>2000000</totalCost>
-                    
-    
     </order>
-        
-    
-
 </data>

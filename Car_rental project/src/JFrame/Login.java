@@ -4,30 +4,38 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Arrays;
 
-class LoginFrame extends JFrame implements ActionListener {
-
-    Container container = getContentPane();
+class Login extends JFrame implements ActionListener {
+	
+	Container container = getContentPane();
     JLabel userLabel = new JLabel("USERNAME");
     JLabel passwordLabel = new JLabel("PASSWORD");
-    JLabel confirmPasswordLabel = new JLabel("CONFIRM PASSWORD");
-    String text = "FORGOT PASSWORD?";
+    String text = "Login as Admin";
     JLabel hyperlink = new JLabel(text);
-    JLabel createAccount = new JLabel("DON'T HAVE ACCOUNT.");
-    String text1 = "REGISTER?";
+    JLabel createAccount = new JLabel("DON'T HAVE ACCOUNT?");
+    String text1 = "REGISTER NOW!";
     JLabel hyperlink1 = new JLabel(text1);
     JTextField userTextField = new JTextField();
     JPasswordField passwordField = new JPasswordField();
-    JPasswordField confirmPasswordField = new JPasswordField();
     JButton loginButton = new JButton("LOGIN");
     JButton resetButton = new JButton("RESET");
-    JCheckBox showPassword = new JCheckBox("Show Password");
+    JCheckBox showPassword = new JCheckBox("Show password");
 
-    LoginFrame() {
+    Login() {
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
         addActionEvent();
+        
+        setTitle("Login Form");
+        setVisible(true);
+        setBounds(10, 10, 530, 400);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
 
     }
 
@@ -36,28 +44,24 @@ class LoginFrame extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        userLabel.setBounds(50, 100, 150, 30);
-        passwordLabel.setBounds(50, 170, 150, 30);
-        confirmPasswordLabel.setBounds(50, 240, 150, 30);
-        userTextField.setBounds(200, 100, 150, 30);
-        passwordField.setBounds(200, 170, 150, 30);
-        confirmPasswordField.setBounds(200, 240, 150, 30);
-        showPassword.setBounds(220, 205, 150, 30);
-        loginButton.setBounds(70, 310, 100, 30);
-        resetButton.setBounds(220, 310, 100, 30);
-        hyperlink.setBounds(215, 360, 150, 30);
-        createAccount.setBounds(50, 410, 150, 30);
-        hyperlink1.setBounds(195, 410, 150, 30);
+        userLabel.setBounds(40, 60, 150, 30);
+        passwordLabel.setBounds(40, 110, 150, 30);
+        userTextField.setBounds(200, 60, 250, 30);
+        passwordField.setBounds(200, 110, 250, 30);
+        showPassword.setBounds(340, 150, 150, 30);
+        loginButton.setBounds(100, 240, 100, 30);
+        resetButton.setBounds(300, 240, 100, 30);
+        hyperlink.setBounds(335, 290, 150, 30);
+        createAccount.setBounds(150, 190, 150, 30);
+        hyperlink1.setBounds(298, 190, 150, 30);
 
     }
 
     public void addComponentsToContainer() {
         container.add(userLabel);
         container.add(passwordLabel);
-        container.add(confirmPasswordLabel);
         container.add(userTextField);
         container.add(passwordField);
-        container.add(confirmPasswordField);
         container.add(showPassword);
         container.add(loginButton);
         container.add(resetButton);
@@ -68,34 +72,44 @@ class LoginFrame extends JFrame implements ActionListener {
 
     public void addActionEvent() {
     	hyperlink.setForeground(Color.BLACK.darker());
-    	hyperlink.setCursor(new Cursor(Cursor.HAND_CURSOR));
-    	hyperlink.setFont(new Font("Arial", Font.ITALIC, 12));
+    	hyperlink.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    	hyperlink.setFont(new Font("Arial", Font.ITALIC, 13));
         
     	hyperlink1.setForeground(Color.BLACK.darker());
-    	hyperlink1.setCursor(new Cursor(Cursor.HAND_CURSOR));
-    	hyperlink1.setFont(new Font("Arial", Font.ITALIC, 12));
+    	hyperlink1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    	hyperlink1.setFont(new Font("Arial", Font.BOLD, 10));
+    	
+    	hyperlink1.addMouseListener(new MouseAdapter() {
+    		public void mouseClicked (MouseEvent e) {
+    			RegisterFrame register = new RegisterFrame();
+    			setVisible(false);
+    		} 
+    	});
     	
     	loginButton.addActionListener(this);
-    	loginButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    	loginButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         
     	resetButton.addActionListener(this);
-        resetButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        resetButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         
         showPassword.addActionListener(this);
-        showPassword.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        showPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginButton) {
             String userText;
-            String pwdText;
+            
+            char pwd[] = passwordField.getPassword();
+            
             userText = userTextField.getText();
-            pwdText = passwordField.getText();
-            if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
-                JOptionPane.showMessageDialog(this, "Login Successful");
+
+            
+            if (userText.isEmpty() || pwd.length == 0) {
+                JOptionPane.showMessageDialog(this, "You can't login!");
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid Username or Password");
+                JOptionPane.showMessageDialog(this, "Login successful!");
             }
 
         }
@@ -112,18 +126,6 @@ class LoginFrame extends JFrame implements ActionListener {
 
 
         }
-    }
-
-}
-public class Login {
-    public static void main(String[] a) {
-        LoginFrame frame = new LoginFrame();
-        frame.setTitle("Login Form");
-        frame.setVisible(true);
-        frame.setBounds(10, 10, 400, 580);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-
     }
 
 }
