@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+
 import user.Image;
 import vehicle.Truck;
 import vehicle.VehicleList;
@@ -32,6 +33,12 @@ class RentTruck extends JFrame{
 	JLabel IDvl, Modelvl, Colorvl, Pasvl, Brvl, costvl, maxwvl;
 	JLabel IDvls, Modelvls, Colorvls, Pasvls, Brvls, costvls, maxwvls;
 	JLabel rn;
+	JScrollPane tab1, tab2;
+	JCheckBox week, month;
+    JLabel lbweek, lbmonth;
+    JList<String> weekls, monthls; 
+    String weeklist[] = {"1 week", "2 weeks", "3 weeks", "5 weeks", "7 weeks", "9 weeks", "11 weeks"};
+    String monthlist[] = {"1 month", "2 months", "3 months", "4 months", "5 months", "6 months", "7 months", "8 months", "9 months", "10 months", "11 months", "12 months"};
 	VehicleList A = new VehicleList();
 	
 	JFrame frame = new JFrame("CGO - Rent truck");
@@ -64,8 +71,8 @@ class RentTruck extends JFrame{
 		JPanel log = new JPanel();
 		JPanel texts = new JPanel();
 		
-		JButton previous = new JButton("< Start from bottom");
-		JButton next = new JButton("Start from top >");
+		JButton previous = new JButton("< Previous");
+		JButton next = new JButton("Next >");
 		JButton rent = new JButton("Rent now!");
 		
 		JLabel cont = new JLabel("                               ", JLabel.CENTER);
@@ -137,11 +144,7 @@ class RentTruck extends JFrame{
 		value ="src/user/logocar.png";
 		setPicture(finalpic,value);
 		Mid.add(finalpic);
-		
-		JLabel returnDate = new JLabel("     Return day : ");
-		returnDate.setFont(new Font("Arial", Font.BOLD, 15));
-		rn = new JLabel();
-		rn.add(new TextField());
+		Mid.setBackground(Color.DARK_GRAY.darker());
 		
 		JLabel ID = new JLabel("     Car ID");
 	    ID.setFont(new Font("Arial", Font.BOLD, 15));
@@ -232,7 +235,68 @@ class RentTruck extends JFrame{
 		lbins = new JLabel("");
 		inc2.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		final JPanel Card1=new JPanel();
+		JLabel Choose = new JLabel("     Choose type : ");
+		Choose.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		JPanel Bigbox = new JPanel(new BorderLayout());
+		JPanel panelCheckBox = new JPanel(new GridLayout(1, 0));
+		
+	    panelCheckBox.add(week = createCheckBox("WEEK"));
+	    panelCheckBox.add(month = createCheckBox("MONTH"));
+	
+	    Bigbox.add(panelCheckBox, BorderLayout.WEST);
+	    
+	    JPanel listday = new JPanel(new GridLayout(1, 0));
+	    weekls = new JList<String>(weeklist);
+		weekls.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tab1 = new JScrollPane(weekls);
+		tab1.setPreferredSize(new Dimension(100, 50));
+		tab1.setVisible(false);
+		//////////////////////////////////////
+		monthls = new JList<String>(monthlist);
+		monthls.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tab2 = new JScrollPane(monthls);
+		tab2.setPreferredSize(new Dimension(150, 50));
+		tab2.setVisible(false);
+		
+		ButtonGroup gr = new ButtonGroup();
+		gr.add(week);
+		gr.add(month);
+		
+	    week.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent ae) {
+                if(ae.getStateChange() == 1)
+                {
+                	tab1.setVisible(true);
+                }
+                else
+                {
+                	tab1.setVisible(false);
+                }
+            }
+        });
+	    //int wek = countlist.getSelectedIndex();
+	    //weeklist[wek];
+	    month.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent ae) {
+                if(ae.getStateChange() == 1)
+                {
+                	tab2.setVisible(true);
+                }
+                else 
+                {
+                	tab2.setVisible(false);
+                }
+            }
+        });
+	    
+		listday.add(tab1);
+		listday.add(tab2);
+		
+		JLabel Choose2 = new JLabel("     Choose one : ");
+		Choose2.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		final JPanel Card1 = new JPanel();
 		Card1.setLayout(new GridLayout(11, 1));
 		Card1.add(ID);
 		Card1.add(IDvl);
@@ -257,7 +321,7 @@ class RentTruck extends JFrame{
 		Card1.add(inc);
 		Card1.add(lbin);
 
-		final JPanel Card2=new JPanel();
+		final JPanel Card2 = new JPanel();
 		Card2.setLayout(new GridLayout(11, 1));
 		Card2.add(ID2);
 		Card2.add(IDvls);
@@ -282,14 +346,23 @@ class RentTruck extends JFrame{
 		Card2.add(inc2);
 		Card2.add(lbins);
 		
-//		final JPanel Card3=new JPanel();
-//		Card3.setLayout(new GridLayout(1, 1));
-//		Card3.add(returnDate);
-//		Card3.add(rn);
+		final JPanel Card3 = new JPanel(new BorderLayout());
+		JPanel Gloc = new JPanel(new GridLayout(2, 0, -150, 0));
+		JPanel End = new JPanel(new FlowLayout());
+		End.add(Box.createRigidArea(new Dimension(18, 10)));
+		JButton fini = new JButton("Finish");
+		fini.setPreferredSize(new Dimension(80,27));
+		Gloc.add(Choose);
+		Gloc.add(Bigbox);
+		Gloc.add(Choose2);
+		Gloc.add(listday);
+		End.add(fini);
+		Card3.add(Gloc, BorderLayout.CENTER);
+		Card3.add(End, BorderLayout.SOUTH);
 		
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
-//		Renting.add(Card3,"C3");
+		Renting.add(Card3,"C3");
 		
 		Middle.add(Mid, "C1");
 		JPanel Flow = new JPanel();
@@ -297,24 +370,25 @@ class RentTruck extends JFrame{
 		Flow.add(Middle);
 		Flow.add(Center);
 		
-//		JPanel Flow1 = new JPanel();
-//		Flow1.setLayout(new GridLayout(2, 1));
-//		Flow1.add(Middle);
-//		Flow1.add(Renting);
+		JPanel Flow1 = new JPanel();
+		Flow1.setLayout(new GridLayout(2, 1));
+		Flow1.add(Middle);
+		Flow1.add(Renting);
+
 		
-		Border.add(Flow,BorderLayout.CENTER);
-//		Border.add(Flow1,BorderLayout.CENTER);
-		Container con=frame.getContentPane();
+//		Border.add(Flow,BorderLayout.CENTER);
+		Border.add(Flow1,BorderLayout.CENTER);
+		Container con = frame.getContentPane();
 		con.add(Border);
 		
 		previous.addActionListener(new ActionListener() {
 		
 		@Override
 		
-		public void actionPerformed(ActionEvent arg0) {
+		public void actionPerformed(ActionEvent ae) {
 			Center.setVisible(true);
 			Middle.setVisible(true);
-			Renting.setVisible(false);
+//			Renting.setVisible(true);
 			CardLayout cl=(CardLayout)Center.getLayout();
 			cl.show(Center, "C1");
 			CardLayout m1=(CardLayout)Middle.getLayout();
@@ -323,12 +397,12 @@ class RentTruck extends JFrame{
 			setPicture(finalpic,value);
 			i = Integer.parseInt(id);
 			m1.show(Middle, "C1");
-			
+			current = i;
 			
 			if(i == 3000)
 			{
-				i = 3003;
-			}	
+				i = 3010;
+			}
 			i = i - 1;
 		}
 		});
@@ -337,10 +411,10 @@ class RentTruck extends JFrame{
 		
 		@Override
 		
-		public void actionPerformed(ActionEvent arg0) {
+		public void actionPerformed(ActionEvent ae) {
 			Center.setVisible(true);
 			Middle.setVisible(true);
-			Renting.setVisible(false);
+//			Renting.setVisible(false);
 			CardLayout c2=(CardLayout)Center.getLayout();
 			c2.show(Center, "C2");
 			CardLayout m2=(CardLayout)Middle.getLayout();
@@ -350,7 +424,7 @@ class RentTruck extends JFrame{
 			m2.show(Middle, "C2");
 			current = i;
 			
-			if(i == 3002)
+			if(i == 3009)
 			{
 				i = 2999;
 
@@ -363,15 +437,15 @@ class RentTruck extends JFrame{
 			
 			@Override
 			
-			public void actionPerformed(ActionEvent arg0) {
-				Center.setVisible(false);
+			public void actionPerformed(ActionEvent ae) {
+				//Center.setVisible(false);
 				Middle.setVisible(true);
 				Renting.setVisible(true);
 				CardLayout c3 = (CardLayout)Renting.getLayout();
 				c3.show(Renting, "C3");
 				CardLayout m2=(CardLayout)Middle.getLayout();
 				findPic(current);
-				setPicture(finalpic,value);
+				//setPicture(finalpic,value);
 //				i = Integer.parseInt(id);
 				m2.show(Middle, "C3");
 			}
@@ -423,6 +497,11 @@ class RentTruck extends JFrame{
 		lbins.setText(income);
 	}
 	
+	private JCheckBox createCheckBox(String name) {
+        JCheckBox checkBox = new JCheckBox(name);
+        return checkBox;
+    }
+    
 	public void setPicture(JLabel label ,String filename){
        try {
          BufferedImage image = ImageIO.read(new File(filename));
