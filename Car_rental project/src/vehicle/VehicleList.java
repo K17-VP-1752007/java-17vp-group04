@@ -60,7 +60,7 @@ public class VehicleList {
 				c.setPassenger(Integer.parseInt(element.getElementsByTagName("passengers").item(0).getTextContent()));
 				c.setBrand(element.getElementsByTagName("brand").item(0).getTextContent());
 				c.setReserved(Boolean.parseBoolean(element.getElementsByTagName("reserved").item(0).getTextContent()));
-				c.setCost(Double.parseDouble(element.getElementsByTagName("init_cost").item(0).getTextContent()));
+				c.setCost(Double.parseDouble(element.getElementsByTagName("cost").item(0).getTextContent()));
 				c.setImg(element.getElementsByTagName("img").item(0).getTextContent());
 				c.setType(element.getElementsByTagName("type").item(0).getTextContent());
 				c.ViewRecord();

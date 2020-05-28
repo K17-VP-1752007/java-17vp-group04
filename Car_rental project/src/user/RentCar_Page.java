@@ -15,7 +15,8 @@ import vehicle.VehicleList;
 
 class RentCar extends JFrame{
 	JLabel pic;
-	int i = 3000;
+	int i = 1000;
+	int current;
 	JLabel finalpic;
 	String value;
 	String id;
@@ -23,17 +24,29 @@ class RentCar extends JFrame{
 	String color;
 	String pas;
 	String brand;
+	String res;
 	String cos;
 	String type;
-	JLabel IDvl, Modelvl, Colorvl, Pasvl, Brvl, costvl, typevl;
-	JLabel IDvls, Modelvls, Colorvls, Pasvls, Brvls, costvls, typevls;
+	String km, total, lastrent, income;;
+	JLabel lbkm, lbtotal, lblast, lbin;
+	JLabel lbkms, lbtotals, lblasts, lbins;
+	JLabel IDvl, Modelvl, Colorvl, Pasvl, Brvl, Resvl, costvl, typevl;
+	JLabel IDvls, Modelvls, Colorvls, Pasvls, Brvls, Resvls, costvls, typevls;
+	JLabel rn;
+	JScrollPane tab1, tab2;
+	JCheckBox week, month;
+    JLabel lbweek, lbmonth;
+    JList<String> weekls, monthls; 
+    String weeklist[] = {"1 week", "2 weeks", "3 weeks", "5 weeks", "7 weeks", "9 weeks", "11 weeks"};
+    String monthlist[] = {"1 month", "2 months", "3 months", "4 months", "5 months", "6 months", "7 months", "8 months", "9 months", "10 months", "11 months", "12 months"};
+	VehicleList A = new VehicleList();
 	
 	JFrame frame = new JFrame("CGO - Rent Car");
 	String getV() {
 		return value;
 	}
 	public RentCar(){
-		frame.setSize(450, 550);
+		frame.setSize(450, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addControl();
 		frame.setLocationRelativeTo(null);
@@ -45,7 +58,7 @@ class RentCar extends JFrame{
 		pic = new JLabel();
 		pic.setPreferredSize(new Dimension(300, 200));
 		pic.setSize(400, 600);
-		setPicture(pic, "src/user/civic.jpg");
+		setPicture(pic, "src/user/bentley.jpg");
 		JPanel Border=new JPanel();
 		Border.setLayout(new BorderLayout());
 		Border.setBackground(Color.WHITE);
@@ -58,8 +71,8 @@ class RentCar extends JFrame{
 		JPanel log = new JPanel();
 		JPanel texts = new JPanel();
 		
-		JButton previous = new JButton("< Start from bottom");
-		JButton next = new JButton("Start from top >");
+		JButton previous = new JButton("< Previous");
+		JButton next = new JButton("Next >");
 		JButton rent = new JButton("Rent now!");
 		
 		JLabel cont = new JLabel("                               ", JLabel.CENTER);
@@ -113,11 +126,14 @@ class RentCar extends JFrame{
 	
 		final JPanel Center = new JPanel();
 		final JPanel Middle = new JPanel();
+		
 		Center.setLayout(new CardLayout());
 		Center.setVisible(false);
 		
 		Middle.setLayout(new CardLayout());
 		Middle.setVisible(false);
+		
+		
 		final JPanel Mid = new JPanel();
 	
 		finalpic = new JLabel();
@@ -125,6 +141,7 @@ class RentCar extends JFrame{
 		value ="src/user/logocar.png";
 		setPicture(finalpic,value);
 		Mid.add(finalpic);
+		Mid.setBackground(Color.DARK_GRAY.darker());
 		
 		JLabel ID = new JLabel("     Car ID");
 	    ID.setFont(new Font("Arial", Font.BOLD, 15));
@@ -146,13 +163,33 @@ class RentCar extends JFrame{
 		Brvl = new JLabel("");
 		Br.setFont(new Font("Arial", Font.BOLD, 15));
 		
+		JLabel reserved = new JLabel("     Reserved");
+		Resvl = new JLabel("");
+		reserved.setFont(new Font("Arial", Font.BOLD, 15));
+		
 		JLabel cost = new JLabel("     Cost");
 		costvl = new JLabel("");
 		cost.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		JLabel maxw = new JLabel("     Type");
+		JLabel type = new JLabel("     Type");
 		typevl = new JLabel("");
-		maxw.setFont(new Font("Arial", Font.BOLD, 15));
+		type.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		JLabel kilo = new JLabel("     Total km : ");
+		lbkm = new JLabel("");
+		kilo.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		JLabel tot = new JLabel("     Total rent : ");
+		lbtotal = new JLabel("");
+		tot.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		JLabel last = new JLabel("     Last rent : ");
+		lblast = new JLabel("");
+		last.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		JLabel inc = new JLabel("     Income : ");
+		lbin = new JLabel("");
+		inc.setFont(new Font("Arial", Font.BOLD, 15));
 		
 		////
 		JLabel ID2 = new JLabel("     Car ID");
@@ -175,16 +212,96 @@ class RentCar extends JFrame{
 		Brvls = new JLabel("");
 		Br2.setFont(new Font("Arial", Font.BOLD, 15));
 		
+		JLabel reserved2 = new JLabel("     Reserved");
+		Resvls = new JLabel("");
+		reserved2.setFont(new Font("Arial", Font.BOLD, 15));
+		
 		JLabel cost2 = new JLabel("     Cost");
 		costvls = new JLabel("");
 		cost2.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		JLabel maxw2 = new JLabel("     Type");
+		JLabel type2 = new JLabel("     Type");
 		typevls = new JLabel("");
-		maxw2.setFont(new Font("Arial", Font.BOLD, 15));
+		type2.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		final JPanel Card1=new JPanel();
-		Card1.setLayout(new GridLayout(7, 1));
+		JLabel kilo2 = new JLabel("     Total km : ");
+		lbkms = new JLabel("");
+		kilo2.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		JLabel tot2 = new JLabel("     Total rent : ");
+		lbtotals = new JLabel("");
+		tot2.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		JLabel last2 = new JLabel("     Last rent : ");
+		lblasts = new JLabel("");
+		last2.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		JLabel inc2 = new JLabel("      Income : ");
+		lbins = new JLabel("");
+		inc2.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		JLabel Choose = new JLabel("     Choose type : ");
+		Choose.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		JPanel Bigbox = new JPanel(new GridLayout(1, 0));
+		JPanel panelCheckBox = new JPanel(new GridLayout(1, 0));
+		
+	    panelCheckBox.add(week = createCheckBox("WEEK"));
+	    panelCheckBox.add(month = createCheckBox("MONTH"));
+	
+	    Bigbox.add(panelCheckBox, BorderLayout.WEST);
+	    
+	    JPanel listday = new JPanel(new GridLayout(1, 0));
+	    weekls = new JList<String>(weeklist);
+		weekls.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tab1 = new JScrollPane(weekls);
+		tab1.setPreferredSize(new Dimension(100, 50));
+		tab1.setVisible(false);
+		//////////////////////////////////////
+		monthls = new JList<String>(monthlist);
+		monthls.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tab2 = new JScrollPane(monthls);
+		tab2.setPreferredSize(new Dimension(150, 50));
+		tab2.setVisible(false);
+		
+		ButtonGroup gr = new ButtonGroup();
+		gr.add(week);
+		gr.add(month);
+		
+	    week.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent ae) {
+                if(ae.getStateChange() == 1)
+                {
+                	tab1.setVisible(true);
+                }
+                else
+                {
+                	tab1.setVisible(false);
+                }
+            }
+        });
+	  
+	    month.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent ae) {
+                if(ae.getStateChange() == 1)
+                {
+                	tab2.setVisible(true);
+                }
+                else 
+                {
+                	tab2.setVisible(false);
+                }
+            }
+        });
+	    
+		listday.add(tab1);
+		listday.add(tab2);
+		
+		JLabel Choose2 = new JLabel("     Choose one : ");
+		Choose2.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		final JPanel Card1 = new JPanel();
+		Card1.setLayout(new GridLayout(12, 1));
 		Card1.add(ID);
 		Card1.add(IDvl);
 		Card1.add(Model);
@@ -195,13 +312,23 @@ class RentCar extends JFrame{
 		Card1.add(Pasvl);
 		Card1.add(Br);
 		Card1.add(Brvl);
+		Card1.add(reserved);
+		Card1.add(Resvl);
 		Card1.add(cost);
 		Card1.add(costvl);
-		Card1.add(maxw);
+		Card1.add(type);
 		Card1.add(typevl);
+		Card1.add(kilo);
+		Card1.add(lbkm);
+		Card1.add(tot);
+		Card1.add(lbtotal);
+		Card1.add(last);
+		Card1.add(lblast);
+		Card1.add(inc);
+		Card1.add(lbin);
 
-		final JPanel Card2=new JPanel();
-		Card2.setLayout(new GridLayout(7, 1));
+		final JPanel Card2 = new JPanel();
+		Card2.setLayout(new GridLayout(12, 1));
 		Card2.add(ID2);
 		Card2.add(IDvls);
 		Card2.add(Model2);
@@ -212,101 +339,182 @@ class RentCar extends JFrame{
 		Card2.add(Pasvls);
 		Card2.add(Br2);
 		Card2.add(Brvls);
+		Card2.add(reserved2);
+		Card2.add(Resvls);
 		Card2.add(cost2);
 		Card2.add(costvls);
-		Card2.add(maxw2);
+		Card2.add(type2);
 		Card2.add(typevls);
+		Card2.add(kilo2);
+		Card2.add(lbkms);
+		Card2.add(tot2);
+		Card2.add(lbtotals);
+		Card2.add(last2);
+		Card2.add(lblasts);
+		Card2.add(inc2);
+		Card2.add(lbins);
+		
+		final JPanel Card3 = new JPanel(new BorderLayout());
+		JPanel Gloc = new JPanel(new GridLayout(2, 0, -150, 0));
+		JPanel End = new JPanel(new FlowLayout());
+		End.add(Box.createRigidArea(new Dimension(18, 10)));
+		JButton fini = new JButton("Finish");
+		fini.setPreferredSize(new Dimension(80,27));
+		Gloc.add(Choose);
+		Gloc.add(Bigbox);
+		Gloc.add(Choose2);
+		Gloc.add(listday);
+		End.add(fini);
+		Card3.add(Gloc, BorderLayout.CENTER);
+		Card3.add(End, BorderLayout.SOUTH);
 		
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
+		Center.add(Card3,"C3");
 		
 		Middle.add(Mid, "C1");
 		JPanel Flow = new JPanel();
 		Flow.setLayout(new GridLayout(2, 1));
 		Flow.add(Middle);
 		Flow.add(Center);
+
 		Border.add(Flow,BorderLayout.CENTER);
-		Container con=frame.getContentPane();
+		Container con = frame.getContentPane();
 		con.add(Border);
 		
-		int x;
+		fini.addActionListener(new ActionListener() {
+			@Override
+				public void actionPerformed(ActionEvent ae) {
+					if(weekls.getSelectedIndex() != -1 || monthls.getSelectedIndex() != -1)
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
+					else
+						JOptionPane.showMessageDialog(frame, "You can't rent");
+				}
+			});
+		
 		previous.addActionListener(new ActionListener() {
 		
 		@Override
 		
-		public void actionPerformed(ActionEvent arg0) {
-			Center.setVisible(true);
-			Middle.setVisible(true);
-			CardLayout cl=(CardLayout)Center.getLayout();
-			cl.show(Center, "C1");
-			CardLayout m1=(CardLayout)Middle.getLayout();
-			findPic(i);
-			setPicture(finalpic,value);
-			i = Integer.parseInt(id);
-			m1.show(Middle, "C1");
-		
-			i = i - 1;
-			if(i < 3000)
-			{
-				i = 3002;
-			}	
-		}
+			public void actionPerformed(ActionEvent ae) {
+				Center.setVisible(true);
+				Middle.setVisible(true);
+				CardLayout cl=(CardLayout)Center.getLayout();
+				cl.show(Center, "C1");
+				CardLayout m1=(CardLayout)Middle.getLayout();
+			
+				findPic(i);
+				setPicture(finalpic,value);
+				i = Integer.parseInt(id);
+				m1.show(Middle, "C1");
+				current = i;
+				
+				if(i == 1000)
+				{
+					i = 1020;
+				}
+				i = i - 1;
+			}
 		});
 		
 		next.addActionListener(new ActionListener() {
 		
 		@Override
 		
-		public void actionPerformed(ActionEvent arg0) {
-			Center.setVisible(true);
-			Middle.setVisible(true);
-			CardLayout c2=(CardLayout)Center.getLayout();
-			c2.show(Center, "C2");
-			CardLayout m2=(CardLayout)Middle.getLayout();
-			findPic(i);
-			setPicture(finalpic,value);
-			i = Integer.parseInt(id);
-			m2.show(Middle, "C2");
-			
-			i = i + 1;
-			if(i > 3002)
-				i = 3000;
-		}
+			public void actionPerformed(ActionEvent ae) {
+				Center.setVisible(true);
+				Middle.setVisible(true);
+				CardLayout c2=(CardLayout)Center.getLayout();
+				c2.show(Center, "C2");
+				CardLayout m2=(CardLayout)Middle.getLayout();
+				findPic(i);
+				setPicture(finalpic,value);
+				i = Integer.parseInt(id);
+				m2.show(Middle, "C2");
+				current = i;
+				
+				if(i == 1019)
+				{
+					i = 999;
+	
+				}
+				i = i + 1;
+			}
 		});
-	}
-
-	public void findPic(int i) {
-		VehicleList A = new VehicleList();
-		A.ReadAllTruck();
-		Car t = new Car();
-		t = A.searchCarByID(String.valueOf(i));
 		
-		id = t.getID();
-		value = t.getImg();
-		model = t.getModel();
-		color = t.getColor();
-		pas = String.valueOf(t.getPassenger());
-		brand = t.getBrand();
-		cos = String.valueOf(t.getCost());
-		type = t.getType();
+		rent.addActionListener(new ActionListener() {
+			
+			@Override
+			
+			public void actionPerformed(ActionEvent ae) {
+				Center.setVisible(true);
+				Middle.setVisible(true);
+				//Renting.setVisible(true);
+				CardLayout c3 = (CardLayout)Center.getLayout();
+				c3.show(Center, "C3");
+				CardLayout m2=(CardLayout)Middle.getLayout();
+				findPic(current);
+				m2.show(Middle, "C3");
+			}
+			});
+	}
+	
+	public void findPic(int i) {
+		A.ReadAllCar();
+		Car c = new Car();
+		c = A.searchCarByID(String.valueOf(i));
+		c.ViewRecord();
+
+		id = c.getID();
+		value = c.getImg();
+		model = c.getModel();
+		color = c.getColor();
+		pas = String.valueOf(c.getPassenger());
+		brand = c.getBrand();
+		if(c.isReserved() == true)
+			res = "Yes";
+		else
+			res = "No";
+		cos = String.valueOf(c.getCost());
+		type = c.getType(); 
+		
+		km = String.valueOf(c.getRecord().getKm_travel()); 
+		total = String.valueOf(c.getRecord().getTotalRent());
+		lastrent = c.getRecord().getLast_date_rent();
+		income = String.valueOf(c.getRecord().getIncome_generate());
 		
 		IDvl.setText(id);
 		Modelvl.setText(model);
 		Colorvl.setText(color);
 		Pasvl.setText(pas);
 		Brvl.setText(brand);
+		Resvl.setText(res);
 		costvl.setText(cos);
 		typevl.setText(type);
+		lbkm.setText(km);
+		lbtotal.setText(total);
+		lblast.setText(lastrent);		
+		lbin.setText(income);
 		
 		IDvls.setText(id);
 		Modelvls.setText(model);
 		Colorvls.setText(color);
 		Pasvls.setText(pas);
 		Brvls.setText(brand);
+		Resvls.setText(res);
 		costvls.setText(cos);
 		typevls.setText(type);
+		lbkms.setText(km);
+		lbtotals.setText(total);
+		lblasts.setText(lastrent);		
+		lbins.setText(income);
 	}
 	
+	private JCheckBox createCheckBox(String name) {
+        JCheckBox checkBox = new JCheckBox(name);
+        return checkBox;
+    }
+    
 	public void setPicture(JLabel label ,String filename){
        try {
          BufferedImage image = ImageIO.read(new File(filename));

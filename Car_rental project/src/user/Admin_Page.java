@@ -11,12 +11,10 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import user.Image;
 
-class cardlay extends Thread{
+class cardlay extends JFrame{
 	JLabel pic;
 	
-//	private static final long serialVersionUID = 1L;
 	JFrame frame = new JFrame("CGO - Admin");
-//	frame.setContentPane(new JLabel(new ImageIcon("src/user/main.jpg")));
 	
 	public cardlay(String title){
 		super(title);
@@ -58,7 +56,7 @@ class cardlay extends Thread{
 		logo.setSize(80, 80);
 		logo.setFont(new Font("Arial", Font.BOLD, 20));
 		setPicture(logo, "./src/user/logocar.png");
-		//////
+
 		JLabel text = new JLabel("Honesty is the best policy");
 		JLabel intro = new JLabel("-- Click 2 buttons below to start working --");
 		text.setSize(200,200);
@@ -88,9 +86,11 @@ class cardlay extends Thread{
 		pic = new JLabel();
 		pic.setPreferredSize(new Dimension(470, 448));
 		pic.setBorder(LineBorder.createBlackLineBorder());
-		pic.setSize(469, 447);
+		pic.setSize(700, 580);
+		setPicture(pic, "./src/user/bentley.jpg");
 		
 		pic.setBounds(5, 110, 677, 380);
+		
 		frame.add(pic);
 		
 		out.setBounds(608, 7, 77, 30);
@@ -408,25 +408,6 @@ class cardlay extends Thread{
 		}
 		});
 	}
-	
-	public void run(){
-		int n = 1, i = -1;
-		String list[] = {"./src/user/Truck_Image/toyota_tacoma.jpg", "./src/user/Car_Image/audi_A5.jpg", "./src/user/Truck_Image/ram_chassis_cab.jpg", "./src/user/Car_Image/bmw_520i.jpg"};
-	 
-		try {
-		    do {
-				i++;
-		        setPicture(pic, list[i]);   
-		        if(i == 3)
-		        {
-		        	i = i - 4;
-		        }
-			Thread.sleep(1000);
-		    }while(n == 1);
-		 }catch (InterruptedException exc) {
-			System.out.println("Interrupted.");
-		 }
-	}
 
 	public void setPicture(JLabel label ,String filename){
        try {
@@ -460,6 +441,5 @@ public class Admin_Page{
 	public static void main(String[] args) {
 	
 		cardlay card = new cardlay("CGO - Admin");
-		card.start();
 	}
 }
