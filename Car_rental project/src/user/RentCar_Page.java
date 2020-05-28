@@ -36,6 +36,7 @@ class RentCar extends JFrame{
 	JScrollPane tab1, tab2;
 	JCheckBox week, month;
     JLabel lbweek, lbmonth;
+    boolean check;
     JList<String> weekls, monthls; 
     String weeklist[] = {"1 week", "2 weeks", "3 weeks", "5 weeks", "7 weeks", "9 weeks", "11 weeks"};
     String monthlist[] = {"1 month", "2 months", "3 months", "4 months", "5 months", "6 months", "7 months", "8 months", "9 months", "10 months", "11 months", "12 months"};
@@ -123,6 +124,7 @@ class RentCar extends JFrame{
 		frame.add(logo);
 		frame.add(out);
 		frame.add(pic);
+		
 	
 		final JPanel Center = new JPanel();
 		final JPanel Middle = new JPanel();
@@ -355,7 +357,7 @@ class RentCar extends JFrame{
 		Card2.add(lbins);
 		
 		final JPanel Card3 = new JPanel(new BorderLayout());
-		JPanel Gloc = new JPanel(new GridLayout(2, 0, -150, 0));
+		JPanel Gloc = new JPanel(new GridLayout(3, 0, -150, 0));
 		JPanel End = new JPanel(new FlowLayout());
 		End.add(Box.createRigidArea(new Dimension(18, 10)));
 		JButton fini = new JButton("Finish");
@@ -368,9 +370,18 @@ class RentCar extends JFrame{
 		Card3.add(Gloc, BorderLayout.CENTER);
 		Card3.add(End, BorderLayout.SOUTH);
 		
+		final JPanel Card4 = new JPanel(new GridLayout(2,0));
+		JPanel W = new JPanel();
+		
+		JLabel Warning = new JLabel("Please choose previous or next to rent another car.");
+		W.add(Warning);
+		Card4.add(Box.createRigidArea(new Dimension(40, 0)));
+		Card4.add(W);
+		
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
 		Center.add(Card3,"C3");
+		Center.add(Card4, "C4");
 		
 		Middle.add(Mid, "C1");
 		JPanel Flow = new JPanel();
@@ -382,21 +393,14 @@ class RentCar extends JFrame{
 		Container con = frame.getContentPane();
 		con.add(Border);
 		
-		fini.addActionListener(new ActionListener() {
-			@Override
-				public void actionPerformed(ActionEvent ae) {
-					if(weekls.getSelectedIndex() != -1 || monthls.getSelectedIndex() != -1)
-						JOptionPane.showMessageDialog(frame, "Rent successfully");
-					else
-						JOptionPane.showMessageDialog(frame, "You can't rent");
-				}
-			});
+		check  = false;
 		
 		previous.addActionListener(new ActionListener() {
 		
 		@Override
 		
 			public void actionPerformed(ActionEvent ae) {
+				check  = true;
 				Center.setVisible(true);
 				Middle.setVisible(true);
 				CardLayout cl=(CardLayout)Center.getLayout();
@@ -422,6 +426,7 @@ class RentCar extends JFrame{
 		@Override
 		
 			public void actionPerformed(ActionEvent ae) {
+				check  = true;
 				Center.setVisible(true);
 				Middle.setVisible(true);
 				CardLayout c2=(CardLayout)Center.getLayout();
@@ -447,15 +452,38 @@ class RentCar extends JFrame{
 			@Override
 			
 			public void actionPerformed(ActionEvent ae) {
-				Center.setVisible(true);
-				Middle.setVisible(true);
-				//Renting.setVisible(true);
-				CardLayout c3 = (CardLayout)Center.getLayout();
-				c3.show(Center, "C3");
-				CardLayout m2=(CardLayout)Middle.getLayout();
-				findPic(current);
-				m2.show(Middle, "C3");
+				if(check == false)
+				{
+					JOptionPane.showMessageDialog(frame, "You haven't choose any car yet, please try again.");
+				}
+				else if(check == true)
+				{
+					Center.setVisible(true);
+					Middle.setVisible(true);
+					//Renting.setVisible(true);
+					CardLayout c3 = (CardLayout)Center.getLayout();
+					c3.show(Center, "C3");
+					CardLayout m2=(CardLayout)Middle.getLayout();
+					findPic(current);
+					m2.show(Middle, "C3");
+				}
 			}
+			});
+		
+		fini.addActionListener(new ActionListener() {
+			@Override
+				public void actionPerformed(ActionEvent ae) {
+					if(weekls.getSelectedIndex() != -1 || monthls.getSelectedIndex() != -1)
+					{
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
+						Center.setVisible(true);
+						Middle.setVisible(true);
+						CardLayout c4 = (CardLayout)Center.getLayout();
+						c4.show(Center, "C4");
+					}
+					else
+						JOptionPane.showMessageDialog(frame, "You can't rent");
+				}
 			});
 	}
 	

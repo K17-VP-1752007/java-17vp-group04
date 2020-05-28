@@ -27,19 +27,22 @@ class RentTruck extends JFrame{
 	String brand;
 	String cos;
 	String max;
+	String resr;
 	String km, total, lastrent, income;
 	JLabel lbkm, lbtotal, lblast, lbin;
 	JLabel lbkms, lbtotals, lblasts, lbins;
-	JLabel IDvl, Modelvl, Colorvl, Pasvl, Brvl, costvl, maxwvl;
-	JLabel IDvls, Modelvls, Colorvls, Pasvls, Brvls, costvls, maxwvls;
-	JLabel rn;
+	JLabel IDvl, Modelvl, Colorvl, Pasvl, Brvl, costvl, maxwvl, re;
+	JLabel IDvls, Modelvls, Colorvls, Pasvls, Brvls, costvls, maxwvls, res;
 	JScrollPane tab1, tab2;
 	JCheckBox week, month;
     JLabel lbweek, lbmonth;
+    JButton fini;
     JList<String> weekls, monthls; 
     String weeklist[] = {"1 week", "2 weeks", "3 weeks", "5 weeks", "7 weeks", "9 weeks", "11 weeks"};
     String monthlist[] = {"1 month", "2 months", "3 months", "4 months", "5 months", "6 months", "7 months", "8 months", "9 months", "10 months", "11 months", "12 months"};
-	VehicleList A = new VehicleList();
+	int weekValue, monthValue;
+	boolean check;
+    VehicleList A = new VehicleList();
 	
 	JFrame frame = new JFrame("CGO - Rent truck");
 	String getV() {
@@ -143,11 +146,11 @@ class RentTruck extends JFrame{
 		Mid.add(finalpic);
 		Mid.setBackground(Color.DARK_GRAY.darker());
 		
-		JLabel ID = new JLabel("     Car ID");
+		JLabel ID = new JLabel("     Truck ID : ");
 	    ID.setFont(new Font("Arial", Font.BOLD, 15));
 	    IDvl = new JLabel("");
 	    
-		JLabel Model = new JLabel("     Car model");
+		JLabel Model = new JLabel("     Truck model : ");
 		Modelvl = new JLabel("");
 		Model.setFont(new Font("Arial", Font.BOLD, 15));
 		 
@@ -155,11 +158,11 @@ class RentTruck extends JFrame{
 		Colorvl = new JLabel("");
 		Color.setFont(new Font("Arial", Font.BOLD, 15));
 
-		JLabel Pas = new JLabel("     Passenger");
+		JLabel Pas = new JLabel("     Passenger : ");
 		Pasvl = new JLabel("");
 		Pas.setFont(new Font("Arial", Font.BOLD, 15));
 		 
-		JLabel Br = new JLabel("     Brand");
+		JLabel Br = new JLabel("     Brand : ");
 		Brvl = new JLabel("");
 		Br.setFont(new Font("Arial", Font.BOLD, 15));
 		
@@ -167,7 +170,7 @@ class RentTruck extends JFrame{
 		costvl = new JLabel("");
 		cost.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		JLabel maxw = new JLabel("     Maximum weight");
+		JLabel maxw = new JLabel("     Maximum weight : ");
 		maxwvl = new JLabel("");
 		maxw.setFont(new Font("Arial", Font.BOLD, 15));
 		// lbkm, lbtotal, lblast, lbin;
@@ -179,7 +182,7 @@ class RentTruck extends JFrame{
 		lbtotal = new JLabel("");
 		tot.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		JLabel last = new JLabel("     Total km : ");
+		JLabel last = new JLabel("     Last rent : ");
 		lblast = new JLabel("");
 		last.setFont(new Font("Arial", Font.BOLD, 15));
 		
@@ -187,32 +190,36 @@ class RentTruck extends JFrame{
 		lbin = new JLabel("");
 		inc.setFont(new Font("Arial", Font.BOLD, 15));
 		
+		JLabel reserved = new JLabel("     Reserved : ");
+		re = new JLabel("");
+		reserved.setFont(new Font("Arial", Font.BOLD, 15));
+		
 		////
-		JLabel ID2 = new JLabel("     Car ID");
+		JLabel ID2 = new JLabel("     Truck ID : ");
 	    ID2.setFont(new Font("Arial", Font.BOLD, 15));
 	    IDvls = new JLabel("");
 	    
-		JLabel Model2 = new JLabel("     Car model");
+		JLabel Model2 = new JLabel("     Truck model : ");
 		Modelvls = new JLabel("");
 		Model2.setFont(new Font("Arial", Font.BOLD, 15));
 		 
-		JLabel Color2 = new JLabel("     Color");
+		JLabel Color2 = new JLabel("     Color : ");
 		Colorvls = new JLabel("");
 		Color2.setFont(new Font("Arial", Font.BOLD, 15));
 
-		JLabel Pas2 = new JLabel("     Passenger");
+		JLabel Pas2 = new JLabel("     Passenger : ");
 		Pasvls = new JLabel("");
 		Pas2.setFont(new Font("Arial", Font.BOLD, 15));
 		 
-		JLabel Br2 = new JLabel("     Brand");
+		JLabel Br2 = new JLabel("     Brand : ");
 		Brvls = new JLabel("");
 		Br2.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		JLabel cost2 = new JLabel("     Cost");
+		JLabel cost2 = new JLabel("     Cost : ");
 		costvls = new JLabel("");
 		cost2.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		JLabel maxw2 = new JLabel("     Maximum weight");
+		JLabel maxw2 = new JLabel("     Maximum weight : ");
 		maxwvls = new JLabel("");
 		maxw2.setFont(new Font("Arial", Font.BOLD, 15));
 		
@@ -224,13 +231,17 @@ class RentTruck extends JFrame{
 		lbtotals = new JLabel("");
 		tot2.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		JLabel last2 = new JLabel("     Total km : ");
+		JLabel last2 = new JLabel("     Last rent : ");
 		lblasts = new JLabel("");
 		last2.setFont(new Font("Arial", Font.BOLD, 15));
 		
 		JLabel inc2 = new JLabel("      Income : ");
 		lbins = new JLabel("");
 		inc2.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		JLabel reserveds = new JLabel("     Reserved : ");
+		res = new JLabel("");
+		reserveds.setFont(new Font("Arial", Font.BOLD, 15));
 		
 		JLabel Choose = new JLabel("     Choose type : ");
 		Choose.setFont(new Font("Arial", Font.BOLD, 15));
@@ -294,7 +305,7 @@ class RentTruck extends JFrame{
 		Choose2.setFont(new Font("Arial", Font.BOLD, 15));
 		
 		final JPanel Card1 = new JPanel();
-		Card1.setLayout(new GridLayout(11, 1));
+		Card1.setLayout(new GridLayout(12, 1));
 		Card1.add(ID);
 		Card1.add(IDvl);
 		Card1.add(Model);
@@ -317,9 +328,11 @@ class RentTruck extends JFrame{
 		Card1.add(lblast);
 		Card1.add(inc);
 		Card1.add(lbin);
+		Card1.add(reserved);
+		Card1.add(re);
 
 		final JPanel Card2 = new JPanel();
-		Card2.setLayout(new GridLayout(11, 1));
+		Card2.setLayout(new GridLayout(12, 1));
 		Card2.add(ID2);
 		Card2.add(IDvls);
 		Card2.add(Model2);
@@ -342,12 +355,14 @@ class RentTruck extends JFrame{
 		Card2.add(lblasts);
 		Card2.add(inc2);
 		Card2.add(lbins);
+		Card2.add(reserveds);
+		Card2.add(res);
 		
 		final JPanel Card3 = new JPanel(new BorderLayout());
 		JPanel Gloc = new JPanel(new GridLayout(2, 0, -150, 0));
 		JPanel End = new JPanel(new FlowLayout());
 		End.add(Box.createRigidArea(new Dimension(18, 10)));
-		JButton fini = new JButton("Finish");
+		fini = new JButton("Finish");
 		fini.setPreferredSize(new Dimension(80,27));
 		Gloc.add(Choose);
 		Gloc.add(Bigbox);
@@ -357,9 +372,18 @@ class RentTruck extends JFrame{
 		Card3.add(Gloc, BorderLayout.CENTER);
 		Card3.add(End, BorderLayout.SOUTH);
 		
+		final JPanel Card4 = new JPanel(new GridLayout(2,0));
+		JPanel W = new JPanel();
+		
+		JLabel Warning = new JLabel("Please choose previous or next to rent another car.");
+		W.add(Warning);
+		Card4.add(Box.createRigidArea(new Dimension(40, 0)));
+		Card4.add(W);
+		
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
 		Center.add(Card3,"C3");
+		Center.add(Card4,"C4");
 		
 		Middle.add(Mid, "C1");
 		JPanel Flow = new JPanel();
@@ -371,11 +395,14 @@ class RentTruck extends JFrame{
 		Container con = frame.getContentPane();
 		con.add(Border);
 		
+		check = false;
+		
 		previous.addActionListener(new ActionListener() {
 		
 		@Override
 		
 		public void actionPerformed(ActionEvent ae) {
+			check = true;
 			Center.setVisible(true);
 			Middle.setVisible(true);
 			CardLayout cl=(CardLayout)Center.getLayout();
@@ -401,6 +428,7 @@ class RentTruck extends JFrame{
 		@Override
 		
 		public void actionPerformed(ActionEvent ae) {
+			check = true;
 			Center.setVisible(true);
 			Middle.setVisible(true);
 			CardLayout c2=(CardLayout)Center.getLayout();
@@ -426,15 +454,37 @@ class RentTruck extends JFrame{
 			@Override
 			
 			public void actionPerformed(ActionEvent ae) {
-				Center.setVisible(true);
-				Middle.setVisible(true);
-				//Renting.setVisible(true);
-				CardLayout c3 = (CardLayout)Center.getLayout();
-				c3.show(Center, "C3");
-				CardLayout m2=(CardLayout)Middle.getLayout();
-				findPic(current);
-				m2.show(Middle, "C3");
+				if(check == false)
+				{
+					JOptionPane.showMessageDialog(frame, "You haven't choose any truck yet, please try again.");
+				}
+				else if(check == true)
+				{
+					Center.setVisible(true);
+					Middle.setVisible(true);
+					CardLayout c3 = (CardLayout)Center.getLayout();
+					c3.show(Center, "C3");
+					CardLayout m2=(CardLayout)Middle.getLayout();
+					findPic(current);
+					m2.show(Middle, "C3");
+				}
 			}
+			});
+		
+		fini.addActionListener(new ActionListener() {
+			@Override
+				public void actionPerformed(ActionEvent ae) {
+					if(weekls.getSelectedIndex() != -1 || monthls.getSelectedIndex() != -1)
+					{
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
+						Center.setVisible(true);
+						Middle.setVisible(true);
+						CardLayout c4 = (CardLayout)Center.getLayout();
+						c4.show(Center, "C4");
+					}
+					else
+						JOptionPane.showMessageDialog(frame, "You can't rent");
+				}
 			});
 	}
 
@@ -452,6 +502,10 @@ class RentTruck extends JFrame{
 		brand = t.getBrand();
 		cos = String.valueOf(t.getCost());
 		max = String.valueOf(t.getWeight());
+		if(t.isReserved() == true)
+			resr = "yes";
+		else if(t.isReserved() == false)
+			resr = "no";
 		
 		km = String.valueOf(t.getRecord().getKm_travel()); 
 		total = String.valueOf(t.getRecord().getTotalRent());
@@ -469,6 +523,7 @@ class RentTruck extends JFrame{
 		lbtotal.setText(total);
 		lblast.setText(lastrent);		
 		lbin.setText(income);
+		re.setText(resr);
 		
 		IDvls.setText(id);
 		Modelvls.setText(model);
@@ -481,6 +536,7 @@ class RentTruck extends JFrame{
 		lbtotals.setText(total);
 		lblasts.setText(lastrent);		
 		lbins.setText(income);
+		res.setText(resr);
 	}
 	
 	private JCheckBox createCheckBox(String name) {
