@@ -1,6 +1,9 @@
 package JFrame;
 
 import javax.swing.*;
+
+import user.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -133,10 +136,27 @@ class RegisterFrame extends JFrame implements ActionListener {
             String identity = identityText.getText();
             String userField =  this.userTextField.getText();
             char pwd[] = passwordField.getPassword();
-            char confirmpwd[] = confirmPasswordField.getPassword();            
-            if (nameText.isEmpty() || check(phone) == 0 || check(identity) == 0 || userField.isEmpty() || !Arrays.equals(pwd, confirmpwd)) {
-                JOptionPane.showMessageDialog(this, "You can't register");
-            } else {
+            char confirmpwd[] = confirmPasswordField.getPassword();
+            String license = (String) licenseBox.getSelectedItem();
+            if((String) licenseBox.getSelectedItem() == "B & C") {
+            	license = "B,C";
+            }
+            if (nameText.isEmpty() || check(phone) == 0 || check(identity) == 0 || userField.isEmpty()) {
+            	if(nameText.isEmpty() || userField.isEmpty()) {
+            		JOptionPane.showMessageDialog(this, "Please input all field");
+            	}
+            	if(check(phone) == 0 || check(identity) == 0) {
+            		JOptionPane.showMessageDialog(this, "Please input all field");
+            	}
+                
+            } 
+            if(!Arrays.equals(pwd, confirmpwd)) {
+            	JOptionPane.showMessageDialog(this, "Password and confirmed password must be matched!");
+            }
+            else {
+            	Member m = new Member();
+            	String pass = new String(pwd);
+            	m.CreateAccount(nameText, phone, license, userField, pass, identity);
                 JOptionPane.showMessageDialog(this, "Register Successful!");
             }
 

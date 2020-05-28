@@ -40,7 +40,7 @@ public class Admin extends User {
 	
 	//public boolean Logout() {}
 	
-	public void AddCar(Car c) {
+	public static void AddCar(Car c) {
 			try {
 				File file = new File("src/database/Car.xml");
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -97,7 +97,7 @@ public class Admin extends User {
 			}
 	}
 	
-	public void ModifyCar(String carID, String color, double cost) {
+	public static void ModifyCar(String carID, String color, double cost) {
 		try {
 			//doc file
 			File file = new File("src/database/Car.xml");
@@ -127,7 +127,7 @@ public class Admin extends User {
 		}
 	}
 	
-	public void DeleteCar(String carID) {
+	public static void DeleteCar(String carID) {
 		try {
 			//doc file
 			File file = new File("src/database/Car.xml");
@@ -155,7 +155,7 @@ public class Admin extends User {
 		}
 	}
 	
-	public void AddTruck(Truck tr) {
+	public static void AddTruck(Truck tr) {
 		try {
 			//doc file
 			File file = new File("src/database/test.xml");
@@ -211,7 +211,7 @@ public class Admin extends User {
 		
 	}
 	
-	public void ModifyTruck(String truckID, String color, double cost, double weight) {
+	public static void ModifyTruck(String truckID, String color, double cost, double weight) {
 		try {
 			
 			File file = new File("src/database/Truck.xml");
@@ -239,7 +239,7 @@ public class Admin extends User {
 		}
 	}
 	
-	public void DeleteTruck(String trID) {	
+	public static void DeleteTruck(String trID) {	
 		try {
 			//doc file
 			File file = new File("src/database/Truck.xml");
@@ -327,7 +327,7 @@ public class Admin extends User {
 		}
 	}
 	
-	public void ModifyOrder(String orderID, String customername, String return_date) {
+	public static void ModifyOrder(String orderID, String customername, String return_date) {
 		try {
 			
 			File file = new File("src/database/Order.xml");
@@ -354,7 +354,7 @@ public class Admin extends User {
 		}
 	}
 	
-	public void DeleteOrder(String orderID) {
+	public static void DeleteOrder(String orderID) {
 		try {
 			
 			//doc file

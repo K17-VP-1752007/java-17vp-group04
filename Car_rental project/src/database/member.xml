@@ -1,39 +1,85 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
+        
     <member>
+                
         <id>A100</id>
+                
         <username>Nguyen Van A</username>
+                
         <phonenumber>0548721015</phonenumber>
+                
         <loginname>nva_A100</loginname>
+                
         <password>abc123</password>
+                
         <licence>B2</licence>
+                
         <CMND>012458741</CMND>
+            
     </member>
+        
     <member>
+                
         <id>A101</id>
+                
         <username>Tran Van B</username>
+                
         <phonenumber>0352854752</phonenumber>
+                
         <loginname>tvb_A101</loginname>
+                
         <password>123abc</password>
+                
         <licence>B2</licence>
+                
         <CMND>025874125</CMND>
+            
     </member>
+        
     <member>
+                
         <id>A102</id>
+                
         <username>Vo Thi C</username>
+                
         <phonenumber>0258741236</phonenumber>
+                
         <loginname>vtc_A102</loginname>
+                
         <password>1a2b3c</password>
+                
         <licence>B2</licence>
+                
         <CMND>014785212</CMND>
+            
     </member>
+        
     <member>
+                
         <id>A103</id>
+                
         <username>Nguyen Hoang D</username>
+                
         <phonenumber>0287456321</phonenumber>
+                
         <loginname>nhd_A103</loginname>
+                
         <password>c3b2a1</password>
+                
         <licence>B2</licence>
+                
         <CMND>087563214</CMND>
+            
+    </member>
+    
+    <member>
+        <id>M104</id>
+        <username>John</username>
+        <phonenumber>0901612023</phonenumber>
+        <licence>B,C</licence>
+        <loginname>wick123</loginname>
+        <password>wick</password>
+        <CMND>090871234</CMND>
     </member>
 </data>

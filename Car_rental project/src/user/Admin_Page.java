@@ -10,11 +10,16 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import user.Image;
+import vehicle.*;
 
 class cardlay extends JFrame{
 	JLabel pic;
 	
+//	private static final long serialVersionUID = 1L;
 	JFrame frame = new JFrame("CGO - Admin");
+//	frame.setContentPane(new JLabel(new ImageIcon("src/user/main.jpg")));
+	
+	private VehicleList vl = new VehicleList();
 	
 	public cardlay(String title){
 		super(title);
@@ -56,7 +61,7 @@ class cardlay extends JFrame{
 		logo.setSize(80, 80);
 		logo.setFont(new Font("Arial", Font.BOLD, 20));
 		setPicture(logo, "./src/user/logocar.png");
-
+		//////
 		JLabel text = new JLabel("Honesty is the best policy");
 		JLabel intro = new JLabel("-- Click 2 buttons below to start working --");
 		text.setSize(200,200);
@@ -86,11 +91,9 @@ class cardlay extends JFrame{
 		pic = new JLabel();
 		pic.setPreferredSize(new Dimension(470, 448));
 		pic.setBorder(LineBorder.createBlackLineBorder());
-		pic.setSize(700, 580);
-		setPicture(pic, "./src/user/bentley.jpg");
+		pic.setSize(469, 447);
 		
 		pic.setBounds(5, 110, 677, 380);
-		
 		frame.add(pic);
 		
 		out.setBounds(608, 7, 77, 30);
@@ -407,7 +410,124 @@ class cardlay extends JFrame{
 			cl.show(Center, "C3");
 		}
 		});
+		
+		//-----------------------------Xe hoi------------------------------------------
+		
+		//tim xe hoi
+		searchbutton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				// doc vao toan bo xe tu database len
+				vl.ReadAllCar();
+				// lay id xe hoi muon tim kiem
+				String id_car_search = textSearch.getText();
+				for(int i = 0; i < vl.getCarlist().size(); i++) {
+					// doc trong array list, neu id xe trung khop thi lay len toan bo info r set gia tri cho textfield
+					if(vl.getCarlist().get(i).getID().equals(id_car_search)) {
+						String id_res_car = vl.getCarlist().get(i).getID();
+						String model_res_car = vl.getCarlist().get(i).getModel();
+						String color_res_car = vl.getCarlist().get(i).getColor();
+						String passenger_res_car = Integer.toString(vl.getCarlist().get(i).getPassenger());
+						String brand_res_car = vl.getCarlist().get(i).getBrand();
+						String reserved_res_car = "";
+						// neu bien reserved trong arraylist la true thi set yes, false thi no
+						if(vl.getCarlist().get(i).isReserved()) {
+							reserved_res_car = "yes";
+						}
+						else {
+							reserved_res_car = "no";
+						}
+						String cost_res_car = Double.toString(vl.getCarlist().get(i).getCost());
+						String type_res_car = vl.getCarlist().get(i).getType();
+						textID.setText(id_res_car);
+						textModel.setText(model_res_car);
+						textColor.setText(color_res_car);
+						textPass.setText(passenger_res_car);
+						textBrand.setText(brand_res_car);
+						textReserved.setText(reserved_res_car);
+						textCost.setText(cost_res_car);
+						textType.setText(type_res_car);
+						
+					}
+				}
+			}
+			
+		});
+		
+		//them xe hoi moi
+		add.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				//lay ra toan bo thong tin trong text field nhap vao
+				String id_new_car = textID.getText();
+				String model_new_car = textModel.getText();
+				String color_new_car = textColor.getText();
+				int passenger_new_car = Integer.parseInt(textPass.getText());
+				String brand_new_car = textBrand.getText();
+				double cost_new_car = Double.parseDouble(textCost.getText());
+				String type_new_car = textType.getText();
+				
+				// kt xem neu id xe da ton tai thi ko dc them
+				for(int i = 0; i < vl.getCarlist().size(); i++) {
+					if(vl.getCarlist().get(i).getID().equals(id_new_car)) {
+						JOptionPane.showMessageDialog((Component)e.getSource(), "This id already exists");
+					}
+				}
+				// tao 1 object car
+				Car c = new Car(id_new_car, model_new_car, color_new_car,passenger_new_car,brand_new_car,cost_new_car,null,type_new_car);
+
+				Admin.AddCar(c);
+				JOptionPane.showMessageDialog((Component)e.getSource(), "Add successfully");
+			}
+			
+		});
+		
+		
+		//xoa xe hoi
+		del.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				// lay ra id xe can xoa
+				String id_del_car = textID.getText();
+				for(int i = 0; i < vl.getCarlist().size(); i++) {
+					if(!vl.getCarlist().get(i).getID().equals(id_del_car)) {
+						JOptionPane.showMessageDialog((Component)e.getSource(), "ID car not exist!");
+					}
+				}
+				Admin.DeleteCar(id_del_car);
+			}
+			
+		});
+		
+		
+		//-----------------------------------------------Xe tai------------------------------------
+		
 	}
+	
+	/*public void run(){
+		int n = 1, i = -1;
+		String list[] = {"./src/user/Truck_Image/toyota_tacoma.jpg", "./src/user/Car_Image/audi_A5.jpg", "./src/user/Truck_Image/ram_chassis_cab.jpg", "./src/user/Car_Image/bmw_520i.jpg"};
+	 
+		try {
+		    do {
+				i++;
+		        setPicture(pic, list[i]);   
+		        if(i == 3)
+		        {
+		        	i = i - 4;
+		        }
+			Thread.sleep(1000);
+		    }while(n == 1);
+		 }catch (InterruptedException exc) {
+			System.out.println("Interrupted.");
+		 }
+	}*/
 
 	public void setPicture(JLabel label ,String filename){
        try {
@@ -441,5 +561,6 @@ public class Admin_Page{
 	public static void main(String[] args) {
 	
 		cardlay card = new cardlay("CGO - Admin");
+		//card.start();
 	}
 }

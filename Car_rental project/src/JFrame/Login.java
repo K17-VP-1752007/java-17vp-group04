@@ -1,6 +1,9 @@
 package JFrame;
 
 import javax.swing.*;
+
+import user.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -100,15 +103,22 @@ class Login extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginButton) {
             String userText;
-            
             char pwd[] = passwordField.getPassword();
-            
             userText = userTextField.getText();
-
-            
             if (userText.isEmpty() || pwd.length == 0) {
-                JOptionPane.showMessageDialog(this, "You can't login!");
-            } else {
+                JOptionPane.showMessageDialog(this, "Please type in username and password");
+            } 
+            else {
+            	String password = new String(pwd);
+            	// doc vao toan bo member co trong database
+            	MemberList ml = new MemberList();
+            	ml.ReadAllMember();
+            	for(int i = 0; i < ml.getMemberList().size(); i++) {
+            		//neu nhu co thong tin dang nhap trong database
+            		if(ml.getMemberList().get(i).Login(userText, password)) {
+            			JOptionPane.showMessageDialog(this, "Login successful!");
+            		}
+            	}
                 JOptionPane.showMessageDialog(this, "Login successful!");
             }
 
