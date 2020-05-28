@@ -2,13 +2,15 @@ package user;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
-import java.awt.Dimension;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,44 +26,50 @@ class Image extends Thread
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setResizable(false);
-		frame.setContentPane(new JLabel(new ImageIcon("src/user/main.jpg")));
+		ImageIcon A = new ImageIcon();
+		frame.setContentPane(new JLabel(new ImageIcon("src/user/sky.jpg")));
 		
 		JLabel cont = new JLabel("Making you most comfortable is our obligation", JLabel.CENTER);
 		cont.setSize(450, 450);
 		cont.setFont(new Font("Times New Roman", Font.ITALIC, 28));
-		cont.setForeground(Color.BLACK.darker());
+		cont.setForeground(Color.ORANGE.brighter());
+		
 		
 		JLabel logo = new JLabel("CGO", JLabel.LEFT);
 		logo.setSize(100, 135);
-		logo.setFont(new Font("Arial", Font.BOLD, 40));
+		logo.setFont(new Font("Arial", Font.BOLD, 35));
+		logo.setForeground(Color.ORANGE);
 		
 		JLabel text = new JLabel("We have the best policy!", JLabel.CENTER);
 		text.setSize(200,200);
-		text.setFont(new Font("Arial", Font.BOLD, 14));
-		text.setForeground(Color.DARK_GRAY);
+		text.setFont(new Font("Arial", Font.BOLD, 17));
+		text.setForeground(Color.ORANGE.brighter());
 		
 		JLabel box = new JLabel();
-		box.setSize(200,200);
-		box.setPreferredSize(new Dimension(200, 200));
+//		box.setSize(300,300);
+//		box.setPreferredSize(new Dimension(300, 200));
 		box.setBorder(LineBorder.createBlackLineBorder());
 		
 		JPanel choosebox = new JPanel();
-		choosebox.setSize(200,200);
-		choosebox.setPreferredSize(new Dimension(200, 200));
+		choosebox.setSize(300,200);
+		choosebox.setPreferredSize(new Dimension(300, 200));
 		choosebox.setBorder(LineBorder.createBlackLineBorder());
-		choosebox.setBackground(Color.DARK_GRAY);
+		choosebox.setBackground(Color.cyan.darker());
 
 		JLabel text1 = new JLabel("Cheap Service");
 		text1.setSize(200,200);
-		text1.setFont(new Font("Arial", Font.ITALIC, 14));
+		text1.setFont(new Font("Arial", Font.BOLD, 16));
+		text1.setForeground(Color.WHITE);
 		
 		JLabel text2 = new JLabel("Fast Transaction");
 		text2.setSize(200,200);
-		text2.setFont(new Font("Arial", Font.ITALIC, 14));
+		text2.setFont(new Font("Arial", Font.BOLD, 16));
+		text2.setForeground(Color.WHITE);
 		
 		JLabel text3 = new JLabel("Full Insurance Policy");
 		text3.setSize(200,200);
-		text3.setFont(new Font("Arial", Font.ITALIC, 14));
+		text3.setFont(new Font("Arial", Font.BOLD, 16));
+		text3.setForeground(Color.WHITE);
 		
 		JButton car = new JButton("Show Cars");
 		car.setFont(new Font("Arial", Font.ITALIC, 13));
@@ -124,20 +132,38 @@ class Image extends Thread
 		cont.setBounds(60, -5, 550, 100);
 		logo.setBounds(30, 60, 460, 100);
 		out.setBounds(608, 1, 77, 30);
-		text.setBounds(220, 28, 290, 100);
-		box.setBounds(280, 90, 315, 60);
+		text.setBounds(220, 35, 290, 100);
+		box.setBounds(280, 120, 315, 60);
 		choosebox.setBounds(20, 330, 150, 70);
-		text1.setBounds(290, 55, 380, 100);
-		text2.setBounds(450, 55, 380, 100);
-		text3.setBounds(450, 85, 380, 100);
+		text1.setBounds(290, 85, 380, 100);
+		text2.setBounds(450, 85, 380, 100);
+		text3.setBounds(360, 115, 380, 100);
 		car.setBounds(45, 300, 92, 30);
 		truck.setBounds(45, 370, 92, 30);
 		pic.setBounds(200, 190, 470, 360);
+		
+		car.addActionListener(new ActionListener() {
+			
+			@Override
+			
+				public void actionPerformed(ActionEvent ae) {
+					RentCar C = new RentCar();
+				}
+			});
+		
+		truck.addActionListener(new ActionListener() {
+			
+			@Override
+			
+				public void actionPerformed(ActionEvent ae) {
+					RentTruck T = new RentTruck();
+				}
+			});
 	}
     
 	public void run(){
 		int n = 1, i = -1;
-		String listing[] = {"src/user/civic.jpg","src/user/navara.jpg","src/user/ram chassis.jpg","src/user/tellu.jpg"};
+		String listing[] = {"src/user/Car_Image/audi_A5.jpg","src/user/Truck_Image/nissan_navaraE.jpg","src/user/Car_Image/mazda_3_luxury.jpg","src/user/Truck_Image/volvo_vnx_740.jpg"};
 	    try {
 	    	do {
 				i++;

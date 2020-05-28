@@ -43,12 +43,13 @@ class RentCar extends JFrame{
 	VehicleList A = new VehicleList();
 	
 	JFrame frame = new JFrame("CGO - Rent Car");
+
 	String getV() {
 		return value;
 	}
 	public RentCar(){
 		frame.setSize(450, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addControl();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
@@ -571,12 +572,12 @@ class RentCar extends JFrame{
  }
 }
 
-public class RentCar_Page{
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				new RentCar();
-			}
-			});
-	}
-}
+//public class RentCar_Page{
+//	public static void main(String[] args) {
+//		SwingUtilities.invokeLater(new Runnable() {
+//			public void run() {
+//				new RentCar();
+//			}
+//			});
+//	}
+//}

@@ -50,7 +50,7 @@ class RentTruck extends JFrame{
 	}
 	public RentTruck(){
 		frame.setSize(450, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addControl();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
