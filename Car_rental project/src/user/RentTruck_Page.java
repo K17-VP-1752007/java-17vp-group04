@@ -126,7 +126,6 @@ class RentTruck extends JFrame{
 	
 		final JPanel Center = new JPanel();
 		final JPanel Middle = new JPanel();
-		final JPanel Renting = new JPanel();
 		
 		Center.setLayout(new CardLayout());
 		Center.setVisible(false);
@@ -134,8 +133,6 @@ class RentTruck extends JFrame{
 		Middle.setLayout(new CardLayout());
 		Middle.setVisible(false);
 		
-		Renting.setLayout(new CardLayout());
-		Renting.setVisible(false);
 		
 		final JPanel Mid = new JPanel();
 	
@@ -238,7 +235,7 @@ class RentTruck extends JFrame{
 		JLabel Choose = new JLabel("     Choose type : ");
 		Choose.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		JPanel Bigbox = new JPanel(new BorderLayout());
+		JPanel Bigbox = new JPanel(new GridLayout(1, 0));
 		JPanel panelCheckBox = new JPanel(new GridLayout(1, 0));
 		
 	    panelCheckBox.add(week = createCheckBox("WEEK"));
@@ -362,22 +359,15 @@ class RentTruck extends JFrame{
 		
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
-		Renting.add(Card3,"C3");
+		Center.add(Card3,"C3");
 		
 		Middle.add(Mid, "C1");
 		JPanel Flow = new JPanel();
 		Flow.setLayout(new GridLayout(2, 1));
 		Flow.add(Middle);
 		Flow.add(Center);
-		
-		JPanel Flow1 = new JPanel();
-		Flow1.setLayout(new GridLayout(2, 1));
-		Flow1.add(Middle);
-		Flow1.add(Renting);
 
-		
-//		Border.add(Flow,BorderLayout.CENTER);
-		Border.add(Flow1,BorderLayout.CENTER);
+		Border.add(Flow,BorderLayout.CENTER);
 		Container con = frame.getContentPane();
 		con.add(Border);
 		
@@ -388,7 +378,6 @@ class RentTruck extends JFrame{
 		public void actionPerformed(ActionEvent ae) {
 			Center.setVisible(true);
 			Middle.setVisible(true);
-//			Renting.setVisible(true);
 			CardLayout cl=(CardLayout)Center.getLayout();
 			cl.show(Center, "C1");
 			CardLayout m1=(CardLayout)Middle.getLayout();
@@ -414,7 +403,6 @@ class RentTruck extends JFrame{
 		public void actionPerformed(ActionEvent ae) {
 			Center.setVisible(true);
 			Middle.setVisible(true);
-//			Renting.setVisible(false);
 			CardLayout c2=(CardLayout)Center.getLayout();
 			c2.show(Center, "C2");
 			CardLayout m2=(CardLayout)Middle.getLayout();
@@ -438,15 +426,13 @@ class RentTruck extends JFrame{
 			@Override
 			
 			public void actionPerformed(ActionEvent ae) {
-				//Center.setVisible(false);
+				Center.setVisible(true);
 				Middle.setVisible(true);
-				Renting.setVisible(true);
-				CardLayout c3 = (CardLayout)Renting.getLayout();
-				c3.show(Renting, "C3");
+				//Renting.setVisible(true);
+				CardLayout c3 = (CardLayout)Center.getLayout();
+				c3.show(Center, "C3");
 				CardLayout m2=(CardLayout)Middle.getLayout();
 				findPic(current);
-				//setPicture(finalpic,value);
-//				i = Integer.parseInt(id);
 				m2.show(Middle, "C3");
 			}
 			});
