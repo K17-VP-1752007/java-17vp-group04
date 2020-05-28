@@ -20,7 +20,7 @@ class cardlay extends Thread{
 	
 	public cardlay(String title){
 		super(title);
-		frame.setSize(700, 500);
+		frame.setSize(700, 580);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addControl();
 		frame.setLocationRelativeTo(null);
@@ -91,7 +91,7 @@ class cardlay extends Thread{
 		pic.setSize(469, 447);
 		
 		pic.setBounds(5, 110, 677, 380);
-//		frame.add(pic);
+		frame.add(pic);
 		
 		out.setBounds(608, 7, 77, 30);
 		logo.setBounds(10, -25, 300, 100);
@@ -409,24 +409,24 @@ class cardlay extends Thread{
 		});
 	}
 	
-//	public void run(){
-//		int n = 1, i = -1;
-//		String list[] = {"./src/user/civic.jpg","./src/user/navara.jpg","./src/user/ram chassis.jpg","./src/user/tellu.jpg"};
-//	 
-//		try {
-//		    do {
-//				i++;
-//		        setPicture(pic, list[i]);   
-//		        if(i == 3)
-//		        {
-//		        	i = i - 4;
-//		        }
-//			Thread.sleep(1000);
-//		    }while(n == 1);
-//		 }catch (InterruptedException exc) {
-//			System.out.println("Interrupted.");
-//		 }
-//	}
+	public void run(){
+		int n = 1, i = -1;
+		String list[] = {"./src/user/Truck_Image/toyota_tacoma.jpg", "./src/user/Car_Image/audi_A5.jpg", "./src/user/Truck_Image/ram_chassis_cab.jpg", "./src/user/Car_Image/bmw_520i.jpg"};
+	 
+		try {
+		    do {
+				i++;
+		        setPicture(pic, list[i]);   
+		        if(i == 3)
+		        {
+		        	i = i - 4;
+		        }
+			Thread.sleep(1000);
+		    }while(n == 1);
+		 }catch (InterruptedException exc) {
+			System.out.println("Interrupted.");
+		 }
+	}
 
 	public void setPicture(JLabel label ,String filename){
        try {
@@ -459,7 +459,7 @@ class cardlay extends Thread{
 public class Admin_Page{
 	public static void main(String[] args) {
 	
-		cardlay card =new cardlay("CGO - Admin");
-		//card.start();
+		cardlay card = new cardlay("CGO - Admin");
+		card.start();
 	}
 }
