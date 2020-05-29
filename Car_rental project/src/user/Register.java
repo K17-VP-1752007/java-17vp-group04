@@ -217,6 +217,7 @@ class RegisterFrame extends JFrame implements ActionListener {
             } 
             if(!Arrays.equals(pwd, confirmpwd)) {
             	JOptionPane.showMessageDialog(this, "Password and confirmed password must be matched!");
+            	return;
             }
             else {
             	Member m = new Member();
