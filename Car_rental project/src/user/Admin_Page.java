@@ -15,9 +15,7 @@ import vehicle.*;
 class cardlay extends JFrame{
 	JLabel pic;
 	
-//	private static final long serialVersionUID = 1L;
 	JFrame frame = new JFrame("CGO - Admin");
-//	frame.setContentPane(new JLabel(new ImageIcon("src/user/main.jpg")));
 	
 	private VehicleList vl = new VehicleList();
 	
@@ -61,7 +59,7 @@ class cardlay extends JFrame{
 		logo.setSize(80, 80);
 		logo.setFont(new Font("Arial", Font.BOLD, 20));
 		setPicture(logo, "./src/user/logocar.png");
-		//////
+
 		JLabel text = new JLabel("Honesty is the best policy");
 		JLabel intro = new JLabel("-- Click 2 buttons below to start working --");
 		text.setSize(200,200);
@@ -91,7 +89,8 @@ class cardlay extends JFrame{
 		pic = new JLabel();
 		pic.setPreferredSize(new Dimension(470, 448));
 		pic.setBorder(LineBorder.createBlackLineBorder());
-		pic.setSize(469, 447);
+		pic.setSize(700, 600);
+		setPicture(pic, "./src/user/bentley.jpg");
 		
 		pic.setBounds(5, 110, 677, 380);
 		frame.add(pic);

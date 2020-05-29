@@ -1,86 +1,128 @@
-package JFrame;
+package user;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import user.*;
+import user.Image;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 class Login extends JFrame implements ActionListener {
 	
 	Container container = getContentPane();
     JLabel userLabel = new JLabel("USERNAME");
     JLabel passwordLabel = new JLabel("PASSWORD");
-    String text = "Login as Admin";
-    JLabel hyperlink = new JLabel(text);
     JLabel createAccount = new JLabel("DON'T HAVE ACCOUNT?");
-    String text1 = "REGISTER NOW!";
-    JLabel hyperlink1 = new JLabel(text1);
+    JLabel hyperlink1 = new JLabel("REGISTER NOW!");
     JTextField userTextField = new JTextField();
     JPasswordField passwordField = new JPasswordField();
     JButton loginButton = new JButton("LOGIN");
     JButton resetButton = new JButton("RESET");
-    JCheckBox showPassword = new JCheckBox("Show password");
-
+    JLabel logo = new JLabel("CGO");
+    JLabel logo_Car = new JLabel();
+    
     Login() {
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
+        ImagePanel panel = new ImagePanel(new ImageIcon("./src/user/sky.jpg").getImage());
+        container.add(panel);
         addActionEvent();
-        
         setTitle("Login Form");
         setVisible(true);
-        setBounds(10, 10, 530, 400);
+        setBounds(10, 10, 530, 360);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
     }
+    
+    public void setPicture(JLabel label ,String filename){
+        try {
+          BufferedImage image = ImageIO.read(new File(filename));
+          int x = label.getSize().width;
+          int y = label.getSize().height;
+          int ix = image.getWidth();
+          int iy = image.getHeight();
+
+          int dx = 0;
+          int dy = 0;
+
+          if(x/y > ix/iy){
+              dy = y;
+              dx = dy*ix/iy;
+          }
+          else{
+              dx = x;
+              dy = dx*iy/ix;
+          }
+
+          ImageIcon icon = new ImageIcon(image.getScaledInstance(dx, dy, BufferedImage.SCALE_SMOOTH));
+          label.setIcon(icon);
+      } catch (IOException ex) {
+          Logger.getLogger(Image.class.getName()).log(Level.SEVERE, null, ex);
+      }
+  }
 
     public void setLayoutManager() {
         container.setLayout(null);
     }
 
     public void setLocationAndSize() {
-        userLabel.setBounds(40, 60, 150, 30);
-        passwordLabel.setBounds(40, 110, 150, 30);
-        userTextField.setBounds(200, 60, 250, 30);
-        passwordField.setBounds(200, 110, 250, 30);
-        showPassword.setBounds(340, 150, 150, 30);
-        loginButton.setBounds(100, 240, 100, 30);
-        resetButton.setBounds(300, 240, 100, 30);
-        hyperlink.setBounds(335, 290, 150, 30);
-        createAccount.setBounds(150, 190, 150, 30);
-        hyperlink1.setBounds(298, 190, 150, 30);
-
+    	logo.setBounds(280, 15, 80, 80);
+		
+		logo_Car.setBounds(180, 5, 100, 100);
+		setPicture(logo_Car, "./src/user/logocar.png");
+        userLabel.setBounds(40, 100, 150, 30);
+        passwordLabel.setBounds(40, 150, 150, 30);
+        userTextField.setBounds(200, 100, 250, 30);
+        passwordField.setBounds(200, 150, 250, 30);
+        loginButton.setBounds(120, 260, 100, 30);
+        resetButton.setBounds(320, 260, 100, 30);
+        createAccount.setBounds(155, 200, 200, 30);
+        hyperlink1.setBounds(332, 201, 150, 30);
     }
 
     public void addComponentsToContainer() {
-        container.add(userLabel);
+    	container.add(logo_Car);
+    	container.add(logo);
+    	container.add(userLabel);
         container.add(passwordLabel);
         container.add(userTextField);
         container.add(passwordField);
-        container.add(showPassword);
         container.add(loginButton);
         container.add(resetButton);
-        container.add(hyperlink);
         container.add(createAccount);
         container.add(hyperlink1);
     }
 
     public void addActionEvent() {
-    	hyperlink.setForeground(Color.BLACK.darker());
-    	hyperlink.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    	hyperlink.setFont(new Font("Arial", Font.ITALIC, 13));
+    	logo.setFont(new Font("Arial", Font.BOLD, 30));
+		logo.setForeground(Color.ORANGE);
+		
+		userLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        userLabel.setForeground(Color.WHITE.brighter());
         
-    	hyperlink1.setForeground(Color.BLACK.darker());
+        passwordLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        passwordLabel.setForeground(Color.WHITE.brighter());
+		
+        createAccount.setFont(new Font("Arial", Font.BOLD, 14));
+        createAccount.setForeground(Color.WHITE.brighter());
+        
+    	hyperlink1.setForeground(Color.ORANGE.brighter());
     	hyperlink1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    	hyperlink1.setFont(new Font("Arial", Font.BOLD, 10));
+    	hyperlink1.setFont(new Font("Arial", Font.BOLD, 14));
     	
     	hyperlink1.addMouseListener(new MouseAdapter() {
     		public void mouseClicked (MouseEvent e) {
@@ -94,9 +136,6 @@ class Login extends JFrame implements ActionListener {
         
     	resetButton.addActionListener(this);
         resetButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        
-        showPassword.addActionListener(this);
-        showPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }
 
     @Override
@@ -127,15 +166,27 @@ class Login extends JFrame implements ActionListener {
             userTextField.setText("");
             passwordField.setText("");
         }
-        if (e.getSource() == showPassword) {
-            if (showPassword.isSelected()) {
-                passwordField.setEchoChar((char) 0);
-            } else {
-                passwordField.setEchoChar('*');
-            }
-
-
-        }
     }
+}
 
+class ImagePanel extends JPanel {
+	  private java.awt.Image img;
+
+	  public ImagePanel(String img) {
+	    this(new ImageIcon(img).getImage());
+	  }
+
+	  public ImagePanel(java.awt.Image image) {
+	    this.img = image;
+	    Dimension size = new Dimension(image.getWidth(null), image.getHeight(null));
+	    setPreferredSize(size);
+	    setMinimumSize(size);
+	    setMaximumSize(size);
+	    setSize(size);
+	    setLayout(null);
+	  }
+
+	  public void paintComponent(Graphics g) {
+	    g.drawImage(img, 0, 0, null);
+	  }
 }

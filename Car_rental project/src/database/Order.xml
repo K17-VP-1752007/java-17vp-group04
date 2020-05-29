@@ -7,7 +7,7 @@
         <vehicleID>1000</vehicleID>
         <startDate>20/6/2000</startDate>
         <returnDate>12/7/2000</returnDate>
-        <license>B1</license>
+        <license>B</license>
         <rentType>2</rentType>
         <totalCost>2000000</totalCost>
     </order>
