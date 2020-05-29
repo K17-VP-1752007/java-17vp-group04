@@ -15,8 +15,8 @@ import vehicle.VehicleList;
 
 class RentCar extends JFrame{
 	JLabel pic;
-	int i = 1000;
 	int current;
+	int i, y;
 	JLabel finalpic;
 	String value;
 	String id;
@@ -53,7 +53,10 @@ class RentCar extends JFrame{
 		addControl();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		frame.setResizable(false);	
+		frame.setResizable(false);
+		A.ReadAllCar();
+		i = 999;
+		y = 1000 + A.getCarlist().size();
 	}
 	
 	public void addControl(){
@@ -79,8 +82,6 @@ class RentCar extends JFrame{
 		
 		JLabel cont = new JLabel("                               ", JLabel.CENTER);
 		cont.setSize(200, 400);
-		
-		JButton out = new JButton("Log out");
 		
 		JLabel logo = new JLabel("CGO");
 		logo.setSize(55, 55);
@@ -114,7 +115,6 @@ class RentCar extends JFrame{
 		
 		Border.add(down,BorderLayout.SOUTH);
 		
-		out.setBounds(357, 2, 77, 30);
 		logo.setBounds(10, -25, 300, 100);
 		text.setBounds(30, 7, 550, 100);
 		intro.setBounds(80, 30, 500, 130);
@@ -123,7 +123,6 @@ class RentCar extends JFrame{
 		frame.add(text);
 		frame.add(intro);
 		frame.add(logo);
-		frame.add(out);
 		frame.add(pic);
 		
 	
@@ -404,6 +403,12 @@ class RentCar extends JFrame{
 				check  = true;
 				Center.setVisible(true);
 				Middle.setVisible(true);
+				
+				i--;
+				if(i < 1000)
+					i = 1019;
+				y = i;
+				
 				CardLayout cl=(CardLayout)Center.getLayout();
 				cl.show(Center, "C1");
 				CardLayout m1=(CardLayout)Middle.getLayout();
@@ -413,12 +418,6 @@ class RentCar extends JFrame{
 				i = Integer.parseInt(id);
 				m1.show(Middle, "C1");
 				current = i;
-				
-				if(i == 1000)
-				{
-					i = 1020;
-				}
-				i = i - 1;
 			}
 		});
 		
@@ -430,21 +429,21 @@ class RentCar extends JFrame{
 				check  = true;
 				Center.setVisible(true);
 				Middle.setVisible(true);
+				
+				y++;
+				if(y > 1019)
+					y = 1000;
+				i = y;
+				
 				CardLayout c2=(CardLayout)Center.getLayout();
 				c2.show(Center, "C2");
 				CardLayout m2=(CardLayout)Middle.getLayout();
-				findPic(i);
-				setPicture(finalpic,value);
-				i = Integer.parseInt(id);
-				m2.show(Middle, "C2");
-				current = i;
 				
-				if(i == 1019)
-				{
-					i = 999;
-	
-				}
-				i = i + 1;
+				findPic(y);
+				setPicture(finalpic,value);
+				y = Integer.parseInt(id);
+				m2.show(Middle, "C2");
+				current = y;
 			}
 		});
 		
@@ -489,7 +488,6 @@ class RentCar extends JFrame{
 	}
 	
 	public void findPic(int i) {
-		A.ReadAllCar();
 		Car c = new Car();
 		c = A.searchCarByID(String.valueOf(i));
 		c.ViewRecord();

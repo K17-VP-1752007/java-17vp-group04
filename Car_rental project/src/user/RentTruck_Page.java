@@ -16,7 +16,7 @@ import vehicle.VehicleList;
 
 class RentTruck extends JFrame{
 	JLabel pic;
-	int i = 3000;
+	int i,y;
 	int current;
 	JLabel finalpic;
 	String value;
@@ -55,6 +55,9 @@ class RentTruck extends JFrame{
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setResizable(false);	
+		A.ReadAllTruck();
+		i = 2999;
+		y = 3000 + A.getTruckList().size();
 	}
 	
 	public void addControl(){
@@ -80,8 +83,6 @@ class RentTruck extends JFrame{
 		
 		JLabel cont = new JLabel("                               ", JLabel.CENTER);
 		cont.setSize(200, 400);
-		
-		JButton out = new JButton("Log out");
 		
 		JLabel logo = new JLabel("CGO");
 		logo.setSize(55, 55);
@@ -115,7 +116,6 @@ class RentTruck extends JFrame{
 		
 		Border.add(down,BorderLayout.SOUTH);
 		
-		out.setBounds(357, 2, 77, 30);
 		logo.setBounds(10, -25, 300, 100);
 		text.setBounds(30, 7, 550, 100);
 		intro.setBounds(80, 30, 500, 130);
@@ -124,7 +124,6 @@ class RentTruck extends JFrame{
 		frame.add(text);
 		frame.add(intro);
 		frame.add(logo);
-		frame.add(out);
 		frame.add(pic);
 	
 		final JPanel Center = new JPanel();
@@ -405,6 +404,12 @@ class RentTruck extends JFrame{
 			check = true;
 			Center.setVisible(true);
 			Middle.setVisible(true);
+			
+			i--;
+			if(i < 3000)
+				i = 3009;
+			y = i;
+			
 			CardLayout cl=(CardLayout)Center.getLayout();
 			cl.show(Center, "C1");
 			CardLayout m1=(CardLayout)Middle.getLayout();
@@ -415,11 +420,6 @@ class RentTruck extends JFrame{
 			m1.show(Middle, "C1");
 			current = i;
 			
-			if(i == 3000)
-			{
-				i = 3010;
-			}
-			i = i - 1;
 		}
 		});
 		
@@ -431,6 +431,12 @@ class RentTruck extends JFrame{
 			check = true;
 			Center.setVisible(true);
 			Middle.setVisible(true);
+			
+			y++;
+			if(y > 3009)
+				y = 3000;
+			i = y;
+			
 			CardLayout c2=(CardLayout)Center.getLayout();
 			c2.show(Center, "C2");
 			CardLayout m2=(CardLayout)Middle.getLayout();
@@ -440,12 +446,6 @@ class RentTruck extends JFrame{
 			m2.show(Middle, "C2");
 			current = i;
 			
-			if(i == 3009)
-			{
-				i = 2999;
-
-			}
-			i = i + 1;
 		}
 		});
 		
@@ -489,7 +489,6 @@ class RentTruck extends JFrame{
 	}
 
 	public void findPic(int i) {
-		A.ReadAllTruck();
 		Truck t = new Truck();
 		t = A.searchTruckByID(String.valueOf(i));
 		t.ViewRecord();
