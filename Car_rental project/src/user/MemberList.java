@@ -11,10 +11,13 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import vehicle.Car;
+import vehicle.Truck;
+
 public class MemberList {
 	private ArrayList<Member> memberList;
 	
-	public MemberList() {
+	public MemberList(){
 		memberList = new ArrayList<Member>();
 	}
 
@@ -34,6 +37,7 @@ public class MemberList {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(file);
+			doc.getDocumentElement().normalize();
 			
 			NodeList member_list = doc.getElementsByTagName("member");
 			for(int i = 0; i < member_list.getLength(); i++) {

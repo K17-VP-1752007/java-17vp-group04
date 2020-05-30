@@ -31,6 +31,8 @@ class Login extends JFrame implements ActionListener {
     JButton resetButton = new JButton("RESET");
     JLabel logo = new JLabel("CGO");
     JLabel logo_Car = new JLabel();
+	MemberList ml = new MemberList();
+	Member m = new Member();
     
     Login() {
         setLayoutManager();
@@ -42,6 +44,7 @@ class Login extends JFrame implements ActionListener {
         setTitle("Login Form");
         setVisible(true);
         setBounds(10, 10, 530, 360);
+        ml.ReadAllMember();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -148,17 +151,26 @@ class Login extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "Please type in username and password");
                 return;
             } 
+            
             else {
             	String password = new String(pwd);
             	// doc vao toan bo member co trong database
-            	MemberList ml = new MemberList();
-            	ml.ReadAllMember();
+            
             	for(int i = 0; i < ml.getMemberList().size(); i++) {
             		//neu nhu co thong tin dang nhap trong database
             		if(ml.getMemberList().get(i).Login(userText, password)) {
+            			
+            			m = ml.getMemberAccount(userText, password);
             			JOptionPane.showMessageDialog(this, "Login successful!");
+            			 Image User = new Image();
+            			 User.start();
+             			 this.setVisible(false);
+             			   m.Output();
+             			 return;
             		}
             	}
+            	JOptionPane.showMessageDialog(this, "Username or Password is incorrect. Try again!");
+            	return;
             }
 
         }
@@ -166,6 +178,7 @@ class Login extends JFrame implements ActionListener {
             userTextField.setText("");
             passwordField.setText("");
         }
+     
     }
 }
 

@@ -159,6 +159,16 @@ class Image extends Thread
 					RentTruck T = new RentTruck();
 				}
 			});
+		
+		out.addActionListener(new ActionListener() {
+			
+			@Override
+			
+				public void actionPerformed(ActionEvent ae) {
+					Login lg = new Login();
+					frame.setVisible(false);
+				}
+			});
 	}
     
 	public void run(){

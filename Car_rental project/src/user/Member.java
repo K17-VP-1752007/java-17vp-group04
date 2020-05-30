@@ -47,6 +47,27 @@ public class Member extends User {
 		setCMND(CMND);
 	}
 	
+	public Member(Member m) {
+		this.setID(m.getID());
+		this.setLogin_name(m.getLogin_name());
+		this.setName(m.getName());
+		this.setNumber(m.getNumber());
+		this.setPassword(m.getPassword());
+		this.setLicence(m.getLicence());
+		this.setCMND(m.getCMND());
+	}
+	
+	public void Output()
+	{
+		System.out.println(this.getID());
+		System.out.println(this.getName());
+		System.out.println(this.getNumber());
+		System.out.println(this.getLogin_name());
+		System.out.println(this.getPassword());
+		System.out.println(this.getLicence());
+		System.out.println(this.getCMND());
+	}
+	
 	public String getLicence() {
 		return Licence;
 	}
