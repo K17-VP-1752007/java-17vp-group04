@@ -57,7 +57,27 @@ class cardlay extends JFrame{
 		cont.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		cont.setForeground(Color.BLACK.darker());
 		
-		JButton out = new JButton("Log out");
+//		JButton out = new JButton("Log out");
+		JPanel menu = new JPanel(new FlowLayout());
+		JMenuBar me = new JMenuBar();
+		
+		JMenu Ad = new JMenu("Hi Admin");
+		Ad.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		JMenuItem out = new JMenuItem("Log out", KeyEvent.VK_O);
+		out.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,InputEvent.CTRL_DOWN_MASK));
+		out.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		JLabel us = new JLabel();
+		us.setSize(20,20);
+		setPicture(us, "src/user/userlogo.png");
+		
+		Ad.add(out);
+		me.add(Ad);
+		menu.add(us);
+		menu.add(me);
+		menu.setOpaque(false);
+		menu.setSize(120, 50);
 		
 		JLabel logo = new JLabel("CGO");
 		logo.setSize(80, 80);
@@ -103,11 +123,12 @@ class cardlay extends JFrame{
 		logo.setBounds(10, -25, 300, 100);
 		text.setBounds(235, 0, 550, 100);
 		intro.setBounds(170, 10, 500, 130);
+		menu.setBounds(572, -3, 150, 50);
 		
 		frame.add(text);
+		frame.add(menu);
 		frame.add(intro);
 		frame.add(logo);
-		frame.add(out);
 	
 		final JPanel Center = new JPanel();
 		Center.setLayout(new CardLayout());
@@ -412,6 +433,16 @@ class cardlay extends JFrame{
 			Center.setVisible(true);
 			CardLayout cl = (CardLayout)Center.getLayout();
 			cl.show(Center, "C3");
+		}
+		});
+		
+		out.addActionListener(new ActionListener() {
+			
+			@Override
+			
+		public void actionPerformed(ActionEvent ae) {
+			Login lg = new Login();
+			frame.setVisible(false);
 		}
 		});
 		

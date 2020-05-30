@@ -209,8 +209,7 @@ class ImagePanel extends JPanel {
 }
 
 public class LoginForm {
-public static void main(String[] a) {
-  Login log = new Login();
-}
-
+	public static void main(String[] a) {
+	  Login log = new Login();
+	}
 }

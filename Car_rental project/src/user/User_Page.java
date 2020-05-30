@@ -193,8 +193,6 @@ class Image extends Thread
 			@Override
 			
 				public void actionPerformed(ActionEvent ae) {
-				UserName.setBorder(BorderFactory.createMatteBorder(1, 5, 1, 1, Color.ORANGE));
-			
 					Login lg = new Login();
 					frame.setVisible(false);
 				}
