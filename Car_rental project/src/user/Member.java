@@ -226,8 +226,8 @@ public class Member extends User {
 			double total_cost = CalculateCost(return_date,init_cost,rent_type);
 			
 			// tao 1 order
-			Order ord = new Order(this.getID(),this.getName(), v.getID(),start_date,return_date,this.getLicence(),rent,total_cost);
-			CreateOrder(ord);
+//			Order ord = new Order(this.getID(), this.getName(), v.getID(), start_date, return_date, this.getLicence(), rent, total_cost);
+//			CreateOrder(ord);
 			
 			
 		}catch(Exception e) {

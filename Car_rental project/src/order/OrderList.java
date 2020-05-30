@@ -13,6 +13,10 @@ import org.w3c.dom.NodeList;
 
 public class OrderList {
 	private ArrayList<Order> orderList;
+	
+	public OrderList() {
+		orderList = new ArrayList<Order>();
+	}
 
 	public ArrayList<Order> getOrder_list() {
 		return orderList;
@@ -23,6 +27,7 @@ public class OrderList {
 	}
 	
 	public void ReadAllOrder() {
+		orderList.clear();
 		try {
 			
 			//Doc tu file xml doc len
@@ -34,11 +39,13 @@ public class OrderList {
 			
 			//Lay danh sach cac tag <order>...</order>
 			NodeList order_list = doc.getElementsByTagName("order");
+			
 			for(int i = 0; i < order_list.getLength(); i++) {
 				Order ord = new Order();
 				Node order = order_list.item(i);
 				Element element = (Element) order;
 				
+				ord.setOrder(element.getElementsByTagName("orderID").item(0).getTextContent());
 				ord.setCustomer(element.getElementsByTagName("customerID").item(0).getTextContent());
 				ord.setName(element.getElementsByTagName("name").item(0).getTextContent());
 				ord.setVehicle(element.getElementsByTagName("vehicleID").item(0).getTextContent());

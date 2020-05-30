@@ -1,12 +1,7 @@
 package order;
 
 public class Order {
-	
-	static int num;
-	private String orderID;{
-		setOrder("0" + Integer.toString(1000 + num));
-		num++;
-	}
+	private String orderID;
 	private String customerID;
 	private String customerName;
 	private String vehicleID;
@@ -28,8 +23,8 @@ public class Order {
 		total_cost = 0;
 	}
 	
-	public Order(String cust, String name, String vehicle, String start, String end,  String license, int type, double cost){
-		
+	public Order(String ord, String cust, String name, String vehicle, String start, String end,  String license, int type, double cost){
+		orderID = ord;
 		customerID = cust;
 		customerName = name;
 		vehicleID = vehicle;

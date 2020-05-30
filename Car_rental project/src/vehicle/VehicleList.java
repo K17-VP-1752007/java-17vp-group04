@@ -41,6 +41,7 @@ public class VehicleList {
 	}
 	
 	public void ReadAllCar() {
+		carlist.clear();
 		try {
 			File file = new File("src/database/Car.xml");
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -74,6 +75,7 @@ public class VehicleList {
 	}
 	
 	public void ReadAllTruck() {
+		truckList.clear();
 		try {
 			File file = new File("src/database/Truck.xml");
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

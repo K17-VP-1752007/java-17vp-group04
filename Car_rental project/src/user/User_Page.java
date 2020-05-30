@@ -40,7 +40,6 @@ class Image extends Thread
 		cont.setFont(new Font("Times New Roman", Font.ITALIC, 28));
 		cont.setForeground(Color.ORANGE.brighter());
 		
-		
 		JLabel logo = new JLabel("CGO", JLabel.LEFT);
 		logo.setSize(100, 135);
 		logo.setFont(new Font("Arial", Font.BOLD, 35));

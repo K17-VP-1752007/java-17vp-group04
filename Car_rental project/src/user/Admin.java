@@ -159,6 +159,7 @@ public class Admin extends User {
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
+	
 	}
 	
 	public static void AddTruck(Truck tr) {
@@ -204,6 +205,10 @@ public class Admin extends User {
 			Element Im = doc.createElement("img");
 			Im.appendChild(doc.createTextNode(tr.getImg()));
 			truck.appendChild(Im);
+			
+			Element reserved = doc.createElement("reserved");
+			reserved.appendChild(doc.createTextNode(Boolean.toString(tr.isReserved())));
+			truck.appendChild(reserved);
 			
 			// add node truck vao node data
 			data.appendChild(truck);
@@ -348,12 +353,11 @@ public class Admin extends User {
 			
 			NodeList id_order_list = doc.getElementsByTagName("orderID");
 			for(int i = 0; i < id_order_list.getLength(); i++) {
-				if(ord.getOrder().equals(id_order_list.item(0).getTextContent())) {
+				if(ord.getOrder().equals(id_order_list.item(i).getTextContent())) {
 					Node order = id_order_list.item(i).getParentNode();
 					Element element = (Element) order;
 					//thay cac thong tin order trong file xml bang thong tin cua Order ord
 					
-					element.getElementsByTagName("orderID").item(0).setTextContent(ord.getOrder());
 					element.getElementsByTagName("customerID").item(0).setTextContent(ord.getCustomer());
 					element.getElementsByTagName("name").item(0).setTextContent(ord.getName());
 					element.getElementsByTagName("vehicleID").item(0).setTextContent(ord.getVehicle());
@@ -376,7 +380,6 @@ public class Admin extends User {
 	
 	public static void DeleteOrder(String orderID) {
 		try {
-			
 			//doc file
 			File file = new File("src/database/Order.xml");
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
