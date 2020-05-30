@@ -270,9 +270,9 @@ class ImagePanel1 extends JPanel {
 	  }
 }
 
-public class Register {
-    public static void main(String[] a) {
-        RegisterFrame register = new RegisterFrame();
-    }
-
-}
+//public class Register {
+//    public static void main(String[] a) {
+//        RegisterFrame register = new RegisterFrame();
+//    }
+//
+//}

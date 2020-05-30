@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,14 +15,18 @@ import javax.swing.border.LineBorder;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import user.Member;
 
 class Image extends Thread
 {
 	JLabel pic;
 	JFrame frame = new JFrame("CGO - User");
+	Member User = new Member();
+	
 	
 	public Image()
 	{
+		User.CopyMem(Login.getMem());
 		frame.setSize(700, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		frame.setLocationRelativeTo(null);
@@ -73,17 +79,38 @@ class Image extends Thread
 		
 		JButton car = new JButton("Show Cars");
 		car.setFont(new Font("Arial", Font.ITALIC, 13));
+		car.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JButton truck = new JButton("Show Trucks");
 		truck.setFont(new Font("Arial", Font.ITALIC, 13));
+		truck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
-		JButton out = new JButton("Log out");
+		JPanel menu = new JPanel(new FlowLayout());
+		JMenuBar me = new JMenuBar();
+		
+		JMenu UserName = new JMenu("Hi " + ((User.getName() == null)?"User":User.getName()));
+		UserName.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		JMenuItem out = new JMenuItem("Log out", KeyEvent.VK_O);
+		out.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,InputEvent.CTRL_DOWN_MASK));
+		out.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		JLabel us = new JLabel();
+		us.setSize(20,20);
+		
+		UserName.add(out);
+		me.add(UserName);
+		menu.add(us);
+		menu.add(me);
+		menu.setOpaque(false);
+		menu.setSize(120, 50);
+		
 		
 		setPicture(logo, "src/user/logocar.png");
+		setPicture(us, "src/user/userlogo.png");
 		
 		pic = new JLabel();
 		pic.setPreferredSize(new Dimension(300, 200));
-//		pic.setBorder(LineBorder.createBlackLineBorder());
 		pic.setSize(198, 198);
 		
 //		Font labelFont = cont.getFont();
@@ -118,7 +145,7 @@ class Image extends Thread
 		
 		frame.add(cont);
 		frame.add(logo);
-		frame.add(out);
+		frame.add(menu);
 		frame.add(text);
 		frame.add(box);
 		frame.add(choosebox);
@@ -129,9 +156,10 @@ class Image extends Thread
 		choosebox.add(truck);
 		frame.add(pic);
 		
+		
 		cont.setBounds(60, -5, 550, 100);
 		logo.setBounds(30, 60, 460, 100);
-		out.setBounds(608, 1, 77, 30);
+		menu.setBounds(574, -3, 150, 50);
 		text.setBounds(220, 35, 290, 100);
 		box.setBounds(280, 120, 315, 60);
 		choosebox.setBounds(20, 330, 150, 70);
@@ -141,6 +169,7 @@ class Image extends Thread
 		car.setBounds(45, 300, 92, 30);
 		truck.setBounds(45, 370, 92, 30);
 		pic.setBounds(200, 190, 470, 360);
+		
 		
 		car.addActionListener(new ActionListener() {
 			
@@ -165,6 +194,8 @@ class Image extends Thread
 			@Override
 			
 				public void actionPerformed(ActionEvent ae) {
+				UserName.setBorder(BorderFactory.createMatteBorder(1, 5, 1, 1, Color.ORANGE));
+			
 					Login lg = new Login();
 					frame.setVisible(false);
 				}

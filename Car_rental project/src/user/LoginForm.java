@@ -32,8 +32,12 @@ class Login extends JFrame implements ActionListener {
     JLabel logo = new JLabel("CGO");
     JLabel logo_Car = new JLabel();
 	MemberList ml = new MemberList();
-	Member m = new Member();
+	static Member m = new Member();
     
+	static Member getMem() {
+		return m;
+	}
+	
     Login() {
         setLayoutManager();
         setLocationAndSize();
@@ -202,4 +206,11 @@ class ImagePanel extends JPanel {
 	  public void paintComponent(Graphics g) {
 	    g.drawImage(img, 0, 0, null);
 	  }
+}
+
+public class LoginForm {
+public static void main(String[] a) {
+  Login log = new Login();
+}
+
 }

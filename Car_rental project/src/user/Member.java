@@ -47,7 +47,7 @@ public class Member extends User {
 		setCMND(CMND);
 	}
 	
-	public Member(Member m) {
+	public Member CopyMem(Member m) {
 		this.setID(m.getID());
 		this.setLogin_name(m.getLogin_name());
 		this.setName(m.getName());
@@ -55,6 +55,7 @@ public class Member extends User {
 		this.setPassword(m.getPassword());
 		this.setLicence(m.getLicence());
 		this.setCMND(m.getCMND());
+		return this;
 	}
 	
 	public void Output()
