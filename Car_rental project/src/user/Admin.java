@@ -97,7 +97,7 @@ public class Admin extends User {
 			}
 	}
 	
-	public static void ModifyCar(String carID, String color, double cost) {
+	public static void ModifyCar(Car c) {
 		try {
 			//doc file
 			File file = new File("src/database/Car.xml");
@@ -109,11 +109,17 @@ public class Admin extends User {
 			NodeList id_car_list = doc.getElementsByTagName("id");
 			for(int i = 0; i < id_car_list.getLength(); i++) {
 				// neu id xe = carID -> lay tag cha
-				if(carID.equals(id_car_list.item(i).getTextContent())) {
+				if(c.getID().equals(id_car_list.item(i).getTextContent())) {
 					Node carNode = id_car_list.item(i).getParentNode();
 					Element element = (Element) carNode;
-					element.getElementsByTagName("color").item(0).setTextContent(color);
-					element.getElementsByTagName("cost").item(0).setTextContent(Double.toString(cost));
+					//thay the cac thong tin xe trong xml bang thong tin cua Car c
+					
+					element.getElementsByTagName("model").item(0).setTextContent(c.getModel());
+					element.getElementsByTagName("color").item(0).setTextContent(c.getColor());
+					element.getElementsByTagName("passengers").item(0).setTextContent(Integer.toString(c.getPassenger()));
+					element.getElementsByTagName("brand").item(0).setTextContent(c.getBrand());
+					element.getElementsByTagName("cost").item(0).setTextContent(Double.toString(c.getCost()));
+					element.getElementsByTagName("type").item(0).setTextContent(c.getType());
 					break;
 				}
 			}
@@ -158,7 +164,7 @@ public class Admin extends User {
 	public static void AddTruck(Truck tr) {
 		try {
 			//doc file
-			File file = new File("src/database/test.xml");
+			File file = new File("src/database/Truck.xml");
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(file);
@@ -211,7 +217,7 @@ public class Admin extends User {
 		
 	}
 	
-	public static void ModifyTruck(String truckID, String color, double cost, double weight) {
+	public static void ModifyTruck(Truck t) {
 		try {
 			
 			File file = new File("src/database/Truck.xml");
@@ -221,12 +227,17 @@ public class Admin extends User {
 			
 			NodeList id_truck_list = doc.getElementsByTagName("id");
 			for(int i = 0; i < id_truck_list.getLength(); i++) {
-				if(truckID.equals(id_truck_list.item(i).getTextContent())) {
+				if(t.getID().equals(id_truck_list.item(i).getTextContent())) {
 					Node truckNode = id_truck_list.item(i).getParentNode();
 					Element element = (Element) truckNode;
-					element.getElementsByTagName("color").item(0).setTextContent(color);
-					element.getElementsByTagName("cost").item(0).setTextContent(Double.toString(cost));
-					element.getElementsByTagName("maxw").item(0).setTextContent(Double.toString(weight));
+					//thay the cac thong tin xe tai trong file xml bang thong tin cua Truck t
+					
+					element.getElementsByTagName("model").item(0).setTextContent(t.getModel());
+					element.getElementsByTagName("color").item(0).setTextContent(t.getColor());
+					element.getElementsByTagName("passenger").item(0).setTextContent(Integer.toString(t.getPassenger()));
+					element.getElementsByTagName("brand").item(0).setTextContent(t.getBrand());
+					element.getElementsByTagName("cost").item(0).setTextContent(Double.toString(t.getCost()));
+					element.getElementsByTagName("maxw").item(0).setTextContent(Double.toString(t.getWeight()));
 					break;
 				}
 			}
@@ -327,7 +338,7 @@ public class Admin extends User {
 		}
 	}
 	
-	public static void ModifyOrder(String orderID, String customername, String return_date) {
+	public static void ModifyOrder(Order ord) {
 		try {
 			
 			File file = new File("src/database/Order.xml");
@@ -337,11 +348,20 @@ public class Admin extends User {
 			
 			NodeList id_order_list = doc.getElementsByTagName("orderID");
 			for(int i = 0; i < id_order_list.getLength(); i++) {
-				if(orderID.equals(id_order_list.item(0).getTextContent())) {
+				if(ord.getOrder().equals(id_order_list.item(0).getTextContent())) {
 					Node order = id_order_list.item(i).getParentNode();
 					Element element = (Element) order;
-					element.getElementsByTagName("name").item(0).setTextContent(customername);
-					element.getElementsByTagName("returnDate").item(0).setTextContent(return_date);
+					//thay cac thong tin order trong file xml bang thong tin cua Order ord
+					
+					element.getElementsByTagName("orderID").item(0).setTextContent(ord.getOrder());
+					element.getElementsByTagName("customerID").item(0).setTextContent(ord.getCustomer());
+					element.getElementsByTagName("name").item(0).setTextContent(ord.getName());
+					element.getElementsByTagName("vehicleID").item(0).setTextContent(ord.getVehicle());
+					element.getElementsByTagName("startDate").item(0).setTextContent(ord.getStart());
+					element.getElementsByTagName("returnDate").item(0).setTextContent(ord.getEnd());
+					element.getElementsByTagName("license").item(0).setTextContent(ord.getLicense());
+					element.getElementsByTagName("rentType").item(0).setTextContent(Integer.toString(ord.getRentType()));
+					element.getElementsByTagName("totalCost").item(0).setTextContent(Double.toString(ord.getCost()));
 					break;
 				}
 			}

@@ -146,6 +146,7 @@ class Login extends JFrame implements ActionListener {
             userText = userTextField.getText();
             if (userText.isEmpty() || pwd.length == 0) {
                 JOptionPane.showMessageDialog(this, "Please type in username and password");
+                return;
             } 
             else {
             	String password = new String(pwd);
@@ -158,7 +159,6 @@ class Login extends JFrame implements ActionListener {
             			JOptionPane.showMessageDialog(this, "Login successful!");
             		}
             	}
-                JOptionPane.showMessageDialog(this, "Login successful!");
             }
 
         }

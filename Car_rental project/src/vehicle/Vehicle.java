@@ -43,7 +43,7 @@ public abstract class Vehicle {
 	public void setModel(String mod) {model = mod;}
 	
 	public String getColor() {return color;}
-	void setColor(String col) {color = col;}
+	public void setColor(String col) {color = col;}
 	
 	public int getPassenger() {return passengers;}
 	public void setPassenger(int pass) {passengers = pass;}

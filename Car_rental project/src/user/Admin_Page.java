@@ -473,7 +473,8 @@ class cardlay extends JFrame{
 				// kt xem neu id xe da ton tai thi ko dc them
 				for(int i = 0; i < vl.getCarlist().size(); i++) {
 					if(vl.getCarlist().get(i).getID().equals(id_new_car)) {
-						JOptionPane.showMessageDialog((Component)e.getSource(), "This id already exists");
+						JOptionPane.showMessageDialog((Component)e.getSource(), "This car already exists");
+						return;
 					}
 				}
 				// tao 1 object car
@@ -485,6 +486,46 @@ class cardlay extends JFrame{
 			
 		});
 		
+		//chinh sua thong tin xe hoi
+		modi.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				//lay thong tin cua xe muon sua trong text field
+				String id_mod_car = textID.getText();
+				String model_mod_car = textModel.getText();
+				String color_mod_car = textColor.getText();
+				int passenger_mod_car = Integer.parseInt(textPass.getText());
+				String brand_mod_car = textBrand.getText();
+				double cost_mod_car = Double.parseDouble(textCost.getText());
+				String type_mod_car = textType.getText();
+				
+				// kt xem neu id cua xe trung khop voi database hay ko
+				for(int i = 0; i < vl.getCarlist().size(); i++) {
+					String id = vl.getCarlist().get(i).getID();
+					if(id.equals(id_mod_car)) {
+						// lay ra object car dung voi id trong textfield
+						Car c = vl.getCarlist().get(i);
+						
+						c.setModel(model_mod_car);
+						c.setColor(color_mod_car);
+						c.setPassenger(passenger_mod_car);
+						c.setBrand(brand_mod_car);
+						c.setCost(cost_mod_car);
+						c.setType(type_mod_car);
+						
+						Admin.ModifyCar(c);
+						JOptionPane.showMessageDialog((Component)e.getSource(), "Modified successfully!");
+						return;
+					}
+				}
+				// truong hop ko co id xe trong database
+				JOptionPane.showMessageDialog((Component)e.getSource(), "This car does not exist!\n "
+						+ "Please use the add button if you want to add it into the database");
+			}
+			
+		});
 		
 		//xoa xe hoi
 		del.addActionListener(new ActionListener() {
@@ -492,20 +533,157 @@ class cardlay extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				// lay ra id xe can xoa
+				// lay ra id xe can xoa trong textfield
 				String id_del_car = textID.getText();
 				for(int i = 0; i < vl.getCarlist().size(); i++) {
+					// neu ko tim thay id xe trong database
 					if(!vl.getCarlist().get(i).getID().equals(id_del_car)) {
-						JOptionPane.showMessageDialog((Component)e.getSource(), "ID car not exist!");
+						JOptionPane.showMessageDialog((Component)e.getSource(), "This car does not exist!");
+						return;
 					}
 				}
 				Admin.DeleteCar(id_del_car);
+				JOptionPane.showMessageDialog((Component)e.getSource(), "Delete successfully!");
 			}
 			
 		});
 		
 		
 		//-----------------------------------------------Xe tai------------------------------------
+		
+		//tim xe tai
+		searchTruckbutton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				//doc toan bo xe tai tu database len
+				vl.ReadAllTruck();
+				String id_truck_search = textSearchTruck.getText();
+				for(int i = 0; i < vl.getTruckList().size(); i++) {
+					// doc trong array list, neu id xe trung khop thi lay len toan bo info r set gia tri cho textfield
+					if(vl.getTruckList().get(i).getID().equals(id_truck_search)) {
+						String id_res_truck = vl.getTruckList().get(i).getID();
+						String model_res_truck = vl.getTruckList().get(i).getModel();
+						String color_res_truck = vl.getTruckList().get(i).getColor();
+						String passenger_res_truck = Integer.toString(vl.getTruckList().get(i).getPassenger());
+						String brand_res_truck = vl.getTruckList().get(i).getBrand();
+						String reserved_res_truck = "";
+						// neu bien reserved trong arraylist la true thi set yes, false thi no
+						if(vl.getTruckList().get(i).isReserved()) {
+							reserved_res_truck = "yes";
+						}
+						else {
+							reserved_res_truck = "no";
+						}
+						String cost_res_truck = Double.toString(vl.getTruckList().get(i).getCost());
+						String weight_res_truck = Double.toString(vl.getTruckList().get(i).getWeight());
+						//set gia tri cho cac textfield
+						textID_truck.setText(id_res_truck);
+						textModel_truck.setText(model_res_truck);
+						textColor_truck.setText(color_res_truck);
+						textPass_truck.setText(passenger_res_truck);
+						textBrand_truck.setText(brand_res_truck);
+						textReservedTruck.setText(reserved_res_truck);
+						textCostTruck.setText(cost_res_truck);
+						textMaxW.setText(weight_res_truck);
+						
+					}
+				}
+			}
+			
+		});
+		
+		//them xe tai moi
+		add_truck.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//lay cac thong tin cua xe tai trong textfield
+				String id_new_truck = textID_truck.getText();
+				String model_new_truck = textModel_truck.getText();
+				String color_new_truck = textColor_truck.getText();
+				int pass_new_truck = Integer.parseInt(textPass_truck.getText());
+				String brand_new_truck = textBrand_truck.getText();
+				Double cost_new_truck = Double.parseDouble(textCostTruck.getText());
+				Double max_weight = Double.parseDouble(textMaxW.getText());
+				
+				//kt trong database, neu id xe da ton tai thi ko dc them
+				for(int i = 0; i < vl.getTruckList().size(); i++) {
+					String id = vl.getTruckList().get(i).getID();
+					if(id.equals(id_new_truck)) {
+						JOptionPane.showMessageDialog((Component)e.getSource(), "This truck already exist");
+						return;
+					}
+				}
+				// neu id ko ton tai thi dc phep them moi
+				Truck t = new Truck(id_new_truck,model_new_truck,color_new_truck,pass_new_truck,brand_new_truck,cost_new_truck,null,max_weight);
+				Admin.AddTruck(t);
+				JOptionPane.showMessageDialog((Component)e.getSource(), "Truck added successfully");
+			}
+			
+		});
+		//chinh sua thong tin xe tai
+		modi_truck.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				//lay thong tin cua xe tai muon sua trong textfield
+				String id_mod_truck = textID_truck.getText();
+				String model_mod_truck = textModel_truck.getText();
+				String color_mod_truck = textColor_truck.getText();
+				int pass_mod_truck = Integer.parseInt(textPass_truck.getText());
+				String brand_mod_truck = textBrand_truck.getText();
+				Double cost_mod_truck = Double.parseDouble(textCostTruck.getText());
+				Double max_weight_mod = Double.parseDouble(textMaxW.getText());
+				
+				//kt xem id xe do da co trong database chua, neu co moi dc sua
+				for(int i = 0; i < vl.getTruckList().size(); i++) {
+					String id = vl.getTruckList().get(i).getID();
+					if(id.equals(id_mod_truck)) {
+						// lay ra object Truck ung voi id do
+						Truck t = vl.getTruckList().get(i);
+						
+						t.setModel(model_mod_truck);
+						t.setColor(color_mod_truck);
+						t.setPassenger(pass_mod_truck);
+						t.setBrand(brand_mod_truck);
+						t.setCost(cost_mod_truck);
+						t.setWeight(max_weight_mod);
+						
+						Admin.ModifyTruck(t);
+						JOptionPane.showMessageDialog((Component)e.getSource(), "Truck modified successfully");
+						return;
+					}
+				}
+				//truong hop ko co id xe trong database
+				JOptionPane.showMessageDialog((Component)e.getSource(), "This truck does not exist!\n "
+						+ "Please use the add button if you want to add it into the database");
+				
+			}
+			
+		});
+		//xoa 1 xe tai
+		del_truck.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				//lay id xe muon xoa tu textfield
+				String id_del_truck = textID_truck.getText();
+				for(int i = 0; i < vl.getTruckList().size(); i++) {
+					// kt trong database neu ko co xe do thi ko cho xoa
+					String id = vl.getTruckList().get(i).getID();
+					if(!id.equals(id_del_truck)) {
+						JOptionPane.showMessageDialog((Component)e.getSource(), "This truck does not exist");
+						return;
+					}
+				}
+				//truong hop ton tai xe do trong database
+				Admin.DeleteTruck(id_del_truck);
+				JOptionPane.showMessageDialog((Component)e.getSource(), "Truck deleted");
+			}
+			
+		});
+		
 		
 	}
 	

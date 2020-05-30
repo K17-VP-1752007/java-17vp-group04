@@ -13,6 +13,10 @@ import org.w3c.dom.NodeList;
 
 public class MemberList {
 	private ArrayList<Member> memberList;
+	
+	public MemberList() {
+		memberList = new ArrayList<Member>();
+	}
 
 	public ArrayList<Member> getMemberList() {
 		return memberList;
