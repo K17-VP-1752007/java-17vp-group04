@@ -90,6 +90,10 @@ class Image extends Thread
 		JMenu UserName = new JMenu("Hi " + ((User.getName() == null)?"User":User.getName()));
 		UserName.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
+		JMenuItem his = new JMenuItem("History", KeyEvent.VK_H);
+		his.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,InputEvent.CTRL_DOWN_MASK));
+		his.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		JMenuItem out = new JMenuItem("Log out", KeyEvent.VK_O);
 		out.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,InputEvent.CTRL_DOWN_MASK));
 		out.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -97,6 +101,7 @@ class Image extends Thread
 		JLabel us = new JLabel();
 		us.setSize(20,20);
 		
+		UserName.add(his);
 		UserName.add(out);
 		me.add(UserName);
 		menu.add(us);

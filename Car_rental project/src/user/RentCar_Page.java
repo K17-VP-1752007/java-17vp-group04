@@ -38,15 +38,18 @@ class RentCar extends JFrame{
     JLabel lbweek, lbmonth;
     boolean check;
     JList<String> weekls, monthls; 
+    int cmon,cwek;
+    static int countDay;
     String weeklist[] = {"1 week", "2 weeks", "3 weeks", "5 weeks", "7 weeks", "9 weeks", "11 weeks"};
     String monthlist[] = {"1 month", "2 months", "3 months", "4 months", "5 months", "6 months", "7 months", "8 months", "9 months", "10 months", "11 months", "12 months"};
 	VehicleList A = new VehicleList();
 	
 	JFrame frame = new JFrame("CGO - Rent Car");
-
-	String getV() {
-		return value;
+	//Lay gia tri countDay de tinh tien
+	static int getValue() {
+		return countDay;
 	}
+	//Khoi tao 
 	public RentCar(){
 		frame.setSize(450, 600);
 //		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,8 +61,9 @@ class RentCar extends JFrame{
 		i = 999;
 		y = 1000 + A.getCarlist().size();
 	}
-	
+
 	public void addControl(){
+	//////Khoi tao cac thong tin ban dau cho frame
 		pic = new JLabel();
 		pic.setPreferredSize(new Dimension(300, 200));
 		pic.setSize(400, 600);
@@ -87,7 +91,7 @@ class RentCar extends JFrame{
 		logo.setSize(55, 55);
 		logo.setFont(new Font("Arial", Font.BOLD, 17));
 		setPicture(logo, "src/user/logocar.png");
-		//////
+		/////
 		JLabel text = new JLabel("Making you most comfortable is our obligation ");
 		JLabel intro = new JLabel("-- Click the |start from| button to start looking --");
 		text.setSize(200,200);
@@ -101,7 +105,8 @@ class RentCar extends JFrame{
 		box.setSize(200,200);
 		box.setPreferredSize(new Dimension(200, 200));
 		box.setBorder(LineBorder.createBlackLineBorder());
-		
+		////
+		//Them cac thong tin vao cac panel
 		down.add(previous);
 		down.add(rent);
 		down.add(next);
@@ -112,20 +117,19 @@ class RentCar extends JFrame{
 		Border.add(start,BorderLayout.NORTH);
 		start.add(log);
 		start.add(content);
-		
 		Border.add(down,BorderLayout.SOUTH);
-		
+	//Chinh sua vi tri cac thong tin khoi tao ban dau
 		logo.setBounds(10, -25, 300, 100);
 		text.setBounds(30, 7, 550, 100);
 		intro.setBounds(80, 30, 500, 130);
 		pic.setBounds(17, 150, 650, 300);
-		
+	//Add cac thong tin ban dau vao frame
 		frame.add(text);
 		frame.add(intro);
 		frame.add(logo);
 		frame.add(pic);
 		
-	
+	//Khoi tao cac Panel can thiet
 		final JPanel Center = new JPanel();
 		final JPanel Middle = new JPanel();
 		
@@ -135,16 +139,16 @@ class RentCar extends JFrame{
 		Middle.setLayout(new CardLayout());
 		Middle.setVisible(false);
 		
-		
+		//Khoi tao giao dien hinh anh dau tien
 		final JPanel Mid = new JPanel();
-	
+		
 		finalpic = new JLabel();
 		finalpic.setSize(400,900);
 		value ="src/user/logocar.png";
 		setPicture(finalpic,value);
 		Mid.add(finalpic);
 		Mid.setBackground(Color.DARK_GRAY.darker());
-		
+		//Tao cac label thong tin xe cho card 1
 		JLabel ID = new JLabel("     Car ID");
 	    ID.setFont(new Font("Arial", Font.BOLD, 15));
 	    IDvl = new JLabel("");
@@ -193,7 +197,7 @@ class RentCar extends JFrame{
 		lbin = new JLabel("");
 		inc.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		////
+		//Tao cac label thong tin xe cho card 2
 		JLabel ID2 = new JLabel("     Car ID");
 	    ID2.setFont(new Font("Arial", Font.BOLD, 15));
 	    IDvls = new JLabel("");
@@ -244,7 +248,7 @@ class RentCar extends JFrame{
 		
 		JLabel Choose = new JLabel("     Choose type : ");
 		Choose.setFont(new Font("Arial", Font.BOLD, 15));
-		
+		//Tao Panel chua 2 checkbox
 		JPanel Bigbox = new JPanel(new GridLayout(1, 0));
 		JPanel panelCheckBox = new JPanel(new GridLayout(1, 0));
 		
@@ -254,12 +258,13 @@ class RentCar extends JFrame{
 	    Bigbox.add(panelCheckBox, BorderLayout.WEST);
 	    
 	    JPanel listday = new JPanel(new GridLayout(1, 0));
+	    //Tao list cac tuan
 	    weekls = new JList<String>(weeklist);
 		weekls.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tab1 = new JScrollPane(weekls);
 		tab1.setPreferredSize(new Dimension(100, 50));
 		tab1.setVisible(false);
-		//////////////////////////////////////
+		//Tao list cac thang
 		monthls = new JList<String>(monthlist);
 		monthls.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tab2 = new JScrollPane(monthls);
@@ -269,7 +274,7 @@ class RentCar extends JFrame{
 		ButtonGroup gr = new ButtonGroup();
 		gr.add(week);
 		gr.add(month);
-		
+		//Khoi tao chuc nang cho checkbox week
 	    week.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent ae) {
                 if(ae.getStateChange() == 1)
@@ -282,7 +287,7 @@ class RentCar extends JFrame{
                 }
             }
         });
-	  
+	  //Khoi tao chuc nang cho checkbox month
 	    month.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent ae) {
                 if(ae.getStateChange() == 1)
@@ -301,7 +306,7 @@ class RentCar extends JFrame{
 		
 		JLabel Choose2 = new JLabel("     Choose one : ");
 		Choose2.setFont(new Font("Arial", Font.BOLD, 15));
-		
+//Khoi tao card thong tin xe thu 1
 		final JPanel Card1 = new JPanel();
 		Card1.setLayout(new GridLayout(12, 1));
 		Card1.add(ID);
@@ -328,7 +333,7 @@ class RentCar extends JFrame{
 		Card1.add(lblast);
 		Card1.add(inc);
 		Card1.add(lbin);
-
+//Khoi tao card thong tin xe thu 2
 		final JPanel Card2 = new JPanel();
 		Card2.setLayout(new GridLayout(12, 1));
 		Card2.add(ID2);
@@ -355,7 +360,7 @@ class RentCar extends JFrame{
 		Card2.add(lblasts);
 		Card2.add(inc2);
 		Card2.add(lbins);
-		
+		//Khoi tao card thue xe
 		final JPanel Card3 = new JPanel(new BorderLayout());
 		JPanel Gloc = new JPanel(new GridLayout(3, 0, -150, 0));
 		JPanel End = new JPanel(new FlowLayout());
@@ -369,7 +374,7 @@ class RentCar extends JFrame{
 		End.add(fini);
 		Card3.add(Gloc, BorderLayout.CENTER);
 		Card3.add(End, BorderLayout.SOUTH);
-		
+		//Khoi tao card thong bao 
 		final JPanel Card4 = new JPanel(new GridLayout(2,0));
 		JPanel W = new JPanel();
 		
@@ -377,7 +382,7 @@ class RentCar extends JFrame{
 		W.add(Warning);
 		Card4.add(Box.createRigidArea(new Dimension(40, 0)));
 		Card4.add(W);
-		
+//Add cac card vao Panel Center	, Middle, sau do Panel Flow add 2 Panel nay
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
 		Center.add(Card3,"C3");
@@ -388,13 +393,13 @@ class RentCar extends JFrame{
 		Flow.setLayout(new GridLayout(2, 1));
 		Flow.add(Middle);
 		Flow.add(Center);
-
+//Add border chinh vao container
 		Border.add(Flow,BorderLayout.CENTER);
 		Container con = frame.getContentPane();
 		con.add(Border);
 		
 		check  = false;
-		
+		//Khoi tao chuc nang cua button previous
 		previous.addActionListener(new ActionListener() {
 		
 		@Override
@@ -420,7 +425,7 @@ class RentCar extends JFrame{
 				current = i;
 			}
 		});
-		
+		//Khoi tao chuc nang cua button next
 		next.addActionListener(new ActionListener() {
 		
 		@Override
@@ -446,7 +451,7 @@ class RentCar extends JFrame{
 				current = y;
 			}
 		});
-		
+		//Khoi tao chuc nang cua button rent now
 		rent.addActionListener(new ActionListener() {
 			
 			@Override
@@ -469,29 +474,136 @@ class RentCar extends JFrame{
 				}
 			}
 			});
-		
+		//Khoi tao chuc nang cua button finish
 		fini.addActionListener(new ActionListener() {
 			@Override
 				public void actionPerformed(ActionEvent ae) {
-					if(weekls.getSelectedIndex() != -1 || monthls.getSelectedIndex() != -1)
-					{
+					if(weekls.getSelectedIndex() != -1)
+					{	
 						JOptionPane.showMessageDialog(frame, "Rent successfully");
 						Center.setVisible(true);
 						Middle.setVisible(true);
 						CardLayout c4 = (CardLayout)Center.getLayout();
 						c4.show(Center, "C4");
+						chooseW();
+						countDay = cwek;
+						weekls.clearSelection();
+					}
+					else if(monthls.getSelectedIndex() != -1)
+					{	
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
+						Center.setVisible(true);
+						Middle.setVisible(true);
+						CardLayout c4 = (CardLayout)Center.getLayout();
+						c4.show(Center, "C4");
+						chooseM();
+						countDay = cmon;
+						monthls.clearSelection();
 					}
 					else
 						JOptionPane.showMessageDialog(frame, "You can't rent");
+					
 				}
 			});
 	}
-	
+	//Lay gia tri tuan tu JList
+	public void chooseW()
+	{
+		if(weekls.getSelectedIndex() == 0)
+		{
+			cwek = 7;
+		}
+		else if(weekls.getSelectedIndex() == 1)
+		{
+			cwek = 14;
+		}
+		else if(weekls.getSelectedIndex() == 2)
+		{
+			cwek = 21;
+		}
+		else if(weekls.getSelectedIndex() == 3)
+		{
+			cwek = 35;
+		}
+		else if(weekls.getSelectedIndex() == 4)
+		{
+			cwek = 49;
+		}
+		else if(weekls.getSelectedIndex() == 5)
+		{
+			cwek = 63;
+		}
+		else if(weekls.getSelectedIndex() == 6)
+		{
+			cwek = 77;
+		}
+		else
+		{
+			cwek = 0;
+		}
+	}
+	//Lay gia tri thang tu Jlist
+	public void chooseM()
+	{
+		if(monthls.getSelectedIndex() == 0)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 1)
+		{
+			cmon = 28;
+		}
+		else if(monthls.getSelectedIndex() == 2)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 3)
+		{
+			cmon = 30;
+		}
+		else if(monthls.getSelectedIndex() == 4)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 5)
+		{
+			cmon = 30;
+		}
+		else if(monthls.getSelectedIndex() == 6)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 7)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 8)
+		{
+			cmon = 30;
+		}
+		else if(monthls.getSelectedIndex() == 9)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 10)
+		{
+			cmon = 30;
+		}
+		else if(monthls.getSelectedIndex() == 11)
+		{
+			cmon = 31;
+		}
+		else 
+		{
+			cmon = 0;
+		}
+	}
+	//Tim thong tin cua 1 doi tuong xe va gan vao cac bien khoi tao
 	public void findPic(int i) {
 		Car c = new Car();
 		c = A.searchCarByID(String.valueOf(i));
 		c.ViewRecord();
-
+//Gan vao cac bien
 		id = c.getID();
 		value = c.getImg();
 		model = c.getModel();
@@ -509,7 +621,7 @@ class RentCar extends JFrame{
 		total = String.valueOf(c.getRecord().getTotalRent());
 		lastrent = c.getRecord().getLast_date_rent();
 		income = String.valueOf(c.getRecord().getIncome_generate());
-		
+//Dua gia tri cac bien tren vao cac label
 		IDvl.setText(id);
 		Modelvl.setText(model);
 		Colorvl.setText(color);
@@ -536,12 +648,12 @@ class RentCar extends JFrame{
 		lblasts.setText(lastrent);		
 		lbins.setText(income);
 	}
-	
+	//Ham tao checkbox
 	private JCheckBox createCheckBox(String name) {
         JCheckBox checkBox = new JCheckBox(name);
         return checkBox;
     }
-    
+    //Ham lay hinh anh
 	public void setPicture(JLabel label ,String filename){
        try {
          BufferedImage image = ImageIO.read(new File(filename));

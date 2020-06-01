@@ -38,6 +38,8 @@ class RentTruck extends JFrame{
     JLabel lbweek, lbmonth;
     JButton fini;
     JList<String> weekls, monthls; 
+    int cmon,cwek;
+    static int countDay;
     String weeklist[] = {"1 week", "2 weeks", "3 weeks", "5 weeks", "7 weeks", "9 weeks", "11 weeks"};
     String monthlist[] = {"1 month", "2 months", "3 months", "4 months", "5 months", "6 months", "7 months", "8 months", "9 months", "10 months", "11 months", "12 months"};
 	int weekValue, monthValue;
@@ -45,6 +47,11 @@ class RentTruck extends JFrame{
     VehicleList A = new VehicleList();
 	
 	JFrame frame = new JFrame("CGO - Rent truck");
+	
+	static int getValue() {
+		return countDay;
+	}
+	
 	String getV() {
 		return value;
 	}
@@ -474,18 +481,127 @@ class RentTruck extends JFrame{
 		fini.addActionListener(new ActionListener() {
 			@Override
 				public void actionPerformed(ActionEvent ae) {
-					if(weekls.getSelectedIndex() != -1 || monthls.getSelectedIndex() != -1)
-					{
-						JOptionPane.showMessageDialog(frame, "Rent successfully");
-						Center.setVisible(true);
-						Middle.setVisible(true);
-						CardLayout c4 = (CardLayout)Center.getLayout();
-						c4.show(Center, "C4");
-					}
+				if(weekls.getSelectedIndex() != -1)
+				{	
+					JOptionPane.showMessageDialog(frame, "Rent successfully");
+					Center.setVisible(true);
+					Middle.setVisible(true);
+					CardLayout c4 = (CardLayout)Center.getLayout();
+					c4.show(Center, "C4");
+					chooseW();
+					countDay = cwek;
+					weekls.clearSelection();
+					System.out.println("Days : " + countDay);
+				}
+				else if(monthls.getSelectedIndex() != -1)
+				{	
+					JOptionPane.showMessageDialog(frame, "Rent successfully");
+					Center.setVisible(true);
+					Middle.setVisible(true);
+					CardLayout c4 = (CardLayout)Center.getLayout();
+					c4.show(Center, "C4");
+					chooseM();
+					countDay = cmon;
+					monthls.clearSelection();
+					System.out.println("Days : " + countDay);
+				}
 					else
 						JOptionPane.showMessageDialog(frame, "You can't rent");
 				}
 			});
+	}
+	
+	//Lay gia tri tuan tu JList
+	public void chooseW()
+	{
+		if(weekls.getSelectedIndex() == 0)
+		{
+			cwek = 7;
+		}
+		else if(weekls.getSelectedIndex() == 1)
+		{
+			cwek = 14;
+		}
+		else if(weekls.getSelectedIndex() == 2)
+		{
+			cwek = 21;
+		}
+		else if(weekls.getSelectedIndex() == 3)
+		{
+			cwek = 35;
+		}
+		else if(weekls.getSelectedIndex() == 4)
+		{
+			cwek = 49;
+		}
+		else if(weekls.getSelectedIndex() == 5)
+		{
+			cwek = 63;
+		}
+		else if(weekls.getSelectedIndex() == 6)
+		{
+			cwek = 77;
+		}
+		else
+		{
+			cwek = 0;
+		}
+	}
+	//Lay gia tri thang tu Jlist
+	public void chooseM()
+	{
+		if(monthls.getSelectedIndex() == 0)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 1)
+		{
+			cmon = 28;
+		}
+		else if(monthls.getSelectedIndex() == 2)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 3)
+		{
+			cmon = 30;
+		}
+		else if(monthls.getSelectedIndex() == 4)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 5)
+		{
+			cmon = 30;
+		}
+		else if(monthls.getSelectedIndex() == 6)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 7)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 8)
+		{
+			cmon = 30;
+		}
+		else if(monthls.getSelectedIndex() == 9)
+		{
+			cmon = 31;
+		}
+		else if(monthls.getSelectedIndex() == 10)
+		{
+			cmon = 30;
+		}
+		else if(monthls.getSelectedIndex() == 11)
+		{
+			cmon = 31;
+		}
+		else 
+		{
+			cmon = 0;
+		}
 	}
 
 	public void findPic(int i) {

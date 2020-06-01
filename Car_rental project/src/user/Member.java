@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -180,15 +181,18 @@ public class Member extends User {
 	
 	public void EditProfile() {}
 	
-	public void Rent(Vehicle v, String return_date, String rent_type) {
+	public void Rent(Vehicle v) {
 		
 		// kt xem v la Car hay Truck
 		String path = " ";
+		int count = 0;
 		if(v instanceof Car) {
 			path = "src/database/Car.xml";
+			count = RentCar.getValue();
 		}
 		if(v instanceof Truck) {
 			path = "src/database/Truck.xml";
+			count = RentTruck.getValue();
 		}
 		try {
 			
@@ -210,12 +214,13 @@ public class Member extends User {
 					break;
 				}
 			}
-			int rent = 0;
+//			int rent = 0;
 			// rent = 1 --> Weekly, rent = 2 --> Monthly
-			if(rent_type.equals("Weekly")) {
-				rent = 1;
-			}
-			else rent = 2;
+//			if(rent_type.equals("Weekly")) {
+//				rent = 1;
+//			}
+//			else rent = 2;
+			
 			
 			// lay ngay hien tai --> start_date
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -223,7 +228,7 @@ public class Member extends User {
 			String start_date = dtf.format(now);
 			
 			// tinh tong gia tien
-			double total_cost = CalculateCost(return_date,init_cost,rent_type);
+			double total_cost = CalculateCost(count,init_cost);
 			
 			// tao 1 order
 //			Order ord = new Order(this.getID(), this.getName(), v.getID(), start_date, return_date, this.getLicence(), rent, total_cost);
@@ -239,25 +244,26 @@ public class Member extends User {
 
 	
 	// tinh tong so tien thue xe
-	public static double CalculateCost(String return_date, double init_cost, String rent_type) {
+	public static double CalculateCost(int count, double init_cost) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
 		LocalDate date_start = LocalDate.now();
-		LocalDate date_return = LocalDate.parse(return_date, dtf);
+//		LocalDate date_return = LocalDate.parse(return_date, dtf);
 		
 		double total_cost = 0;
 		
-		if(rent_type.equals("Weekly")) {
-			// lay ra so ngay giua 2 date
-			int days = Period.between(date_start, date_return).getDays();
-			int weeks = days/7;
-			
-			total_cost = init_cost + (200000 * 7) * weeks;
-		}
-		if(rent_type.equals("Monthly")) {
-			int months = Period.between(date_start, date_return).getMonths();
-			
-			total_cost = init_cost + (1000000 * 4) * months;
-		}
+		total_cost = init_cost + (10 * 7) * count;
+//		if(rent_type.equals("Weekly")) {
+//			// lay ra so ngay giua 2 date
+//			int days = Period.between(date_start, date_return).getDays();
+//			int weeks = days/7;
+//			
+//			total_cost = init_cost + (200000 * 7) * weeks;
+//		}
+//		if(rent_type.equals("Monthly")) {
+//			int months = Period.between(date_start, date_return).getMonths();
+//			
+//			total_cost = init_cost + (1000000 * 4) * months;
+//		}
 		
 		return total_cost;
 	}
