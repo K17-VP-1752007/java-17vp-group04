@@ -390,10 +390,11 @@ class RentTruck extends JFrame{
 		Center.add(Card2,"C2");
 		Center.add(Card3,"C3");
 		Center.add(Card4,"C4");
-		
+		//Middle la panel chua hinh, center chua thong tin 
 		Middle.add(Mid, "C1");
 		JPanel Flow = new JPanel();
 		Flow.setLayout(new GridLayout(2, 1));
+
 		Flow.add(Middle);
 		Flow.add(Center);
 

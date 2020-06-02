@@ -12,37 +12,60 @@ import java.io.IOException;
 
 import javax.swing.border.LineBorder;
 
+import order.Order;
+import order.OrderList;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import user.Member;
+import vehicle.Truck;
 
 class VehicleHistory extends JFrame
 {
-	JLabel pic;
+	JLabel pic, finalpic;
 	String value;
 	JFrame frame = new JFrame("CGO - User's history");
 	Member User = new Member();
-	
+	int carN, carP;
+	int truckN, truckP;
+	OrderList od = new OrderList();
+	JLabel VeID, veid, CusID, cusid,Name, name, Day, day, Count, count, VeID2, veid2, CusID2, cusid2, Name2, name2, Day2, day2, Count2, count2; 
+	String v, c, n, d, co;
 	
 	public VehicleHistory()
 	{
 		User.CopyMem(Login.getMem());
-		frame.setSize(800, 600);
+		frame.setSize(1000, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		frame.setLocationRelativeTo(null);
+		od.ReadAllOrder();
+		addControl();
 		frame.setVisible(true);
 		frame.setResizable(false);
-		ImageIcon A = new ImageIcon();
 		
+	}
+	
+	public void addControl() 
+	{
 		JPanel Border=new JPanel();
 		Border.setLayout(new BorderLayout());
 		
 		JPanel top = new JPanel();
 		top.setLayout(new BoxLayout(top, BoxLayout.LINE_AXIS));
-		JLabel cont = new JLabel("  Making you most comfortable is our obligation", JLabel.CENTER);
+		JLabel cont = new JLabel("        Making you most comfortable is our obligation", JLabel.CENTER);
 		cont.setSize(450, 450);
-		cont.setFont(new Font("Times New Roman", Font.ITALIC, 24));
+		cont.setFont(new Font("Times New Roman", Font.ITALIC, 28));
 		cont.setForeground(Color.BLACK);
+		
+		JLabel text = new JLabel("CGO rental history");
+		text.setSize(450, 450);
+		text.setFont(new Font("Times New Roman", Font.ITALIC, 40));
+		text.setForeground(Color.ORANGE.brighter());
+		
+		JLabel minitext = new JLabel("-- Click 2 buttons below to start --");
+		minitext.setSize(450, 450);
+		minitext.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		minitext.setForeground(Color.BLACK);
 		
 		JLabel logo = new JLabel("CGO", JLabel.LEFT);
 		logo.setSize(100, 135);
@@ -51,11 +74,6 @@ class VehicleHistory extends JFrame
 		
 		top.add(logo);
 		top.add(cont);
-//		JPanel choosebox = new JPanel();
-//		choosebox.setSize(300,200);
-//		choosebox.setPreferredSize(new Dimension(300, 200));
-//		choosebox.setBorder(LineBorder.createBlackLineBorder());
-//		choosebox.setBackground(Color.cyan.darker());
 		
 		JPanel bot = new JPanel(new FlowLayout());
 		
@@ -74,74 +92,80 @@ class VehicleHistory extends JFrame
 		Border.add(bot, BorderLayout.SOUTH);
 		setPicture(logo, "src/user/logocar.png");
 		
-//		pic = new JLabel();
-//		pic.setPreferredSize(new Dimension(300, 200));
-//		pic.setSize(198, 198);
+		pic = new JLabel();
+		pic.setPreferredSize(new Dimension(1000, 600));
+		pic.setSize(1000, 600);
+		setPicture(pic, "src/user/sky.jpg");
 		
-//		cont.setBounds(60, -5, 550, 100);
-//		logo.setBounds(30, 60, 460, 100);
-//		car.setBounds(45, 300, 92, 30);
-//		truck.setBounds(45, 370, 92, 30);
+		frame.add(text);
+		frame.add(minitext);
+		frame.add(pic);
+		text.setBounds(332, 190, 550, 100);
+		minitext.setBounds(375, 240, 550, 100);
+		pic.setBounds(0, 100, 1000, 410);
 		
 		final JPanel Center = new JPanel();
 		final JPanel Middle = new JPanel();
 		
 		Center.setLayout(new CardLayout());
-//		Center.setVisible(false);
+		Center.setVisible(false);
 		
 		Middle.setLayout(new CardLayout());
-//		Middle.setVisible(false);
+		Middle.setVisible(false);
 		
 		final JPanel Mid = new JPanel();
 		
-		pic = new JLabel();
-		pic.setSize(400,900);
-		value ="src/user/logocar.png";
-		setPicture(pic,value);
-		Mid.add(pic);
+		finalpic = new JLabel();
+		finalpic.setSize(650,500);
+		value = "src/user/bentley.jpg";
+		setPicture(finalpic,value);
+		Mid.add(finalpic);
 		
-		JLabel VeID = new JLabel("     Vehicle ID : ");
-	    JLabel veid = new JLabel("");
+		VeID = new JLabel("     Vehicle ID : ");
+	    veid = new JLabel("");
 	    VeID.setFont(new Font("Arial", Font.BOLD, 15));
 	    
-	    JLabel CusID = new JLabel("     Customer ID : ");
-	    JLabel cusid = new JLabel("");
+	    CusID = new JLabel("     Customer ID : ");
+	    cusid = new JLabel("");
 	    CusID.setFont(new Font("Arial", Font.BOLD, 15));
 	    
-		JLabel Name = new JLabel("     Name : ");
-	    JLabel name = new JLabel("");
+		Name = new JLabel("     Name : ");
+	    name = new JLabel("");
 	    Name.setFont(new Font("Arial", Font.BOLD, 15));
 	    
-		JLabel Day = new JLabel("     Start day : ");
-		JLabel day = new JLabel("");
+		Day = new JLabel("     Start day : ");
+		day = new JLabel("");
 		Day.setFont(new Font("Arial", Font.BOLD, 15));
 		 
-		JLabel Count = new JLabel("     Total rent time : ");
-		JLabel count = new JLabel("");
+		Count = new JLabel("     Total car's rental time : ");
+		count = new JLabel("");
 		Count.setFont(new Font("Arial", Font.BOLD, 15));
 		//Khoi tao Label 
-		JLabel VeID2 = new JLabel("     Vehicle ID : ");
-	    JLabel veid2 = new JLabel("");
+		VeID2 = new JLabel("     Vehicle ID : ");
+	    veid2 = new JLabel("");
 	    VeID2.setFont(new Font("Arial", Font.BOLD, 15));
 	    
-	    JLabel CusID2 = new JLabel("     Customer ID : ");
-	    JLabel cusid2 = new JLabel("");
+	    CusID2 = new JLabel("     Customer ID : ");
+	    cusid2 = new JLabel("");
 	    CusID2.setFont(new Font("Arial", Font.BOLD, 15));
 	    
-		JLabel Name2 = new JLabel("     Name : ");
-	    JLabel name2 = new JLabel("");
+		Name2 = new JLabel("     Name : ");
+	    name2 = new JLabel("");
 	    Name2.setFont(new Font("Arial", Font.BOLD, 15));
 	    
-		JLabel Day2 = new JLabel("     Start day : ");
-		JLabel day2 = new JLabel("");
+		Day2 = new JLabel("     Start day : ");
+		day2 = new JLabel("");
 		Day2.setFont(new Font("Arial", Font.BOLD, 15));
 		 
-		JLabel Count2 = new JLabel("     Total rent time : ");
-		JLabel count2 = new JLabel("");
+		Count2 = new JLabel("     Total truck's rental time : ");
+		count2 = new JLabel("");
 		Count2.setFont(new Font("Arial", Font.BOLD, 15));
 		
 		JButton next = new JButton("Next >");
 		JButton pre = new JButton("< Previous");
+		
+		JButton next2 = new JButton("Next >");
+		JButton pre2 = new JButton("< Previous");
 	
 		final JPanel Card1 = new JPanel(new BorderLayout());
 		JPanel info = new JPanel(new GridLayout(5, 1));
@@ -173,20 +197,24 @@ class VehicleHistory extends JFrame
 		position.add(pre);
 		position.add(next);
 		
+		JPanel position2 = new JPanel(new FlowLayout());
+		position2.add(pre2);
+		position2.add(next2);
+		
 		Card1.add(info, BorderLayout.CENTER);
 		Card1.add(position, BorderLayout.SOUTH);
 		
 		Card2.add(info2, BorderLayout.CENTER);
-		Card2.add(position, BorderLayout.SOUTH);
+		Card2.add(position2, BorderLayout.SOUTH);
 		
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
-		
-		Middle.add(Mid, "C1");
+		//Add thong tin (panel Middle) truoc, hinh (panel Center) sau 
+		Middle.add(Mid);
 		JPanel Flow = new JPanel();
-		Flow.setLayout(new GridLayout(2, 1));
-		Flow.add(Middle);
+		Flow.setLayout(new GridLayout(1, 1));
 		Flow.add(Center);
+		Flow.add(Middle);
 		
 		Border.add(Flow,BorderLayout.CENTER);
 		Container con = frame.getContentPane();
@@ -197,8 +225,12 @@ class VehicleHistory extends JFrame
 			@Override
 			
 				public void actionPerformed(ActionEvent ae) {
-				Center.setVisible(true);
-				Middle.setVisible(true);
+					Center.setVisible(true);
+					Middle.setVisible(true);
+					CardLayout cl = (CardLayout)Center.getLayout();
+					cl.show(Center, "C1");
+					CardLayout m1=(CardLayout)Middle.getLayout();
+					m1.show(Middle, "C1");
 				}
 			});
 		
@@ -207,10 +239,84 @@ class VehicleHistory extends JFrame
 			@Override
 			
 				public void actionPerformed(ActionEvent ae) {
-				Center.setVisible(true);
-				Middle.setVisible(true);
+					Center.setVisible(true);
+					Middle.setVisible(true);
+					CardLayout c2 = (CardLayout)Center.getLayout();
+					c2.show(Center, "C2");
+					CardLayout m2=(CardLayout)Middle.getLayout();
+					m2.show(Middle, "C2");
 				}
 			});
+		
+		next.addActionListener(new ActionListener() {
+			
+			@Override
+			
+				public void actionPerformed(ActionEvent ae) {
+					Center.setVisible(true);
+					Middle.setVisible(true);
+					carP++;
+					CardLayout c2 = (CardLayout)Center.getLayout();
+					c2.show(Center, "C2");
+					CardLayout m2=(CardLayout)Middle.getLayout();
+					findVehicle(carP);
+					setPicture(finalpic,value);
+					m2.show(Middle, "C2");
+				}
+			});
+		
+		pre.addActionListener(new ActionListener() {
+			
+			@Override
+			
+				public void actionPerformed(ActionEvent ae) {
+					Center.setVisible(true);
+					Middle.setVisible(true);
+					CardLayout c2 = (CardLayout)Center.getLayout();
+					c2.show(Center, "C2");
+					CardLayout m2=(CardLayout)Middle.getLayout();
+					m2.show(Middle, "C2");
+				}
+			});
+		
+		next2.addActionListener(new ActionListener() {
+			
+			@Override
+			
+				public void actionPerformed(ActionEvent ae) {
+					Center.setVisible(true);
+					Middle.setVisible(true);
+					CardLayout c2 = (CardLayout)Center.getLayout();
+					c2.show(Center, "C2");
+					CardLayout m2=(CardLayout)Middle.getLayout();
+					m2.show(Middle, "C2");
+				}
+			});
+
+		pre2.addActionListener(new ActionListener() {
+	
+			@Override
+	
+			public void actionPerformed(ActionEvent ae) {
+				Center.setVisible(true);
+				Middle.setVisible(true);
+				CardLayout c2 = (CardLayout)Center.getLayout();
+				c2.show(Center, "C2");
+				CardLayout m2=(CardLayout)Middle.getLayout();
+				m2.show(Middle, "C2");
+			}
+		});
+	}
+	
+	public void findVehicle(int i) {
+		Order order = new Order();
+		order = od.SearchOrderByID(String.valueOf(i));
+		String v, c, n, d, co;
+		v = order.getVehicle();
+		c = order.getCustomer();
+		n = order.getName();
+		d = order.getStart();
+		
 	}
 	
 	public void setPicture(JLabel label ,String filename){
