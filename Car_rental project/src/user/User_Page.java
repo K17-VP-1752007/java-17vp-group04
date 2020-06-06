@@ -9,8 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+
 import javax.swing.border.LineBorder;
 
 import java.util.logging.Level;
@@ -22,7 +21,6 @@ class Image extends Thread
 	JLabel pic;
 	JFrame frame = new JFrame("CGO - User");
 	Member User = new Member();
-	
 	
 	public Image()
 	{
@@ -79,10 +77,28 @@ class Image extends Thread
 		JButton car = new JButton("Show Cars");
 		car.setFont(new Font("Arial", Font.ITALIC, 13));
 		car.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		car.registerKeyboardAction(car.getActionForKeyStroke(
+                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
+                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
+                JComponent.WHEN_FOCUSED);
+
+		car.registerKeyboardAction(car.getActionForKeyStroke(
+                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
+                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
+                JComponent.WHEN_FOCUSED);
 		
 		JButton truck = new JButton("Show Trucks");
 		truck.setFont(new Font("Arial", Font.ITALIC, 13));
 		truck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		truck.registerKeyboardAction(truck.getActionForKeyStroke(
+                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
+                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
+                JComponent.WHEN_FOCUSED);
+
+		truck.registerKeyboardAction(truck.getActionForKeyStroke(
+                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
+                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
+                JComponent.WHEN_FOCUSED);
 		
 		JPanel menu = new JPanel(new FlowLayout());
 		JMenuBar me = new JMenuBar();
@@ -116,36 +132,6 @@ class Image extends Thread
 		pic = new JLabel();
 		pic.setPreferredSize(new Dimension(300, 200));
 		pic.setSize(198, 198);
-		
-//		Font labelFont = cont.getFont();
-//		String labelText = cont.getText();
-//		int stringWidth = cont.getFontMetrics(labelFont).stringWidth(labelText);
-//		int componentWidth = cont.getWidth();
-//		double widthRatio = (double)componentWidth / (double)stringWidth;
-//		int newFontSize = (int)(labelFont.getSize() * widthRatio);
-//		int componentHeight = cont.getHeight();
-//		int size = Math.min(newFontSize, componentHeight);
-//		cont.setFont(new Font(labelFont.getName(), Font.PLAIN, size));
-		
-//		Font logoFont = logo.getFont();
-//		String logoText = logo.getText();
-//		int stringWidth1 = logo.getFontMetrics(logoFont).stringWidth(logoText);
-//		int componentWidth1 = logo.getWidth();
-//		double widthRatio1 = (double)componentWidth1 / (double)stringWidth1;
-//		int newFontSize1 = (int)(logoFont.getSize() * widthRatio1);
-//		int componentHeight1 = logo.getHeight();
-//		int size1 = Math.min(newFontSize1, componentHeight1);
-//		logo.setFont(new Font(logoFont.getName(), Font.PLAIN, size1));
-		
-//		Font textFont = text.getFont();
-//		String Text = text.getText();
-//		int stringWidth2 = text.getFontMetrics(textFont).stringWidth(Text);
-//		int componentWidth2 = text.getWidth();
-//		double widthRatio2 = (double)componentWidth2 / (double)stringWidth2;
-//		int newFontSize2 = (int)(textFont.getSize() * widthRatio2);
-//		int componentHeight2 = text.getHeight();
-//		int size2 = Math.min(newFontSize2, componentHeight2);
-//		text.setFont(new Font(textFont.getName(), Font.PLAIN, size2));
 		
 		frame.add(cont);
 		frame.add(logo);
@@ -204,6 +190,14 @@ class Image extends Thread
 					frame.dispose();
 			}
 			});
+		
+		his.addActionListener(new ActionListener() {
+			@Override
+				public void actionPerformed(ActionEvent ae) {
+					VehicleHistory h = new VehicleHistory();
+					frame.dispose();
+			}
+		});
 	}
     
 	public void run(){
@@ -252,9 +246,9 @@ class Image extends Thread
      }
  }
 }
-public class User_Page{
-	 public static void main(String[] args) {
-		 Image Thr = new Image();
-			Thr.start();
-}
-}
+//public class User_Page{
+//	 public static void main(String[] args) {
+//		 Image Thr = new Image();
+//			Thr.start();
+//}
+//}

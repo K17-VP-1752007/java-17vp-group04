@@ -20,7 +20,6 @@ public class Order {
 		startDate = null;
 		returnDate = null;
 		license_plate = null;
-		//rent_type = 0;
 		rent_type = null;
 		total_cost = 0;
 	}

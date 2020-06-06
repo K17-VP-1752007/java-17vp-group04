@@ -61,6 +61,7 @@ public class Truck extends Vehicle{
 	}
 	
 	public void CreateRecord() {
+		this.getRecord().setId_vehicle(this.getID());
 		try {
 			File file = new File("src/database/record_truck.xml");
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

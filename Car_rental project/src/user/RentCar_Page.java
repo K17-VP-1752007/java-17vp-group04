@@ -54,8 +54,8 @@ class RentCar extends JFrame{
 	public RentCar(){
 		frame.setSize(450, 600);
 //		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		addControl();
 		user.CopyMem(Login.getMem());
+		addControl();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setResizable(false);
@@ -85,6 +85,10 @@ class RentCar extends JFrame{
 		JButton previous = new JButton("< Previous");
 		JButton next = new JButton("Next >");
 		JButton rent = new JButton("Rent now!");
+		
+		previous.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		next.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		rent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JLabel cont = new JLabel("                               ", JLabel.CENTER);
 		cont.setSize(200, 400);
@@ -378,6 +382,7 @@ class RentCar extends JFrame{
 		JPanel End = new JPanel(new FlowLayout());
 		End.add(Box.createRigidArea(new Dimension(18, 10)));
 		JButton fini = new JButton("Finish");
+		fini.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		fini.setPreferredSize(new Dimension(80,27));
 		Gloc.add(Choose);
 		Gloc.add(Bigbox);
@@ -394,7 +399,7 @@ class RentCar extends JFrame{
 		W.add(Warning);
 		Card4.add(Box.createRigidArea(new Dimension(40, 0)));
 		Card4.add(W);
-//Add cac card vao Panel Center	, Middle, sau do Panel Flow add 2 Panel nay
+		//Add cac card vao Panel Center	, Middle, sau do Panel Flow add 2 Panel nay
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
 		Center.add(Card3,"C3");
@@ -405,7 +410,7 @@ class RentCar extends JFrame{
 		Flow.setLayout(new GridLayout(2, 1));
 		Flow.add(Middle);
 		Flow.add(Center);
-//Add border chinh vao container
+		//Add border chinh vao container
 		Border.add(Flow,BorderLayout.CENTER);
 		Container con = frame.getContentPane();
 		con.add(Border);

@@ -9,6 +9,7 @@ import user.Image;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -175,9 +176,20 @@ class RegisterFrame extends JFrame implements ActionListener {
     	
     	registerButton.addActionListener(this);
     	registerButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    	JRootPane rootPane = getRootPane();
+        rootPane.setDefaultButton(registerButton);
         
     	resetButton.addActionListener(this);
         resetButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        resetButton.registerKeyboardAction(resetButton.getActionForKeyStroke(
+                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
+                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
+                JComponent.WHEN_FOCUSED);
+
+        resetButton.registerKeyboardAction(resetButton.getActionForKeyStroke(
+                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
+                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
+                JComponent.WHEN_FOCUSED);
         
         showPassword.addActionListener(this);
         showPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

@@ -142,9 +142,21 @@ class Login extends JFrame implements ActionListener {
     	
     	loginButton.addActionListener(this);
     	loginButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    	
+    	JRootPane rootPane = getRootPane();
+        rootPane.setDefaultButton(loginButton);
         
     	resetButton.addActionListener(this);
         resetButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    	resetButton.registerKeyboardAction(resetButton.getActionForKeyStroke(
+                  KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
+                  KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
+                  JComponent.WHEN_FOCUSED);
+
+    	resetButton.registerKeyboardAction(resetButton.getActionForKeyStroke(
+                  KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
+                  KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
+                  JComponent.WHEN_FOCUSED);
     }
 
     @Override

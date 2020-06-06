@@ -70,7 +70,7 @@ public class Member extends User {
 		System.out.println(this.getLicence());
 		System.out.println(this.getCMND());
 	}
-	
+
 	public String getLicence() {
 		return Licence;
 	}

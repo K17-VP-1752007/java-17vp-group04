@@ -91,6 +91,10 @@ class RentTruck extends JFrame{
 		JButton next = new JButton("Next >");
 		JButton rent = new JButton("Rent now!");
 		
+		previous.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		next.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		rent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		JLabel cont = new JLabel("                               ", JLabel.CENTER);
 		cont.setSize(200, 400);
 		
@@ -270,7 +274,7 @@ class RentTruck extends JFrame{
 		
 	    panelCheckBox.add(week = createCheckBox("WEEK"));
 	    panelCheckBox.add(month = createCheckBox("MONTH"));
-	
+			    
 	    Bigbox.add(panelCheckBox, BorderLayout.WEST);
 	    
 	    JPanel listday = new JPanel(new GridLayout(1, 0));
@@ -302,8 +306,8 @@ class RentTruck extends JFrame{
                 }
             }
         });
-	    //int wek = countlist.getSelectedIndex();
-	    //weeklist[wek];
+	
+	    
 	    month.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent ae) {
                 if(ae.getStateChange() == 1)
@@ -381,8 +385,11 @@ class RentTruck extends JFrame{
 		JPanel Gloc = new JPanel(new GridLayout(2, 0, -150, 0));
 		JPanel End = new JPanel(new FlowLayout());
 		End.add(Box.createRigidArea(new Dimension(18, 10)));
+		
 		fini = new JButton("Finish");
+		fini.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		fini.setPreferredSize(new Dimension(80,27));
+		
 		Gloc.add(Choose);
 		Gloc.add(Bigbox);
 		Gloc.add(Choose2);
@@ -505,7 +512,6 @@ class RentTruck extends JFrame{
 					Truck t = A.searchTruckByID(IDvl.getText());
 					if(weekls.getSelectedIndex() != -1)
 					{	
-						JOptionPane.showMessageDialog(frame, "Rent successfully");
 						Center.setVisible(true);
 						Middle.setVisible(true);
 						CardLayout c4 = (CardLayout)Center.getLayout();
@@ -513,16 +519,12 @@ class RentTruck extends JFrame{
 						chooseW();
 						countDay = cwek;
 						weekls.clearSelection();
-						System.out.println("Days : " + countDay);
 						
-						//Member m = new Member("M104","John","0901612023","wick123","wick","B,C","090871234");
-						//m.Rent(t, "Week");
-						user.Output();
 						user.Rent(t, "Week");
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
 					}
 					else if(monthls.getSelectedIndex() != -1)
 					{	
-						JOptionPane.showMessageDialog(frame, "Rent successfully");
 						Center.setVisible(true);
 						Middle.setVisible(true);
 						CardLayout c4 = (CardLayout)Center.getLayout();
@@ -531,8 +533,8 @@ class RentTruck extends JFrame{
 						countDay = cmon;
 						monthls.clearSelection();
 						System.out.println("Days : " + countDay);
-						
-						//m.rent(t, "Month");
+						user.Rent(t, "Month");
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
 					}
 						else
 							JOptionPane.showMessageDialog(frame, "You can't rent");
