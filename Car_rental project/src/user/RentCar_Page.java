@@ -43,6 +43,7 @@ class RentCar extends JFrame{
     String weeklist[] = {"1 week", "2 weeks", "3 weeks", "5 weeks", "7 weeks", "9 weeks", "11 weeks"};
     String monthlist[] = {"1 month", "2 months", "3 months", "4 months", "5 months", "6 months", "7 months", "8 months", "9 months", "10 months", "11 months", "12 months"};
 	VehicleList A = new VehicleList();
+	Member user = new Member();
 	
 	JFrame frame = new JFrame("CGO - Rent Car");
 	//Lay gia tri countDay de tinh tien
@@ -54,6 +55,7 @@ class RentCar extends JFrame{
 		frame.setSize(450, 600);
 //		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addControl();
+		user.CopyMem(Login.getMem());
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setResizable(false);
@@ -485,10 +487,9 @@ class RentCar extends JFrame{
 		fini.addActionListener(new ActionListener() {
 			@Override
 				public void actionPerformed(ActionEvent ae) {
-					//Car c = A.searchCarByID(IDvl.getText());
+					Car c = A.searchCarByID(IDvl.getText());
 					if(weekls.getSelectedIndex() != -1)
 					{	
-						JOptionPane.showMessageDialog(frame, "Rent successfully");
 						Center.setVisible(true);
 						Middle.setVisible(true);
 						CardLayout c4 = (CardLayout)Center.getLayout();
@@ -497,12 +498,12 @@ class RentCar extends JFrame{
 						countDay = cwek;
 						weekls.clearSelection();
 						
-						//Member m = new Member("M104", "John", "0901612023","B","wick123","wick","090871234");
-						//m.Rent(c, "Week");
+						user.Rent(c, "Week");
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
 					}
 					else if(monthls.getSelectedIndex() != -1)
 					{	
-						JOptionPane.showMessageDialog(frame, "Rent successfully");
+						
 						Center.setVisible(true);
 						Middle.setVisible(true);
 						CardLayout c4 = (CardLayout)Center.getLayout();
@@ -511,7 +512,8 @@ class RentCar extends JFrame{
 						countDay = cmon;
 						monthls.clearSelection();
 						
-						//m.rent(c, "Month");
+						user.Rent(c, "Month");
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
 					}
 					else
 						JOptionPane.showMessageDialog(frame, "You can't rent");

@@ -46,6 +46,7 @@ class RentTruck extends JFrame{
 	int weekValue, monthValue;
 	boolean check;
     VehicleList A = new VehicleList();
+    Member user = new Member();
 	
 	JFrame frame = new JFrame("CGO - Rent truck");
 	
@@ -59,6 +60,7 @@ class RentTruck extends JFrame{
 	public RentTruck(){
 		frame.setSize(450, 600);
 //		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		user.CopyMem(Login.getMem());
 		addControl();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
@@ -503,8 +505,10 @@ class RentTruck extends JFrame{
 						weekls.clearSelection();
 						System.out.println("Days : " + countDay);
 						
-						Member m = new Member("M104","John","0901612023","wick123","wick","B,C","090871234");
-						m.Rent(t, "Week");
+						//Member m = new Member("M104","John","0901612023","wick123","wick","B,C","090871234");
+						//m.Rent(t, "Week");
+						user.Output();
+						user.Rent(t, "Week");
 					}
 					else if(monthls.getSelectedIndex() != -1)
 					{	
