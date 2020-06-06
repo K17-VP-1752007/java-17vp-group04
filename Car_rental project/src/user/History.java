@@ -15,10 +15,15 @@ import javax.swing.border.LineBorder;
 import order.Order;
 import order.OrderList;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import user.Image;
 import user.Member;
+import vehicle.Car;
 import vehicle.Truck;
+import vehicle.VehicleList;
 
 class VehicleHistory extends JFrame
 {
@@ -26,23 +31,30 @@ class VehicleHistory extends JFrame
 	String value;
 	JFrame frame = new JFrame("CGO - User's history");
 	Member User = new Member();
-	int carN, carP;
-	int truckN, truckP;
+	int x, y;
 	OrderList od = new OrderList();
-	JLabel VeID, veid, CusID, cusid,Name, name, Day, day, Count, count, VeID2, veid2, CusID2, cusid2, Name2, name2, Day2, day2, Count2, count2; 
-	String v, c, n, d, co;
+	VehicleList List = new VehicleList();
+	Order order = new Order();
+	JLabel VeID, veid, Name, name, Day, day, EDay, eday, Count, count, CS, cs, VeID2, veid2, Name2, name2, Day2, EDay2, day2, eday2, Count2, count2, CS2, cs2; 
+	String v, c, n, d, ed, co, cost;
+	
+	ArrayList<Order> L = new ArrayList<Order>();
 	
 	public VehicleHistory()
 	{
 		User.CopyMem(Login.getMem());
-		frame.setSize(1000, 600);
+		frame.setSize(600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		frame.setLocationRelativeTo(null);
 		od.ReadAllOrder();
+		CreateList();
+//		order = od.SearchOrderByCustom(User.getID());
 		addControl();
 		frame.setVisible(true);
 		frame.setResizable(false);
-		
+		System.out.print("User : " + User.getName());
+		x = 0;
+		y = L.size();
 	}
 	
 	public void addControl() 
@@ -77,16 +89,16 @@ class VehicleHistory extends JFrame
 		
 		JPanel bot = new JPanel(new FlowLayout());
 		
-		JButton car = new JButton("Car's rental history");
-		car.setFont(new Font("Arial", Font.ITALIC, 13));
-		car.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		JButton previous = new JButton("< Previous");
+		previous.setFont(new Font("Arial", Font.ITALIC, 13));
+		previous.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
-		JButton truck = new JButton("Truck's rental history");
-		truck.setFont(new Font("Arial", Font.ITALIC, 13));
-		truck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		JButton next = new JButton("Next >");
+		next.setFont(new Font("Arial", Font.ITALIC, 13));
+		next.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
-		bot.add(car);
-		bot.add(truck);
+		bot.add(previous);
+		bot.add(next);
 		
 		Border.add(top, BorderLayout.NORTH);
 		Border.add(bot, BorderLayout.SOUTH);
@@ -105,29 +117,13 @@ class VehicleHistory extends JFrame
 		pic.setBounds(0, 100, 1000, 410);
 		
 		final JPanel Center = new JPanel();
-		final JPanel Middle = new JPanel();
 		
 		Center.setLayout(new CardLayout());
 		Center.setVisible(false);
 		
-		Middle.setLayout(new CardLayout());
-		Middle.setVisible(false);
-		
-		final JPanel Mid = new JPanel();
-		
-		finalpic = new JLabel();
-		finalpic.setSize(650,500);
-		value = "src/user/bentley.jpg";
-		setPicture(finalpic,value);
-		Mid.add(finalpic);
-		
 		VeID = new JLabel("     Vehicle ID : ");
 	    veid = new JLabel("");
 	    VeID.setFont(new Font("Arial", Font.BOLD, 15));
-	    
-	    CusID = new JLabel("     Customer ID : ");
-	    cusid = new JLabel("");
-	    CusID.setFont(new Font("Arial", Font.BOLD, 15));
 	    
 		Name = new JLabel("     Name : ");
 	    name = new JLabel("");
@@ -136,18 +132,22 @@ class VehicleHistory extends JFrame
 		Day = new JLabel("     Start day : ");
 		day = new JLabel("");
 		Day.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		EDay = new JLabel("     End day : ");
+		eday = new JLabel("");
+		EDay.setFont(new Font("Arial", Font.BOLD, 15));
 		 
-		Count = new JLabel("     Total car's rental time : ");
+		Count = new JLabel("     Rent type : ");
 		count = new JLabel("");
 		Count.setFont(new Font("Arial", Font.BOLD, 15));
-		//Khoi tao Label 
+		
+		CS = new JLabel("     Total cost : ");
+		cs = new JLabel("");
+		CS.setFont(new Font("Arial", Font.BOLD, 15));
+		
 		VeID2 = new JLabel("     Vehicle ID : ");
 	    veid2 = new JLabel("");
 	    VeID2.setFont(new Font("Arial", Font.BOLD, 15));
-	    
-	    CusID2 = new JLabel("     Customer ID : ");
-	    cusid2 = new JLabel("");
-	    CusID2.setFont(new Font("Arial", Font.BOLD, 15));
 	    
 		Name2 = new JLabel("     Name : ");
 	    name2 = new JLabel("");
@@ -156,95 +156,89 @@ class VehicleHistory extends JFrame
 		Day2 = new JLabel("     Start day : ");
 		day2 = new JLabel("");
 		Day2.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		EDay2 = new JLabel("     End day : ");
+		eday2 = new JLabel("");
+		EDay2.setFont(new Font("Arial", Font.BOLD, 15));
 		 
-		Count2 = new JLabel("     Total truck's rental time : ");
+		Count2 = new JLabel("     Rent type : ");
 		count2 = new JLabel("");
 		Count2.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		JButton next = new JButton("Next >");
-		JButton pre = new JButton("< Previous");
-		
-		JButton next2 = new JButton("Next >");
-		JButton pre2 = new JButton("< Previous");
+		CS2 = new JLabel("     Total cost : ");
+		cs2 = new JLabel("");
+		CS2.setFont(new Font("Arial", Font.BOLD, 15));
 	
 		final JPanel Card1 = new JPanel(new BorderLayout());
-		JPanel info = new JPanel(new GridLayout(5, 1));
+		JPanel info = new JPanel(new GridLayout(12, 1));
 		info.add(VeID);
 		info.add(veid);
-		info.add(CusID);
-		info.add(cusid);
 		info.add(Name);
 		info.add(name);
 		info.add(Day);
 		info.add(day);
+		info.add(EDay);
+		info.add(eday);
 		info.add(Count);
 		info.add(count);
-		
+		info.add(CS);
+		info.add(cs);
+	
 		final JPanel Card2 = new JPanel(new BorderLayout());
-		JPanel info2 = new JPanel(new GridLayout(5, 1));
+		JPanel info2 = new JPanel(new GridLayout(12, 1));
 		info2.add(VeID2);
 		info2.add(veid2);
-		info2.add(CusID2);
-		info2.add(cusid2);
 		info2.add(Name2);
 		info2.add(name2);
 		info2.add(Day2);
 		info2.add(day2);
+		info.add(EDay2);
+		info.add(eday2);
 		info2.add(Count2);
 		info2.add(count2);
-	
-		JPanel position = new JPanel(new FlowLayout());
-		position.add(pre);
-		position.add(next);
+		info.add(CS2);
+		info.add(cs2);
 		
-		JPanel position2 = new JPanel(new FlowLayout());
-		position2.add(pre2);
-		position2.add(next2);
+		final JPanel Card3 = new JPanel(new BorderLayout());
+		JPanel info3 = new JPanel(new GridLayout(2, 0));
+		JLabel warn = new JLabel("You haven't rent any vehicle yet !");
+		JLabel warn2 = new JLabel("Please go back to the Renting page to rent some vehicle first.");
+		JPanel miniinfo = new JPanel(new FlowLayout());
+		miniinfo.add(warn);
+		miniinfo.add(warn2);
+		JLabel blanc = new JLabel();
+		info3.add(blanc);
+		info3.add(miniinfo);
 		
 		Card1.add(info, BorderLayout.CENTER);
-		Card1.add(position, BorderLayout.SOUTH);
 		
 		Card2.add(info2, BorderLayout.CENTER);
-		Card2.add(position2, BorderLayout.SOUTH);
+		
+		Card3.add(info3, BorderLayout.CENTER);
 		
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
-		//Add thong tin (panel Middle) truoc, hinh (panel Center) sau 
-		Middle.add(Mid);
-		JPanel Flow = new JPanel();
-		Flow.setLayout(new GridLayout(1, 1));
-		Flow.add(Center);
-		Flow.add(Middle);
 		
-		Border.add(Flow,BorderLayout.CENTER);
+		Border.add(Center,BorderLayout.CENTER);
 		Container con = frame.getContentPane();
 		con.add(Border);
 		
-		car.addActionListener(new ActionListener() {
+		previous.addActionListener(new ActionListener() {
 			
 			@Override
 			
 				public void actionPerformed(ActionEvent ae) {
 					Center.setVisible(true);
-					Middle.setVisible(true);
+
+					x--;
+					if(x < 0) {
+						x = L.size() - 1;
+					}
+					y = x;
+					findVehicle(x);
+					
 					CardLayout cl = (CardLayout)Center.getLayout();
 					cl.show(Center, "C1");
-					CardLayout m1=(CardLayout)Middle.getLayout();
-					m1.show(Middle, "C1");
-				}
-			});
-		
-		truck.addActionListener(new ActionListener() {
-			
-			@Override
-			
-				public void actionPerformed(ActionEvent ae) {
-					Center.setVisible(true);
-					Middle.setVisible(true);
-					CardLayout c2 = (CardLayout)Center.getLayout();
-					c2.show(Center, "C2");
-					CardLayout m2=(CardLayout)Middle.getLayout();
-					m2.show(Middle, "C2");
 				}
 			});
 		
@@ -254,71 +248,55 @@ class VehicleHistory extends JFrame
 			
 				public void actionPerformed(ActionEvent ae) {
 					Center.setVisible(true);
-					Middle.setVisible(true);
-					carP++;
+					
+					y++;
+					if(y > (L.size() - 1)) {
+						y = 0;
+					}
+					x = y;
+					
+					findVehicle(y);
+					
 					CardLayout c2 = (CardLayout)Center.getLayout();
 					c2.show(Center, "C2");
-					CardLayout m2=(CardLayout)Middle.getLayout();
-					findVehicle(carP);
-					setPicture(finalpic,value);
-					m2.show(Middle, "C2");
 				}
 			});
-		
-		pre.addActionListener(new ActionListener() {
-			
-			@Override
-			
-				public void actionPerformed(ActionEvent ae) {
-					Center.setVisible(true);
-					Middle.setVisible(true);
-					CardLayout c2 = (CardLayout)Center.getLayout();
-					c2.show(Center, "C2");
-					CardLayout m2=(CardLayout)Middle.getLayout();
-					m2.show(Middle, "C2");
-				}
-			});
-		
-		next2.addActionListener(new ActionListener() {
-			
-			@Override
-			
-				public void actionPerformed(ActionEvent ae) {
-					Center.setVisible(true);
-					Middle.setVisible(true);
-					CardLayout c2 = (CardLayout)Center.getLayout();
-					c2.show(Center, "C2");
-					CardLayout m2=(CardLayout)Middle.getLayout();
-					m2.show(Middle, "C2");
-				}
-			});
-
-		pre2.addActionListener(new ActionListener() {
-	
-			@Override
-	
-			public void actionPerformed(ActionEvent ae) {
-				Center.setVisible(true);
-				Middle.setVisible(true);
-				CardLayout c2 = (CardLayout)Center.getLayout();
-				c2.show(Center, "C2");
-				CardLayout m2=(CardLayout)Middle.getLayout();
-				m2.show(Middle, "C2");
-			}
-		});
 	}
 	
-	public void findVehicle(int i) {
-		Order order = new Order();
-		order = od.SearchOrderByID(String.valueOf(i));
-		String v, c, n, d, co;
+	public void findVehicle(int a) {
+		order = L.get(a);
+		
 		v = order.getVehicle();
-		c = order.getCustomer();
 		n = order.getName();
 		d = order.getStart();
+		ed = order.getEnd();
+		co = order.getRentType();
+		cost = String.valueOf(order.getCost());
 		
+		veid.setText(v);
+		name.setText(n);
+		day.setText(d);
+		eday.setText(ed);
+		count.setText(co);
+		cs.setText(cost);
+		
+		veid2.setText(v);
+		name2.setText(n);
+		day2.setText(d);
+		eday2.setText(ed);	
+		count2.setText(co);
+		cs2.setText(cost);
 	}
 	
+	public void CreateList(){
+		for(int i = 0; i < od.getOrder_list().size(); i++)
+		{
+			if(User.getID().equals(od.getOrder_list().get(i).getCustomer()))
+			{
+				L.add(od.getOrder_list().get(i));
+			}
+		}
+	}
 	public void setPicture(JLabel label ,String filename){
        try {
          BufferedImage image = ImageIO.read(new File(filename));
