@@ -5,11 +5,17 @@ import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 
 public class Car extends Vehicle {
 	private String type;
@@ -57,39 +63,86 @@ public class Car extends Vehicle {
 		}
 	}
 	
-	public void ModifyRecord(double km, int rent, String date, double income) {
-		getRecord().setKm_travel(km);
-		getRecord().setTotalRent(rent);
-		getRecord().setLast_date_rent(date);
-		getRecord().setIncome_generate(income);
-		
+	public void CreateRecord() {
+		this.getRecord().setId_vehicle(this.getID());
 		try {
-			
 			File file = new File("src/database/record_car.xml");
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(file);
 			
-			NodeList id_record_list = doc.getElementsByTagName("vehicleID");
-			for(int i = 0; i < id_record_list.getLength(); i++) {
-				if(this.getID().equals(id_record_list.item(i).getTextContent())) {
-					Node record = id_record_list.item(i).getParentNode();
-					Element element = (Element) record;
-					
-					element.getElementsByTagName("km").item(0).setTextContent(Double.toString(km));
-					element.getElementsByTagName("totalRent").item(0).setTextContent(Integer.toString(rent));
-					element.getElementsByTagName("lastRent").item(0).setTextContent(date);
-					element.getElementsByTagName("income").item(0).setTextContent(Double.toString(income));
-					
+			Node data = doc.getFirstChild();
+			
+			Node record = doc.createElement("record");
+			
+			Element vehicle_id = doc.createElement("vehicleID");
+			vehicle_id.appendChild(doc.createTextNode(this.getRecord().getId_vehicle()));
+			record.appendChild(vehicle_id);
+			
+			Element km_travel = doc.createElement("km");
+			km_travel.appendChild(doc.createTextNode(Double.toString(this.getRecord().getKm_travel())));
+			record.appendChild(km_travel);
+			
+			Element total_rent = doc.createElement("totalRent");
+			total_rent.appendChild(doc.createTextNode(Integer.toString(this.getRecord().getTotalRent())));
+			record.appendChild(total_rent);
+			
+			Element last_date_rent = doc.createElement("lastRent");
+			last_date_rent.appendChild(doc.createTextNode("0"));
+			record.appendChild(last_date_rent);
+			
+			Element income = doc.createElement("income");
+			income.appendChild(doc.createTextNode(Double.toString(this.getRecord().getIncome_generate())));
+			record.appendChild(income);
+			
+			data.appendChild(record);
+			
+			UpdateXml(file, doc);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	public void DeleteRecord() {
+		try {
+			File file = new File("src/database/record_car.xml");
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			
+			Node data = doc.getFirstChild();
+			NodeList vehicle_id_list = doc.getElementsByTagName("vehicleID");
+			
+			for(int i = 0; i < vehicle_id_list.getLength(); i++) {
+				String id = vehicle_id_list.item(i).getTextContent();
+				if(id.equals(this.getID())) {
+					Node record = vehicle_id_list.item(i).getParentNode();
+					data.removeChild(record);
+					break;
 				}
 			}
-			
+			doc.normalize();
+			UpdateXml(file, doc);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	// cap nhat lai file xml
+	public static void UpdateXml(File file, Document doc) {
+		try {
+					
+			TransformerFactory transFact = TransformerFactory.newInstance();
+			Transformer trans = transFact.newTransformer();
+			// dung de in ra file xml can chia theo hang cho dep
+			trans.setOutputProperty(OutputKeys.INDENT, "yes");
+			DOMSource source = new DOMSource(doc);
+			StreamResult res = new StreamResult(file);
+			trans.transform(source, res);
+					
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public String toString() {
-		return("ID: " + getID() + "\n" + "Model: " + getModel() + "\n" + "Color: " + getColor() + "\n" + "Passenger: " + getPassenger() + "\n" + "Brand: " + getBrand() + "\n" + "Cost: " + getCost() + "\n" + "Type: " + getType() + "\nRent record: " + getRecord());
-	}
+
 }

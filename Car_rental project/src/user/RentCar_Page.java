@@ -18,8 +18,8 @@ class RentCar extends JFrame{
 	int current;
 	int i, y;
 	JLabel finalpic;
-	String value;
-	String id;
+	String value, id;
+	String test_ID;
 	String model;
 	String color;
 	String pas;
@@ -411,7 +411,7 @@ class RentCar extends JFrame{
 				
 				i--;
 				if(i < 1000)
-					i = 1019;
+					i = 1000 + A.getCarlist().size() - 1;
 				y = i;
 				
 				CardLayout cl=(CardLayout)Center.getLayout();
@@ -420,7 +420,8 @@ class RentCar extends JFrame{
 			
 				findPic(i);
 				setPicture(finalpic,value);
-				i = Integer.parseInt(id);
+				test_ID = id.substring(1);
+				i = Integer.parseInt(test_ID);
 				m1.show(Middle, "C1");
 				current = i;
 			}
@@ -436,8 +437,12 @@ class RentCar extends JFrame{
 				Middle.setVisible(true);
 				
 				y++;
-				if(y > 1019)
+				/*if(y > 1019)
 					y = 1000;
+				i = y;*/
+				if(y > (1000 + A.getCarlist().size() - 1)) {
+					y = 1000;
+				}
 				i = y;
 				
 				CardLayout c2=(CardLayout)Center.getLayout();
@@ -446,7 +451,8 @@ class RentCar extends JFrame{
 				
 				findPic(y);
 				setPicture(finalpic,value);
-				y = Integer.parseInt(id);
+				test_ID = id.substring(1);
+				y = Integer.parseInt(test_ID);
 				m2.show(Middle, "C2");
 				current = y;
 			}
@@ -471,6 +477,7 @@ class RentCar extends JFrame{
 					CardLayout m2=(CardLayout)Middle.getLayout();
 					findPic(current);
 					m2.show(Middle, "C3");
+					
 				}
 			}
 			});
@@ -478,6 +485,7 @@ class RentCar extends JFrame{
 		fini.addActionListener(new ActionListener() {
 			@Override
 				public void actionPerformed(ActionEvent ae) {
+					//Car c = A.searchCarByID(IDvl.getText());
 					if(weekls.getSelectedIndex() != -1)
 					{	
 						JOptionPane.showMessageDialog(frame, "Rent successfully");
@@ -488,6 +496,9 @@ class RentCar extends JFrame{
 						chooseW();
 						countDay = cwek;
 						weekls.clearSelection();
+						
+						//Member m = new Member("M104", "John", "0901612023","B","wick123","wick","090871234");
+						//m.Rent(c, "Week");
 					}
 					else if(monthls.getSelectedIndex() != -1)
 					{	
@@ -499,6 +510,8 @@ class RentCar extends JFrame{
 						chooseM();
 						countDay = cmon;
 						monthls.clearSelection();
+						
+						//m.rent(c, "Month");
 					}
 					else
 						JOptionPane.showMessageDialog(frame, "You can't rent");
@@ -601,7 +614,8 @@ class RentCar extends JFrame{
 	//Tim thong tin cua 1 doi tuong xe va gan vao cac bien khoi tao
 	public void findPic(int i) {
 		Car c = new Car();
-		c = A.searchCarByID(String.valueOf(i));
+		String id_car = "C" + Integer.toString(i);
+		c = A.searchCarByID(id_car);
 		c.ViewRecord();
 //Gan vao cac bien
 		id = c.getID();

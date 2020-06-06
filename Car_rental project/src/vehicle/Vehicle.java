@@ -70,9 +70,8 @@ public abstract class Vehicle {
 	
 	
 	public abstract void ViewRecord();
-	
-	
-	public abstract void ModifyRecord(double km, int rent, String date, double income);
+	public abstract void CreateRecord();
+	public abstract void DeleteRecord();
 	
 	
 }

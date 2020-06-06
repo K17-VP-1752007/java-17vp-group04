@@ -18,6 +18,7 @@ class RentTruck extends JFrame{
 	JLabel pic;
 	int i,y;
 	int current;
+	String test_ID;
 	JLabel finalpic;
 	String value;
 	String id;
@@ -415,7 +416,7 @@ class RentTruck extends JFrame{
 			
 			i--;
 			if(i < 3000)
-				i = 3009;
+				i = 3000 + A.getTruckList().size() -1;
 			y = i;
 			
 			CardLayout cl=(CardLayout)Center.getLayout();
@@ -424,7 +425,8 @@ class RentTruck extends JFrame{
 		
 			findPic(i);
 			setPicture(finalpic,value);
-			i = Integer.parseInt(id);
+			test_ID = id.substring(1);
+			i = Integer.parseInt(test_ID);
 			m1.show(Middle, "C1");
 			current = i;
 			
@@ -441,8 +443,12 @@ class RentTruck extends JFrame{
 			Middle.setVisible(true);
 			
 			y++;
-			if(y > 3009)
+			/*if(y > 3009)
 				y = 3000;
+			i = y;*/
+			if(y > (3000 + A.getTruckList().size() -1)){
+				y = 3000;
+			}
 			i = y;
 			
 			CardLayout c2=(CardLayout)Center.getLayout();
@@ -450,7 +456,9 @@ class RentTruck extends JFrame{
 			CardLayout m2=(CardLayout)Middle.getLayout();
 			findPic(i);
 			setPicture(finalpic,value);
-			i = Integer.parseInt(id);
+			
+			test_ID = id.substring(1);
+			i = Integer.parseInt(test_ID);
 			m2.show(Middle, "C2");
 			current = i;
 			
@@ -482,33 +490,39 @@ class RentTruck extends JFrame{
 		fini.addActionListener(new ActionListener() {
 			@Override
 				public void actionPerformed(ActionEvent ae) {
-				if(weekls.getSelectedIndex() != -1)
-				{	
-					JOptionPane.showMessageDialog(frame, "Rent successfully");
-					Center.setVisible(true);
-					Middle.setVisible(true);
-					CardLayout c4 = (CardLayout)Center.getLayout();
-					c4.show(Center, "C4");
-					chooseW();
-					countDay = cwek;
-					weekls.clearSelection();
-					System.out.println("Days : " + countDay);
-				}
-				else if(monthls.getSelectedIndex() != -1)
-				{	
-					JOptionPane.showMessageDialog(frame, "Rent successfully");
-					Center.setVisible(true);
-					Middle.setVisible(true);
-					CardLayout c4 = (CardLayout)Center.getLayout();
-					c4.show(Center, "C4");
-					chooseM();
-					countDay = cmon;
-					monthls.clearSelection();
-					System.out.println("Days : " + countDay);
-				}
-					else
-						JOptionPane.showMessageDialog(frame, "You can't rent");
-				}
+					Truck t = A.searchTruckByID(IDvl.getText());
+					if(weekls.getSelectedIndex() != -1)
+					{	
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
+						Center.setVisible(true);
+						Middle.setVisible(true);
+						CardLayout c4 = (CardLayout)Center.getLayout();
+						c4.show(Center, "C4");
+						chooseW();
+						countDay = cwek;
+						weekls.clearSelection();
+						System.out.println("Days : " + countDay);
+						
+						Member m = new Member("M104","John","0901612023","wick123","wick","B,C","090871234");
+						m.Rent(t, "Week");
+					}
+					else if(monthls.getSelectedIndex() != -1)
+					{	
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
+						Center.setVisible(true);
+						Middle.setVisible(true);
+						CardLayout c4 = (CardLayout)Center.getLayout();
+						c4.show(Center, "C4");
+						chooseM();
+						countDay = cmon;
+						monthls.clearSelection();
+						System.out.println("Days : " + countDay);
+						
+						//m.rent(t, "Month");
+					}
+						else
+							JOptionPane.showMessageDialog(frame, "You can't rent");
+					}
 			});
 	}
 	
@@ -607,7 +621,8 @@ class RentTruck extends JFrame{
 
 	public void findPic(int i) {
 		Truck t = new Truck();
-		t = A.searchTruckByID(String.valueOf(i));
+		String id_truck = "T" + Integer.toString(i);
+		t = A.searchTruckByID(id_truck);
 		t.ViewRecord();
 
 		id = t.getID();
@@ -688,12 +703,12 @@ class RentTruck extends JFrame{
  }
 }
 
-public class RentTruck_Page{
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				new RentTruck();
-			}
-			});
-	}
-}
+//public class RentTruck_Page{
+//	public static void main(String[] args) {
+//		SwingUtilities.invokeLater(new Runnable() {
+//			public void run() {
+//				new RentTruck();
+//			}
+//			});
+//	}
+//}

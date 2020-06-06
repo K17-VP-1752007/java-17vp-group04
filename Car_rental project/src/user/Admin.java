@@ -1,7 +1,9 @@
 package user;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -38,9 +40,17 @@ public class Admin extends User {
 		else return false;
 	}
 	
-	//public boolean Logout() {}
 	
-	public static void AddCar(Car c) {
+	public static void DeleteImg(String link) {
+		File f = new File(link);
+		
+		if(f.delete())
+			System.out.println("Delete image");
+		else
+			System.out.println("Not exists");
+	}
+	
+	public static void AddCar(Car c, String fileImg) {
 			try {
 				File file = new File("src/database/Car.xml");
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -92,12 +102,17 @@ public class Admin extends User {
 				//cap nhat lai file xml
 				UpdateXml(file, doc);
 				
+				// chuyen file hinh co duong dan da chon vao folder hinh
+				File output = new File(fileImg);
+				BufferedImage ImgRead = ImageIO.read(output);
+				ImageIO.write(ImgRead, "jpg", new File(c.getImg()));
+				
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
 	}
 	
-	public static void ModifyCar(Car c) {
+	public static void ModifyCar(Car c, String new_img, String old_img) {
 		try {
 			//doc file
 			File file = new File("src/database/Car.xml");
@@ -120,6 +135,7 @@ public class Admin extends User {
 					element.getElementsByTagName("brand").item(0).setTextContent(c.getBrand());
 					element.getElementsByTagName("cost").item(0).setTextContent(Double.toString(c.getCost()));
 					element.getElementsByTagName("type").item(0).setTextContent(c.getType());
+					element.getElementsByTagName("img").item(0).setTextContent(c.getImg());
 					break;
 				}
 			}
@@ -127,13 +143,22 @@ public class Admin extends User {
 			doc.normalize();
 			UpdateXml(file, doc);
 			
+			//them file hinh moi vao folder
+			File output = new File(new_img);
+			BufferedImage ImgRead = ImageIO.read(output);
+			ImageIO.write(ImgRead, "jpg", new File(c.getImg()));
+			// kt xem neu hinh moi ko trung vs hinh cu thi xoa hinh cu khoi folder
+			if(!c.getImg().equals(old_img)) {
+				DeleteImg(old_img);
+			}
+			
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void DeleteCar(String carID) {
+	public static void DeleteCar(Car c) {
 		try {
 			//doc file
 			File file = new File("src/database/Car.xml");
@@ -146,7 +171,7 @@ public class Admin extends User {
 			
 			for(int i = 0; i < id_list.getLength();i++) {
 				String id = id_list.item(i).getTextContent();
-				if(id.equals(carID)) {
+				if(id.equals(c.getID())) {
 					Node car = id_list.item(i).getParentNode();
 					data.removeChild(car);
 					break;
@@ -155,6 +180,9 @@ public class Admin extends User {
 			
 			doc.normalize();
 			
+			//xoa file hinh khoi folder
+			DeleteImg(c.getImg());
+			
 			UpdateXml(file, doc);
 		}catch(Exception ex) {
 			ex.printStackTrace();
@@ -162,7 +190,7 @@ public class Admin extends User {
 	
 	}
 	
-	public static void AddTruck(Truck tr) {
+	public static void AddTruck(Truck tr, String fileImg) {
 		try {
 			//doc file
 			File file = new File("src/database/Truck.xml");
@@ -216,13 +244,18 @@ public class Admin extends User {
 			//cap nhat lai file xml
 			UpdateXml(file, doc);
 			
+			// chuyen file hinh co duong dan da chon vao folder hinh
+			File output_img = new File(fileImg);
+			BufferedImage imgRead = ImageIO.read(output_img);
+			ImageIO.write(imgRead, "jpg", new File(tr.getImg()));
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		
 	}
 	
-	public static void ModifyTruck(Truck t) {
+	public static void ModifyTruck(Truck t, String new_img, String old_img) {
 		try {
 			
 			File file = new File("src/database/Truck.xml");
@@ -243,6 +276,7 @@ public class Admin extends User {
 					element.getElementsByTagName("brand").item(0).setTextContent(t.getBrand());
 					element.getElementsByTagName("cost").item(0).setTextContent(Double.toString(t.getCost()));
 					element.getElementsByTagName("maxw").item(0).setTextContent(Double.toString(t.getWeight()));
+					element.getElementsByTagName("img").item(0).setTextContent(t.getImg());
 					break;
 				}
 			}
@@ -250,12 +284,20 @@ public class Admin extends User {
 			doc.normalize();
 			UpdateXml(file, doc);
 			
+			// them file hinh muon cap nhat vo folder
+			File output_img = new File(new_img);
+			BufferedImage ImgRead = ImageIO.read(output_img);
+			ImageIO.write(ImgRead, "jpg", new File(t.getImg()));
+			//kt xem neu hinh cu ko trung vs hinh moi thi xoa hinh cu khoi folder
+			if(t.getImg().equals(old_img)) {
+				DeleteImg(old_img);
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void DeleteTruck(String trID) {	
+	public static void DeleteTruck(Truck t) {	
 		try {
 			//doc file
 			File file = new File("src/database/Truck.xml");
@@ -268,7 +310,7 @@ public class Admin extends User {
 			
 			for(int i = 0; i < id_list.getLength();i++) {
 				String id = id_list.item(i).getTextContent();
-				if(id.equals(trID)) {
+				if(id.equals(t.getID())) {
 					Node truck = id_list.item(i).getParentNode();
 					data.removeChild(truck);
 					break;
@@ -278,6 +320,8 @@ public class Admin extends User {
 			doc.normalize();
 			
 			UpdateXml(file, doc);
+			//xoa hinh khoi folder
+			DeleteImg(t.getImg());
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
@@ -325,7 +369,7 @@ public class Admin extends User {
 			order.appendChild(license);
 			
 			Element rent_type = doc.createElement("rentType");
-			rent_type.appendChild(doc.createTextNode(Integer.toString(ord.getRentType())));// ph chuyen int thanh chuoi trc khi tao text
+			rent_type.appendChild(doc.createTextNode(ord.getRentType()));
 			order.appendChild(rent_type);
 			
 			Element cost = doc.createElement("totalCost");
@@ -364,7 +408,7 @@ public class Admin extends User {
 					element.getElementsByTagName("startDate").item(0).setTextContent(ord.getStart());
 					element.getElementsByTagName("returnDate").item(0).setTextContent(ord.getEnd());
 					element.getElementsByTagName("license").item(0).setTextContent(ord.getLicense());
-					element.getElementsByTagName("rentType").item(0).setTextContent(Integer.toString(ord.getRentType()));
+					element.getElementsByTagName("rentType").item(0).setTextContent(ord.getRentType());
 					element.getElementsByTagName("totalCost").item(0).setTextContent(Double.toString(ord.getCost()));
 					break;
 				}

@@ -8,7 +8,8 @@ public class Order {
 	private String startDate;
 	private String returnDate;
 	private String license_plate;
-	private int rent_type;
+	//private int rent_type;
+	private String rent_type;
 	private double total_cost;
 	
 	public Order(){
@@ -19,11 +20,12 @@ public class Order {
 		startDate = null;
 		returnDate = null;
 		license_plate = null;
-		rent_type = 0;
+		//rent_type = 0;
+		rent_type = null;
 		total_cost = 0;
 	}
 	
-	public Order(String ord, String cust, String name, String vehicle, String start, String end,  String license, int type, double cost){
+	public Order(String ord, String cust, String name, String vehicle, String start, String end,  String license, String type, double cost){
 		orderID = ord;
 		customerID = cust;
 		customerName = name;
@@ -56,8 +58,8 @@ public class Order {
 	public String getLicense() {return license_plate;}
 	public void setLicense(String license) {license_plate = license;}
 	
-	public int getRentType() {return rent_type;}
-	public void setRentType(int type) {rent_type = type;}
+	public String getRentType() {return rent_type;}
+	public void setRentType(String type) {rent_type = type;}
 	
 	public double getCost() {return total_cost;}
 	public void setCost(double cost) {total_cost = cost;}

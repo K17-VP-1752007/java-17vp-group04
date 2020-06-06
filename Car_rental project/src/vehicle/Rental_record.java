@@ -31,12 +31,7 @@ public class Rental_record {
 	
 	public double getIncome_generate() {return income_generate;}
 	public void setIncome_generate(double income_generate) {this.income_generate = income_generate;}
-	
-	
-	@Override
-	public String toString() {
-		return "km_travel:" + km_travel + "\nNumber of rent: " + totalRent + "\nLast date rent: " + last_date_rent + "\nTotal income: " + income_generate;
-	}
+		
 	public String getId_vehicle() {
 		return id_vehicle;
 	}

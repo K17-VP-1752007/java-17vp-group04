@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
-                                                                                                                                                                            
+                                                                                                                                                                                                                        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -43,7 +54,7 @@
     
     
     <order>
-                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                
         
         
         
@@ -85,8 +96,6 @@
         
         
         
-        <orderID>2000</orderID>
-                                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -98,6 +107,8 @@
         
         
         
+        <orderID>O2000</orderID>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                
         
         
         
@@ -128,8 +139,41 @@
         
         
         
-        <customerID>A100</customerID>
-                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <customerID>M100</customerID>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -172,7 +216,7 @@
         
         
         <name>nguyet</name>
-                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                
         
         
         
@@ -214,8 +258,30 @@
         
         
         
-        <vehicleID>1000</vehicleID>
-                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <vehicleID>C1000</vehicleID>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -258,7 +324,18 @@
         
         
         <startDate>20/6/2000</startDate>
-                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -301,7 +378,18 @@
         
         
         <returnDate>17/7/2025</returnDate>
-                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -344,7 +432,18 @@
         
         
         <license>C</license>
-                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -387,7 +486,18 @@
         
         
         <rentType>5</rentType>
-                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -430,7 +540,18 @@
         
         
         <totalCost>50000.0</totalCost>
-                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -473,7 +594,7 @@
     
     
     </order>
-                                                                                                                
+                                                                                                                                                            
 
 
 
@@ -506,8 +627,19 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <order>
-                                                                                                                                                        
+                                                                                                                                                                                                                                                
         
         
         
@@ -525,8 +657,6 @@
         
         
         
-        <orderID>2001</orderID>
-                                                                                                                                                        
         
         
         
@@ -538,14 +668,14 @@
         
         
         
+        <orderID>O2001</orderID>
+                                                                                                                                                                                                                                                
         
         
         
         
         
         
-        <customerID>A101</customerID>
-                                                                                                                                                        
         
         
         
@@ -563,13 +693,13 @@
         
         
         
-        <name>Mia Hae</name>
-                                                                                                                                                        
         
         
         
         
         
+        <customerID>M101</customerID>
+                                                                                                                                                                                                                                                
         
         
         
@@ -582,8 +712,65 @@
         
         
         
-        <vehicleID>1001</vehicleID>
-                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <name>Yaniv</name>
+                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <vehicleID>C1001</vehicleID>
+                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -602,7 +789,18 @@
         
         
         <startDate>20/6/2000</startDate>
-                                                                                                                                                        
+                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -621,7 +819,18 @@
         
         
         <returnDate>7/7/2025</returnDate>
-                                                                                                                                                        
+                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -640,7 +849,7 @@
         
         
         <license>B</license>
-                                                                                                                                                        
+                                                                                                                                                                                                                                                
         
         
         
@@ -658,8 +867,30 @@
         
         
         
-        <rentType>4</rentType>
-                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <rentType>Month</rentType>
+                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -678,7 +909,18 @@
         
         
         <totalCost>20500.0</totalCost>
-                                                                                                                                                    
+                                                                                                                                                                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -697,7 +939,7 @@
     
     
     </order>
-                                                                        
+                                                                                                                    
 
 
 
@@ -716,4 +958,74 @@
 
     
 
+
+    
+    
+    
+    
+    
+    
+                    
+
+
+
+
+
+
+    
+    
+    
+    <order>
+                                
+        
+        
+        <orderID>O2002</orderID>
+                                
+        
+        
+        <customerID>M104</customerID>
+                                
+        
+        
+        <name>John</name>
+                                
+        
+        
+        <vehicleID>C1021</vehicleID>
+                                
+        
+        
+        <startDate>05/06/2020</startDate>
+                                
+        
+        
+        <returnDate>19/06/2020</returnDate>
+                                
+        
+        
+        <license>wick</license>
+                                
+        
+        
+        <rentType>Week</rentType>
+                                
+        
+        
+        <totalCost>1480.0</totalCost>
+                            
+    
+    
+    </order>
+    
+    <order>
+        <orderID>O2003</orderID>
+        <customerID>M104</customerID>
+        <name>John</name>
+        <vehicleID>T3002</vehicleID>
+        <startDate>06/06/2020</startDate>
+        <returnDate>27/06/2020</returnDate>
+        <license>B,C</license>
+        <rentType>Week</rentType>
+        <totalCost>1820.0</totalCost>
+    </order>
 </data>

@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import order.Order;
 import order.OrderList;
@@ -160,10 +161,10 @@ class cardlay extends JFrame{
 		infoBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
 		
 		JPanel minilabel = new JPanel();
-		minilabel.setLayout(new GridLayout(8,1,0,10));
+		minilabel.setLayout(new GridLayout(0,1,0,10));
 		
 		JPanel minitext= new JPanel();
-		minitext.setLayout(new GridLayout(8,1,0,10));
+		minitext.setLayout(new GridLayout(0,1,0,10));
 		
 		JLabel id_car = new JLabel("ID");
 		JTextField textID = new JTextField();
@@ -189,6 +190,33 @@ class cardlay extends JFrame{
 		JLabel type = new JLabel("Type");
 		JTextField textType = new JTextField();
 		
+		//----------------------------------them moi------------------------
+		JLabel img = new JLabel("Img");
+		JPanel img_panel = new JPanel();
+		img_panel.setLayout(new BorderLayout());
+		JTextField textImg = new JTextField();
+		JButton img_but = new JButton("Choose");
+		img_but.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				JFileChooser jfc = new JFileChooser();
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("Select a image", "jpg","png");
+				jfc.setFileFilter(filter);
+				int r = jfc.showOpenDialog(null);
+				if(r == jfc.APPROVE_OPTION) {
+					String str = jfc.getSelectedFile().getAbsolutePath();
+					textImg.setText(str);
+				}else
+					JOptionPane.showMessageDialog(null, "Cancel");
+			}
+		});
+		
+		img_panel.add(textImg, BorderLayout.CENTER);
+		img_panel.add(img_but, BorderLayout.EAST);
+		//-----------------------------------------------------
+		
 		minilabel.add(id_car);
 		minilabel.add(model);
 		minilabel.add(color);
@@ -197,6 +225,7 @@ class cardlay extends JFrame{
 		minilabel.add(reserved);
 		minilabel.add(cost);
 		minilabel.add(type);
+		minilabel.add(img); // them moi
 		
 		minitext.add(textID);
 		minitext.add(textModel);
@@ -206,6 +235,7 @@ class cardlay extends JFrame{
 		minitext.add(textReserved);
 		minitext.add(textCost);
 		minitext.add(textType);
+		minitext.add(img_panel);// them moi
 		
 		infoPanelCar.add(minilabel, BorderLayout.WEST);
 		infoPanelCar.add(minitext, BorderLayout.CENTER);
@@ -245,10 +275,12 @@ class cardlay extends JFrame{
 		infoTruckBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
 		
 		JPanel minilabeltruck = new JPanel();
-		minilabeltruck.setLayout(new GridLayout(8,1,0,10));
+		//minilabeltruck.setLayout(new GridLayout(8,1,0,10));
+		minilabeltruck.setLayout(new GridLayout(0,1,0,10)); // chinh lai gridlayout
 		
 		JPanel minitexttruck = new JPanel();
-		minitexttruck.setLayout(new GridLayout(8,1,0,10));
+		//minitexttruck.setLayout(new GridLayout(8,1,0,10));
+		minitexttruck.setLayout(new GridLayout(0,1,0,10)); // chinh lai gridlayout
 		
 		JLabel id_truck = new JLabel("ID");
 		JTextField textID_truck = new JTextField();
@@ -274,6 +306,33 @@ class cardlay extends JFrame{
 		JLabel reserved_truck = new JLabel("Reserved");
 		JTextField textReservedTruck = new JTextField();
 		
+		//----------------------------------------them moi---------------------------------
+		JLabel img_truck = new JLabel("Img");
+		JPanel img_panel_truck = new JPanel();
+		img_panel_truck.setLayout(new BorderLayout());
+		JTextField textImg_truck = new JTextField();
+		JButton img_button_truck = new JButton("Choose");
+		img_button_truck.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				JFileChooser jfc = new JFileChooser();
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("Select a image", "jpg","png");
+				jfc.setFileFilter(filter);
+				int r = jfc.showOpenDialog(null);
+				if(r == jfc.APPROVE_OPTION) {
+					String str = jfc.getSelectedFile().getAbsolutePath();
+					textImg_truck.setText(str);
+				}else
+					JOptionPane.showMessageDialog(null, "Cancel");
+			}
+		});
+		
+		img_panel_truck.add(textImg_truck, BorderLayout.CENTER);
+		img_panel_truck.add(img_button_truck, BorderLayout.EAST);
+		//-----------------------------------------------------------------------------------
+		
 		minilabeltruck.add(id_truck);
 		minilabeltruck.add(model_truck);
 		minilabeltruck.add(color_truck);
@@ -282,6 +341,7 @@ class cardlay extends JFrame{
 		minilabeltruck.add(cost_truck);
 		minilabeltruck.add(max_w);
 		minilabeltruck.add(reserved_truck);
+		minilabeltruck.add(img_truck); // them moi
 		
 		minitexttruck.add(textID_truck);
 		minitexttruck.add(textModel_truck);
@@ -291,6 +351,7 @@ class cardlay extends JFrame{
 		minitexttruck.add(textCostTruck);
 		minitexttruck.add(textMaxW);
 		minitexttruck.add(textReservedTruck);
+		minitexttruck.add(img_panel_truck); // them moi
 		
 		infoPanelTruck.add(minilabeltruck, BorderLayout.WEST);
 		infoPanelTruck.add(minitexttruck, BorderLayout.CENTER);
@@ -386,13 +447,13 @@ class cardlay extends JFrame{
 		infoPanelOrder.add(minilabelorder, BorderLayout.WEST);
 		infoPanelOrder.add(minitextorder, BorderLayout.CENTER);
 		
-		JButton add_order= new JButton("Add order");
+//		JButton add_order= new JButton("Add order");
 		JButton modi_order = new JButton("Modify order");
 		JButton del_order = new JButton("Delete order");
 		
 		JPanel minicardorder = new JPanel();
 	    Card3.add(minicardorder, BorderLayout.SOUTH);
-		minicardorder.add(add_order);
+//		minicardorder.add(add_order);
 		minicardorder.add(modi_order);
 		minicardorder.add(del_order);
 		
@@ -458,38 +519,38 @@ class cardlay extends JFrame{
 				vl.ReadAllCar();
 				// lay id xe hoi muon tim kiem
 				String id_car_search = textSearch.getText();
-				for(int i = 0; i < vl.getCarlist().size(); i++) {
-					// doc trong array list, neu id xe trung khop thi lay len toan bo info r set gia tri cho textfield
-					if(vl.getCarlist().get(i).getID().equals(id_car_search)) {
-						String id_res_car = vl.getCarlist().get(i).getID();
-						String model_res_car = vl.getCarlist().get(i).getModel();
-						String color_res_car = vl.getCarlist().get(i).getColor();
-						String passenger_res_car = Integer.toString(vl.getCarlist().get(i).getPassenger());
-						String brand_res_car = vl.getCarlist().get(i).getBrand();
-						String reserved_res_car = "";
-						// neu bien reserved trong arraylist la true thi set yes, false thi no
-						if(vl.getCarlist().get(i).isReserved()) {
-							reserved_res_car = "yes";
-						}
-						else {
-							reserved_res_car = "no";
-						}
-						String cost_res_car = Double.toString(vl.getCarlist().get(i).getCost());
-						String type_res_car = vl.getCarlist().get(i).getType();
-						textID.setText(id_res_car);
-						textModel.setText(model_res_car);
-						textColor.setText(color_res_car);
-						textPass.setText(passenger_res_car);
-						textBrand.setText(brand_res_car);
-						textReserved.setText(reserved_res_car);
-						textCost.setText(cost_res_car);
-						textType.setText(type_res_car);
-						return;
+				try {
+					Car c = vl.searchCarByID(id_car_search);
+					
+					String id_res_car = c.getID();
+					String model_res_car = c.getModel();
+					String color_res_car = c.getColor();
+					String passenger_res_car = Integer.toString(c.getPassenger());
+					String brand_res_car = c.getBrand();
+					String reserved_res_car = "";
+					// neu bien reserved trong arraylist la true thi set yes, false thi no
+					if(c.isReserved()) {
+						reserved_res_car = "yes";
 					}
-				} 
-				JOptionPane.showMessageDialog(frame, "This car is not exist");
+					else {
+						reserved_res_car = "no";
+					}
+					String cost_res_car = Double.toString(c.getCost());
+					String type_res_car = c.getType();
+					
+					textID.setText(id_res_car);
+					textModel.setText(model_res_car);
+					textColor.setText(color_res_car);
+					textPass.setText(passenger_res_car);
+					textBrand.setText(brand_res_car);
+					textReserved.setText(reserved_res_car);
+					textCost.setText(cost_res_car);
+					textType.setText(type_res_car);
+				}
+				catch(Exception exc) {
+					JOptionPane.showMessageDialog(frame, "This car is not exist");
+				}
 			}
-			
 		});
 		
 		//them xe hoi moi
@@ -499,25 +560,32 @@ class cardlay extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				//lay ra toan bo thong tin trong text field nhap vao
-				String id_new_car = textID.getText();
 				String model_new_car = textModel.getText();
 				String color_new_car = textColor.getText();
 				int passenger_new_car = Integer.parseInt(textPass.getText());
 				String brand_new_car = textBrand.getText();
 				double cost_new_car = Double.parseDouble(textCost.getText());
 				String type_new_car = textType.getText();
+
+				String[] img = textImg.getText().split("\\\\");
 				
-				// kt xem neu id xe da ton tai thi ko dc them
+				// tao tu dong id xe
+				int count_id = 1000;
 				for(int i = 0; i < vl.getCarlist().size(); i++) {
-					if(vl.getCarlist().get(i).getID().equals(id_new_car)) {
-						JOptionPane.showMessageDialog(frame, "This car already exists");
-						return;
+					String id = vl.getCarlist().get(i).getID().substring(1);
+					if(id.equals(Integer.toString(count_id))) {
+						count_id++;
+					}
+					else {
+						break;
 					}
 				}
+				String id_new_car = "C" + Integer.toString(count_id);
+				String img_path = "src/user/Car_Image/" + img[img.length-1];
 				// tao 1 object car
-				Car c = new Car(id_new_car, model_new_car, color_new_car,passenger_new_car,brand_new_car,cost_new_car,null,type_new_car);
-
-				Admin.AddCar(c);
+				Car c = new Car(id_new_car, model_new_car, color_new_car, passenger_new_car, brand_new_car, cost_new_car, img_path, type_new_car);
+				Admin.AddCar(c, textImg.getText());
+				c.CreateRecord();
 				JOptionPane.showMessageDialog(frame, "Add successfully");
 			}
 			
@@ -528,37 +596,39 @@ class cardlay extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				//lay thong tin cua xe muon sua trong text field
-				String id_mod_car = textID.getText();
-				String model_mod_car = textModel.getText();
-				String color_mod_car = textColor.getText();
-				int passenger_mod_car = Integer.parseInt(textPass.getText());
-				String brand_mod_car = textBrand.getText();
-				double cost_mod_car = Double.parseDouble(textCost.getText());
-				String type_mod_car = textType.getText();
-				
-				// kt xem neu id cua xe trung khop voi database hay ko
-				for(int i = 0; i < vl.getCarlist().size(); i++) {
-					String id = vl.getCarlist().get(i).getID();
-					if(id.equals(id_mod_car)) {
-						// lay ra object car dung voi id trong textfield
-						Car c = vl.getCarlist().get(i);
+				try {
+					//lay thong tin cua xe muon sua trong text field
+					String id_mod_car = textSearch.getText();
+					String model_mod_car = textModel.getText();
+					String color_mod_car = textColor.getText();
+					int passenger_mod_car = Integer.parseInt(textPass.getText());
+					String brand_mod_car = textBrand.getText();
+					double cost_mod_car = Double.parseDouble(textCost.getText());
+					String type_mod_car = textType.getText();
+					
+					String[] img = textImg.getText().split("\\\\");
+					// lay ra object car dung voi id trong textfield
+					Car c = vl.searchCarByID(id_mod_car);
+					// lay duong dan file hinh cu
+					String old_path = c.getImg();
+					c.setModel(model_mod_car);
+					c.setColor(color_mod_car);
+					c.setPassenger(passenger_mod_car);
+					c.setBrand(brand_mod_car);
+					c.setCost(cost_mod_car);
+					c.setType(type_mod_car);
+					String img_path = "src/user/Car_Image/" + img[img.length-1];
+					c.setImg(img_path);
 						
-						c.setModel(model_mod_car);
-						c.setColor(color_mod_car);
-						c.setPassenger(passenger_mod_car);
-						c.setBrand(brand_mod_car);
-						c.setCost(cost_mod_car);
-						c.setType(type_mod_car);
+					Admin.ModifyCar(c, textImg.getText(), old_path);
 						
-						Admin.ModifyCar(c);
-						JOptionPane.showMessageDialog(frame, "Modified successfully!");
-						return;
-					}
+					JOptionPane.showMessageDialog(frame, "Modified successfully!");
 				}
-				// truong hop ko co id xe trong database
-				JOptionPane.showMessageDialog(frame, "This car does not exist!\n " + "Please use the add button if you want to add it into the database");
+				catch(Exception ex) {
+					// truong hop ko co id xe trong database
+					JOptionPane.showMessageDialog(frame, "Cannot modify car's information");
+
+				}			
 			}
 			
 		});
@@ -568,19 +638,16 @@ class cardlay extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String id_del_car = textID.getText();
-				for(int i = 0; i < vl.getCarlist().size(); i++) {
-					// kt trong database neu co order do thi cho xoa
-					String id = vl.getCarlist().get(i).getID();
-					if(id.equals(id_del_car)) {
-						Admin.DeleteCar(id_del_car);
-						JOptionPane.showMessageDialog(frame, "Deleted car successfully");
-						return;
-					}
+				try {
+					String id_del_car = textSearch.getText();
+					Car c = vl.searchCarByID(id_del_car);
+					c.DeleteRecord();
+					Admin.DeleteCar(c);
+					JOptionPane.showMessageDialog(frame, "Deleted car successfully");
 				}
-				//truong hop khong ton tai order do trong database
-				JOptionPane.showMessageDialog(frame, "This order does not exist");
-				return;
+				catch(Exception ex) {
+					JOptionPane.showMessageDialog(frame, "Cannot delete this car");
+				}
 			}
 		});
 		
@@ -595,37 +662,37 @@ class cardlay extends JFrame{
 				//doc toan bo xe tai tu database len
 				vl.ReadAllTruck();
 				String id_truck_search = textSearchTruck.getText();
-				for(int i = 0; i < vl.getTruckList().size(); i++) {
-					// doc trong array list, neu id xe trung khop thi lay len toan bo info r set gia tri cho textfield
-					if(vl.getTruckList().get(i).getID().equals(id_truck_search)) {
-						String id_res_truck = vl.getTruckList().get(i).getID();
-						String model_res_truck = vl.getTruckList().get(i).getModel();
-						String color_res_truck = vl.getTruckList().get(i).getColor();
-						String passenger_res_truck = Integer.toString(vl.getTruckList().get(i).getPassenger());
-						String brand_res_truck = vl.getTruckList().get(i).getBrand();
-						String reserved_res_truck = "";
-						// neu bien reserved trong arraylist la true thi set yes, false thi no
-						if(vl.getTruckList().get(i).isReserved()) {
-							reserved_res_truck = "yes";
-						}
-						else {
-							reserved_res_truck = "no";
-						}
-						String cost_res_truck = Double.toString(vl.getTruckList().get(i).getCost());
-						String weight_res_truck = Double.toString(vl.getTruckList().get(i).getWeight());
-						//set gia tri cho cac textfield
-						textID_truck.setText(id_res_truck);
-						textModel_truck.setText(model_res_truck);
-						textColor_truck.setText(color_res_truck);
-						textPass_truck.setText(passenger_res_truck);
-						textBrand_truck.setText(brand_res_truck);
-						textReservedTruck.setText(reserved_res_truck);
-						textCostTruck.setText(cost_res_truck);
-						textMaxW.setText(weight_res_truck);
-						return;
+				try {
+					Truck t = vl.searchTruckByID(id_truck_search);
+					String id_res_truck = t.getID();
+					String model_res_truck = t.getModel();
+					String color_res_truck = t.getColor();
+					String passenger_res_truck = Integer.toString(t.getPassenger());
+					String brand_res_truck = t.getBrand();
+					String reserved_res_truck = "";
+					// neu bien reserved trong arraylist la true thi set yes, false thi no
+					if(t.isReserved()) {
+						reserved_res_truck = "yes";
 					}
+					else {
+						reserved_res_truck = "no";
+					}
+					String cost_res_truck = Double.toString(t.getCost());
+					String weight_res_truck = Double.toString(t.getWeight());
+					//set gia tri cho cac textfield
+					
+					textID_truck.setText(id_res_truck);
+					textModel_truck.setText(model_res_truck);
+					textColor_truck.setText(color_res_truck);
+					textPass_truck.setText(passenger_res_truck);
+					textBrand_truck.setText(brand_res_truck);
+					textReservedTruck.setText(reserved_res_truck);
+					textCostTruck.setText(cost_res_truck);
+					textMaxW.setText(weight_res_truck);
 				}
-				JOptionPane.showMessageDialog(frame, "This truck is not exist");
+				catch(Exception ex) {
+					JOptionPane.showMessageDialog(frame, "This truck does not exist");
+				}
 			}
 			
 		});
@@ -636,7 +703,6 @@ class cardlay extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//lay cac thong tin cua xe tai trong textfield
-				String id_new_truck = textID_truck.getText();
 				String model_new_truck = textModel_truck.getText();
 				String color_new_truck = textColor_truck.getText();
 				int pass_new_truck = Integer.parseInt(textPass_truck.getText());
@@ -644,17 +710,25 @@ class cardlay extends JFrame{
 				Double cost_new_truck = Double.parseDouble(textCostTruck.getText());
 				Double max_weight = Double.parseDouble(textMaxW.getText());
 				
-				//kt trong database, neu id xe da ton tai thi ko dc them
+				String[] img_truck = textImg_truck.getText().split("\\\\");
+				
+				//tao tu dong id
+				int count_id = 3000;
 				for(int i = 0; i < vl.getTruckList().size(); i++) {
-					String id = vl.getTruckList().get(i).getID();
-					if(id.equals(id_new_truck)) {
-						JOptionPane.showMessageDialog(frame, "This truck already exist");
-						return;
+					String id_truck = vl.getTruckList().get(i).getID().substring(1);
+					if(id_truck.equals(Integer.toString(count_id))) {
+						count_id++;
+					}
+					else {
+						break;
 					}
 				}
-				// neu id ko ton tai thi dc phep them moi
-				Truck t = new Truck(id_new_truck,model_new_truck,color_new_truck,pass_new_truck,brand_new_truck,cost_new_truck,null,max_weight);
-				Admin.AddTruck(t);
+				String id_new_truck = "T" + Integer.toString(count_id);
+				String img_path = "src/user/Truck_Image/" + img_truck[img_truck.length-1];
+				
+				Truck t = new Truck(id_new_truck,model_new_truck,color_new_truck,pass_new_truck,brand_new_truck,cost_new_truck,img_path,max_weight);
+				Admin.AddTruck(t, textImg_truck.getText());
+				t.CreateRecord();
 				JOptionPane.showMessageDialog(frame, "Truck added successfully");
 			}
 			
@@ -663,38 +737,36 @@ class cardlay extends JFrame{
 		modi_truck.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				//lay thong tin cua xe tai muon sua trong textfield
-				String id_mod_truck = textID_truck.getText();
-				String model_mod_truck = textModel_truck.getText();
-				String color_mod_truck = textColor_truck.getText();
-				int pass_mod_truck = Integer.parseInt(textPass_truck.getText());
-				String brand_mod_truck = textBrand_truck.getText();
-				Double cost_mod_truck = Double.parseDouble(textCostTruck.getText());
-				Double max_weight_mod = Double.parseDouble(textMaxW.getText());
-				
-				//kt xem id xe do da co trong database chua, neu co moi dc sua
-				for(int i = 0; i < vl.getTruckList().size(); i++) {
-					String id = vl.getTruckList().get(i).getID();
-					if(id.equals(id_mod_truck)) {
-						// lay ra object Truck ung voi id do
-						Truck t = vl.getTruckList().get(i);
+				try {
+					//lay thong tin cua xe tai muon sua trong textfield
+					String id_mod_truck = textSearchTruck.getText();
+					String model_mod_truck = textModel_truck.getText();
+					String color_mod_truck = textColor_truck.getText();
+					int pass_mod_truck = Integer.parseInt(textPass_truck.getText());
+					String brand_mod_truck = textBrand_truck.getText();
+					Double cost_mod_truck = Double.parseDouble(textCostTruck.getText());
+					Double max_weight_mod = Double.parseDouble(textMaxW.getText());
+					
+					String [] img_truck = textImg_truck.getText().split("\\\\");
+					
+					Truck t = vl.searchTruckByID(id_mod_truck);
+					String old_path = t.getImg();
+					t.setModel(model_mod_truck);
+					t.setColor(color_mod_truck);
+					t.setPassenger(pass_mod_truck);
+					t.setBrand(brand_mod_truck);
+					t.setCost(cost_mod_truck);
+					t.setWeight(max_weight_mod);
+					String im_path_truck = "src/user/Truck_Image/" + img_truck[img_truck.length-1];
+					t.setImg(im_path_truck);
 						
-						t.setModel(model_mod_truck);
-						t.setColor(color_mod_truck);
-						t.setPassenger(pass_mod_truck);
-						t.setBrand(brand_mod_truck);
-						t.setCost(cost_mod_truck);
-						t.setWeight(max_weight_mod);
-						
-						Admin.ModifyTruck(t);
-						JOptionPane.showMessageDialog(frame, "Truck modified successfully");
-						return;
-					}
+					Admin.ModifyTruck(t,textImg_truck.getText(),old_path);
+					JOptionPane.showMessageDialog(frame, "Truck modified successfully");
 				}
-				//truong hop ko co id xe trong database
-				JOptionPane.showMessageDialog(frame, "This truck does not exist!\n " + "Please use the add button if you want to add it into the database");
-				
+				catch(Exception ex) {
+					//truong hop ko co id xe trong database
+					JOptionPane.showMessageDialog(frame, "This truck does not exist!\n " + "Please use the add button if you want to add it into the database");
+				}
 			}
 			
 		});
@@ -702,20 +774,17 @@ class cardlay extends JFrame{
 		del_truck.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				String id_del_truck = textID_truck.getText();
-				for(int i = 0; i < vl.getTruckList().size(); i++) {
-					// kt trong database neu co order do thi cho xoa
-					String id = vl.getTruckList().get(i).getID();
-					if(id.equals(id_del_truck)) {
-						Admin.DeleteTruck(id_del_truck);
-						JOptionPane.showMessageDialog(frame, "Deleted truck successfully");
-						return;
-					}
+				try {
+					String id_del_truck = textSearchTruck.getText();
+					Truck t = vl.searchTruckByID(id_del_truck);
+					t.DeleteRecord();
+					Admin.DeleteTruck(t);
+					JOptionPane.showMessageDialog(frame, "Deleted truck successfully");
 				}
-				//truong hop khong ton tai order do trong database
-				JOptionPane.showMessageDialog(frame, "This truck does not exist");
-				return;
+				catch(Exception ex) {
+					//truong hop khong ton tai order do trong database
+					JOptionPane.showMessageDialog(frame, "This truck does not exist");
+				}
 			}
 			
 		});
@@ -729,108 +798,103 @@ class cardlay extends JFrame{
 			//doc toan bo order tu database len	
 				ol.ReadAllOrder();
 				String id_order_search = textSearchOrder.getText();
-				for(int i = 0; i < ol.getOrder_list().size(); i++) {
-					// doc trong array list, neu id order trung khop thi lay len toan bo info r set gia tri cho textfield
-					if(ol.getOrder_list().get(i).getOrder().equals(id_order_search)) {
-						String id_sear_order = ol.getOrder_list().get(i).getOrder();
-						String id_sear_Customer = ol.getOrder_list().get(i).getCustomer();
-						String name_sear = ol.getOrder_list().get(i).getName();
-						String id_sear_vehicle = ol.getOrder_list().get(i).getVehicle();
-						String startDate_sear = ol.getOrder_list().get(i).getStart();
-						String returnDate_sear = ol.getOrder_list().get(i).getEnd();
-						String license_sear = ol.getOrder_list().get(i).getLicense();
-						String rentType_sear = Integer.toString(ol.getOrder_list().get(i).getRentType());
-						String totalCost_sear = Double.toString(ol.getOrder_list().get(i).getCost());
+				try {
+					Order ord = ol.SearchOrderByID(id_order_search);
+					String id_sear_order = ord.getOrder();
+					String id_sear_Customer = ord.getCustomer();
+					String name_sear = ord.getName();
+					String id_sear_vehicle = ord.getVehicle();
+					String startDate_sear = ord.getStart();
+					String returnDate_sear = ord.getEnd();
+					String license_sear = ord.getLicense();
+					String rentType_sear = ord.getRentType();
+					String totalCost_sear = Double.toString(ord.getCost());
 						
-						//set gia tri cho cac textfield
-						textID_order.setText(id_sear_order);
-						textCustomer_ID.setText(id_sear_Customer);
-						textName.setText(name_sear);
-						textVehicle_ID.setText(id_sear_vehicle);
-						textStartDate.setText(startDate_sear);
-						textReturnDate.setText(returnDate_sear);
-						textLicense.setText(license_sear);
-						textRentType.setText(rentType_sear);
-						textTotalCost.setText(totalCost_sear);
-						return;
-					}
+					//set gia tri cho cac textfield
+					textID_order.setText(id_sear_order);
+					textCustomer_ID.setText(id_sear_Customer);
+					textName.setText(name_sear);
+					textVehicle_ID.setText(id_sear_vehicle);
+					textStartDate.setText(startDate_sear);
+					textReturnDate.setText(returnDate_sear);
+					textLicense.setText(license_sear);
+					textRentType.setText(rentType_sear);
+					textTotalCost.setText(totalCost_sear);
 				}
-				JOptionPane.showMessageDialog(frame, "This order is not exist");
+				catch(Exception ex) {
+					JOptionPane.showMessageDialog(frame, "This order is not exist");
+				}
 			}
 		});
 		
 		//them order moi
-		add_order.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//lay cac thong tin cua order trong textfield
-				String id_new_order = textID_order.getText();
-				String id_new_Customer = textCustomer_ID.getText();
-				String name_new = textName.getText();
-				String id_new_vehicle = textVehicle_ID.getText();
-				String startDate_new = textStartDate.getText();
-				String returnDate_new = textReturnDate.getText();
-				String license_new = textLicense.getText();
-				int rentType_new = Integer.parseInt(textRentType.getText());
-				Double totalCost_new = Double.parseDouble(textTotalCost.getText());
-				
-				//kt trong database, neu id xe da ton tai thi ko dc them
-				for(int i = 0; i < ol.getOrder_list().size(); i++) {
-					String id = ol.getOrder_list().get(i).getOrder();
-					if(id.equals(id_new_order)) {
-						JOptionPane.showMessageDialog(frame, "This order already exist");
-						return;
-					}
-				}
-				
-				// neu id ko ton tai thi dc phep them moi
-				Order o = new Order(id_new_order, id_new_Customer, name_new, id_new_vehicle, startDate_new, returnDate_new, license_new, rentType_new, totalCost_new);
-				Admin.AddOrder(o);
-				JOptionPane.showMessageDialog(frame, "Order added successfully");
-			}
-			
-		});
+//		add_order.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				//lay cac thong tin cua order trong textfield
+//				String id_new_Customer = textCustomer_ID.getText();
+//				String name_new = textName.getText();
+//				String id_new_vehicle = textVehicle_ID.getText();
+//				String startDate_new = textStartDate.getText();
+//				String returnDate_new = textReturnDate.getText();
+//				String license_new = textLicense.getText();
+//				String rentType_new = textRentType.getText();
+//				Double totalCost_new = Double.parseDouble(textTotalCost.getText());
+//				
+//				//kt trong database, neu id xe da ton tai thi ko dc them
+//				int count_order = 2000;
+//				for(int i = 0; i < ol.getOrder_list().size(); i++) {
+//					String id_order = ol.getOrder_list().get(i).getOrder();
+//					if(id_order.equals(Integer.toString(count_order))) {
+//						count_order++;
+//					}
+//					else {
+//						break;
+//					}
+//				}
+//				String id_new_order = Integer.toString(count_order);
+//				// neu id ko ton tai thi dc phep them moi
+//				Order o = new Order(id_new_order, id_new_Customer, name_new, id_new_vehicle, startDate_new, returnDate_new, license_new, rentType_new, totalCost_new);
+//				Admin.AddOrder(o);
+//				JOptionPane.showMessageDialog(frame, "Order added successfully");
+//			}
+//			
+//		});
 		
 		//Chinh sua Order
 		modi_order.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				//lay thong tin cua order  muon sua trong textfield
-				String id_modi_order = textSearchOrder.getText();
-				String id_modi_Customer = textCustomer_ID.getText();
-				String name_modi = textName.getText();
-				String id_modi_vehicle = textVehicle_ID.getText();
-				String startDate_modi = textStartDate.getText();
-				String returnDate_modi = textReturnDate.getText();
-				String license_modi = textLicense.getText();
-				int rentType_modi = Integer.parseInt(textRentType.getText());
-				Double totalCost_modi = Double.parseDouble(textTotalCost.getText());
-				
-				//kt xem id order do da co trong database chua, neu co moi dc sua
-				for(int i = 0; i < ol.getOrder_list().size(); i++) {
-					String id = ol.getOrder_list().get(i).getOrder();
-					if(id.equals(id_modi_order)) {
-						// lay ra object Order ung voi id do
-						Order o = ol.getOrder_list().get(i);
-						
-						o.setCustomer(id_modi_Customer);
-						o.setName(name_modi);
-						o.setVehicle(id_modi_vehicle);
-						o.setStart(startDate_modi);
-						o.setEnd(returnDate_modi);
-						o.setLicense(license_modi);
-						o.setRentType(rentType_modi);
-						o.setCost(totalCost_modi);
-						
-						Admin.ModifyOrder(o);
-						JOptionPane.showMessageDialog(frame, "Order modified successfully");
-						return;
-					}
+				try {
+					//lay thong tin cua order  muon sua trong textfield
+					String id_modi_order = textSearchOrder.getText();
+					String id_modi_Customer = textCustomer_ID.getText();
+					String name_modi = textName.getText();
+					String id_modi_vehicle = textVehicle_ID.getText();
+					String startDate_modi = textStartDate.getText();
+					String returnDate_modi = textReturnDate.getText();
+					String license_modi = textLicense.getText();
+					String rentType_modi = textRentType.getText();
+					Double totalCost_modi = Double.parseDouble(textTotalCost.getText());
+			
+					Order o = ol.SearchOrderByID(id_modi_order);	
+					o.setCustomer(id_modi_Customer);
+					o.setName(name_modi);
+					o.setVehicle(id_modi_vehicle);
+					o.setStart(startDate_modi);
+					o.setEnd(returnDate_modi);
+					o.setLicense(license_modi);
+					o.setRentType(rentType_modi);
+					o.setCost(totalCost_modi);
+					Admin.ModifyOrder(o);
+					JOptionPane.showMessageDialog(frame, "Order modified successfully");
+					
 				}
-				//truong hop ko co id order trong database
-				JOptionPane.showMessageDialog(frame, "This order does not exist!\n "+ "Please use the add button if you want to add it into the database");	
+				catch(Exception ex) {
+					//truong hop ko co id order trong database
+					JOptionPane.showMessageDialog(frame, "Cannot modify this order");	
+				}
 			}
 		});
 		
@@ -838,21 +902,17 @@ class cardlay extends JFrame{
 		del_order.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				//lay id order muon xoa tu textfield
-				String id_del_order = textID_order.getText();
-				for(int i = 0; i < ol.getOrder_list().size(); i++) {
-					// kt trong database neu co order do thi cho xoa
-					String id = ol.getOrder_list().get(i).getOrder();
-					if(id.equals(id_del_order)) {
-						Admin.DeleteOrder(id_del_order);
-						JOptionPane.showMessageDialog(frame, "Deleted order successfully");
-						return;
-					}
+				try {
+					String id_del_order = textSearchOrder.getText();
+					Order o = ol.SearchOrderByID(id_del_order);
+					Admin.DeleteOrder(o.getOrder());
+					JOptionPane.showMessageDialog(frame, "Deleted order successfully");
+				}	
+				catch(Exception ex) {
+					//truong hop khong ton tai order do trong database
+					JOptionPane.showMessageDialog(frame, "Cannot delete this order");
 				}
-				//truong hop khong ton tai order do trong database
-				JOptionPane.showMessageDialog(frame, "This order does not exist");
-				return;
 			}
 			
 		});

@@ -26,6 +26,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import order.Order;
+import order.OrderList;
 import vehicle.Car;
 import vehicle.Truck;
 import vehicle.Vehicle;
@@ -97,8 +98,6 @@ public class Member extends User {
 			return false;
 		}
 	}
-	
-	//public boolean Logout() {}
 	
 	public void CreateAccount(String member_name, String phone, String lic, String login, String pass, String CMND) {
 		try {
@@ -181,18 +180,21 @@ public class Member extends User {
 	
 	public void EditProfile() {}
 	
-	public void Rent(Vehicle v) {
+	public void Rent(Vehicle v, String rent_type) {
 		
 		// kt xem v la Car hay Truck
 		String path = " ";
 		int count = 0;
+		int vehicle = 0;
 		if(v instanceof Car) {
 			path = "src/database/Car.xml";
 			count = RentCar.getValue();
+			vehicle = 1; // neu la xe hoi thi bang 1
 		}
 		if(v instanceof Truck) {
 			path = "src/database/Truck.xml";
 			count = RentTruck.getValue();
+			vehicle = 2; // neu la xe tai thi bang 2
 		}
 		try {
 			
@@ -211,29 +213,33 @@ public class Member extends User {
 				if(v.getID().equals(id_list.item(i).getTextContent())) {
 					reserved_list.item(i).setTextContent("yes");
 					init_cost = Double.parseDouble(cost_list.item(i).getTextContent());
+					UpdateXml(file, doc);
 					break;
 				}
 			}
-//			int rent = 0;
-			// rent = 1 --> Weekly, rent = 2 --> Monthly
-//			if(rent_type.equals("Weekly")) {
-//				rent = 1;
-//			}
-//			else rent = 2;
-			
 			
 			// lay ngay hien tai --> start_date
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			LocalDate now = LocalDate.now();
 			String start_date = dtf.format(now);
+			LocalDate return_date_val = now.plusDays(count);
+			String return_date = dtf.format(return_date_val);
 			
 			// tinh tong gia tien
 			double total_cost = CalculateCost(count,init_cost);
+			String id_order = CreateOrderID();
 			
-			// tao 1 order
-//			Order ord = new Order(this.getID(), this.getName(), v.getID(), start_date, return_date, this.getLicence(), rent, total_cost);
-//			CreateOrder(ord);
-			
+			//tao 1 order
+			Order ord = new Order(id_order, this.getID(), this.getName(), v.getID(), start_date, return_date, this.getLicence(), rent_type, total_cost);
+			CreateOrder(ord);
+			// cap nhat record cua xe hoi
+			if(vehicle == 1) {
+				UpdateRecord("src/database/record_car.xml",v.getID(),return_date,total_cost);
+			}
+			//cap nhat record xe tai
+			if(vehicle == 2) {
+				UpdateRecord("src/database/record_truck.xml",v.getID(),return_date,total_cost);
+			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -241,17 +247,31 @@ public class Member extends User {
 		
 		
 	}
-
+	
+	public static String CreateOrderID() {
+		OrderList ol = new OrderList();
+		ol.ReadAllOrder();
+		int count_order = 2000;
+		for(int i = 0; i < ol.getOrder_list().size(); i++) {
+			String id_order = ol.getOrder_list().get(i).getOrder().substring(1);
+			if(id_order.equals(Integer.toString(count_order))) {
+				count_order++;
+			}
+			else {
+				break;
+			}
+		}
+		String count_id_order = "O" + Integer.toString(count_order);
+		return count_id_order;
+	}
+	
 	
 	// tinh tong so tien thue xe
-	public static double CalculateCost(int count, double init_cost) {
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
-		LocalDate date_start = LocalDate.now();
-//		LocalDate date_return = LocalDate.parse(return_date, dtf);
+	public static double CalculateCost(int days, double init_cost) {
 		
 		double total_cost = 0;
 		
-		total_cost = init_cost + (10 * 7) * count;
+		total_cost = init_cost + (10 * 7) * days;
 //		if(rent_type.equals("Weekly")) {
 //			// lay ra so ngay giua 2 date
 //			int days = Period.between(date_start, date_return).getDays();
@@ -268,6 +288,36 @@ public class Member extends User {
 		return total_cost;
 	}
 	
+	public static void UpdateRecord(String path, String vehicle_id, String date, double cost) {
+		try {
+			File file = new File(path);
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			
+			NodeList vehicle_id_list = doc.getElementsByTagName("vehicleID");
+			for(int i = 0; i < vehicle_id_list.getLength(); i++) {
+				if(vehicle_id.equals(vehicle_id_list.item(i).getTextContent())){
+					Node recordNode = vehicle_id_list.item(i).getParentNode();
+					Element element = (Element) recordNode;
+					
+					// cap nhat so luong da thue + 1
+					int total_rent = Integer.parseInt(element.getElementsByTagName("totalRent").item(0).getTextContent()) + 1;
+					element.getElementsByTagName("totalRent").item(0).setTextContent(Integer.toString(total_rent));
+					element.getElementsByTagName("lastRent").item(0).setTextContent(date);
+					// cap nhat tong so income
+					Double total_income = Double.parseDouble(element.getElementsByTagName("income").item(0).getTextContent()) + cost;
+					element.getElementsByTagName("income").item(0).setTextContent(Double.toString(total_income));
+					break;
+				}
+			}
+			doc.normalize();
+			UpdateXml(file, doc);
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 	
 	public static void UpdateXml(File file, Document doc) {
 		try {
@@ -328,7 +378,7 @@ public class Member extends User {
 			order.appendChild(license);
 			
 			Element rent_type = doc.createElement("rentType");
-			rent_type.appendChild(doc.createTextNode(Integer.toString(ord.getRentType())));// ph chuyen int thanh chuoi trc khi tao text
+			rent_type.appendChild(doc.createTextNode(ord.getRentType()));
 			order.appendChild(rent_type);
 			
 			Element cost = doc.createElement("totalCost");

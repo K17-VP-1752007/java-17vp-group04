@@ -52,7 +52,7 @@ public class OrderList {
 				ord.setStart(element.getElementsByTagName("startDate").item(0).getTextContent());
 				ord.setEnd(element.getElementsByTagName("returnDate").item(0).getTextContent());
 				ord.setLicense(element.getElementsByTagName("license").item(0).getTextContent());
-				ord.setRentType(Integer.parseInt(element.getElementsByTagName("rentType").item(0).getTextContent()));
+				ord.setRentType(element.getElementsByTagName("rentType").item(0).getTextContent());
 				ord.setCost(Double.parseDouble(element.getElementsByTagName("totalCost").item(0).getTextContent()));	
 				
 				this.orderList.add(ord);
@@ -66,6 +66,15 @@ public class OrderList {
 	public Order SearchOrderByID(String ID) {
 		for(int i = 0; i < this.orderList.size(); i++) {
 			if(ID.equals(this.orderList.get(i).getOrder())){
+				return this.orderList.get(i);
+			}
+		}
+		return null;
+	}
+	
+	public Order SearchOrderByCustom(String Cus) {
+		for(int i = 0; i < this.orderList.size(); i++) {
+			if(Cus.equals(this.orderList.get(i).getCustomer())){
 				return this.orderList.get(i);
 			}
 		}
