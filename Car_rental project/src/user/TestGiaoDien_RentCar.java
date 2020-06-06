@@ -1,25 +1,28 @@
 package user;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.border.LineBorder;
-import user.Image;
+
 import vehicle.Car;
 import vehicle.VehicleList;
 
-class RentCar extends JFrame{
+class GiaoDien extends JFrame {
 	JLabel pic;
 	int current;
 	int i, y;
 	JLabel finalpic;
-	String value, id;
-	String test_ID;
+	String value;
+	String id;
 	String model;
 	String color;
 	String pas;
@@ -43,105 +46,82 @@ class RentCar extends JFrame{
     String weeklist[] = {"1 week", "2 weeks", "3 weeks", "5 weeks", "7 weeks", "9 weeks", "11 weeks"};
     String monthlist[] = {"1 month", "2 months", "3 months", "4 months", "5 months", "6 months", "7 months", "8 months", "9 months", "10 months", "11 months", "12 months"};
 	VehicleList A = new VehicleList();
-	Member user = new Member();
 	
 	JFrame frame = new JFrame("CGO - Rent Car");
 	//Lay gia tri countDay de tinh tien
 	static int getValue() {
 		return countDay;
 	}
-	//Khoi tao 
-	public RentCar(){
-		frame.setSize(450, 600);
-//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		addControl();
-		user.CopyMem(Login.getMem());
+	
+	public GiaoDien()
+	{
+		frame.setSize(1500, 700);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		frame.setLocationRelativeTo(null);
+		addControl();
 		frame.setVisible(true);
 		frame.setResizable(false);
 		A.ReadAllCar();
 		i = 999;
 		y = 1000 + A.getCarlist().size();
 	}
-
-	public void addControl(){
-	//////Khoi tao cac thong tin ban dau cho frame
-		pic = new JLabel();
-		pic.setPreferredSize(new Dimension(300, 200));
-		pic.setSize(400, 600);
-		setPicture(pic, "src/user/bentley.jpg");
+	
+	public void addControl() 
+	{
 		JPanel Border=new JPanel();
 		Border.setLayout(new BorderLayout());
-		Border.setBackground(Color.WHITE);
-	    
-	    JPanel start = new JPanel();
-	    start.setLayout(new FlowLayout());
-	    
-	    JPanel content = new JPanel();
-		JPanel down = new JPanel();
-		JPanel log = new JPanel();
-		JPanel texts = new JPanel();
+		
+		JPanel top = new JPanel();
+		top.setLayout(new BoxLayout(top, BoxLayout.LINE_AXIS));
+		JLabel cont = new JLabel("        Making you most comfortable is our obligation", JLabel.CENTER);
+		cont.setSize(450, 450);
+		cont.setFont(new Font("Times New Roman", Font.ITALIC, 28));
+		cont.setForeground(Color.BLACK);
+		
+		JLabel minitext = new JLabel("-- Click the |start from| button to start looking --");
+		minitext.setSize(450, 450);
+		minitext.setFont(new Font("Times New Roman", Font.BOLD, 22));
+		minitext.setForeground(Color.BLACK.brighter());
+		
+		JLabel logo = new JLabel("CGO", JLabel.LEFT);
+		logo.setSize(100, 135);
+		logo.setFont(new Font("Arial", Font.BOLD, 35));
+		logo.setForeground(Color.ORANGE);
+		
+		top.add(logo);
+		top.add(cont);
+		
+		JPanel bot = new JPanel(new FlowLayout());
 		
 		JButton previous = new JButton("< Previous");
+		previous.setFont(new Font("Arial", Font.ITALIC, 13));
+		previous.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		JButton next = new JButton("Next >");
+		next.setFont(new Font("Arial", Font.ITALIC, 13));
+		next.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		JButton rent = new JButton("Rent now!");
+		rent.setFont(new Font("Arial", Font.ITALIC, 13));
+		rent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
-		JLabel cont = new JLabel("                               ", JLabel.CENTER);
-		cont.setSize(200, 400);
+		bot.add(previous);
+		bot.add(rent);
+		bot.add(next);
 		
-		JLabel logo = new JLabel("CGO");
-		logo.setSize(55, 55);
-		logo.setFont(new Font("Arial", Font.BOLD, 17));
+		Border.add(top, BorderLayout.NORTH);
+		Border.add(bot, BorderLayout.SOUTH);
 		setPicture(logo, "src/user/logocar.png");
 		
-		logo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		logo.addMouseListener(new MouseAdapter() {
-    		public void mouseClicked (MouseEvent e) {
-    			Image Thr = new Image();
-    			Thr.start();
-    			frame.dispose();
-    		} 
-    	});
+		pic = new JLabel();
+		pic.setSize(1500, 800);
+		setPicture(pic, "src/user/sky.jpg");
 		
-		/////
-		JLabel text = new JLabel("Making you most comfortable is our obligation ");
-		JLabel intro = new JLabel("-- Click the |start from| button to start looking --");
-		text.setSize(200,200);
-		text.setFont(new Font("Arial", Font.BOLD, 17));
-		text.setForeground(Color.DARK_GRAY);
-		intro.setSize(200,200);
-		intro.setFont(new Font("Arial", Font.BOLD, 13));
-		intro.setForeground(Color.DARK_GRAY);
-		
-		JLabel box = new JLabel();
-		box.setSize(200,200);
-		box.setPreferredSize(new Dimension(200, 200));
-		box.setBorder(LineBorder.createBlackLineBorder());
-		////
-		//Them cac thong tin vao cac panel
-		down.add(previous);
-		down.add(rent);
-		down.add(next);
-		log.add(logo,BorderLayout.EAST);
-		texts.add(text,BorderLayout.SOUTH);
-		content.add(cont);
-		
-		Border.add(start,BorderLayout.NORTH);
-		start.add(log);
-		start.add(content);
-		Border.add(down,BorderLayout.SOUTH);
-	//Chinh sua vi tri cac thong tin khoi tao ban dau
-		logo.setBounds(10, -25, 300, 100);
-		text.setBounds(30, 7, 550, 100);
-		intro.setBounds(80, 30, 500, 130);
-		pic.setBounds(17, 150, 650, 300);
-	//Add cac thong tin ban dau vao frame
-		frame.add(text);
-		frame.add(intro);
-		frame.add(logo);
+		frame.add(minitext);
 		frame.add(pic);
+		minitext.setBounds(525, 260, 550, 100);
+		pic.setBounds(0, 100, 1500, 500);
 		
-	//Khoi tao cac Panel can thiet
 		final JPanel Center = new JPanel();
 		final JPanel Middle = new JPanel();
 		
@@ -151,12 +131,11 @@ class RentCar extends JFrame{
 		Middle.setLayout(new CardLayout());
 		Middle.setVisible(false);
 		
-		//Khoi tao giao dien hinh anh dau tien
 		final JPanel Mid = new JPanel();
 		
 		finalpic = new JLabel();
-		finalpic.setSize(400,900);
-		value ="src/user/logocar.png";
+		finalpic.setSize(750,500);
+		value = "src/user/logocar.png";
 		setPicture(finalpic,value);
 		Mid.add(finalpic);
 		Mid.setBackground(Color.DARK_GRAY.darker());
@@ -286,6 +265,7 @@ class RentCar extends JFrame{
 		ButtonGroup gr = new ButtonGroup();
 		gr.add(week);
 		gr.add(month);
+		
 		//Khoi tao chuc nang cho checkbox week
 	    week.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent ae) {
@@ -318,7 +298,7 @@ class RentCar extends JFrame{
 		
 		JLabel Choose2 = new JLabel("     Choose one : ");
 		Choose2.setFont(new Font("Arial", Font.BOLD, 15));
-//Khoi tao card thong tin xe thu 1
+		//Khoi tao card thong tin xe thu 1
 		final JPanel Card1 = new JPanel();
 		Card1.setLayout(new GridLayout(12, 1));
 		Card1.add(ID);
@@ -345,7 +325,7 @@ class RentCar extends JFrame{
 		Card1.add(lblast);
 		Card1.add(inc);
 		Card1.add(lbin);
-//Khoi tao card thong tin xe thu 2
+		//Khoi tao card thong tin xe thu 2
 		final JPanel Card2 = new JPanel();
 		Card2.setLayout(new GridLayout(12, 1));
 		Card2.add(ID2);
@@ -394,7 +374,7 @@ class RentCar extends JFrame{
 		W.add(Warning);
 		Card4.add(Box.createRigidArea(new Dimension(40, 0)));
 		Card4.add(W);
-//Add cac card vao Panel Center	, Middle, sau do Panel Flow add 2 Panel nay
+		//Add cac card vao Panel Center	, Middle, sau do Panel Flow add 2 Panel nay
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
 		Center.add(Card3,"C3");
@@ -402,10 +382,10 @@ class RentCar extends JFrame{
 		
 		Middle.add(Mid, "C1");
 		JPanel Flow = new JPanel();
-		Flow.setLayout(new GridLayout(2, 1));
-		Flow.add(Middle);
+		Flow.setLayout(new GridLayout(1, 1));
 		Flow.add(Center);
-//Add border chinh vao container
+		Flow.add(Middle);
+		//Add border chinh vao container
 		Border.add(Flow,BorderLayout.CENTER);
 		Container con = frame.getContentPane();
 		con.add(Border);
@@ -423,7 +403,7 @@ class RentCar extends JFrame{
 				
 				i--;
 				if(i < 1000)
-					i = 1000 + A.getCarlist().size() - 1;
+					i = 1019;
 				y = i;
 				
 				CardLayout cl=(CardLayout)Center.getLayout();
@@ -432,8 +412,7 @@ class RentCar extends JFrame{
 			
 				findPic(i);
 				setPicture(finalpic,value);
-				test_ID = id.substring(1);
-				i = Integer.parseInt(test_ID);
+				i = Integer.parseInt(id);
 				m1.show(Middle, "C1");
 				current = i;
 			}
@@ -449,12 +428,8 @@ class RentCar extends JFrame{
 				Middle.setVisible(true);
 				
 				y++;
-				/*if(y > 1019)
+				if(y > 1019)
 					y = 1000;
-				i = y;*/
-				if(y > (1000 + A.getCarlist().size() - 1)) {
-					y = 1000;
-				}
 				i = y;
 				
 				CardLayout c2=(CardLayout)Center.getLayout();
@@ -463,8 +438,7 @@ class RentCar extends JFrame{
 				
 				findPic(y);
 				setPicture(finalpic,value);
-				test_ID = id.substring(1);
-				y = Integer.parseInt(test_ID);
+				y = Integer.parseInt(id);
 				m2.show(Middle, "C2");
 				current = y;
 			}
@@ -489,7 +463,6 @@ class RentCar extends JFrame{
 					CardLayout m2=(CardLayout)Middle.getLayout();
 					findPic(current);
 					m2.show(Middle, "C3");
-					
 				}
 			}
 			});
@@ -497,9 +470,9 @@ class RentCar extends JFrame{
 		fini.addActionListener(new ActionListener() {
 			@Override
 				public void actionPerformed(ActionEvent ae) {
-					Car c = A.searchCarByID(IDvl.getText());
 					if(weekls.getSelectedIndex() != -1)
 					{	
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
 						Center.setVisible(true);
 						Middle.setVisible(true);
 						CardLayout c4 = (CardLayout)Center.getLayout();
@@ -507,13 +480,10 @@ class RentCar extends JFrame{
 						chooseW();
 						countDay = cwek;
 						weekls.clearSelection();
-						
-						user.Rent(c, "Week");
-						JOptionPane.showMessageDialog(frame, "Rent successfully");
 					}
 					else if(monthls.getSelectedIndex() != -1)
 					{	
-						
+						JOptionPane.showMessageDialog(frame, "Rent successfully");
 						Center.setVisible(true);
 						Middle.setVisible(true);
 						CardLayout c4 = (CardLayout)Center.getLayout();
@@ -521,9 +491,6 @@ class RentCar extends JFrame{
 						chooseM();
 						countDay = cmon;
 						monthls.clearSelection();
-						
-						user.Rent(c, "Month");
-						JOptionPane.showMessageDialog(frame, "Rent successfully");
 					}
 					else
 						JOptionPane.showMessageDialog(frame, "You can't rent");
@@ -531,189 +498,189 @@ class RentCar extends JFrame{
 				}
 			});
 	}
+	
 	//Lay gia tri tuan tu JList
-	public void chooseW()
-	{
-		if(weekls.getSelectedIndex() == 0)
+		public void chooseW()
 		{
-			cwek = 7;
+			if(weekls.getSelectedIndex() == 0)
+			{
+				cwek = 7;
+			}
+			else if(weekls.getSelectedIndex() == 1)
+			{
+				cwek = 14;
+			}
+			else if(weekls.getSelectedIndex() == 2)
+			{
+				cwek = 21;
+			}
+			else if(weekls.getSelectedIndex() == 3)
+			{
+				cwek = 35;
+			}
+			else if(weekls.getSelectedIndex() == 4)
+			{
+				cwek = 49;
+			}
+			else if(weekls.getSelectedIndex() == 5)
+			{
+				cwek = 63;
+			}
+			else if(weekls.getSelectedIndex() == 6)
+			{
+				cwek = 77;
+			}
+			else
+			{
+				cwek = 0;
+			}
 		}
-		else if(weekls.getSelectedIndex() == 1)
+		//Lay gia tri thang tu Jlist
+		public void chooseM()
 		{
-			cwek = 14;
+			if(monthls.getSelectedIndex() == 0)
+			{
+				cmon = 31;
+			}
+			else if(monthls.getSelectedIndex() == 1)
+			{
+				cmon = 28;
+			}
+			else if(monthls.getSelectedIndex() == 2)
+			{
+				cmon = 31;
+			}
+			else if(monthls.getSelectedIndex() == 3)
+			{
+				cmon = 30;
+			}
+			else if(monthls.getSelectedIndex() == 4)
+			{
+				cmon = 31;
+			}
+			else if(monthls.getSelectedIndex() == 5)
+			{
+				cmon = 30;
+			}
+			else if(monthls.getSelectedIndex() == 6)
+			{
+				cmon = 31;
+			}
+			else if(monthls.getSelectedIndex() == 7)
+			{
+				cmon = 31;
+			}
+			else if(monthls.getSelectedIndex() == 8)
+			{
+				cmon = 30;
+			}
+			else if(monthls.getSelectedIndex() == 9)
+			{
+				cmon = 31;
+			}
+			else if(monthls.getSelectedIndex() == 10)
+			{
+				cmon = 30;
+			}
+			else if(monthls.getSelectedIndex() == 11)
+			{
+				cmon = 31;
+			}
+			else 
+			{
+				cmon = 0;
+			}
 		}
-		else if(weekls.getSelectedIndex() == 2)
-		{
-			cwek = 21;
+		//Tim thong tin cua 1 doi tuong xe va gan vao cac bien khoi tao
+		public void findPic(int i) {
+			Car c = new Car();
+			c = A.searchCarByID(String.valueOf(i));
+			c.ViewRecord();
+	//Gan vao cac bien
+			id = c.getID();
+			value = c.getImg();
+			model = c.getModel();
+			color = c.getColor();
+			pas = String.valueOf(c.getPassenger());
+			brand = c.getBrand();
+			if(c.isReserved() == true)
+				res = "Yes";
+			else
+				res = "No";
+			cos = String.valueOf(c.getCost());
+			type = c.getType(); 
+			
+			km = String.valueOf(c.getRecord().getKm_travel()); 
+			total = String.valueOf(c.getRecord().getTotalRent());
+			lastrent = c.getRecord().getLast_date_rent();
+			income = String.valueOf(c.getRecord().getIncome_generate());
+			//Dua gia tri cac bien tren vao cac label
+			IDvl.setText(id);
+			Modelvl.setText(model);
+			Colorvl.setText(color);
+			Pasvl.setText(pas);
+			Brvl.setText(brand);
+			Resvl.setText(res);
+			costvl.setText(cos);
+			typevl.setText(type);
+			lbkm.setText(km);
+			lbtotal.setText(total);
+			lblast.setText(lastrent);		
+			lbin.setText(income);
+			
+			IDvls.setText(id);
+			Modelvls.setText(model);
+			Colorvls.setText(color);
+			Pasvls.setText(pas);
+			Brvls.setText(brand);
+			Resvls.setText(res);
+			costvls.setText(cos);
+			typevls.setText(type);
+			lbkms.setText(km);
+			lbtotals.setText(total);
+			lblasts.setText(lastrent);		
+			lbins.setText(income);
 		}
-		else if(weekls.getSelectedIndex() == 3)
-		{
-			cwek = 35;
-		}
-		else if(weekls.getSelectedIndex() == 4)
-		{
-			cwek = 49;
-		}
-		else if(weekls.getSelectedIndex() == 5)
-		{
-			cwek = 63;
-		}
-		else if(weekls.getSelectedIndex() == 6)
-		{
-			cwek = 77;
-		}
-		else
-		{
-			cwek = 0;
-		}
-	}
-	//Lay gia tri thang tu Jlist
-	public void chooseM()
-	{
-		if(monthls.getSelectedIndex() == 0)
-		{
-			cmon = 31;
-		}
-		else if(monthls.getSelectedIndex() == 1)
-		{
-			cmon = 28;
-		}
-		else if(monthls.getSelectedIndex() == 2)
-		{
-			cmon = 31;
-		}
-		else if(monthls.getSelectedIndex() == 3)
-		{
-			cmon = 30;
-		}
-		else if(monthls.getSelectedIndex() == 4)
-		{
-			cmon = 31;
-		}
-		else if(monthls.getSelectedIndex() == 5)
-		{
-			cmon = 30;
-		}
-		else if(monthls.getSelectedIndex() == 6)
-		{
-			cmon = 31;
-		}
-		else if(monthls.getSelectedIndex() == 7)
-		{
-			cmon = 31;
-		}
-		else if(monthls.getSelectedIndex() == 8)
-		{
-			cmon = 30;
-		}
-		else if(monthls.getSelectedIndex() == 9)
-		{
-			cmon = 31;
-		}
-		else if(monthls.getSelectedIndex() == 10)
-		{
-			cmon = 30;
-		}
-		else if(monthls.getSelectedIndex() == 11)
-		{
-			cmon = 31;
-		}
-		else 
-		{
-			cmon = 0;
-		}
-	}
-	//Tim thong tin cua 1 doi tuong xe va gan vao cac bien khoi tao
-	public void findPic(int i) {
-		Car c = new Car();
-		String id_car = "C" + Integer.toString(i);
-		c = A.searchCarByID(id_car);
-		c.ViewRecord();
-//Gan vao cac bien
-		id = c.getID();
-		value = c.getImg();
-		model = c.getModel();
-		color = c.getColor();
-		pas = String.valueOf(c.getPassenger());
-		brand = c.getBrand();
-		if(c.isReserved() == true)
-			res = "Yes";
-		else
-			res = "No";
-		cos = String.valueOf(c.getCost());
-		type = c.getType(); 
-		
-		km = String.valueOf(c.getRecord().getKm_travel()); 
-		total = String.valueOf(c.getRecord().getTotalRent());
-		lastrent = c.getRecord().getLast_date_rent();
-		income = String.valueOf(c.getRecord().getIncome_generate());
-//Dua gia tri cac bien tren vao cac label
-		IDvl.setText(id);
-		Modelvl.setText(model);
-		Colorvl.setText(color);
-		Pasvl.setText(pas);
-		Brvl.setText(brand);
-		Resvl.setText(res);
-		costvl.setText(cos);
-		typevl.setText(type);
-		lbkm.setText(km);
-		lbtotal.setText(total);
-		lblast.setText(lastrent);		
-		lbin.setText(income);
-		
-		IDvls.setText(id);
-		Modelvls.setText(model);
-		Colorvls.setText(color);
-		Pasvls.setText(pas);
-		Brvls.setText(brand);
-		Resvls.setText(res);
-		costvls.setText(cos);
-		typevls.setText(type);
-		lbkms.setText(km);
-		lbtotals.setText(total);
-		lblasts.setText(lastrent);		
-		lbins.setText(income);
-	}
-	//Ham tao checkbox
-	private JCheckBox createCheckBox(String name) {
-        JCheckBox checkBox = new JCheckBox(name);
-        return checkBox;
-    }
-    //Ham lay hinh anh
-	public void setPicture(JLabel label ,String filename){
-       try {
-         BufferedImage image = ImageIO.read(new File(filename));
-         int x = label.getSize().width;
-         int y = label.getSize().height;
-         int ix = image.getWidth();
-         int iy = image.getHeight();
+		//Ham tao checkbox
+		private JCheckBox createCheckBox(String name) {
+	        JCheckBox checkBox = new JCheckBox(name);
+	        return checkBox;
+	    }
+	    //Ham lay hinh anh
+		public void setPicture(JLabel label ,String filename){
+	       try {
+	         BufferedImage image = ImageIO.read(new File(filename));
+	         int x = label.getSize().width;
+	         int y = label.getSize().height;
+	         int ix = image.getWidth();
+	         int iy = image.getHeight();
 
-         int dx = 0;
-         int dy = 0;
+	         int dx = 0;
+	         int dy = 0;
 
-         if(x/y > ix/iy){
-             dy = y;
-             dx = dy*ix/iy;
-         }
-         else{
-             dx = x;
-             dy = dx*iy/ix;
-         }
+	         if(x/y > ix/iy){
+	             dy = y;
+	             dx = dy*ix/iy;
+	         }
+	         else{
+	             dx = x;
+	             dy = dx*iy/ix;
+	         }
 
-         ImageIcon icon = new ImageIcon(image.getScaledInstance(dx, dy, BufferedImage.SCALE_SMOOTH));
-         label.setIcon(icon);
-     } catch (IOException ex) {
-         Logger.getLogger(Image.class.getName()).log(Level.SEVERE, null, ex);
-     }
+	         ImageIcon icon = new ImageIcon(image.getScaledInstance(dx, dy, BufferedImage.SCALE_SMOOTH));
+	         label.setIcon(icon);
+	     } catch (IOException ex) {
+	         Logger.getLogger(Image.class.getName()).log(Level.SEVERE, null, ex);
+	     }
+	       }
  }
-}
 
-//public class RentCar_Page{
-//	public static void main(String[] args) {
-//		SwingUtilities.invokeLater(new Runnable() {
-//			public void run() {
-//				new RentCar();
-//			}
-//			});
-//	}
-//}
+public class TestGiaoDien_RentCar{
+	 public static void main(String[] args) {
+		 SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					new GiaoDien();
+				}
+				});
+	 }
+}

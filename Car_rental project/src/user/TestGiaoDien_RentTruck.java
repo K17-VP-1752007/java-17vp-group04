@@ -1,24 +1,27 @@
 package user;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.border.LineBorder;
 
-import user.Image;
+import vehicle.Car;
 import vehicle.Truck;
 import vehicle.VehicleList;
 
-class RentTruck extends JFrame{
+class GiaoDienTruck extends JFrame {
 	JLabel pic;
 	int i,y;
 	int current;
-	String test_ID;
 	JLabel finalpic;
 	String value;
 	String id;
@@ -46,10 +49,9 @@ class RentTruck extends JFrame{
 	int weekValue, monthValue;
 	boolean check;
     VehicleList A = new VehicleList();
-    Member user = new Member();
 	
 	JFrame frame = new JFrame("CGO - Rent truck");
-	
+	//Lay gia tri countDay de tinh tien
 	static int getValue() {
 		return countDay;
 	}
@@ -57,95 +59,76 @@ class RentTruck extends JFrame{
 	String getV() {
 		return value;
 	}
-	public RentTruck(){
-		frame.setSize(450, 600);
-//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		user.CopyMem(Login.getMem());
-		addControl();
+	
+	public GiaoDienTruck()
+	{
+		frame.setSize(1500, 700);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		frame.setLocationRelativeTo(null);
+		addControl();
 		frame.setVisible(true);
-		frame.setResizable(false);	
+		frame.setResizable(false);
 		A.ReadAllTruck();
 		i = 2999;
 		y = 3000 + A.getTruckList().size();
 	}
 	
-	public void addControl(){
-		pic = new JLabel();
-		pic.setPreferredSize(new Dimension(300, 200));
-		pic.setSize(400, 600);
-		setPicture(pic, "src/user/bentley.jpg");
+	public void addControl() 
+	{
 		JPanel Border=new JPanel();
 		Border.setLayout(new BorderLayout());
-		Border.setBackground(Color.WHITE);
-	    
-	    JPanel start = new JPanel();
-	    start.setLayout(new FlowLayout());
-	    
-	    JPanel content = new JPanel();
-		JPanel down = new JPanel();
-		JPanel log = new JPanel();
-		JPanel texts = new JPanel();
+		
+		JPanel top = new JPanel();
+		top.setLayout(new BoxLayout(top, BoxLayout.LINE_AXIS));
+		JLabel cont = new JLabel("        Making you most comfortable is our obligation", JLabel.CENTER);
+		cont.setSize(450, 450);
+		cont.setFont(new Font("Times New Roman", Font.ITALIC, 28));
+		cont.setForeground(Color.BLACK);
+		
+		JLabel minitext = new JLabel("-- Click the |start from| button to start looking --");
+		minitext.setSize(450, 450);
+		minitext.setFont(new Font("Times New Roman", Font.BOLD, 22));
+		minitext.setForeground(Color.BLACK.brighter());
+		
+		JLabel logo = new JLabel("CGO", JLabel.LEFT);
+		logo.setSize(100, 135);
+		logo.setFont(new Font("Arial", Font.BOLD, 35));
+		logo.setForeground(Color.ORANGE);
+		
+		top.add(logo);
+		top.add(cont);
+		
+		JPanel bot = new JPanel(new FlowLayout());
 		
 		JButton previous = new JButton("< Previous");
+		previous.setFont(new Font("Arial", Font.ITALIC, 13));
+		previous.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		JButton next = new JButton("Next >");
+		next.setFont(new Font("Arial", Font.ITALIC, 13));
+		next.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		JButton rent = new JButton("Rent now!");
+		rent.setFont(new Font("Arial", Font.ITALIC, 13));
+		rent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
-		JLabel cont = new JLabel("                               ", JLabel.CENTER);
-		cont.setSize(200, 400);
+		bot.add(previous);
+		bot.add(rent);
+		bot.add(next);
 		
-		JLabel logo = new JLabel("CGO");
-		logo.setSize(55, 55);
-		logo.setFont(new Font("Arial", Font.BOLD, 17));
+		Border.add(top, BorderLayout.NORTH);
+		Border.add(bot, BorderLayout.SOUTH);
 		setPicture(logo, "src/user/logocar.png");
-
-		logo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		logo.addMouseListener(new MouseAdapter() {
-    		public void mouseClicked (MouseEvent e) {
-    			Image Thr = new Image();
-    			Thr.start();
-    			frame.dispose();
-    		} 
-    	});
 		
-		//////
-		JLabel text = new JLabel("Making you most comfortable is our obligation ");
-		JLabel intro = new JLabel("-- Click the |start from| button to start looking --");
-		text.setSize(200,200);
-		text.setFont(new Font("Arial", Font.BOLD, 17));
-		text.setForeground(Color.DARK_GRAY);
-		intro.setSize(200,200);
-		intro.setFont(new Font("Arial", Font.BOLD, 13));
-		intro.setForeground(Color.DARK_GRAY);
+		pic = new JLabel();
+		pic.setSize(1500, 800);
+		setPicture(pic, "src/user/sky.jpg");
 		
-		JLabel box = new JLabel();
-		box.setSize(200,200);
-		box.setPreferredSize(new Dimension(200, 200));
-		box.setBorder(LineBorder.createBlackLineBorder());
-		
-		down.add(previous);
-		down.add(rent);
-		down.add(next);
-		log.add(logo,BorderLayout.EAST);
-		texts.add(text,BorderLayout.SOUTH);
-		content.add(cont);
-		
-		Border.add(start,BorderLayout.NORTH);
-		start.add(log);
-		start.add(content);
-		
-		Border.add(down,BorderLayout.SOUTH);
-		
-		logo.setBounds(10, -25, 300, 100);
-		text.setBounds(30, 7, 550, 100);
-		intro.setBounds(80, 30, 500, 130);
-		pic.setBounds(17, 150, 650, 300);
-		
-		frame.add(text);
-		frame.add(intro);
-		frame.add(logo);
+		frame.add(minitext);
 		frame.add(pic);
-	
+		minitext.setBounds(525, 260, 550, 100);
+		pic.setBounds(0, 100, 1500, 500);
+		
 		final JPanel Center = new JPanel();
 		final JPanel Middle = new JPanel();
 		
@@ -159,7 +142,7 @@ class RentTruck extends JFrame{
 		final JPanel Mid = new JPanel();
 	
 		finalpic = new JLabel();
-		finalpic.setSize(400,900);
+		finalpic.setSize(750,500);
 		value ="src/user/logocar.png";
 		setPicture(finalpic,value);
 		Mid.add(finalpic);
@@ -406,11 +389,11 @@ class RentTruck extends JFrame{
 		//Middle la panel chua hinh, center chua thong tin 
 		Middle.add(Mid, "C1");
 		JPanel Flow = new JPanel();
-		Flow.setLayout(new GridLayout(2, 1));
+		Flow.setLayout(new GridLayout(1, 1));
 
-		Flow.add(Middle);
 		Flow.add(Center);
-
+		Flow.add(Middle);
+		
 		Border.add(Flow,BorderLayout.CENTER);
 		Container con = frame.getContentPane();
 		con.add(Border);
@@ -428,7 +411,7 @@ class RentTruck extends JFrame{
 			
 			i--;
 			if(i < 3000)
-				i = 3000 + A.getTruckList().size() -1;
+				i = 3009;
 			y = i;
 			
 			CardLayout cl=(CardLayout)Center.getLayout();
@@ -437,8 +420,7 @@ class RentTruck extends JFrame{
 		
 			findPic(i);
 			setPicture(finalpic,value);
-			test_ID = id.substring(1);
-			i = Integer.parseInt(test_ID);
+			i = Integer.parseInt(id);
 			m1.show(Middle, "C1");
 			current = i;
 			
@@ -455,12 +437,8 @@ class RentTruck extends JFrame{
 			Middle.setVisible(true);
 			
 			y++;
-			/*if(y > 3009)
+			if(y > 3009)
 				y = 3000;
-			i = y;*/
-			if(y > (3000 + A.getTruckList().size() -1)){
-				y = 3000;
-			}
 			i = y;
 			
 			CardLayout c2=(CardLayout)Center.getLayout();
@@ -468,9 +446,7 @@ class RentTruck extends JFrame{
 			CardLayout m2=(CardLayout)Middle.getLayout();
 			findPic(i);
 			setPicture(finalpic,value);
-			
-			test_ID = id.substring(1);
-			i = Integer.parseInt(test_ID);
+			i = Integer.parseInt(id);
 			m2.show(Middle, "C2");
 			current = i;
 			
@@ -502,41 +478,33 @@ class RentTruck extends JFrame{
 		fini.addActionListener(new ActionListener() {
 			@Override
 				public void actionPerformed(ActionEvent ae) {
-					Truck t = A.searchTruckByID(IDvl.getText());
-					if(weekls.getSelectedIndex() != -1)
-					{	
-						JOptionPane.showMessageDialog(frame, "Rent successfully");
-						Center.setVisible(true);
-						Middle.setVisible(true);
-						CardLayout c4 = (CardLayout)Center.getLayout();
-						c4.show(Center, "C4");
-						chooseW();
-						countDay = cwek;
-						weekls.clearSelection();
-						System.out.println("Days : " + countDay);
-						
-						//Member m = new Member("M104","John","0901612023","wick123","wick","B,C","090871234");
-						//m.Rent(t, "Week");
-						user.Output();
-						user.Rent(t, "Week");
-					}
-					else if(monthls.getSelectedIndex() != -1)
-					{	
-						JOptionPane.showMessageDialog(frame, "Rent successfully");
-						Center.setVisible(true);
-						Middle.setVisible(true);
-						CardLayout c4 = (CardLayout)Center.getLayout();
-						c4.show(Center, "C4");
-						chooseM();
-						countDay = cmon;
-						monthls.clearSelection();
-						System.out.println("Days : " + countDay);
-						
-						//m.rent(t, "Month");
-					}
-						else
-							JOptionPane.showMessageDialog(frame, "You can't rent");
-					}
+				if(weekls.getSelectedIndex() != -1)
+				{	
+					JOptionPane.showMessageDialog(frame, "Rent successfully");
+					Center.setVisible(true);
+					Middle.setVisible(true);
+					CardLayout c4 = (CardLayout)Center.getLayout();
+					c4.show(Center, "C4");
+					chooseW();
+					countDay = cwek;
+					weekls.clearSelection();
+					System.out.println("Days : " + countDay);
+				}
+				else if(monthls.getSelectedIndex() != -1)
+				{	
+					JOptionPane.showMessageDialog(frame, "Rent successfully");
+					Center.setVisible(true);
+					Middle.setVisible(true);
+					CardLayout c4 = (CardLayout)Center.getLayout();
+					c4.show(Center, "C4");
+					chooseM();
+					countDay = cmon;
+					monthls.clearSelection();
+					System.out.println("Days : " + countDay);
+				}
+					else
+						JOptionPane.showMessageDialog(frame, "You can't rent");
+				}
 			});
 	}
 	
@@ -635,8 +603,7 @@ class RentTruck extends JFrame{
 
 	public void findPic(int i) {
 		Truck t = new Truck();
-		String id_truck = "T" + Integer.toString(i);
-		t = A.searchTruckByID(id_truck);
+		t = A.searchTruckByID(String.valueOf(i));
 		t.ViewRecord();
 
 		id = t.getID();
@@ -714,15 +681,15 @@ class RentTruck extends JFrame{
      } catch (IOException ex) {
          Logger.getLogger(Image.class.getName()).log(Level.SEVERE, null, ex);
      }
+	}
  }
-}
 
-//public class RentTruck_Page{
-//	public static void main(String[] args) {
-//		SwingUtilities.invokeLater(new Runnable() {
-//			public void run() {
-//				new RentTruck();
-//			}
-//			});
-//	}
-//}
+public class TestGiaoDien_RentTruck{
+	 public static void main(String[] args) {
+		 SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					new GiaoDienTruck();
+				}
+				});
+	 }
+}

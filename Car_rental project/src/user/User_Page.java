@@ -181,6 +181,7 @@ class Image extends Thread
 			
 				public void actionPerformed(ActionEvent ae) {
 					RentCar C = new RentCar();
+					frame.dispose();
 				}
 			});
 		
@@ -190,7 +191,8 @@ class Image extends Thread
 			
 				public void actionPerformed(ActionEvent ae) {
 					RentTruck T = new RentTruck();
-				}
+					frame.dispose();
+			}
 			});
 		
 		out.addActionListener(new ActionListener() {
@@ -199,8 +201,8 @@ class Image extends Thread
 			
 				public void actionPerformed(ActionEvent ae) {
 					Login lg = new Login();
-					frame.setVisible(false);
-				}
+					frame.dispose();
+			}
 			});
 	}
     

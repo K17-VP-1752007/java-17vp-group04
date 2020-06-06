@@ -9,6 +9,8 @@ import user.Image;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -157,20 +159,29 @@ class Login extends JFrame implements ActionListener {
             } 
             
             else {
+            	String admin_account[] = {"admin_account", "12345"};
+            	String admin_account2[] = {"admin_account_2", "54321"};
+            	
             	String password = new String(pwd);
             	// doc vao toan bo member co trong database
-            
+            	if ((userText.equals(admin_account[0]) && password.equals(admin_account[1])) || (userText.equals(admin_account2[0]) && password.equals(admin_account2[1]))) {
+            		JOptionPane.showMessageDialog(this, "Login successful!");
+            		cardlay admin = new cardlay();
+            		this.dispose();
+            		return;
+            	}
+            		
+            		
             	for(int i = 0; i < ml.getMemberList().size(); i++) {
             		//neu nhu co thong tin dang nhap trong database
             		if(ml.getMemberList().get(i).Login(userText, password)) {
             			
             			m = ml.getMemberAccount(userText, password);
             			JOptionPane.showMessageDialog(this, "Login successful!");
-            			 Image User = new Image();
-            			 User.start();
-             			 this.setVisible(false);
-             			   m.Output();
-             			 return;
+            			Image User = new Image();
+            			User.start();
+             			this.dispose();
+             			return;
             		}
             	}
             	JOptionPane.showMessageDialog(this, "Username or Password is incorrect. Try again!");

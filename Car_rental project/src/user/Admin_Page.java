@@ -24,8 +24,7 @@ class cardlay extends JFrame{
 	private VehicleList vl = new VehicleList();
 	private OrderList ol = new OrderList();
 	
-	public cardlay(String title){
-		super(title);
+	public cardlay(){
 		frame.setSize(700, 580);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addControl();
@@ -53,7 +52,7 @@ class cardlay extends JFrame{
 		JButton truck = new JButton("Truck works");
 		JButton order = new JButton("Order works");
 		
-		JLabel cont = new JLabel("Making you most comfortable is our obligation", JLabel.CENTER);
+		JLabel cont = new JLabel("            Making you most comfortable is our obligation", JLabel.CENTER);
 		cont.setSize(250, 450);
 		cont.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		cont.setForeground(Color.BLACK.darker());
@@ -85,8 +84,8 @@ class cardlay extends JFrame{
 		logo.setFont(new Font("Arial", Font.BOLD, 20));
 		setPicture(logo, "./src/user/logocar.png");
 
-		JLabel text = new JLabel("Honesty is the best policy");
-		JLabel intro = new JLabel("-- Click 2 buttons below to start working --");
+		JLabel text = new JLabel("       Honesty is the best policy");
+		JLabel intro = new JLabel("           -- Click 2 buttons below to start working --");
 		text.setSize(200,200);
 		text.setFont(new Font("Arial", Font.BOLD, 16));
 		text.setForeground(Color.DARK_GRAY);
@@ -968,7 +967,7 @@ class cardlay extends JFrame{
 public class Admin_Page{
 	public static void main(String[] args) {
 	
-		cardlay card = new cardlay("CGO - Admin");
+		cardlay card = new cardlay();
 		//card.start();
 	}
 }
