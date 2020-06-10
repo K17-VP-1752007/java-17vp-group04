@@ -1,5 +1,129 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
+                        
+    
+    
+    
+    
+    
+    <order>
+                                                
+        
+        
+        
+        
+        <orderID>O2000</orderID>
+                                                
+        
+        
+        
+        
+        <customerID>M104</customerID>
+                                                
+        
+        
+        
+        
+        <name>John</name>
+                                                
+        
+        
+        
+        
+        <vehicleID>C1001</vehicleID>
+                                                
+        
+        
+        
+        
+        <startDate>09/06/2020</startDate>
+                                                
+        
+        
+        
+        
+        <returnDate>30/06/2020</returnDate>
+                                                
+        
+        
+        
+        
+        <license>B,C</license>
+                                                
+        
+        
+        
+        
+        <rentType>Week</rentType>
+                                                
+        
+        
+        
+        
+        <totalCost>1670.0</totalCost>
+                        
+        
+        <status>finished</status>
+                    
+    
+    </order>
+                    
+    
+    
+    
+    
+    <order>
+                                        
+        
+        
+        
+        <orderID>O2001</orderID>
+                                        
+        
+        
+        
+        <customerID>M104</customerID>
+                                        
+        
+        
+        
+        <name>John</name>
+                                        
+        
+        
+        
+        <vehicleID>C1006</vehicleID>
+                                        
+        
+        
+        
+        <startDate>09/06/2020</startDate>
+                                        
+        
+        
+        
+        <returnDate>10/07/2020</returnDate>
+                                        
+        
+        
+        
+        <license>B,C</license>
+                                        
+        
+        
+        
+        <rentType>Month</rentType>
+                                        
+        
+        
+        
+        <totalCost>2420.0</totalCost>
+                        
+        
+        <status>finished</status>
+                    
+    
+    </order>
                 
     
     
@@ -8,7 +132,7 @@
                                 
         
         
-        <orderID>O2000</orderID>
+        <orderID>O2002</orderID>
                                 
         
         
@@ -20,7 +144,7 @@
                                 
         
         
-        <vehicleID>C1001</vehicleID>
+        <vehicleID>C1007</vehicleID>
                                 
         
         
@@ -28,7 +152,7 @@
                                 
         
         
-        <returnDate>30/06/2020</returnDate>
+        <returnDate>10/07/2020</returnDate>
                                 
         
         
@@ -36,15 +160,16 @@
                                 
         
         
-        <rentType>Week</rentType>
+        <rentType>Month</rentType>
                                 
         
         
-        <totalCost>1670.0</totalCost>
-        <status>finished</status>
-
-
-
+        <totalCost>2370.0</totalCost>
+                        
+        
+        <status>pending</status>
+                    
+    
     </order>
             
     
@@ -52,70 +177,73 @@
     <order>
                         
         
-        <orderID>O2001</orderID>
-                        
-        
-        <customerID>M104</customerID>
-                        
-        
-        <name>John</name>
-                        
-        
-        <vehicleID>C1006</vehicleID>
-                        
-        
-        <startDate>09/06/2020</startDate>
-                        
-        
-        <returnDate>10/07/2020</returnDate>
-                        
-        
-        <license>B,C</license>
-                        
-        
-        <rentType>Month</rentType>
-                        
-        
-        <totalCost>2420.0</totalCost>
-        <status>finished</status>
-
-
-    </order>
-        
-    
-    <order>
-                
-        <orderID>O2002</orderID>
-                
-        <customerID>M104</customerID>
-                
-        <name>John</name>
-                
-        <vehicleID>C1007</vehicleID>
-                
-        <startDate>09/06/2020</startDate>
-                
-        <returnDate>10/07/2020</returnDate>
-                
-        <license>B,C</license>
-                
-        <rentType>Month</rentType>
-                
-        <totalCost>2370.0</totalCost>
-        <status>finished</status>
-
-    </order>
-    
-    <order>
         <orderID>O2003</orderID>
+                        
+        
         <customerID>M104</customerID>
+                        
+        
         <name>John</name>
+                        
+        
         <vehicleID>T3003</vehicleID>
+                        
+        
         <startDate>09/06/2020</startDate>
+                        
+        
         <returnDate>14/07/2020</returnDate>
+                        
+        
         <license>B,C</license>
+                        
+        
         <rentType>Week</rentType>
+                        
+        
         <totalCost>2900.0</totalCost>
+                        
+        
+        <status>pending</status>
+                    
+    
+    </order>
+        
+    
+    <order>
+                
+        <orderID>O2004</orderID>
+                
+        <customerID>M106</customerID>
+                
+        <name>di huy nam</name>
+                
+        <vehicleID>C1008</vehicleID>
+                
+        <startDate>10/06/2020</startDate>
+                
+        <returnDate>11/07/2020</returnDate>
+                
+        <license>C</license>
+                
+        <rentType>Month</rentType>
+                
+        <totalCost>2320.0</totalCost>
+                
         <status>finished</status>
+            
+    </order>
+    
+    <order>
+        <orderID>O2005</orderID>
+        <customerID>M106</customerID>
+        <name>di huy nam</name>
+        <vehicleID>T3006</vehicleID>
+        <startDate>10/06/2020</startDate>
+        <returnDate>15/07/2020</returnDate>
+        <license>C</license>
+        <rentType>Week</rentType>
+        <totalCost>2700.0</totalCost>
+        <status>FInisHed</status>
     </order>
 </data>

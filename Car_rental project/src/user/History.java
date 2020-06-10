@@ -132,7 +132,7 @@ class VehicleHistory extends JFrame
 		Center.setLayout(new CardLayout());
 		Center.setVisible(false);
 		
-		VeID = new JLabel("     Vehicle ID : ");
+		VeID = new JLabel("     Vehicle Name : ");
 	    veid = new JLabel("");
 	    VeID.setFont(new Font("Arial", Font.BOLD, 15));
 	    
@@ -156,7 +156,7 @@ class VehicleHistory extends JFrame
 		cs = new JLabel("");
 		CS.setFont(new Font("Arial", Font.BOLD, 15));
 		
-		VeID2 = new JLabel("     Vehicle ID : ");
+		VeID2 = new JLabel("     Vehicle Name : ");
 	    veid2 = new JLabel("");
 	    VeID2.setFont(new Font("Arial", Font.BOLD, 15));
 	    
@@ -181,34 +181,48 @@ class VehicleHistory extends JFrame
 		CS2.setFont(new Font("Arial", Font.BOLD, 15));
 	
 		final JPanel Card1 = new JPanel(new BorderLayout());
-		JPanel info = new JPanel(new GridLayout(12, 1));
+		JPanel infobig = new JPanel(new BorderLayout());
+		JPanel info = new JPanel(new GridLayout(6, 1));
+		
 		info.add(VeID);
 		info.add(veid);
+	
 		info.add(Name);
 		info.add(name);
+	
 		info.add(Day);
 		info.add(day);
+	
 		info.add(EDay);
 		info.add(eday);
+		
 		info.add(Count);
 		info.add(count);
+		
 		info.add(CS);
 		info.add(cs);
 	
 		final JPanel Card2 = new JPanel(new BorderLayout());
-		JPanel info2 = new JPanel(new GridLayout(12, 1));
+		JPanel infobig2 = new JPanel(new BorderLayout());
+		JPanel info2 = new JPanel(new GridLayout(6, 1));
+		
 		info2.add(VeID2);
 		info2.add(veid2);
+		
 		info2.add(Name2);
 		info2.add(name2);
+		
 		info2.add(Day2);
 		info2.add(day2);
-		info.add(EDay2);
-		info.add(eday2);
+		
+		info2.add(EDay2);
+		info2.add(eday2);
+		
 		info2.add(Count2);
 		info2.add(count2);
-		info.add(CS2);
-		info.add(cs2);
+		
+		info2.add(CS2);
+		info2.add(cs2);
 		
 		final JPanel Card3 = new JPanel(new BorderLayout());
 		JPanel info3 = new JPanel(new GridLayout(2, 0));
@@ -289,6 +303,8 @@ class VehicleHistory extends JFrame
 	
 	public void findVehicle(int a) {
 		order = L.get(a);
+		Car C = new Car();
+		Truck T = new Truck();
 		
 		v = order.getVehicle();
 		n = order.getName();
@@ -297,14 +313,27 @@ class VehicleHistory extends JFrame
 		co = order.getRentType();
 		cost = String.valueOf(order.getCost());
 		
-		veid.setText(v);
+		if(v.substring(0, 1).equalsIgnoreCase("C"))
+		{
+			List.ReadAllCar();
+			C = List.searchCarByID(v);
+			veid.setText(C.getBrand() + " " + C.getModel());
+			veid2.setText(C.getBrand() + " " + C.getModel());
+		}
+		if(v.substring(0, 1).equalsIgnoreCase("T"))
+		{
+			List.ReadAllTruck();
+			T = List.searchTruckByID(v);
+			veid.setText(T.getBrand() + " " + T.getModel());
+			veid2.setText(T.getBrand() + " " + T.getModel());
+		}
+		
 		name.setText(n);
 		day.setText(d);
 		eday.setText(ed);
 		count.setText(co);
 		cs.setText(cost);
 		
-		veid2.setText(v);
 		name2.setText(n);
 		day2.setText(d);
 		eday2.setText(ed);	
@@ -315,7 +344,7 @@ class VehicleHistory extends JFrame
 	public void CreateList(){
 		for(int i = 0; i < od.getOrder_list().size(); i++)
 		{
-			if(User.getID().equals(od.getOrder_list().get(i).getCustomer()))
+			if(User.getID().equals(od.getOrder_list().get(i).getCustomer()) &&  (od.getOrder_list().get(i).getStatus().equalsIgnoreCase("finished")))
 			{
 				L.add(od.getOrder_list().get(i));
 			}
