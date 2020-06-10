@@ -10,8 +10,11 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 import order.Order;
 import order.OrderList;
@@ -207,7 +210,6 @@ class cardlay extends JFrame{
 		JLabel type = new JLabel("Type");
 		JTextField textType = new JTextField();
 		
-		//----------------------------------them moi------------------------
 		JLabel img = new JLabel("Img");
 		JPanel img_panel = new JPanel();
 		img_panel.setLayout(new BorderLayout());
@@ -233,7 +235,6 @@ class cardlay extends JFrame{
 		
 		img_panel.add(textImg, BorderLayout.CENTER);
 		img_panel.add(img_but, BorderLayout.EAST);
-		//-----------------------------------------------------
 		
 		minilabel.add(id_car);
 		minilabel.add(model);
@@ -305,12 +306,10 @@ class cardlay extends JFrame{
 		infoTruckBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
 		
 		JPanel minilabeltruck = new JPanel();
-		//minilabeltruck.setLayout(new GridLayout(8,1,0,10));
-		minilabeltruck.setLayout(new GridLayout(0,1,0,10)); // chinh lai gridlayout
+		minilabeltruck.setLayout(new GridLayout(0,1,0,10)); 
 		
 		JPanel minitexttruck = new JPanel();
-		//minitexttruck.setLayout(new GridLayout(8,1,0,10));
-		minitexttruck.setLayout(new GridLayout(0,1,0,10)); // chinh lai gridlayout
+		minitexttruck.setLayout(new GridLayout(0,1,0,10)); 
 		
 		JLabel id_truck = new JLabel("ID");
 		JTextField textID_truck = new JTextField();
@@ -337,7 +336,6 @@ class cardlay extends JFrame{
 		JLabel reserved_truck = new JLabel("Reserved");
 		JTextField textReservedTruck = new JTextField();
 		
-		//----------------------------------------them moi---------------------------------
 		JLabel img_truck = new JLabel("Img");
 		JPanel img_panel_truck = new JPanel();
 		img_panel_truck.setLayout(new BorderLayout());
@@ -362,7 +360,6 @@ class cardlay extends JFrame{
 		
 		img_panel_truck.add(textImg_truck, BorderLayout.CENTER);
 		img_panel_truck.add(img_button_truck, BorderLayout.EAST);
-		//-----------------------------------------------------------------------------------
 		
 		minilabeltruck.add(id_truck);
 		minilabeltruck.add(model_truck);
@@ -416,7 +413,8 @@ class cardlay extends JFrame{
 	    JLabel lbl_search = new JLabel("Search order by order ID or by customer's name");
 	    JTextField textSearchOrder = new JTextField();
 		textSearchOrder.setPreferredSize(new Dimension(250,23));
-	    JButton searchOrderbutton = new JButton("Search Order");
+	    
+		JButton searchOrderbutton = new JButton("Search Order");
 	    JCheckBox order_id = new JCheckBox("Order ID");
 	    JCheckBox customer_name = new JCheckBox("Customer's name");
 		
@@ -448,31 +446,45 @@ class cardlay extends JFrame{
 		Card3.add(infoOrderBigPanel, BorderLayout.CENTER);
 		
 		JPanel infoPanelOrder = new JPanel();
-		infoPanelOrder.setLayout(new BorderLayout(20, 0));
+		infoPanelOrder.setLayout(new BorderLayout(20, 10));
 		
 		infoOrderBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
 		infoOrderBigPanel.add(infoPanelOrder);
 		infoOrderBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
 		
 		// tao JTable luu order
-		String[] columns = {"ID","CustomerID","Name","VehicleID","Start date", "Return date", "License", "Rent type", "Total cost $", "Status"};
+		String[] columns = {"ID","Customer","Name","Vehicle","Start date", "Return date", "License", "Rent type", "Cost($)", "Status"};
 				
 		DefaultTableModel table_model = new DefaultTableModel() {
 			public boolean isCellEditable(int rows, int cols) {
-				return cols == 9;
+				return false;
 			}
 		};
 		table_model.setColumnIdentifiers(columns);
 		JTable order_table = new JTable(table_model);
 		JScrollPane scrollpane = new JScrollPane(order_table);
 				
+		//thiet lap width cho tung column
+		int [] col_size = {45,65,65,60,70,70,50,60,55,65};
+		
+		int i = 0;
+		for(int size:col_size) {
+			TableColumn col = order_table.getColumnModel().getColumn(i++);
+			col.setMinWidth(size);
+			col.setMaxWidth(size);
+			col.setPreferredWidth(size);
+		}
+		
 		JPanel update_stat_panel = new JPanel();
 		update_stat_panel.setLayout(new BorderLayout(20, 0));
 				
 		JLabel id_order = new JLabel("Order ID");
 		JTextField txt_order = new JTextField();
+		txt_order.setEditable(false);
 		JLabel order_stat = new JLabel("Status");
-		JTextField txt_stat = new JTextField();
+		String[] stat = {"pending", "processing", "finished"};
+		JComboBox status_list = new JComboBox(stat);
+		status_list.setSelectedIndex(0);
 				
 //		
 				
@@ -488,7 +500,7 @@ class cardlay extends JFrame{
 		update_label.add(id_order);
 		update_text.add(txt_order);
 		update_label.add(order_stat);
-		update_text.add(txt_stat);
+		update_text.add(status_list);
 		
 		update_stat_panel.add(Box.createRigidArea(new Dimension(10, 0)), BorderLayout.WEST);
 		update_stat_panel.add(update_label, BorderLayout.WEST);
@@ -554,6 +566,40 @@ class cardlay extends JFrame{
 			CardLayout cl = (CardLayout)Center.getLayout();
 			cl.show(Center, "C3");
 		}
+		});
+		
+		//tao item listener cho checkbox order_id va customer_name
+			order_id.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					if(e.getStateChange() == 1) {
+						customer_name.setSelected(false);
+					}
+					else {
+						customer_name.setSelected(true);
+					}
+				}
+					
+			});
+				
+			customer_name.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					if(e.getStateChange() == 1) {
+						order_id.setSelected(false);
+					}
+					else {
+						order_id.setSelected(true);
+					}
+				}
+					
+			});
+		
+			// tao table selection cho JTable
+		order_table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				String id_select = order_table.getValueAt(order_table.getSelectedRow(), 0).toString();
+				txt_order.setText(id_select);
+			}
+			
 		});
 		
 		out.addActionListener(new ActionListener() {
@@ -921,26 +967,26 @@ class cardlay extends JFrame{
 		show_order.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-						table_model.setRowCount(0);
-						ol.ReadAllOrder();
-						for(int i = 0; i < ol.getOrder_list().size(); i++) {
-							Order ord = ol.getOrder_list().get(i);
-							String[] data_row = new String[10];
-							
-							data_row[0] = ord.getOrder();
-							data_row[1] = ord.getCustomer();
-							data_row[2] = ord.getName();
-							data_row[3] = ord.getVehicle();
-							data_row[4] = ord.getStart();
-							data_row[5] = ord.getEnd();
-							data_row[6] = ord.getLicense();
-							data_row[7] = ord.getRentType();
-							data_row[8] = Double.toString(ord.getCost());
-							data_row[9] = ord.getStatus();
-							
-							table_model.addRow(data_row);
-						}
-					}catch(Exception ex) {
+					table_model.setRowCount(0);
+					ol.ReadAllOrder();
+					for(int i = 0; i < ol.getOrder_list().size(); i++) {
+						Order ord = ol.getOrder_list().get(i);
+						String[] data_row = new String[10];
+						
+						data_row[0] = ord.getOrder();
+						data_row[1] = ord.getCustomer();
+						data_row[2] = ord.getName();
+						data_row[3] = ord.getVehicle();
+						data_row[4] = ord.getStart();
+						data_row[5] = ord.getEnd();
+						data_row[6] = ord.getLicense();
+						data_row[7] = ord.getRentType();
+						data_row[8] = Double.toString(ord.getCost());
+						data_row[9] = ord.getStatus();
+						
+						table_model.addRow(data_row);
+					}
+				}catch(Exception ex) {
 						JOptionPane.showMessageDialog(frame, "Error showing order");
 					}
 				}
@@ -959,8 +1005,12 @@ class cardlay extends JFrame{
 					}
 					String id_order_search = textSearchOrder.getText();
 					
-					if(id_order_search.isEmpty()) {
+					if(id_order_search.isEmpty() && order_id.isSelected()) {
 						JOptionPane.showMessageDialog(frame, "You have to input order ID");
+						return;
+					}
+					if(id_order_search.isEmpty() && customer_name.isSelected()) {
+						JOptionPane.showMessageDialog(frame, "You have to input customer's name");
 						return;
 					}
 					table_model.setRowCount(0);
@@ -1010,16 +1060,19 @@ class cardlay extends JFrame{
 					}
 				}
 			});
-			//Chinh sua Order
+			//Chinh sua status Order
 			modi_order.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					try {
-						
+						Order ord = ol.SearchOrderByID(txt_order.getText());
+						ord.setStatus((String)status_list.getSelectedItem());
+						Admin.UpdateStatus(ord);
+						JOptionPane.showMessageDialog(frame, "Status updated successfully");
 					}
 					catch(Exception ex) {
 						//truong hop ko co id order trong database
-						JOptionPane.showMessageDialog(frame, "You can't modify order");	
+						JOptionPane.showMessageDialog(frame, "Cannot update order's status");	
 					}
 				}
 			});

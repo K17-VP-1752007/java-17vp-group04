@@ -385,7 +385,7 @@ public class Admin extends User {
 		}
 	}
 	
-	public static void ModifyOrder(Order ord) {
+	public static void UpdateStatus(Order ord) {
 		try {
 			
 			File file = new File("src/database/Order.xml");
@@ -398,16 +398,7 @@ public class Admin extends User {
 				if(ord.getOrder().equals(id_order_list.item(i).getTextContent())) {
 					Node order = id_order_list.item(i).getParentNode();
 					Element element = (Element) order;
-					//thay cac thong tin order trong file xml bang thong tin cua Order ord
-					
-					element.getElementsByTagName("customerID").item(0).setTextContent(ord.getCustomer());
-					element.getElementsByTagName("name").item(0).setTextContent(ord.getName());
-					element.getElementsByTagName("vehicleID").item(0).setTextContent(ord.getVehicle());
-					element.getElementsByTagName("startDate").item(0).setTextContent(ord.getStart());
-					element.getElementsByTagName("returnDate").item(0).setTextContent(ord.getEnd());
-					element.getElementsByTagName("license").item(0).setTextContent(ord.getLicense());
-					element.getElementsByTagName("rentType").item(0).setTextContent(ord.getRentType());
-					element.getElementsByTagName("totalCost").item(0).setTextContent(Double.toString(ord.getCost()));
+					element.getElementsByTagName("status").item(0).setTextContent(ord.getStatus());
 					break;
 				}
 			}
