@@ -449,6 +449,14 @@ class RentTruck extends JFrame{
 			m1.show(Middle, "C1");
 			current = i;
 			
+			if(resr.equals("yes")) {
+				rent.setEnabled(false);
+				rent.setText("Not available now");
+			}
+			else {
+				rent.setEnabled(true);
+				rent.setText("Rent now!");
+			}
 		}
 		});
 		
@@ -480,6 +488,15 @@ class RentTruck extends JFrame{
 			i = Integer.parseInt(test_ID);
 			m2.show(Middle, "C2");
 			current = i;
+			
+			if(resr.equals("yes")) {
+				rent.setEnabled(false);
+				rent.setText("Not available now");
+			}
+			else {
+				rent.setEnabled(true);
+				rent.setText("Rent now!");
+			}
 			
 		}
 		});
@@ -522,6 +539,9 @@ class RentTruck extends JFrame{
 						
 						user.Rent(t, "Week");
 						JOptionPane.showMessageDialog(frame, "Rent successfully");
+						rent.setEnabled(false);
+						rent.setText("Already rented!");
+						A.ReadAllTruck();
 					}
 					else if(monthls.getSelectedIndex() != -1)
 					{	
@@ -535,6 +555,9 @@ class RentTruck extends JFrame{
 						System.out.println("Days : " + countDay);
 						user.Rent(t, "Month");
 						JOptionPane.showMessageDialog(frame, "Rent successfully");
+						rent.setEnabled(false);
+						rent.setText("Already rented!");
+						A.ReadAllTruck();
 					}
 						else
 							JOptionPane.showMessageDialog(frame, "You can't rent");

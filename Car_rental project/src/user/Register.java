@@ -43,6 +43,10 @@ class RegisterFrame extends JFrame implements ActionListener {
     JLabel backLogin = new JLabel("Back to Login");
     JLabel logo = new JLabel("CGO");
     JLabel logo_Car = new JLabel();
+    MemberList ml = new MemberList();
+    String phone;
+    String identity;
+    String userField;
     
     RegisterFrame() {
         setLayoutManager();
@@ -50,6 +54,7 @@ class RegisterFrame extends JFrame implements ActionListener {
         addComponentsToContainer();
         ImagePanel1 panel = new ImagePanel1(new ImageIcon("./src/user/sky.jpg").getImage());
         container.add(panel);
+        ml.ReadAllMember();
         addActionEvent();
         
         setTitle("Register Form");
@@ -208,15 +213,35 @@ class RegisterFrame extends JFrame implements ActionListener {
     	return 0;
     }
     
-    
+    public int CheckDuplicate(String phone, String iden, String login) {
+    	for(int i = 0; i < ml.getMemberList().size(); i++) {
+        	String phone_db = ml.getMemberList().get(i).getNumber();
+        	String iden_db = ml.getMemberList().get(i).getCMND();
+        	String login_db = ml.getMemberList().get(i).getLogin_name();
+        	
+        	if(phone.equals(phone_db)) {
+            	
+            	return 1;
+        	}
+        	if(iden.equals(iden_db)) {
+            	
+            	return 2;
+        	}
+        	if(login.equals(login_db)) {
+            	
+            	return 3;
+        	}
+    	}
+    	return 0;
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
     	if (e.getSource() == registerButton) {
             String nameText = fullnameText.getText();
-            String phone = phoneText.getText();
-            String identity = identityText.getText();
-            String userField =  this.userTextField.getText();
+            phone = phoneText.getText();
+            identity = identityText.getText();
+            userField =  this.userTextField.getText();
             char pwd[] = passwordField.getPassword();
             char confirmpwd[] = confirmPasswordField.getPassword();
             String license = (String) licenseBox.getSelectedItem();
@@ -226,9 +251,21 @@ class RegisterFrame extends JFrame implements ActionListener {
             if (nameText.isEmpty() || check(phone) ==0 || check(identity) == 0 || userField.isEmpty()) {
             	JOptionPane.showMessageDialog(this, "Please input all field");
             	return;
-            } 
+            }
             if(!Arrays.equals(pwd, confirmpwd)) {
             	JOptionPane.showMessageDialog(this, "Password and confirmed password must be matched!");
+            	return;
+            }
+            if(CheckDuplicate(phone, identity, userField) == 1) {
+            	JOptionPane.showMessageDialog(this, "This phone number has already existed");
+            	return;
+            }
+            if(CheckDuplicate(phone, identity, userField) == 2) {
+            	JOptionPane.showMessageDialog(this, "This identity number has already existed");
+            	return;
+            }
+            if(CheckDuplicate(phone, identity, userField) == 3) {
+            	JOptionPane.showMessageDialog(this, "This user name has already existed");
             	return;
             }
             else {

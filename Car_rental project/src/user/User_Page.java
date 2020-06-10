@@ -103,7 +103,9 @@ class Image extends Thread
 		JPanel menu = new JPanel(new FlowLayout());
 		JMenuBar me = new JMenuBar();
 		
-		JMenu UserName = new JMenu("Hi " + ((User.getName() == null)?"User":User.getName()));
+		String [] name = User.getName().split(" ");
+		String user_name = name[name.length - 1];
+		JMenu UserName = new JMenu("Hi, " + ((User.getName() == null)?"User":user_name));
 		UserName.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JMenuItem his = new JMenuItem("History", KeyEvent.VK_H);
@@ -123,7 +125,7 @@ class Image extends Thread
 		menu.add(us);
 		menu.add(me);
 		menu.setOpaque(false);
-		menu.setSize(120, 50);
+		menu.setSize(300, 50);
 		
 		
 		setPicture(logo, "src/user/logocar.png");
@@ -149,7 +151,7 @@ class Image extends Thread
 		
 		cont.setBounds(60, -5, 550, 100);
 		logo.setBounds(30, 60, 460, 100);
-		menu.setBounds(574, -3, 150, 50);
+		menu.setBounds(390, -3, 500, 300);
 		text.setBounds(220, 35, 290, 100);
 		box.setBounds(280, 120, 315, 60);
 		choosebox.setBounds(20, 330, 150, 70);

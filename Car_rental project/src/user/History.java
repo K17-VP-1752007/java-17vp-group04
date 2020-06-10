@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -43,7 +45,7 @@ class VehicleHistory extends JFrame
 	public VehicleHistory()
 	{
 		User.CopyMem(Login.getMem());
-		frame.setSize(600, 400);
+		frame.setSize(700, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		frame.setLocationRelativeTo(null);
 		od.ReadAllOrder();
@@ -64,9 +66,9 @@ class VehicleHistory extends JFrame
 		
 		JPanel top = new JPanel();
 		top.setLayout(new BoxLayout(top, BoxLayout.LINE_AXIS));
-		JLabel cont = new JLabel("        Making you most comfortable is our obligation", JLabel.CENTER);
+		JLabel cont = new JLabel("  Making you most comfortable is our obligation", JLabel.CENTER);
 		cont.setSize(450, 450);
-		cont.setFont(new Font("Times New Roman", Font.ITALIC, 28));
+		cont.setFont(new Font("Times New Roman", Font.ITALIC, 25));
 		cont.setForeground(Color.BLACK);
 		
 		JLabel text = new JLabel("CGO rental history");
@@ -76,13 +78,22 @@ class VehicleHistory extends JFrame
 		
 		JLabel minitext = new JLabel("-- Click 2 buttons below to start --");
 		minitext.setSize(450, 450);
-		minitext.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		minitext.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		minitext.setForeground(Color.BLACK);
 		
 		JLabel logo = new JLabel("CGO", JLabel.LEFT);
-		logo.setSize(100, 135);
-		logo.setFont(new Font("Arial", Font.BOLD, 35));
+		logo.setSize(100, 105);
+		logo.setFont(new Font("Arial", Font.BOLD, 28));
 		logo.setForeground(Color.ORANGE);
+		
+		logo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		logo.addMouseListener(new MouseAdapter() {
+    		public void mouseClicked (MouseEvent e) {
+    			Image Thr = new Image();
+    			Thr.start();
+    			frame.dispose();
+    		} 
+    	});
 		
 		top.add(logo);
 		top.add(cont);
@@ -105,15 +116,15 @@ class VehicleHistory extends JFrame
 		setPicture(logo, "src/user/logocar.png");
 		
 		pic = new JLabel();
-		pic.setPreferredSize(new Dimension(1000, 600));
-		pic.setSize(1000, 600);
+//		pic.setPreferredSize(new Dimension(1000, 600));
+		pic.setSize(700, 600);
 		setPicture(pic, "src/user/sky.jpg");
 		
 		frame.add(text);
 		frame.add(minitext);
 		frame.add(pic);
-		text.setBounds(332, 190, 550, 100);
-		minitext.setBounds(375, 240, 550, 100);
+		text.setBounds(185, 190, 550, 100);
+		minitext.setBounds(235, 240, 550, 100);
 		pic.setBounds(0, 100, 1000, 410);
 		
 		final JPanel Center = new JPanel();
@@ -218,6 +229,7 @@ class VehicleHistory extends JFrame
 		
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
+		Center.add(Card3,"C3");
 		
 		Border.add(Center,BorderLayout.CENTER);
 		Container con = frame.getContentPane();
@@ -229,16 +241,22 @@ class VehicleHistory extends JFrame
 			
 				public void actionPerformed(ActionEvent ae) {
 					Center.setVisible(true);
-
-					x--;
-					if(x < 0) {
-						x = L.size() - 1;
+					if(L.size() == 0)
+					{
+						CardLayout c3 = (CardLayout)Center.getLayout();
+						c3.show(Center, "C3");
 					}
-					y = x;
-					findVehicle(x);
-					
-					CardLayout cl = (CardLayout)Center.getLayout();
-					cl.show(Center, "C1");
+					else {
+						x--;
+						if(x < 0) {
+							x = L.size() - 1;
+						}
+						y = x;
+						findVehicle(x);
+						
+						CardLayout cl = (CardLayout)Center.getLayout();
+						cl.show(Center, "C1"); 
+					}
 				}
 			});
 		
@@ -248,17 +266,23 @@ class VehicleHistory extends JFrame
 			
 				public void actionPerformed(ActionEvent ae) {
 					Center.setVisible(true);
-					
-					y++;
-					if(y > (L.size() - 1)) {
-						y = 0;
+					if(L.size() == 0)
+					{
+						CardLayout c3 = (CardLayout)Center.getLayout();
+						c3.show(Center, "C3");
 					}
-					x = y;
-					
-					findVehicle(y);
-					
-					CardLayout c2 = (CardLayout)Center.getLayout();
-					c2.show(Center, "C2");
+					else {
+						y++;
+						if(y > (L.size() - 1)) {
+							y = 0;
+						}
+						x = y;
+						
+						findVehicle(y);
+						
+						CardLayout c2 = (CardLayout)Center.getLayout();
+						c2.show(Center, "C2"); 
+					}
 				}
 			});
 	}

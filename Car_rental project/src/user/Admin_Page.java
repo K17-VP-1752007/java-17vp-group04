@@ -580,6 +580,7 @@ class cardlay extends JFrame{
 					}
 					String cost_res_car = Double.toString(c.getCost());
 					String type_res_car = c.getType();
+					String img_path = c.getImg();
 					
 					textID.setText(id_res_car);
 					textModel.setText(model_res_car);
@@ -589,6 +590,8 @@ class cardlay extends JFrame{
 					textReserved.setText(reserved_res_car);
 					textCost.setText(cost_res_car);
 					textType.setText(type_res_car);
+					textImg.setText(img_path);
+					
 				}
 				catch(Exception exc) {
 					JOptionPane.showMessageDialog(frame, "This car is not exist");
@@ -654,10 +657,13 @@ class cardlay extends JFrame{
 					String type_mod_car = textType.getText();
 					
 					String[] img = textImg.getText().split("\\\\");
+					if(img.length == 1) {
+						img = textImg.getText().split("/");
+					}
 					// lay ra object car dung voi id trong textfield
 					Car c = vl.searchCarByID(id_mod_car);
 					// lay duong dan file hinh cu
-					String old_path = c.getImg();
+					
 					c.setModel(model_mod_car);
 					c.setColor(color_mod_car);
 					c.setPassenger(passenger_mod_car);
@@ -666,8 +672,16 @@ class cardlay extends JFrame{
 					c.setType(type_mod_car);
 					String img_path = "src/user/Car_Image/" + img[img.length-1];
 					c.setImg(img_path);
-						
-					Admin.ModifyCar(c, textImg.getText(), old_path);
+					if(textReserved.getText().equalsIgnoreCase("yes"))
+						c.setReserved(true);
+					if(textReserved.getText().equalsIgnoreCase("no"))
+						c.setReserved(false);
+					else {
+						JOptionPane.showMessageDialog(frame, "Invalid Reserved!");
+						return;
+					}
+					
+					Admin.ModifyCar(c, textImg.getText());
 						
 					JOptionPane.showMessageDialog(frame, "Modified successfully!");
 				}
@@ -690,6 +704,15 @@ class cardlay extends JFrame{
 					Car c = vl.searchCarByID(id_del_car);
 					c.DeleteRecord();
 					Admin.DeleteCar(c);
+					textID.setText("");
+					textModel.setText("");
+					textColor.setText("");
+					textPass.setText("");
+					textBrand.setText("");
+					textReserved.setText("");
+					textCost.setText("");
+					textType.setText("");
+					textImg.setText("");
 					JOptionPane.showMessageDialog(frame, "Deleted car successfully");
 				}
 				catch(Exception ex) {
@@ -731,6 +754,7 @@ class cardlay extends JFrame{
 					}
 					String cost_res_truck = Double.toString(t.getCost());
 					String weight_res_truck = Double.toString(t.getWeight());
+					String img_path = t.getImg();
 					//set gia tri cho cac textfield
 					
 					textID_truck.setText(id_res_truck);
@@ -741,6 +765,8 @@ class cardlay extends JFrame{
 					textReservedTruck.setText(reserved_res_truck);
 					textCostTruck.setText(cost_res_truck);
 					textMaxW.setText(weight_res_truck);
+					textImg_truck.setText(img_path);
+					
 				}
 				catch(Exception ex) {
 					JOptionPane.showMessageDialog(frame, "This truck does not exist");
@@ -805,8 +831,12 @@ class cardlay extends JFrame{
 					
 					String [] img_truck = textImg_truck.getText().split("\\\\");
 					
+					if(img_truck.length == 1) {
+						img_truck = textImg_truck.getText().split("/");
+					}
+					
 					Truck t = vl.searchTruckByID(id_mod_truck);
-					String old_path = t.getImg();
+					
 					t.setModel(model_mod_truck);
 					t.setColor(color_mod_truck);
 					t.setPassenger(pass_mod_truck);
@@ -815,8 +845,17 @@ class cardlay extends JFrame{
 					t.setWeight(max_weight_mod);
 					String im_path_truck = "src/user/Truck_Image/" + img_truck[img_truck.length-1];
 					t.setImg(im_path_truck);
-						
-					Admin.ModifyTruck(t,textImg_truck.getText(),old_path);
+					
+					if(textReservedTruck.getText().equalsIgnoreCase("yes"))
+						t.setReserved(true);
+					if(textReservedTruck.getText().equalsIgnoreCase("no"))
+						t.setReserved(false);
+					else {
+						JOptionPane.showMessageDialog(frame, "Invalid Reserved!");
+						return;
+					}
+					
+					Admin.ModifyTruck(t,textImg_truck.getText());
 					JOptionPane.showMessageDialog(frame, "Truck modified successfully");
 				}
 				catch(Exception ex) {
@@ -835,7 +874,19 @@ class cardlay extends JFrame{
 					Truck t = vl.searchTruckByID(id_del_truck);
 					t.DeleteRecord();
 					Admin.DeleteTruck(t);
+					
+					textID_truck.setText("");
+					textModel_truck.setText("");
+					textColor_truck.setText("");
+					textPass_truck.setText("");
+					textBrand_truck.setText("");
+					textReservedTruck.setText("");
+					textCostTruck.setText("");
+					textMaxW.setText("");
+					textImg_truck.setText("");
 					JOptionPane.showMessageDialog(frame, "Deleted truck successfully");
+					
+					
 				}
 				catch(Exception ex) {
 					//truong hop khong ton tai order do trong database

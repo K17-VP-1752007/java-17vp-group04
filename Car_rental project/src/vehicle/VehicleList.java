@@ -60,7 +60,10 @@ public class VehicleList {
 				c.setColor(element.getElementsByTagName("color").item(0).getTextContent());
 				c.setPassenger(Integer.parseInt(element.getElementsByTagName("passengers").item(0).getTextContent()));
 				c.setBrand(element.getElementsByTagName("brand").item(0).getTextContent());
-				c.setReserved(Boolean.parseBoolean(element.getElementsByTagName("reserved").item(0).getTextContent()));
+				if(element.getElementsByTagName("reserved").item(0).getTextContent().equals("yes"))
+					c.setReserved(true);
+				else
+					c.setReserved(false);
 				c.setCost(Double.parseDouble(element.getElementsByTagName("cost").item(0).getTextContent()));
 				c.setImg(element.getElementsByTagName("img").item(0).getTextContent());
 				c.setType(element.getElementsByTagName("type").item(0).getTextContent());
@@ -94,7 +97,10 @@ public class VehicleList {
 				t.setColor(element.getElementsByTagName("color").item(0).getTextContent());
 				t.setBrand(element.getElementsByTagName("brand").item(0).getTextContent());
 				t.setPassenger(Integer.parseInt(element.getElementsByTagName("passenger").item(0).getTextContent()));
-				t.setReserved(Boolean.parseBoolean(element.getElementsByTagName("reserved").item(0).getTextContent()));
+				if(element.getElementsByTagName("reserved").item(0).getTextContent().equals("yes"))
+					t.setReserved(true);
+				else
+					t.setReserved(false);
 				t.setCost(Double.parseDouble(element.getElementsByTagName("cost").item(0).getTextContent()));
 				t.setWeight(Double.parseDouble(element.getElementsByTagName("maxw").item(0).getTextContent()));
 				t.setImg(element.getElementsByTagName("img").item(0).getTextContent());

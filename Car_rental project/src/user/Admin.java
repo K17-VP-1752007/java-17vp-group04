@@ -112,7 +112,7 @@ public class Admin extends User {
 			}
 	}
 	
-	public static void ModifyCar(Car c, String new_img, String old_img) {
+	public static void ModifyCar(Car c, String new_img) {
 		try {
 			//doc file
 			File file = new File("src/database/Car.xml");
@@ -136,6 +136,10 @@ public class Admin extends User {
 					element.getElementsByTagName("cost").item(0).setTextContent(Double.toString(c.getCost()));
 					element.getElementsByTagName("type").item(0).setTextContent(c.getType());
 					element.getElementsByTagName("img").item(0).setTextContent(c.getImg());
+					if(c.isReserved() == true)
+						element.getElementsByTagName("reserved").item(0).setTextContent("yes");
+					if(c.isReserved() == false)
+						element.getElementsByTagName("reserved").item(0).setTextContent("no");
 					break;
 				}
 			}
@@ -147,10 +151,7 @@ public class Admin extends User {
 			File output = new File(new_img);
 			BufferedImage ImgRead = ImageIO.read(output);
 			ImageIO.write(ImgRead, "jpg", new File(c.getImg()));
-			// kt xem neu hinh moi ko trung vs hinh cu thi xoa hinh cu khoi folder
-			if(!c.getImg().equals(old_img)) {
-				DeleteImg(old_img);
-			}
+			
 			
 			
 		}catch(Exception e) {
@@ -180,8 +181,6 @@ public class Admin extends User {
 			
 			doc.normalize();
 			
-			//xoa file hinh khoi folder
-			DeleteImg(c.getImg());
 			
 			UpdateXml(file, doc);
 		}catch(Exception ex) {
@@ -255,7 +254,7 @@ public class Admin extends User {
 		
 	}
 	
-	public static void ModifyTruck(Truck t, String new_img, String old_img) {
+	public static void ModifyTruck(Truck t, String new_img) {
 		try {
 			
 			File file = new File("src/database/Truck.xml");
@@ -277,6 +276,10 @@ public class Admin extends User {
 					element.getElementsByTagName("cost").item(0).setTextContent(Double.toString(t.getCost()));
 					element.getElementsByTagName("maxw").item(0).setTextContent(Double.toString(t.getWeight()));
 					element.getElementsByTagName("img").item(0).setTextContent(t.getImg());
+					if(t.isReserved() == true)
+						element.getElementsByTagName("reserved").item(0).setTextContent("yes");
+					if(t.isReserved() == false)
+						element.getElementsByTagName("reserved").item(0).setTextContent("no");
 					break;
 				}
 			}
@@ -288,10 +291,7 @@ public class Admin extends User {
 			File output_img = new File(new_img);
 			BufferedImage ImgRead = ImageIO.read(output_img);
 			ImageIO.write(ImgRead, "jpg", new File(t.getImg()));
-			//kt xem neu hinh cu ko trung vs hinh moi thi xoa hinh cu khoi folder
-			if(t.getImg().equals(old_img)) {
-				DeleteImg(old_img);
-			}
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -320,8 +320,6 @@ public class Admin extends User {
 			doc.normalize();
 			
 			UpdateXml(file, doc);
-			//xoa hinh khoi folder
-			DeleteImg(t.getImg());
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}

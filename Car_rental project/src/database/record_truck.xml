@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
-                                                    
+                                                                            
+    
+    
+    
+    
+    
+    
     
     
     
@@ -13,7 +19,13 @@
     
     
     <record>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -26,7 +38,13 @@
         
         
         <vehicleID>T3000</vehicleID>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -39,7 +57,13 @@
         
         
         <km>104.35</km>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -52,7 +76,13 @@
         
         
         <totalRent>3</totalRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -65,7 +95,13 @@
         
         
         <lastRent>20/06/2020</lastRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -78,7 +114,13 @@
         
         
         <income>2480.0</income>
-                                                                                                    
+                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -91,7 +133,13 @@
     
     
     </record>
-                                                    
+                                                                            
+    
+    
+    
+    
+    
+    
     
     
     
@@ -104,7 +152,13 @@
     
     
     <record>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -117,7 +171,13 @@
         
         
         <vehicleID>T3001</vehicleID>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -130,7 +190,7 @@
         
         
         <km>205.04</km>
-                                                                                                        
+                                                                                                                                                        
         
         
         
@@ -142,8 +202,14 @@
         
         
         
-        <totalRent>5</totalRent>
-                                                                                                        
+        
+        
+        
+        
+        
+        
+        <totalRent>7</totalRent>
+                                                                                                                                                        
         
         
         
@@ -155,8 +221,14 @@
         
         
         
-        <lastRent>27/06/2020</lastRent>
-                                                                                                        
+        
+        
+        
+        
+        
+        
+        <lastRent>09/07/2020</lastRent>
+                                                                                                                                                        
         
         
         
@@ -168,8 +240,20 @@
         
         
         
-        <income>2720.0</income>
-                                                                                                    
+        
+        
+        
+        
+        
+        
+        <income>7490.0</income>
+                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -182,7 +266,13 @@
     
     
     </record>
-                                                    
+                                                                            
+    
+    
+    
+    
+    
+    
     
     
     
@@ -195,7 +285,13 @@
     
     
     <record>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -208,7 +304,13 @@
         
         
         <vehicleID>T3002</vehicleID>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -221,7 +323,7 @@
         
         
         <km>504.1</km>
-                                                                                                        
+                                                                                                                                                        
         
         
         
@@ -233,8 +335,14 @@
         
         
         
-        <totalRent>13</totalRent>
-                                                                                                        
+        
+        
+        
+        
+        
+        
+        <totalRent>14</totalRent>
+                                                                                                                                                        
         
         
         
@@ -246,8 +354,14 @@
         
         
         
-        <lastRent>27/06/2020</lastRent>
-                                                                                                        
+        
+        
+        
+        
+        
+        
+        <lastRent>23/06/2020</lastRent>
+                                                                                                                                                        
         
         
         
@@ -259,8 +373,20 @@
         
         
         
-        <income>6020.0</income>
-                                                                                                    
+        
+        
+        
+        
+        
+        
+        <income>7350.0</income>
+                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -273,7 +399,13 @@
     
     
     </record>
-                                                    
+                                                                            
+    
+    
+    
+    
+    
+    
     
     
     
@@ -286,7 +418,13 @@
     
     
     <record>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -299,7 +437,13 @@
         
         
         <vehicleID>T3003</vehicleID>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -312,7 +456,7 @@
         
         
         <km>125.1</km>
-                                                                                                        
+                                                                                                                                                        
         
         
         
@@ -324,8 +468,14 @@
         
         
         
-        <totalRent>6</totalRent>
-                                                                                                        
+        
+        
+        
+        
+        
+        
+        <totalRent>7</totalRent>
+                                                                                                                                                        
         
         
         
@@ -337,8 +487,14 @@
         
         
         
-        <lastRent>24/04/2018</lastRent>
-                                                                                                        
+        
+        
+        
+        
+        
+        
+        <lastRent>14/07/2020</lastRent>
+                                                                                                                                                        
         
         
         
@@ -350,8 +506,20 @@
         
         
         
-        <income>2700</income>
-                                                                                                    
+        
+        
+        
+        
+        
+        
+        <income>5600.0</income>
+                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -364,7 +532,13 @@
     
     
     </record>
-                                                    
+                                                                            
+    
+    
+    
+    
+    
+    
     
     
     
@@ -377,7 +551,13 @@
     
     
     <record>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -390,7 +570,13 @@
         
         
         <vehicleID>T3004</vehicleID>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -403,7 +589,13 @@
         
         
         <km>4000</km>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -416,7 +608,13 @@
         
         
         <totalRent>15</totalRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -429,7 +627,13 @@
         
         
         <lastRent>01/09/2015</lastRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -442,7 +646,13 @@
         
         
         <income>9000</income>
-                                                                                                    
+                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -455,7 +665,13 @@
     
     
     </record>
-                                                    
+                                                                            
+    
+    
+    
+    
+    
+    
     
     
     
@@ -468,7 +684,13 @@
     
     
     <record>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -481,7 +703,13 @@
         
         
         <vehicleID>T3005</vehicleID>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -494,7 +722,13 @@
         
         
         <km>475.3</km>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -507,7 +741,13 @@
         
         
         <totalRent>8</totalRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -520,7 +760,13 @@
         
         
         <lastRent>15/01/2018</lastRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -533,7 +779,13 @@
         
         
         <income>4000</income>
-                                                                                                    
+                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -546,7 +798,13 @@
     
     
     </record>
-                                                    
+                                                                            
+    
+    
+    
+    
+    
+    
     
     
     
@@ -559,7 +817,13 @@
     
     
     <record>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -572,7 +836,13 @@
         
         
         <vehicleID>T3006</vehicleID>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -585,7 +855,13 @@
         
         
         <km>340.9</km>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -598,7 +874,13 @@
         
         
         <totalRent>4</totalRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -611,7 +893,13 @@
         
         
         <lastRent>27/06/2012</lastRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -624,7 +912,13 @@
         
         
         <income>1000</income>
-                                                                                                    
+                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -637,7 +931,13 @@
     
     
     </record>
-                                                    
+                                                                            
+    
+    
+    
+    
+    
+    
     
     
     
@@ -650,7 +950,13 @@
     
     
     <record>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -663,7 +969,13 @@
         
         
         <vehicleID>T3007</vehicleID>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -676,7 +988,13 @@
         
         
         <km>200.5</km>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -689,7 +1007,13 @@
         
         
         <totalRent>3</totalRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -702,7 +1026,13 @@
         
         
         <lastRent>11/07/2020</lastRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -715,7 +1045,13 @@
         
         
         <income>4100.0</income>
-                                                                                                    
+                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -728,7 +1064,13 @@
     
     
     </record>
-                                                    
+                                                                            
+    
+    
+    
+    
+    
+    
     
     
     
@@ -741,7 +1083,13 @@
     
     
     <record>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -754,7 +1102,13 @@
         
         
         <vehicleID>T3008</vehicleID>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -767,7 +1121,13 @@
         
         
         <km>0</km>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -780,7 +1140,13 @@
         
         
         <totalRent>1</totalRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -793,7 +1159,13 @@
         
         
         <lastRent>20/06/2020</lastRent>
-                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -806,7 +1178,13 @@
         
         
         <income>1180.0</income>
-                                                                                                    
+                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -819,7 +1197,251 @@
     
     
     </record>
-                                                    
+                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <record>
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <vehicleID>T3009</vehicleID>
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <km>50</km>
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <totalRent>10</totalRent>
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <lastRent>25/08/2020</lastRent>
+                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <income>17820.0</income>
+                                                                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </record>
+                                                                        
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <record>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <vehicleID/>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <km>0.0</km>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <totalRent>0</totalRent>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <lastRent>0</lastRent>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <income>0.0</income>
+                                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </record>
+                                                        
+
+    
     
     
     
@@ -844,7 +1466,7 @@
         
         
         
-        <vehicleID>T3009</vehicleID>
+        <vehicleID/>
                                                                                                         
         
         
@@ -857,7 +1479,7 @@
         
         
         
-        <km>50</km>
+        <km>0.0</km>
                                                                                                         
         
         
@@ -870,7 +1492,7 @@
         
         
         
-        <totalRent>9</totalRent>
+        <totalRent>0</totalRent>
                                                                                                         
         
         
@@ -883,7 +1505,7 @@
         
         
         
-        <lastRent>25/07/2020</lastRent>
+        <lastRent>0</lastRent>
                                                                                                         
         
         
@@ -896,7 +1518,7 @@
         
         
         
-        <income>11880.0</income>
+        <income>0.0</income>
                                                                                                     
     
     
@@ -914,121 +1536,9 @@
 
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    <record>
-                                                                        
-        
-        
-        
-        
-        
-        
-        
-        <vehicleID/>
-                                                                        
-        
-        
-        
-        
-        
-        
-        
-        <km>0.0</km>
-                                                                        
-        
-        
-        
-        
-        
-        
-        
-        <totalRent>0</totalRent>
-                                                                        
-        
-        
-        
-        
-        
-        
-        
-        <lastRent>0</lastRent>
-                                                                        
-        
-        
-        
-        
-        
-        
-        
-        <income>0.0</income>
-                                                                    
-    
-    
-    
-    
-    
-    
-    
-    </record>
-                                
 
-    
-    
-    
-    
-    
-    
-    <record>
-                                                        
-        
-        
-        
-        
-        
-        <vehicleID/>
-                                                        
-        
-        
-        
-        
-        
-        <km>0.0</km>
-                                                        
-        
-        
-        
-        
-        
-        <totalRent>0</totalRent>
-                                                        
-        
-        
-        
-        
-        
-        <lastRent>0</lastRent>
-                                                        
-        
-        
-        
-        
-        
-        <income>0.0</income>
-                                                    
-    
-    
-    
-    
-    
-    </record>
-                        
+
+
 
 
 

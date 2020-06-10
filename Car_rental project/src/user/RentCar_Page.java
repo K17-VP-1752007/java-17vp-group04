@@ -441,6 +441,16 @@ class RentCar extends JFrame{
 				i = Integer.parseInt(test_ID);
 				m1.show(Middle, "C1");
 				current = i;
+				
+				if(res.equals("yes")) {
+					rent.setEnabled(false);
+					rent.setText("Not available now");
+				}
+				else {
+					rent.setEnabled(true);
+					rent.setText("Rent now!");
+				}
+
 			}
 		});
 		//Khoi tao chuc nang cua button next
@@ -472,6 +482,16 @@ class RentCar extends JFrame{
 				y = Integer.parseInt(test_ID);
 				m2.show(Middle, "C2");
 				current = y;
+				
+				if(res.equals("yes")) {
+					rent.setEnabled(false);
+					rent.setText("Not available now");
+				}
+				else {
+					rent.setEnabled(true);
+					rent.setText("Rent now!");
+				}
+
 			}
 		});
 		//Khoi tao chuc nang cua button rent now
@@ -489,12 +509,12 @@ class RentCar extends JFrame{
 					Center.setVisible(true);
 					Middle.setVisible(true);
 					//Renting.setVisible(true);
+					
 					CardLayout c3 = (CardLayout)Center.getLayout();
 					c3.show(Center, "C3");
 					CardLayout m2=(CardLayout)Middle.getLayout();
 					findPic(current);
-					m2.show(Middle, "C3");
-					
+					m2.show(Middle, "C3");	
 				}
 			}
 			});
@@ -515,6 +535,9 @@ class RentCar extends JFrame{
 						
 						user.Rent(c, "Week");
 						JOptionPane.showMessageDialog(frame, "Rent successfully");
+						rent.setEnabled(false);
+						rent.setText("Already rented!");
+						A.ReadAllCar();
 					}
 					else if(monthls.getSelectedIndex() != -1)
 					{	
@@ -529,6 +552,9 @@ class RentCar extends JFrame{
 						
 						user.Rent(c, "Month");
 						JOptionPane.showMessageDialog(frame, "Rent successfully");
+						rent.setEnabled(false);
+						rent.setText("Already rented!");
+						A.ReadAllCar();
 					}
 					else
 						JOptionPane.showMessageDialog(frame, "You can't rent");
@@ -642,9 +668,9 @@ class RentCar extends JFrame{
 		pas = String.valueOf(c.getPassenger());
 		brand = c.getBrand();
 		if(c.isReserved() == true)
-			res = "Yes";
+			res = "yes";
 		else
-			res = "No";
+			res = "no";
 		cos = String.valueOf(c.getCost());
 		type = c.getType(); 
 		
