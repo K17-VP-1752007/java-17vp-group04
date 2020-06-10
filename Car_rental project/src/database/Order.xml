@@ -41,9 +41,10 @@
         
         
         <totalCost>1670.0</totalCost>
-                            
-    
-    
+        <status>finished</status>
+
+
+
     </order>
             
     
@@ -76,8 +77,9 @@
                         
         
         <totalCost>2420.0</totalCost>
-                    
-    
+        <status>finished</status>
+
+
     </order>
         
     
@@ -100,7 +102,8 @@
         <rentType>Month</rentType>
                 
         <totalCost>2370.0</totalCost>
-            
+        <status>finished</status>
+
     </order>
     
     <order>
@@ -113,5 +116,6 @@
         <license>B,C</license>
         <rentType>Week</rentType>
         <totalCost>2900.0</totalCost>
+        <status>finished</status>
     </order>
 </data>

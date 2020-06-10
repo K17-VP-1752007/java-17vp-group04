@@ -53,7 +53,8 @@ public class OrderList {
 				ord.setEnd(element.getElementsByTagName("returnDate").item(0).getTextContent());
 				ord.setLicense(element.getElementsByTagName("license").item(0).getTextContent());
 				ord.setRentType(element.getElementsByTagName("rentType").item(0).getTextContent());
-				ord.setCost(Double.parseDouble(element.getElementsByTagName("totalCost").item(0).getTextContent()));	
+				ord.setCost(Double.parseDouble(element.getElementsByTagName("totalCost").item(0).getTextContent()));
+				ord.setStatus(element.getElementsByTagName("status").item(0).getTextContent());
 				
 				this.orderList.add(ord);
 			}
@@ -79,6 +80,16 @@ public class OrderList {
 			}
 		}
 		return null;
+	}
+	
+	public ArrayList<Order> SearchOrderByCustomerName(String name) {
+		ArrayList<Order> list_order = new ArrayList<Order>();
+		for(int i = 0; i < this.orderList.size(); i++) {
+			if(name.equals(this.orderList.get(i).getName())){
+				list_order.add(this.orderList.get(i));
+			}
+		}
+		return list_order;
 	}
 }
 

@@ -4,12 +4,14 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 import order.Order;
 import order.OrderList;
@@ -18,6 +20,8 @@ import vehicle.*;
 
 class cardlay extends JFrame{
 	JLabel pic;
+	JLabel text;
+	JLabel intro;
 	
 	JFrame frame = new JFrame("CGO - Admin");
 	
@@ -87,8 +91,8 @@ class cardlay extends JFrame{
 		logo.setFont(new Font("Arial", Font.BOLD, 20));
 		setPicture(logo, "./src/user/logocar.png");
 
-		JLabel text = new JLabel("       Honesty is the best policy");
-		JLabel intro = new JLabel("           -- Click 2 buttons below to start working --");
+		text = new JLabel("       Honesty is the best policy");
+		intro = new JLabel("           -- Click 2 buttons below to start working --");
 		text.setSize(200,200);
 		text.setFont(new Font("Arial", Font.BOLD, 16));
 		text.setForeground(Color.DARK_GRAY);
@@ -399,12 +403,23 @@ class cardlay extends JFrame{
 		final JPanel Card3 = new JPanel();
 		Card3.setLayout(new BorderLayout(0,10));
 		
+//		JPanel searchOrderPanel = new JPanel();
+//	    Card3.add(searchOrderPanel, BorderLayout.NORTH);
+		JPanel searchOrderPane = new JPanel();
+		searchOrderPane.setLayout(new BoxLayout(searchOrderPane,BoxLayout.Y_AXIS));
+		Card3.add(searchOrderPane, BorderLayout.NORTH);
 		JPanel searchOrderPanel = new JPanel();
-	    Card3.add(searchOrderPanel, BorderLayout.NORTH);
+		searchOrderPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+	    JPanel checkboxes = new JPanel();
+	    checkboxes.setLayout(new FlowLayout(FlowLayout.CENTER));
 		
+	    JLabel lbl_search = new JLabel("Search order by order ID or by customer's name");
 	    JTextField textSearchOrder = new JTextField();
 		textSearchOrder.setPreferredSize(new Dimension(250,23));
 	    JButton searchOrderbutton = new JButton("Search Order");
+	    JCheckBox order_id = new JCheckBox("Order ID");
+	    JCheckBox customer_name = new JCheckBox("Customer's name");
+		
 	    searchOrderbutton.registerKeyboardAction(searchOrderbutton.getActionForKeyStroke(
                 KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
                 KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
@@ -415,8 +430,18 @@ class cardlay extends JFrame{
                 KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
                 JComponent.WHEN_FOCUSED);
 	    
+	    searchOrderPanel.add(Box.createRigidArea(new Dimension(10,20)));
 	    searchOrderPanel.add(textSearchOrder);
 		searchOrderPanel.add(searchOrderbutton);
+		
+		checkboxes.add(order_id);
+		checkboxes.add(customer_name);
+		
+		searchOrderPane.add(lbl_search);
+		searchOrderPanel.add(Box.createRigidArea(new Dimension(10,30)));
+		searchOrderPane.add(searchOrderPanel);
+		searchOrderPanel.add(Box.createRigidArea(new Dimension(10,20)));
+		searchOrderPane.add(checkboxes);
 	    
 		JPanel infoOrderBigPanel = new JPanel();
 		infoOrderBigPanel.setLayout(new BoxLayout(infoOrderBigPanel, BoxLayout.LINE_AXIS));
@@ -429,72 +454,58 @@ class cardlay extends JFrame{
 		infoOrderBigPanel.add(infoPanelOrder);
 		infoOrderBigPanel.add(Box.createRigidArea(new Dimension(40, 0)));
 		
-		JPanel minilabelorder = new JPanel();
-		minilabelorder.setLayout(new GridLayout(9,1,0,10));
+		// tao JTable luu order
+		String[] columns = {"ID","CustomerID","Name","VehicleID","Start date", "Return date", "License", "Rent type", "Total cost $", "Status"};
+				
+		DefaultTableModel table_model = new DefaultTableModel() {
+			public boolean isCellEditable(int rows, int cols) {
+				return cols == 9;
+			}
+		};
+		table_model.setColumnIdentifiers(columns);
+		JTable order_table = new JTable(table_model);
+		JScrollPane scrollpane = new JScrollPane(order_table);
+				
+		JPanel update_stat_panel = new JPanel();
+		update_stat_panel.setLayout(new BorderLayout(20, 0));
+				
+		JLabel id_order = new JLabel("Order ID");
+		JTextField txt_order = new JTextField();
+		JLabel order_stat = new JLabel("Status");
+		JTextField txt_stat = new JTextField();
+				
+//		
+				
+		infoPanelOrder.add(update_stat_panel, BorderLayout.SOUTH);
+		infoPanelOrder.add(scrollpane, BorderLayout.CENTER);
 		
-		JPanel minitextorder = new JPanel();
-		minitextorder.setLayout(new GridLayout(9,1,0,10));
+		JPanel update_label = new JPanel();
+		update_label.setLayout(new GridLayout(0, 1, 0, 10));
 		
-		JLabel order_ID = new JLabel("Order ID");
-		JTextField textID_order = new JTextField();
-		textID_order.setEditable(false);
+		JPanel update_text = new JPanel();
+		update_text.setLayout(new GridLayout(0, 1, 0, 10));
 		
-		JLabel customer_ID = new JLabel("Customer ID");
-		JTextField textCustomer_ID= new JTextField();
+		update_label.add(id_order);
+		update_text.add(txt_order);
+		update_label.add(order_stat);
+		update_text.add(txt_stat);
 		
-		JLabel name = new JLabel("Name");
-		JTextField textName = new JTextField();
+		update_stat_panel.add(Box.createRigidArea(new Dimension(10, 0)), BorderLayout.WEST);
+		update_stat_panel.add(update_label, BorderLayout.WEST);
+		update_stat_panel.add(update_text, BorderLayout.CENTER);
+		//update_stat_panel.add(Box.createRigidArea(new Dimension(10, 0)), BorderLayout.CENTER);
 		
-		JLabel vehicle_ID = new JLabel("Vehicle ID");
-		JTextField textVehicle_ID = new JTextField();
+		infoPanelOrder.add(update_stat_panel, BorderLayout.SOUTH);
+		infoPanelOrder.add(scrollpane, BorderLayout.CENTER);
 		
-		JLabel startDate = new JLabel("Start Date");
-		JTextField textStartDate = new JTextField();
-		
-		JLabel returnDate = new JLabel("Return Date");
-		JTextField textReturnDate = new JTextField();
-		
-		JLabel license = new JLabel("License");
-		JTextField textLicense = new JTextField();
-		
-		JLabel rentType = new JLabel("Rent Type");
-		JTextField textRentType = new JTextField();
-		
-		JLabel totalCost = new JLabel("Total cost");
-		JTextField textTotalCost = new JTextField();
-		
-		minilabelorder.add(order_ID);
-		minilabelorder.add(customer_ID);
-		minilabelorder.add(name);
-		minilabelorder.add(vehicle_ID);
-		minilabelorder.add(startDate);
-		minilabelorder.add(returnDate);
-		minilabelorder.add(license);
-		minilabelorder.add(rentType);
-		minilabelorder.add(totalCost);
-		
-		minitextorder.add(textID_order);
-		minitextorder.add(textCustomer_ID);
-		minitextorder.add(textName);
-		minitextorder.add(textVehicle_ID);
-		minitextorder.add(textStartDate);
-		minitextorder.add(textReturnDate);
-		minitextorder.add(textLicense);
-		minitextorder.add(textRentType);
-		minitextorder.add(textTotalCost);
-		
-		infoPanelOrder.add(minilabelorder, BorderLayout.WEST);
-		infoPanelOrder.add(minitextorder, BorderLayout.CENTER);
-		
-		JButton modi_order = new JButton("Modify order");
-		JButton del_order = new JButton("Delete order");
+		JButton modi_order = new JButton("Update Status");
+		JButton show_order = new JButton("Show all orders");
 		modi_order.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		del_order.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JPanel minicardorder = new JPanel();
 	    Card3.add(minicardorder, BorderLayout.SOUTH);
 		minicardorder.add(modi_order);
-		minicardorder.add(del_order);
+		minicardorder.add(show_order);
 		
 		Center.add(Card1,"C1");
 		Center.add(Card2,"C2");
@@ -509,6 +520,9 @@ class cardlay extends JFrame{
 		
 		public void actionPerformed(ActionEvent arg0) {
 			Center.setVisible(true);
+			pic.setVisible(false);
+			text.setVisible(false);
+			intro.setVisible(false);
 			CardLayout cl = (CardLayout)Center.getLayout();
 			cl.show(Center, "C1");
 		}
@@ -520,6 +534,9 @@ class cardlay extends JFrame{
 		
 		public void actionPerformed(ActionEvent arg0) {
 			Center.setVisible(true);
+			pic.setVisible(false);
+			text.setVisible(false);
+			intro.setVisible(false);
 			CardLayout cl = (CardLayout)Center.getLayout();
 			cl.show(Center, "C2");
 		}
@@ -531,6 +548,9 @@ class cardlay extends JFrame{
 		
 		public void actionPerformed(ActionEvent arg0) {
 			Center.setVisible(true);
+			pic.setVisible(false);
+			text.setVisible(false);
+			intro.setVisible(false);
 			CardLayout cl = (CardLayout)Center.getLayout();
 			cl.show(Center, "C3");
 		}
@@ -897,103 +917,112 @@ class cardlay extends JFrame{
 		});
 		
 		//-----------------------------------------------Order------------------------------------
-		//tim order
-		searchOrderbutton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-			//doc toan bo order tu database len	
-				ol.ReadAllOrder();
-				String id_order_search = textSearchOrder.getText();
-				
-				if(id_order_search.isEmpty()) {
-					JOptionPane.showMessageDialog(frame, "You have to input order ID");
-					return;
-				}
-				
-				try {
-					Order ord = ol.SearchOrderByID(id_order_search);
-					String id_sear_order = ord.getOrder();
-					String id_sear_Customer = ord.getCustomer();
-					String name_sear = ord.getName();
-					String id_sear_vehicle = ord.getVehicle();
-					String startDate_sear = ord.getStart();
-					String returnDate_sear = ord.getEnd();
-					String license_sear = ord.getLicense();
-					String rentType_sear = ord.getRentType();
-					String totalCost_sear = Double.toString(ord.getCost());
-						
-					//set gia tri cho cac textfield
-					textID_order.setText(id_sear_order);
-					textCustomer_ID.setText(id_sear_Customer);
-					textName.setText(name_sear);
-					textVehicle_ID.setText(id_sear_vehicle);
-					textStartDate.setText(startDate_sear);
-					textReturnDate.setText(returnDate_sear);
-					textLicense.setText(license_sear);
-					textRentType.setText(rentType_sear);
-					textTotalCost.setText(totalCost_sear);
-				}
-				catch(Exception ex) {
-					JOptionPane.showMessageDialog(frame, "This order is not exist");
-				}
-			}
-		});
-		
-		//Chinh sua Order
-		modi_order.addActionListener(new ActionListener() {
-			@Override
+		//show toan bo order
+		show_order.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					//lay thong tin cua order  muon sua trong textfield
-					String id_modi_order = textSearchOrder.getText();
-					String id_modi_Customer = textCustomer_ID.getText();
-					String name_modi = textName.getText();
-					String id_modi_vehicle = textVehicle_ID.getText();
-					String startDate_modi = textStartDate.getText();
-					String returnDate_modi = textReturnDate.getText();
-					String license_modi = textLicense.getText();
-					String rentType_modi = textRentType.getText();
-					Double totalCost_modi = Double.parseDouble(textTotalCost.getText());
-			
-					Order o = ol.SearchOrderByID(id_modi_order);	
-					o.setCustomer(id_modi_Customer);
-					o.setName(name_modi);
-					o.setVehicle(id_modi_vehicle);
-					o.setStart(startDate_modi);
-					o.setEnd(returnDate_modi);
-					o.setLicense(license_modi);
-					o.setRentType(rentType_modi);
-					o.setCost(totalCost_modi);
-					Admin.ModifyOrder(o);
-					JOptionPane.showMessageDialog(frame, "Order modified successfully");
+						table_model.setRowCount(0);
+						ol.ReadAllOrder();
+						for(int i = 0; i < ol.getOrder_list().size(); i++) {
+							Order ord = ol.getOrder_list().get(i);
+							String[] data_row = new String[10];
+							
+							data_row[0] = ord.getOrder();
+							data_row[1] = ord.getCustomer();
+							data_row[2] = ord.getName();
+							data_row[3] = ord.getVehicle();
+							data_row[4] = ord.getStart();
+							data_row[5] = ord.getEnd();
+							data_row[6] = ord.getLicense();
+							data_row[7] = ord.getRentType();
+							data_row[8] = Double.toString(ord.getCost());
+							data_row[9] = ord.getStatus();
+							
+							table_model.addRow(data_row);
+						}
+					}catch(Exception ex) {
+						JOptionPane.showMessageDialog(frame, "Error showing order");
+					}
+				}
 					
+			});
+			//tim order
+			searchOrderbutton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+				//doc toan bo order tu database len	
+					ol.ReadAllOrder();
+					if(order_id.isSelected() == false && customer_name.isSelected() == false) {
+						JOptionPane.showMessageDialog(frame, "Please select type of search");
+						return;
+					}
+					String id_order_search = textSearchOrder.getText();
+					
+					if(id_order_search.isEmpty()) {
+						JOptionPane.showMessageDialog(frame, "You have to input order ID");
+						return;
+					}
+					table_model.setRowCount(0);
+					try {
+						if(order_id.isSelected()) {
+							Order ord = ol.SearchOrderByID(id_order_search);
+							
+							String[] data_row = new String[10];
+							
+							data_row[0] = ord.getOrder();
+							data_row[1] = ord.getCustomer();
+							data_row[2] = ord.getName();
+							data_row[3] = ord.getVehicle();
+							data_row[4] = ord.getStart();
+							data_row[5] = ord.getEnd();
+							data_row[6] = ord.getLicense();
+							data_row[7] = ord.getRentType();
+							data_row[8] = Double.toString(ord.getCost());
+							data_row[9] = ord.getStatus();
+							
+							table_model.addRow(data_row);
+						}
+						if(customer_name.isSelected()) {
+							ArrayList<Order> list_order = ol.SearchOrderByCustomerName(id_order_search);
+							for(int i = 0; i < list_order.size(); i++) {
+								Order ord = list_order.get(i);
+								
+								String[] data_row = new String[10];
+								
+								data_row[0] = ord.getOrder();
+								data_row[1] = ord.getCustomer();
+								data_row[2] = ord.getName();
+								data_row[3] = ord.getVehicle();
+								data_row[4] = ord.getStart();
+								data_row[5] = ord.getEnd();
+								data_row[6] = ord.getLicense();
+								data_row[7] = ord.getRentType();
+								data_row[8] = Double.toString(ord.getCost());
+								data_row[9] = ord.getStatus();
+								
+								table_model.addRow(data_row);
+							}
+						}					
+					}
+					catch(Exception ex) {
+						JOptionPane.showMessageDialog(frame, "This order is not exist");
+					}
 				}
-				catch(Exception ex) {
-					//truong hop ko co id order trong database
-					JOptionPane.showMessageDialog(frame, "You can't modify order");	
+			});
+			//Chinh sua Order
+			modi_order.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					try {
+						
+					}
+					catch(Exception ex) {
+						//truong hop ko co id order trong database
+						JOptionPane.showMessageDialog(frame, "You can't modify order");	
+					}
 				}
-			}
-		});
-		
-		//xoa 1 order
-		del_order.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//lay id order muon xoa tu textfield
-				try {
-					String id_del_order = textSearchOrder.getText();
-					Order o = ol.SearchOrderByID(id_del_order);
-					Admin.DeleteOrder(o.getOrder());
-					JOptionPane.showMessageDialog(frame, "Deleted order successfully");
-				}	
-				catch(Exception ex) {
-					//truong hop khong ton tai order do trong database
-					JOptionPane.showMessageDialog(frame, "You can't delete order");
-				}
-			}
-			
-		});
+			});
 	}
 
 	public void setPicture(JLabel label ,String filename){

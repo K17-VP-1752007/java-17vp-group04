@@ -11,6 +11,7 @@ public class Order {
 	//private int rent_type;
 	private String rent_type;
 	private double total_cost;
+	private String status;
 	
 	public Order(){
 		orderID = null;
@@ -22,9 +23,10 @@ public class Order {
 		license_plate = null;
 		rent_type = null;
 		total_cost = 0;
+		status = null;
 	}
 	
-	public Order(String ord, String cust, String name, String vehicle, String start, String end,  String license, String type, double cost){
+	public Order(String ord, String cust, String name, String vehicle, String start, String end,  String license, String type, double cost, String stat){
 		orderID = ord;
 		customerID = cust;
 		customerName = name;
@@ -34,6 +36,7 @@ public class Order {
 		license_plate = license;
 		rent_type = type;
 		total_cost = cost;
+		status = stat;
 	}
 	
 	public String getOrder() {return orderID;}
@@ -62,5 +65,15 @@ public class Order {
 	
 	public double getCost() {return total_cost;}
 	public void setCost(double cost) {total_cost = cost;}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
 	
 }

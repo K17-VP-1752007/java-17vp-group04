@@ -230,7 +230,7 @@ public class Member extends User {
 			String id_order = CreateOrderID();
 			
 			//tao 1 order
-			Order ord = new Order(id_order, this.getID(), this.getName(), v.getID(), start_date, return_date, this.getLicence(), rent_type, total_cost);
+			Order ord = new Order(id_order, this.getID(), this.getName(), v.getID(), start_date, return_date, this.getLicence(), rent_type, total_cost, "pending");
 			CreateOrder(ord);
 			// cap nhat record cua xe hoi
 			if(vehicle == 1) {
@@ -384,6 +384,10 @@ public class Member extends User {
 			Element cost = doc.createElement("totalCost");
 			cost.appendChild(doc.createTextNode(Double.toString(ord.getCost())));
 			order.appendChild(cost);
+			
+			Element status = doc.createElement("status");
+			status.appendChild(doc.createTextNode(ord.getStatus()));
+			order.appendChild(status);
 			
 			// add node order vao node data
 			data.appendChild(order);
