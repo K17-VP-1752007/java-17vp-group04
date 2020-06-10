@@ -175,14 +175,21 @@ class RegisterFrame extends JFrame implements ActionListener {
     	backLogin.addMouseListener(new MouseAdapter() {
     		public void mouseClicked (MouseEvent e) {
     			Login lg = new Login();
-    			setVisible(false);
+    			dispose();
     		} 
     	});
     	
     	registerButton.addActionListener(this);
     	registerButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    	JRootPane rootPane = getRootPane();
-        rootPane.setDefaultButton(registerButton);
+	    registerButton.registerKeyboardAction(resetButton.getActionForKeyStroke(
+             KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
+             KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
+             JComponent.WHEN_FOCUSED);
+
+        registerButton.registerKeyboardAction(resetButton.getActionForKeyStroke(
+             KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
+             KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
+             JComponent.WHEN_FOCUSED);
         
     	resetButton.addActionListener(this);
         resetButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -203,12 +210,22 @@ class RegisterFrame extends JFrame implements ActionListener {
         showPassword.setOpaque(false);
     }
 
-    int check(String num) {
+    int checkPhone(String num) {
     	for(int i = 0; i < num.length(); i++) {
     		if(num.charAt(i) < '0' || num.charAt(i) > '9')
-    			return 0;
+    			return -1;
     	}
-    	if(num.length() == 9 || num.length() == 10 || num.length() == 11)
+    	if(num.length() == 10)
+    		return 1;
+    	return 0;
+    }
+    
+    int checkIdentity(String num) {
+    	for(int i = 0; i < num.length(); i++) {
+    		if(num.charAt(i) < '0' || num.charAt(i) > '9')
+    			return -1;
+    	}
+    	if(num.length() == 9)
     		return 1;
     	return 0;
     }
@@ -248,8 +265,30 @@ class RegisterFrame extends JFrame implements ActionListener {
             if((String) licenseBox.getSelectedItem() == "B & C") {
             	license = "B,C";
             }
-            if (nameText.isEmpty() || check(phone) ==0 || check(identity) == 0 || userField.isEmpty()) {
+            	
+            if (nameText.isEmpty() || identity.isEmpty() || phone.isEmpty() || userField.isEmpty() || pwd.length == 0 || confirmpwd.length == 0) {
             	JOptionPane.showMessageDialog(this, "Please input all field");
+            	return;
+            }
+            if(checkPhone(phone) == 0) {
+            	JOptionPane.showMessageDialog(this, "You must have 10 number for phone number");
+            	return;
+            }
+            if(checkPhone(phone) == -1) {
+            	JOptionPane.showMessageDialog(this, "Invalid phone number");
+            	return;
+            }
+            if(checkIdentity(identity) == 0) {
+            	JOptionPane.showMessageDialog(this, "You must have 9 number for identity");
+            	return;
+            }
+            if(checkIdentity(identity) == -1) {
+            	JOptionPane.showMessageDialog(this, "Invalid identity");
+            	return;
+            }
+            //Dieu kien cho password
+            if(pwd.length < 6) {
+            	JOptionPane.showMessageDialog(this, "Your password must have 6 characters or more.");
             	return;
             }
             if(!Arrays.equals(pwd, confirmpwd)) {

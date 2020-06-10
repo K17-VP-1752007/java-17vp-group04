@@ -33,6 +33,7 @@ class Login extends JFrame implements ActionListener {
     JButton resetButton = new JButton("RESET");
     JLabel logo = new JLabel("CGO");
     JLabel logo_Car = new JLabel();
+    JLabel resetPwd = new JLabel("FORGOT PASSWORD?");
 	MemberList ml = new MemberList();
 	static Member m = new Member();
     
@@ -49,7 +50,7 @@ class Login extends JFrame implements ActionListener {
         addActionEvent();
         setTitle("Login Form");
         setVisible(true);
-        setBounds(10, 10, 530, 360);
+        setBounds(10, 10, 530, 380);
         ml.ReadAllMember();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -90,17 +91,18 @@ class Login extends JFrame implements ActionListener {
 
     public void setLocationAndSize() {
     	logo.setBounds(280, 15, 80, 80);
-		
 		logo_Car.setBounds(180, 5, 100, 100);
 		setPicture(logo_Car, "./src/user/logocar.png");
-        userLabel.setBounds(40, 100, 150, 30);
+        
+		userLabel.setBounds(40, 100, 150, 30);
         passwordLabel.setBounds(40, 150, 150, 30);
         userTextField.setBounds(200, 100, 250, 30);
         passwordField.setBounds(200, 150, 250, 30);
-        loginButton.setBounds(120, 260, 100, 30);
-        resetButton.setBounds(320, 260, 100, 30);
+        loginButton.setBounds(120, 280, 100, 30);
+        resetButton.setBounds(320, 280, 100, 30);
         createAccount.setBounds(155, 200, 200, 30);
-        hyperlink1.setBounds(332, 201, 150, 30);
+        resetPwd.setBounds(290, 235, 200, 30);
+        hyperlink1.setBounds(332, 200, 150, 30);
     }
 
     public void addComponentsToContainer() {
@@ -114,6 +116,7 @@ class Login extends JFrame implements ActionListener {
         container.add(resetButton);
         container.add(createAccount);
         container.add(hyperlink1);
+        container.add(resetPwd);
     }
 
     public void addActionEvent() {
@@ -132,13 +135,24 @@ class Login extends JFrame implements ActionListener {
     	hyperlink1.setForeground(Color.ORANGE.brighter());
     	hyperlink1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     	hyperlink1.setFont(new Font("Arial", Font.BOLD, 14));
-    	
     	hyperlink1.addMouseListener(new MouseAdapter() {
     		public void mouseClicked (MouseEvent e) {
     			RegisterFrame register = new RegisterFrame();
-    			setVisible(false);
+    			dispose();
     		} 
     	});
+    	
+    	resetPwd.setForeground(Color.ORANGE.brighter());
+    	resetPwd.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    	resetPwd.setFont(new Font("Arial", Font.BOLD, 14));
+    	resetPwd.addMouseListener(new MouseAdapter() {
+    		public void mouseClicked (MouseEvent e) {
+    			Reset reset = new Reset();
+    			dispose();
+    		} 
+    	});
+    	
+    	
     	
     	loginButton.addActionListener(this);
     	loginButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

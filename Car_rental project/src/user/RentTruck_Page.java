@@ -74,7 +74,7 @@ class RentTruck extends JFrame{
 		pic = new JLabel();
 		pic.setPreferredSize(new Dimension(300, 200));
 		pic.setSize(400, 600);
-		setPicture(pic, "src/user/bentley.jpg");
+		setPicture(pic, "src/user/truck.jpg");
 		JPanel Border=new JPanel();
 		Border.setLayout(new BorderLayout());
 		Border.setBackground(Color.WHITE);
