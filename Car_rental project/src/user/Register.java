@@ -252,6 +252,16 @@ class RegisterFrame extends JFrame implements ActionListener {
     	return 0;
     }
     
+    public boolean CheckLoginName(String login) {
+    	char[] login_split = login.toCharArray();
+    	for(int i = 0; i < login_split.length; i++) {
+    		if(!((login_split[i] >= 48 && login_split[i] <= 57) || (login_split[i] >= 65 && login_split[i] <= 90) || (login_split[i] >= 97 && login_split[i] <= 122))) {
+    			return false;
+    		}
+    	}
+    	return true;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
     	if (e.getSource() == registerButton) {
@@ -286,6 +296,12 @@ class RegisterFrame extends JFrame implements ActionListener {
             	JOptionPane.showMessageDialog(this, "Invalid identity");
             	return;
             }
+            
+            if(CheckLoginName(userField) == false) {
+            	JOptionPane.showMessageDialog(this, "Invalid user name");
+            	return;
+            }
+            
             //Dieu kien cho password
             if(pwd.length < 6) {
             	JOptionPane.showMessageDialog(this, "Your password must have 6 characters or more.");
@@ -312,6 +328,11 @@ class RegisterFrame extends JFrame implements ActionListener {
             	String pass = new String(pwd);
             	m.CreateAccount(nameText, phone, license, userField, pass, identity);
                 JOptionPane.showMessageDialog(this, "Register Successful!");
+                Login l = new Login();
+                dispose();
+                l.userTextField.setText(userField);
+                l.passwordField.setText(pass);
+        
             }
 
         }

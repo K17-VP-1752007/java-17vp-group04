@@ -165,20 +165,29 @@ public class Member extends User {
 		}
 	}
 	
-	public String[] ViewProfile() {
-		String[] profile = new String[6];
-		
-		profile[1] = this.getName();
-		profile[2] = this.getNumber();
-		profile[3] = this.getLogin_name();
-		profile[4] = this.getPassword();
-		profile[5] = this.getLicence();
-		profile[6] = this.getCMND();
-		
-		return profile;
+	public void ResetPassword() {
+		try {	
+			File file = new File("src/database/member.xml");
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			
+			NodeList member_id = doc.getElementsByTagName("id");
+			for(int i = 0; i < member_id.getLength(); i++) {
+				String id = member_id.item(i).getTextContent();
+				if(id.equals(this.getID())) {
+					Node member = member_id.item(i).getParentNode();
+					Element element = (Element) member;
+					element.getElementsByTagName("password").item(0).setTextContent(this.getPassword());
+					break;
+				}
+			}
+			doc.normalize();
+			UpdateXml(file, doc);
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
 	}
-	
-	public void EditProfile() {}
 	
 	public void Rent(Vehicle v, String rent_type) {
 		

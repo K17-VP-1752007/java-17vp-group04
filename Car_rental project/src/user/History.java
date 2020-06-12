@@ -37,8 +37,8 @@ class VehicleHistory extends JFrame
 	OrderList od = new OrderList();
 	VehicleList List = new VehicleList();
 	Order order = new Order();
-	JLabel VeID, veid, Name, name, Day, day, EDay, eday, Count, count, CS, cs, VeID2, veid2, Name2, name2, Day2, EDay2, day2, eday2, Count2, count2, CS2, cs2; 
-	String v, c, n, d, ed, co, cost;
+	JLabel VeID, veid, Name, name, Day, day, EDay, eday, Count, count, CS, cs, Stat, stat, VeID2, veid2, Name2, name2, Day2, EDay2, day2, eday2, Count2, count2, CS2, cs2, Stat2, stat2; 
+	String v, c, n, d, ed, co, cost, status;
 	
 	ArrayList<Order> L = new ArrayList<Order>();
 	
@@ -155,6 +155,9 @@ class VehicleHistory extends JFrame
 		CS = new JLabel("     Total cost : ");
 		cs = new JLabel("");
 		CS.setFont(new Font("Arial", Font.BOLD, 15));
+		Stat = new JLabel("     Status : ");
+		stat = new JLabel("");
+		Stat.setFont(new Font("Arial", Font.BOLD, 15));
 		
 		VeID2 = new JLabel("     Vehicle Name : ");
 	    veid2 = new JLabel("");
@@ -179,10 +182,15 @@ class VehicleHistory extends JFrame
 		CS2 = new JLabel("     Total cost : ");
 		cs2 = new JLabel("");
 		CS2.setFont(new Font("Arial", Font.BOLD, 15));
+		
+		Stat2 = new JLabel("     Status : ");
+		stat2 = new JLabel("");
+		Stat2.setFont(new Font("Arial", Font.BOLD, 15));
+		
 	
 		final JPanel Card1 = new JPanel(new BorderLayout());
 		JPanel infobig = new JPanel(new BorderLayout());
-		JPanel info = new JPanel(new GridLayout(6, 1));
+		JPanel info = new JPanel(new GridLayout(7, 1));
 		
 		info.add(VeID);
 		info.add(veid);
@@ -201,10 +209,13 @@ class VehicleHistory extends JFrame
 		
 		info.add(CS);
 		info.add(cs);
+		
+		info.add(Stat);
+		info.add(stat);
 	
 		final JPanel Card2 = new JPanel(new BorderLayout());
 		JPanel infobig2 = new JPanel(new BorderLayout());
-		JPanel info2 = new JPanel(new GridLayout(6, 1));
+		JPanel info2 = new JPanel(new GridLayout(7, 1));
 		
 		info2.add(VeID2);
 		info2.add(veid2);
@@ -223,6 +234,9 @@ class VehicleHistory extends JFrame
 		
 		info2.add(CS2);
 		info2.add(cs2);
+		
+		info2.add(Stat2);
+		info2.add(stat2);
 		
 		final JPanel Card3 = new JPanel(new BorderLayout());
 		JPanel info3 = new JPanel(new GridLayout(2, 0));
@@ -312,6 +326,7 @@ class VehicleHistory extends JFrame
 		ed = order.getEnd();
 		co = order.getRentType();
 		cost = String.valueOf(order.getCost());
+		status = order.getStatus().toUpperCase();
 		
 		if(v.substring(0, 1).equalsIgnoreCase("C"))
 		{
@@ -328,23 +343,49 @@ class VehicleHistory extends JFrame
 			veid2.setText(T.getBrand() + " " + T.getModel());
 		}
 		
+		if(status.equals("PENDING")) {
+			stat.setText(status);
+			stat2.setText(status);
+			stat.setForeground(Color.RED);
+			stat2.setForeground(Color.RED);
+		}
+		
+		if(status.equals("PROCESSING")) {
+			stat.setText(status + " ...");
+			stat2.setText(status + " ...");
+//			stat.setFont(new Font("Arial", Font.ITALIC, 15));
+//			stat2.setFont(new Font("Arial", Font.ITALIC, 15));
+			stat.setForeground(Color.BLUE);
+			stat2.setForeground(Color.BLUE);
+		}
+		
+		if(status.equals("FINISHED")) {
+			stat.setText(status + " !");
+			stat2.setText(status + " !");
+			stat.setForeground(Color.GREEN.darker());
+			stat2.setForeground(Color.GREEN.darker());
+		}
+		
 		name.setText(n);
 		day.setText(d);
 		eday.setText(ed);
 		count.setText(co);
 		cs.setText(cost);
 		
+		
+		
 		name2.setText(n);
 		day2.setText(d);
 		eday2.setText(ed);	
 		count2.setText(co);
 		cs2.setText(cost);
+		
 	}
 	
 	public void CreateList(){
 		for(int i = 0; i < od.getOrder_list().size(); i++)
 		{
-			if(User.getID().equals(od.getOrder_list().get(i).getCustomer()) &&  (od.getOrder_list().get(i).getStatus().equalsIgnoreCase("finished")))
+			if(User.getID().equals(od.getOrder_list().get(i).getCustomer()))
 			{
 				L.add(od.getOrder_list().get(i));
 			}

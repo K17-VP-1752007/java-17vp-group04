@@ -12,12 +12,15 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 class Reset extends JFrame implements ActionListener {
 	
 	Container container = getContentPane();
+	JLabel userLabel = new JLabel("USERNAME");
+	JTextField userTextField = new JTextField();
     JLabel newLabel = new JLabel("NEW PASSWORD");
     JPasswordField newPasswordField = new JPasswordField();
     JLabel confirmPasswordLabel = new JLabel("CONFIRM PASSWORD");
@@ -44,7 +47,7 @@ class Reset extends JFrame implements ActionListener {
         addActionEvent();
         setTitle("Reset Password Form");
         setVisible(true);
-        setBounds(10, 10, 530, 380);
+        setBounds(10, 10, 530, 440);
         ml.ReadAllMember();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,19 +91,23 @@ class Reset extends JFrame implements ActionListener {
 		logo_Car.setBounds(180, 5, 100, 100);
 		setPicture(logo_Car, "./src/user/logocar.png");
         
-		newLabel.setBounds(40, 100, 150, 30);
-        newPasswordField.setBounds(220, 100, 250, 30);
-        confirmPasswordLabel.setBounds(40, 150, 170, 30);
-        confirmPasswordField.setBounds(220, 150, 250, 30);
-        updateButton.setBounds(120, 250, 100, 30);
-        resetButton.setBounds(320, 250, 100, 30);
-        showPassword.setBounds(335, 200, 145, 30);
-        backLogin.setBounds(355, 300, 150, 30);
+		userLabel.setBounds(40, 100, 150, 30);
+		userTextField.setBounds(220, 100, 250, 30);
+		newLabel.setBounds(40, 150, 150, 30);
+        newPasswordField.setBounds(220, 150, 250, 30);
+        confirmPasswordLabel.setBounds(40, 200, 170, 30);
+        confirmPasswordField.setBounds(220, 200, 250, 30);
+        updateButton.setBounds(120, 300, 100, 30);
+        resetButton.setBounds(320, 300, 100, 30);
+        showPassword.setBounds(335, 250, 145, 30);
+        backLogin.setBounds(355, 350, 150, 30);
     }
 
     public void addComponentsToContainer() {
     	container.add(logo_Car);
     	container.add(logo);
+    	container.add(userLabel);
+    	container.add(userTextField);
         container.add(updateButton);
         container.add(resetButton);
         container.add(newLabel);
@@ -115,7 +122,10 @@ class Reset extends JFrame implements ActionListener {
     public void addActionEvent() {
     	logo.setFont(new Font("Arial", Font.BOLD, 30));
 		logo.setForeground(Color.ORANGE);
-		
+
+		userLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        userLabel.setForeground(Color.WHITE.brighter());
+
 		newLabel.setFont(new Font("Arial", Font.BOLD, 15));
         newLabel.setForeground(Color.WHITE.brighter());
         
@@ -174,7 +184,44 @@ class Reset extends JFrame implements ActionListener {
                 confirmPasswordField.setEchoChar('*');
             }
         }
+        
+        if(e.getSource() == updateButton) {
+        	String login_name = userTextField.getText();
+        	char[] pwd = newPasswordField.getPassword();
+        	char[] confirmpwd = confirmPasswordField.getPassword();
+        	if (login_name.isEmpty() || pwd.length == 0|| confirmpwd.length == 0) {
+            	JOptionPane.showMessageDialog(this, "Please input all field");
+            	return;
+            }
+        	if(pwd.length < 6) {
+        		JOptionPane.showMessageDialog(this, "Your password must have 6 characters or more.");
+        		return;
+            }
+        	if(!Arrays.equals(pwd, confirmpwd)) {
+            	JOptionPane.showMessageDialog(this, "Password and confirmed password must be matched!");
+            	return;
+            }
+        	String password = new String(pwd);
+        	ml.ReadAllMember();
+        	for(int i = 0; i < ml.getMemberList().size(); i++) {
+        		String login = ml.getMemberList().get(i).getLogin_name();
+        		if(login.equals(login_name)) {
+        			Member m = ml.getMemberList().get(i);
+        			m.setPassword(password);
+        			m.ResetPassword();
+        			JOptionPane.showMessageDialog(container, "Updated password successfully");
+        			Login l = new Login();
+        			l.userTextField.setText(login_name);
+                    l.passwordField.setText(password);
+        			dispose();
+        			return;
+        		}
+        	}
+        	JOptionPane.showMessageDialog(container, "This account does not exist");
+        	
+        }
     }
+    
 }
 
 class ImagePanel2 extends JPanel {
