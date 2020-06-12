@@ -162,7 +162,7 @@ class Reset extends JFrame implements ActionListener {
      	
      	 backLogin.addMouseListener(new MouseAdapter() {
      		public void mouseClicked (MouseEvent e) {
-     			Login lg = new Login();
+     			LoginForm lg = new LoginForm();
      			dispose();
      		} 
      	});
@@ -210,7 +210,7 @@ class Reset extends JFrame implements ActionListener {
         			m.setPassword(password);
         			m.ResetPassword();
         			JOptionPane.showMessageDialog(container, "Updated password successfully");
-        			Login l = new Login();
+        			LoginForm l = new LoginForm();
         			l.userTextField.setText(login_name);
                     l.passwordField.setText(password);
         			dispose();

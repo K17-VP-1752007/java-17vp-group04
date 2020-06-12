@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-class Login extends JFrame implements ActionListener {
+public class LoginForm extends JFrame implements ActionListener {
 	
 	Container container = getContentPane();
     JLabel userLabel = new JLabel("USERNAME");
@@ -40,7 +40,7 @@ class Login extends JFrame implements ActionListener {
 		return m;
 	}
 	
-    Login() {
+	public LoginForm() {
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
@@ -229,10 +229,4 @@ class ImagePanel extends JPanel {
 	  public void paintComponent(Graphics g) {
 	    g.drawImage(img, 0, 0, null);
 	  }
-}
-
-public class LoginForm {
-	public static void main(String[] a) {
-	  Login log = new Login();
-	}
 }

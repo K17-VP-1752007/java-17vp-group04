@@ -32,7 +32,7 @@ class cardlay extends JFrame{
 	private OrderList ol = new OrderList();
 	
 	public cardlay(){
-		frame.setSize(700, 580);
+		frame.setSize(700, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addControl();
 		frame.setLocationRelativeTo(null);
@@ -54,6 +54,8 @@ class cardlay extends JFrame{
 		JPanel down = new JPanel();
 		JPanel log = new JPanel();
 		JPanel texts = new JPanel();
+		JPanel bigline = new JPanel();
+		bigline.setLayout(new BoxLayout(bigline, BoxLayout.PAGE_AXIS));
 		
 		JButton car = new JButton("Car works");
 		JButton truck = new JButton("Truck works");
@@ -109,16 +111,19 @@ class cardlay extends JFrame{
 		box.setBorder(LineBorder.createBlackLineBorder());
 		
 		content.add(cont);
+		JLabel line = new JLabel("_______________________________________");
 		down.add(car);
 		down.add(truck);
 		down.add(order);
+		bigline.add(line);
+		bigline.add(down);
 		log.add(logo,BorderLayout.EAST);
 		texts.add(text,BorderLayout.SOUTH);
 		
 		Border.add(start,BorderLayout.NORTH);
 		start.add(content);
 		
-		Border.add(down,BorderLayout.SOUTH);
+		Border.add(bigline,BorderLayout.SOUTH);
 		
 		pic = new JLabel();
 		pic.setPreferredSize(new Dimension(470, 448));
@@ -154,16 +159,7 @@ class cardlay extends JFrame{
 	    JTextField textSearch = new JTextField();
 		textSearch.setPreferredSize(new Dimension(250,23));
 	    JButton searchbutton = new JButton("Search Car");
-	    searchbutton.registerKeyboardAction(searchbutton.getActionForKeyStroke(
-                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
-                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
-                JComponent.WHEN_FOCUSED);
-
-	    searchbutton.registerKeyboardAction(searchbutton.getActionForKeyStroke(
-                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
-                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
-                JComponent.WHEN_FOCUSED);
-	    
+		getKey(searchbutton, "Search Car", KeyEvent.VK_ENTER); 
 	    
 	    searchCarPanel.add(textSearch);
 		searchCarPanel.add(searchbutton);
@@ -281,15 +277,7 @@ class cardlay extends JFrame{
 	    JTextField textSearchTruck = new JTextField();
 		textSearchTruck.setPreferredSize(new Dimension(250,23));
 	    JButton searchTruckbutton = new JButton("Search Truck");
-	    searchTruckbutton.registerKeyboardAction(searchTruckbutton.getActionForKeyStroke(
-                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
-                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
-                JComponent.WHEN_FOCUSED);
-
-	    searchTruckbutton.registerKeyboardAction(searchTruckbutton.getActionForKeyStroke(
-                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
-                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
-                JComponent.WHEN_FOCUSED);
+		getKey(searchTruckbutton, "Search Truck", KeyEvent.VK_ENTER); 
 	    
 	    searchTruckPanel.add(textSearchTruck);
 		searchTruckPanel.add(searchTruckbutton);
@@ -418,15 +406,7 @@ class cardlay extends JFrame{
 	    JCheckBox order_id = new JCheckBox("Order ID");
 	    JCheckBox customer_name = new JCheckBox("Customer's name");
 		
-	    searchOrderbutton.registerKeyboardAction(searchOrderbutton.getActionForKeyStroke(
-                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
-                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
-                JComponent.WHEN_FOCUSED);
-
-	    searchOrderbutton.registerKeyboardAction(searchOrderbutton.getActionForKeyStroke(
-                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
-                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
-                JComponent.WHEN_FOCUSED);
+		getKey(searchOrderbutton, "Search Order", KeyEvent.VK_ENTER); 
 	    
 	    searchOrderPanel.add(Box.createRigidArea(new Dimension(10,20)));
 	    searchOrderPanel.add(textSearchOrder);
@@ -596,8 +576,16 @@ class cardlay extends JFrame{
 			// tao table selection cho JTable
 		order_table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
-				String id_select = order_table.getValueAt(order_table.getSelectedRow(), 0).toString();
+				int selectedRow = order_table.getSelectedRow();
+			    if(selectedRow == -1) {
+			    	txt_order.setText("");
+			    	status_list.setSelectedIndex(0);
+			        return;
+			    }
+				String id_select = order_table.getValueAt(selectedRow, 0).toString();
+				String status = order_table.getValueAt(selectedRow, 9).toString();
 				txt_order.setText(id_select);
+				status_list.setSelectedItem(status);
 			}
 			
 		});
@@ -607,7 +595,7 @@ class cardlay extends JFrame{
 			@Override
 			
 		public void actionPerformed(ActionEvent ae) {
-			Login lg = new Login();
+			LoginForm lg = new LoginForm();
 			frame.setVisible(false);
 		}
 		});
@@ -985,8 +973,10 @@ class cardlay extends JFrame{
 						data_row[9] = ord.getStatus();
 						
 						table_model.addRow(data_row);
+						//System.out.println(order_table.getSelectedRow());
 					}
 				}catch(Exception ex) {
+						//System.out.println(ex.getMessage());
 						JOptionPane.showMessageDialog(frame, "Error showing order");
 					}
 				}
@@ -1035,6 +1025,11 @@ class cardlay extends JFrame{
 						}
 						if(customer_name.isSelected()) {
 							ArrayList<Order> list_order = ol.SearchOrderByCustomerName(id_order_search);
+							if(list_order.size() == 0)
+							{
+								JOptionPane.showMessageDialog(frame, "This name is not exist");
+								return;
+							}
 							for(int i = 0; i < list_order.size(); i++) {
 								Order ord = list_order.get(i);
 								
@@ -1069,6 +1064,7 @@ class cardlay extends JFrame{
 						ord.setStatus((String)status_list.getSelectedItem());
 						Admin.UpdateStatus(ord);
 						JOptionPane.showMessageDialog(frame, "Status updated successfully");
+						show_order.doClick();
 					}
 					catch(Exception ex) {
 						//truong hop ko co id order trong database
@@ -1077,6 +1073,20 @@ class cardlay extends JFrame{
 				}
 			});
 	}
+	
+	public static void getKey(final AbstractButton button, String actionName, int key) 
+	{ 
+		 button.getInputMap(JButton.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(key, 0), actionName); 
+
+		 button.getActionMap().put(actionName, new AbstractAction() 
+		 { 
+		 @Override 
+		  public void actionPerformed(ActionEvent e) 
+		  { 
+		    button.doClick(); 
+		  } 
+		 }); 
+	} 
 
 	public void setPicture(JLabel label ,String filename){
        try {
@@ -1105,11 +1115,3 @@ class cardlay extends JFrame{
      }
  }
 }
-
-//public class Admin_Page{
-//	public static void main(String[] args) {
-//	
-//		cardlay card = new cardlay();
-//		//card.start();
-//	}
-//}

@@ -53,8 +53,7 @@ class RentCar extends JFrame{
 	//Khoi tao 
 	public RentCar(){
 		frame.setSize(450, 600);
-//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		user.CopyMem(Login.getMem());
+		user.CopyMem(LoginForm.getMem());
 		addControl();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
@@ -83,8 +82,13 @@ class RentCar extends JFrame{
 		JPanel texts = new JPanel();
 		
 		JButton previous = new JButton("< Previous");
+		getKey(previous, "< Previous", KeyEvent.VK_LEFT); 
+		
 		JButton next = new JButton("Next >");
+		getKey(next, "Next >", KeyEvent.VK_RIGHT); 
+		
 		JButton rent = new JButton("Rent now!");
+		getKey(rent, "Rent now!", KeyEvent.VK_ENTER); 
 		
 		previous.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		next.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -109,7 +113,7 @@ class RentCar extends JFrame{
 		
 		/////
 		JLabel text = new JLabel("Making you most comfortable is our obligation ");
-		JLabel intro = new JLabel("-- Click the |start from| button to start looking --");
+		JLabel intro = new JLabel("-- Use |< button| or |> button| to start looking --");
 		text.setSize(200,200);
 		text.setFont(new Font("Arial", Font.BOLD, 17));
 		text.setForeground(Color.DARK_GRAY);
@@ -382,6 +386,7 @@ class RentCar extends JFrame{
 		JPanel End = new JPanel(new FlowLayout());
 		End.add(Box.createRigidArea(new Dimension(18, 10)));
 		JButton fini = new JButton("Finish");
+		getKey(fini, "Finish", KeyEvent.VK_ENTER); 
 		fini.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		fini.setPreferredSize(new Dimension(80,27));
 		Gloc.add(Choose);
@@ -422,7 +427,7 @@ class RentCar extends JFrame{
 		@Override
 		
 			public void actionPerformed(ActionEvent ae) {
-				check  = true;
+				check = true;
 				Center.setVisible(true);
 				Middle.setVisible(true);
 				
@@ -459,10 +464,9 @@ class RentCar extends JFrame{
 		@Override
 		
 			public void actionPerformed(ActionEvent ae) {
-				check  = true;
+				check = true;
 				Center.setVisible(true);
 				Middle.setVisible(true);
-				
 				y++;
 				/*if(y > 1019)
 					y = 1000;
@@ -494,6 +498,8 @@ class RentCar extends JFrame{
 
 			}
 		});
+		
+		
 		//Khoi tao chuc nang cua button rent now
 		rent.addActionListener(new ActionListener() {
 			
@@ -562,6 +568,21 @@ class RentCar extends JFrame{
 				}
 			});
 	}
+	
+	public static void getKey(final AbstractButton button, String actionName, int key) 
+	{ 
+		 button.getInputMap(JButton.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(key, 0), actionName); 
+
+		 button.getActionMap().put(actionName, new AbstractAction() 
+		 { 
+		 @Override 
+		  public void actionPerformed(ActionEvent e) 
+		  { 
+		    button.doClick(); 
+		  } 
+		 }); 
+	} 
+	
 	//Lay gia tri tuan tu JList
 	public void chooseW()
 	{
@@ -710,6 +731,8 @@ class RentCar extends JFrame{
         JCheckBox checkBox = new JCheckBox(name);
         return checkBox;
     }
+	
+	
     //Ham lay hinh anh
 	public void setPicture(JLabel label ,String filename){
        try {
@@ -738,13 +761,3 @@ class RentCar extends JFrame{
      }
  }
 }
-
-//public class RentCar_Page{
-//	public static void main(String[] args) {
-//		SwingUtilities.invokeLater(new Runnable() {
-//			public void run() {
-//				new RentCar();
-//			}
-//			});
-//	}
-//}

@@ -44,13 +44,12 @@ class VehicleHistory extends JFrame
 	
 	public VehicleHistory()
 	{
-		User.CopyMem(Login.getMem());
+		User.CopyMem(LoginForm.getMem());
 		frame.setSize(700, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		frame.setLocationRelativeTo(null);
 		od.ReadAllOrder();
 		CreateList();
-//		order = od.SearchOrderByCustom(User.getID());
 		addControl();
 		frame.setVisible(true);
 		frame.setResizable(false);
@@ -417,13 +416,4 @@ class VehicleHistory extends JFrame
          Logger.getLogger(Image.class.getName()).log(Level.SEVERE, null, ex);
      }
  }
-}
-public class History{
-	 public static void main(String[] args) {
-		 SwingUtilities.invokeLater(new Runnable() {
-				public void run() {
-					new VehicleHistory();
-				}
-				});
-	 }
 }

@@ -21,10 +21,11 @@ class Image extends Thread
 	JLabel pic;
 	JFrame frame = new JFrame("CGO - User");
 	Member User = new Member();
+	JLabel textCont, textCont2;
 	
 	public Image()
 	{
-		User.CopyMem(Login.getMem());
+		User.CopyMem(LoginForm.getMem());
 		frame.setSize(700, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		frame.setLocationRelativeTo(null);
@@ -59,46 +60,25 @@ class Image extends Thread
 		choosebox.setBorder(LineBorder.createBlackLineBorder());
 		choosebox.setBackground(Color.cyan.darker());
 
-		JLabel text1 = new JLabel("Cheap Service");
-		text1.setSize(200,200);
-		text1.setFont(new Font("Arial", Font.BOLD, 16));
-		text1.setForeground(Color.WHITE);
+		textCont = new JLabel();
+		textCont.setSize(200,200);
+		textCont.setFont(new Font("Arial", Font.BOLD, 15));
+		textCont.setForeground(Color.WHITE);
 		
-		JLabel text2 = new JLabel("Fast Transaction");
-		text2.setSize(200,200);
-		text2.setFont(new Font("Arial", Font.BOLD, 16));
-		text2.setForeground(Color.WHITE);
-		
-		JLabel text3 = new JLabel("Full Insurance Policy");
-		text3.setSize(200,200);
-		text3.setFont(new Font("Arial", Font.BOLD, 16));
-		text3.setForeground(Color.WHITE);
+		textCont2 = new JLabel();
+		textCont2.setSize(200,200);
+		textCont2.setFont(new Font("Arial", Font.BOLD, 15));
+		textCont2.setForeground(Color.WHITE);
 		
 		JButton car = new JButton("Show Cars");
 		car.setFont(new Font("Arial", Font.ITALIC, 13));
 		car.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		car.registerKeyboardAction(car.getActionForKeyStroke(
-                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
-                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
-                JComponent.WHEN_FOCUSED);
-
-		car.registerKeyboardAction(car.getActionForKeyStroke(
-                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
-                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
-                JComponent.WHEN_FOCUSED);
+		getKey(car, "Show Cars", KeyEvent.VK_C);
 		
 		JButton truck = new JButton("Show Trucks");
 		truck.setFont(new Font("Arial", Font.ITALIC, 13));
 		truck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		truck.registerKeyboardAction(truck.getActionForKeyStroke(
-                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
-                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
-                JComponent.WHEN_FOCUSED);
-
-		truck.registerKeyboardAction(truck.getActionForKeyStroke(
-                KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
-                KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
-                JComponent.WHEN_FOCUSED);
+		getKey(truck, "Show Trucks", KeyEvent.VK_T);
 		
 		JPanel menu = new JPanel(new FlowLayout());
 		JMenuBar me = new JMenuBar();
@@ -141,9 +121,8 @@ class Image extends Thread
 		frame.add(text);
 		frame.add(box);
 		frame.add(choosebox);
-		frame.add(text1);
-		frame.add(text2);
-		frame.add(text3);
+		frame.add(textCont);
+		frame.add(textCont2);
 		choosebox.add(car);
 		choosebox.add(truck);
 		frame.add(pic);
@@ -153,11 +132,10 @@ class Image extends Thread
 		logo.setBounds(30, 60, 460, 100);
 		menu.setBounds(390, -3, 500, 300);
 		text.setBounds(220, 35, 290, 100);
-		box.setBounds(280, 120, 315, 60);
+		box.setBounds(370, 120, 175, 60);
 		choosebox.setBounds(20, 330, 150, 70);
-		text1.setBounds(290, 85, 380, 100);
-		text2.setBounds(450, 85, 380, 100);
-		text3.setBounds(360, 115, 380, 100);
+		textCont.setBounds(380, 85, 380, 100);
+		textCont2.setBounds(380, 115, 380, 100);
 		car.setBounds(45, 300, 92, 30);
 		truck.setBounds(45, 370, 92, 30);
 		pic.setBounds(200, 190, 470, 360);
@@ -188,7 +166,7 @@ class Image extends Thread
 			@Override
 			
 				public void actionPerformed(ActionEvent ae) {
-					Login lg = new Login();
+					LoginForm lg = new LoginForm();
 					frame.dispose();
 			}
 			});
@@ -202,14 +180,31 @@ class Image extends Thread
 		});
 	}
     
+	public static void getKey(final AbstractButton button, String actionName, int key) 
+	{ 
+		 button.getInputMap(JButton.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(key, 0), actionName); 
+
+		 button.getActionMap().put(actionName, new AbstractAction() 
+		 { 
+		 @Override 
+		  public void actionPerformed(ActionEvent e) 
+		  { 
+		    button.doClick(); 
+		  } 
+		 }); 
+	} 
+	
 	public void run(){
 		int n = 1, i = -1;
 		String listing[] = {"src/user/Car_Image/audi_A5.jpg","src/user/Truck_Image/nissan_navaraE.jpg","src/user/Car_Image/mazda_3_luxury.jpg","src/user/Truck_Image/volvo_vnx_740.jpg"};
-	    try {
+	    String contList[] = {"Cheap Service", "Fast transaction", "Newest Model", "Big Coporation"};
+	    String contList2[] = {"Full Insurance Policy", "Easy to use", "Good reputation", "Various vehicle"};
+		try {
 	    	do {
 				i++;
 	            setPicture(pic, listing[i]);
-	            
+	            textCont.setText(contList[i]);
+	            textCont2.setText(contList2[i]);
 	            if(i == 3)
 	            {
 	            	i = i - 4;
@@ -248,9 +243,3 @@ class Image extends Thread
      }
  }
 }
-//public class User_Page{
-//	 public static void main(String[] args) {
-//		 Image Thr = new Image();
-//			Thr.start();
-//}
-//}

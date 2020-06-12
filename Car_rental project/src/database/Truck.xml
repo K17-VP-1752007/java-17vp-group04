@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
-                                                                                                                                            
+                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -35,7 +41,13 @@
     
     
     <truck>
-                                                                                                                                                                                                                                                                                   
+                                                                                                                                                                                                                                                                                                                                   
+        
+        
+        
+        
+        
+        
         
         
         
@@ -71,7 +83,13 @@
         
         
         <id>T3000</id>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -106,7 +124,13 @@
         
         
         <model>Navara E</model>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -141,7 +165,13 @@
         
         
         <color>black</color>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -176,7 +206,13 @@
         
         
         <passenger>4</passenger>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -211,7 +247,13 @@
         
         
         <brand>Nissan</brand>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -246,7 +288,13 @@
         
         
         <cost>500.0</cost>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -281,7 +329,13 @@
         
         
         <maxw>15000.0</maxw>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -316,7 +370,13 @@
         
         
         <img>src/user/Truck_Image/nissan_navaraE.jpg</img>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -351,7 +411,13 @@
         
         
         <reserved>no</reserved>
-                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -386,7 +452,13 @@
     
     
     </truck>
-                                                                                                                                                                     
+                                                                                                                                                                                             
+    
+    
+    
+    
+    
+    
     
     
     
@@ -422,7 +494,13 @@
     
     
     <truck>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -457,7 +535,13 @@
         
         
         <id>T3001</id>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -492,7 +576,13 @@
         
         
         <model>Tacoma</model>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -527,7 +617,13 @@
         
         
         <color>silver</color>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -562,7 +658,13 @@
         
         
         <passenger>4</passenger>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -597,7 +699,7 @@
         
         
         <brand>Toyota</brand>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -631,8 +733,20 @@
         
         
         
-        <cost>250</cost>
-                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        <cost>250.0</cost>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -667,7 +781,13 @@
         
         
         <maxw>17500.75</maxw>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -702,7 +822,7 @@
         
         
         <img>src/user/Truck_Image/toyota_tacoma.jpg</img>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -736,8 +856,20 @@
         
         
         
-        <reserved>yes</reserved>
-                                                                                                                                                                                                                                                                                    
+        
+        
+        
+        
+        
+        
+        <reserved>no</reserved>
+                                                                                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -772,7 +904,13 @@
     
     
     </truck>
-                                                                                                                                            
+                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -807,7 +945,13 @@
     
     
     <truck>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -842,7 +986,13 @@
         
         
         <id>T3002</id>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -877,7 +1027,13 @@
         
         
         <model>SIERRA AT4</model>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -912,7 +1068,13 @@
         
         
         <color>white</color>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -947,7 +1109,13 @@
         
         
         <passenger>4</passenger>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -982,7 +1150,7 @@
         
         
         <brand>GMC</brand>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -1016,14 +1184,14 @@
         
         
         
-        <cost>350</cost>
-                                                                                                                                                                                                                                                                                        
         
         
         
         
         
         
+        <cost>350.0</cost>
+                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -1051,8 +1219,26 @@
         
         
         
-        <maxw>10250.70</maxw>
-                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <maxw>10250.7</maxw>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1087,7 +1273,7 @@
         
         
         <img>src/user/Truck_Image/GMC_SIERRA_AT4.jpg</img>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -1121,8 +1307,20 @@
         
         
         
-        <reserved>yes</reserved>
-                                                                                                                                                                                                                                                                                    
+        
+        
+        
+        
+        
+        
+        <reserved>no</reserved>
+                                                                                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1157,7 +1355,13 @@
     
     
     </truck>
-                                                                                                                                              
+                                                                                                                                                                      
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1193,7 +1397,13 @@
     
     
     <truck>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1228,7 +1438,13 @@
         
         
         <id>T3003</id>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1263,7 +1479,13 @@
         
         
         <model>CHASSIS CAB 2000</model>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1298,7 +1520,13 @@
         
         
         <color>white</color>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1333,7 +1561,13 @@
         
         
         <passenger>2</passenger>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1368,7 +1602,13 @@
         
         
         <brand>RAM</brand>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1403,7 +1643,13 @@
         
         
         <cost>450</cost>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1438,7 +1684,13 @@
         
         
         <maxw>15000.85</maxw>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1473,7 +1725,13 @@
         
         
         <img>src/user/Truck_Image/ram_chassis_cab.jpg</img>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1508,7 +1766,13 @@
         
         
         <reserved>yes</reserved>
-                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1543,7 +1807,13 @@
     
     
     </truck>
-                                                                                                                                            
+                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1578,7 +1848,13 @@
     
     
     <truck>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1613,7 +1889,13 @@
         
         
         <id>T3004</id>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1648,7 +1930,13 @@
         
         
         <model>Ridgeline RTL 2WD</model>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1683,7 +1971,13 @@
         
         
         <color>Deep Scarlet</color>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1718,7 +2012,13 @@
         
         
         <passenger>4</passenger>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1753,7 +2053,13 @@
         
         
         <brand>HONDA</brand>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1788,7 +2094,13 @@
         
         
         <cost>600</cost>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1823,7 +2135,13 @@
         
         
         <maxw>10800.35</maxw>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1858,7 +2176,13 @@
         
         
         <img>src/user/Truck_Image/honda_ridgeline_rtl.jpg</img>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1893,7 +2217,13 @@
         
         
         <reserved>no</reserved>
-                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1928,7 +2258,13 @@
     
     
     </truck>
-                                                                                                                                            
+                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1963,7 +2299,13 @@
     
     
     <truck>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1998,7 +2340,13 @@
         
         
         <id>T3005</id>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2033,7 +2381,13 @@
         
         
         <model>SILVERRADO HD</model>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2068,7 +2422,13 @@
         
         
         <color>Obsidian Blue Pearl</color>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2103,7 +2463,13 @@
         
         
         <brand>Chevrolet</brand>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2138,7 +2504,13 @@
         
         
         <passenger>4</passenger>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2173,7 +2545,13 @@
         
         
         <cost>500</cost>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2208,7 +2586,13 @@
         
         
         <maxw>20000.05</maxw>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2243,7 +2627,13 @@
         
         
         <img>src/user/Truck_Image/honda_silverradoHD.jpg</img>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2278,7 +2668,13 @@
         
         
         <reserved>no</reserved>
-                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -2313,7 +2709,13 @@
     
     
     </truck>
-                                                                                                                                            
+                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -2348,7 +2750,13 @@
     
     
     <truck>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2383,7 +2791,13 @@
         
         
         <id>T3006</id>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2418,7 +2832,13 @@
         
         
         <model>XLT Passenger Van</model>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2453,7 +2873,13 @@
         
         
         <color>blue</color>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2488,7 +2914,13 @@
         
         
         <brand>Ford</brand>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2523,7 +2955,7 @@
         
         
         <passenger>10</passenger>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -2557,8 +2989,20 @@
         
         
         
-        <cost>250</cost>
-                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        <cost>250.0</cost>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2593,7 +3037,13 @@
         
         
         <maxw>17050.55</maxw>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2628,7 +3078,7 @@
         
         
         <img>src/user/Truck_Image/xltpassenger.jpg</img>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -2662,8 +3112,20 @@
         
         
         
-        <reserved>yes</reserved>
-                                                                                                                                                                                                                                                                                    
+        
+        
+        
+        
+        
+        
+        <reserved>no</reserved>
+                                                                                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -2698,7 +3160,13 @@
     
     
     </truck>
-                                                                                                                                            
+                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -2733,7 +3201,13 @@
     
     
     <truck>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2768,7 +3242,13 @@
         
         
         <id>T3007</id>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2803,7 +3283,13 @@
         
         
         <model> VNX 740</model>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2838,7 +3324,13 @@
         
         
         <color>black</color>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2873,7 +3365,13 @@
         
         
         <brand>Volvo</brand>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2908,777 +3406,13 @@
         
         
         <passenger>2</passenger>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
         
         
         
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>550</cost>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <maxw>19050.40</maxw>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <img>src/user/Truck_Image/volvo_vnx_740.jpg</img>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <reserved>yes</reserved>
-                                                                                                                                                                                                                                                                                    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </truck>
-                                                                                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <truck>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>T3008</id>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <model>CHASSIS 7400</model>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <color>white</color>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <brand>SIERRA</brand>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <passenger>2</passenger>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <cost>200</cost>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <maxw>23100.20</maxw>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <img>src/user/Truck_Image/sierra_chassis.jpg</img>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <reserved>yes</reserved>
-                                                                                                                                                                                                                                                                                    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </truck>
-                                                                                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <truck>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>T3009</id>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <model>PROMASTER CITY</model>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <color>white</color>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <brand>RAM</brand>
-                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <passenger>8</passenger>
-                                                                                                                                                                                                                                                                                        
         
         
         
@@ -3713,7 +3447,7 @@
         
         
         <cost>550.0</cost>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -3747,14 +3481,14 @@
         
         
         
-        <maxw>19500.25</maxw>
-                                                                                                                                                                                                                                                                                        
         
         
         
         
         
         
+        <maxw>19050.4</maxw>
+                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -3782,8 +3516,6 @@
         
         
         
-        <img>src/user/Truck_Image/ram_promaster_city.jpg</img>
-                                                                                                                                                                                                                                                                                        
         
         
         
@@ -3796,6 +3528,8 @@
         
         
         
+        <img>src/user/Truck_Image/volvo_vnx_740.jpg</img>
+                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -3817,8 +3551,32 @@
         
         
         
-        <reserved>yes</reserved>
-                                                                                                                                                                                                                                                                                    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <reserved>no</reserved>
+                                                                                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -3853,7 +3611,909 @@
     
     
     </truck>
-                                                                                                                            
+                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <truck>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <id>T3008</id>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <model>CHASSIS 7400</model>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <color>white</color>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <brand>SIERRA</brand>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <passenger>2</passenger>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <cost>200.0</cost>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <maxw>23100.2</maxw>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <img>src/user/Truck_Image/sierra_chassis.jpg</img>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <reserved>no</reserved>
+                                                                                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </truck>
+                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <truck>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <id>T3009</id>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <model>PROMASTER CITY</model>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <color>white</color>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <brand>RAM</brand>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <passenger>8</passenger>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <cost>550.0</cost>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <maxw>19500.25</maxw>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <img>src/user/Truck_Image/ram_promaster_city.jpg</img>
+                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <reserved>no</reserved>
+                                                                                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </truck>
+                                                                                                                                                    
     
     
     
@@ -3878,6 +4538,12 @@
     
     
                         
+
+
+
+
+
+
 
 
 

@@ -174,7 +174,7 @@ class RegisterFrame extends JFrame implements ActionListener {
     	
     	backLogin.addMouseListener(new MouseAdapter() {
     		public void mouseClicked (MouseEvent e) {
-    			Login lg = new Login();
+    			LoginForm lg = new LoginForm();
     			dispose();
     		} 
     	});
@@ -328,7 +328,7 @@ class RegisterFrame extends JFrame implements ActionListener {
             	String pass = new String(pwd);
             	m.CreateAccount(nameText, phone, license, userField, pass, identity);
                 JOptionPane.showMessageDialog(this, "Register Successful!");
-                Login l = new Login();
+                LoginForm l = new LoginForm();
                 dispose();
                 l.userTextField.setText(userField);
                 l.passwordField.setText(pass);
