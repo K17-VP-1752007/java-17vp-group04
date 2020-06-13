@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
-                                        
+                                                            
+    
+    
+    
+    
+    
     
     
     
@@ -11,7 +16,12 @@
     
     
     <order>
-                                                                                
+                                                                                                                        
+        
+        
+        
+        
+        
         
         
         
@@ -21,7 +31,12 @@
         
         
         <orderID>O2002</orderID>
-                                                                                
+                                                                                                                        
+        
+        
+        
+        
+        
         
         
         
@@ -31,7 +46,12 @@
         
         
         <customerID>M104</customerID>
-                                                                                
+                                                                                                                        
+        
+        
+        
+        
+        
         
         
         
@@ -41,7 +61,12 @@
         
         
         <name>John</name>
-                                                                                
+                                                                                                                        
+        
+        
+        
+        
+        
         
         
         
@@ -51,7 +76,12 @@
         
         
         <vehicleID>C1007</vehicleID>
-                                                                                
+                                                                                                                        
+        
+        
+        
+        
+        
         
         
         
@@ -61,7 +91,12 @@
         
         
         <startDate>09/06/2020</startDate>
-                                                                                
+                                                                                                                        
+        
+        
+        
+        
+        
         
         
         
@@ -71,7 +106,12 @@
         
         
         <returnDate>10/07/2020</returnDate>
-                                                                                
+                                                                                                                        
+        
+        
+        
+        
+        
         
         
         
@@ -81,7 +121,12 @@
         
         
         <license>B,C</license>
-                                                                                
+                                                                                                                        
+        
+        
+        
+        
+        
         
         
         
@@ -91,7 +136,12 @@
         
         
         <rentType>Month</rentType>
-                                                                                
+                                                                                                                        
+        
+        
+        
+        
+        
         
         
         
@@ -101,7 +151,12 @@
         
         
         <totalCost>2370.0</totalCost>
-                                                                        
+                                                                                                                
+        
+        
+        
+        
+        
         
         
         
@@ -110,7 +165,12 @@
         
         
         <status>processing</status>
-                                                                    
+                                                                                                            
+    
+    
+    
+    
+    
     
     
     
@@ -119,7 +179,12 @@
     
     
     </order>
-                                    
+                                                        
+    
+    
+    
+    
+    
     
     
     
@@ -129,7 +194,12 @@
     
     
     <order>
-                                                                        
+                                                                                                                
+        
+        
+        
+        
+        
         
         
         
@@ -138,7 +208,12 @@
         
         
         <orderID>O2003</orderID>
-                                                                        
+                                                                                                                
+        
+        
+        
+        
+        
         
         
         
@@ -147,7 +222,12 @@
         
         
         <customerID>M104</customerID>
-                                                                        
+                                                                                                                
+        
+        
+        
+        
+        
         
         
         
@@ -156,7 +236,12 @@
         
         
         <name>John</name>
-                                                                        
+                                                                                                                
+        
+        
+        
+        
+        
         
         
         
@@ -165,7 +250,12 @@
         
         
         <vehicleID>T3003</vehicleID>
-                                                                        
+                                                                                                                
+        
+        
+        
+        
+        
         
         
         
@@ -174,7 +264,12 @@
         
         
         <startDate>09/06/2020</startDate>
-                                                                        
+                                                                                                                
+        
+        
+        
+        
+        
         
         
         
@@ -183,7 +278,12 @@
         
         
         <returnDate>14/07/2020</returnDate>
-                                                                        
+                                                                                                                
+        
+        
+        
+        
+        
         
         
         
@@ -192,7 +292,12 @@
         
         
         <license>B,C</license>
-                                                                        
+                                                                                                                
+        
+        
+        
+        
+        
         
         
         
@@ -201,7 +306,12 @@
         
         
         <rentType>Week</rentType>
-                                                                        
+                                                                                                                
+        
+        
+        
+        
+        
         
         
         
@@ -210,7 +320,12 @@
         
         
         <totalCost>2900.0</totalCost>
-                                                                        
+                                                                                                                
+        
+        
+        
+        
+        
         
         
         
@@ -219,9 +334,103 @@
         
         
         <status>pending</status>
-                                                                    
+                                                                                                            
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </order>
+                                            
+
+
+
+
+    
+    
+    
+    
+    
+    
+    <order>
+                                                        
+        
+        
+        
+        
+        
+        <orderID>O2006</orderID>
+                                                        
+        
+        
+        
+        
+        
+        <customerID>M104</customerID>
+                                                        
+        
+        
+        
+        
+        
+        <name>John</name>
+                                                        
+        
+        
+        
+        
+        
+        <vehicleID>C1002</vehicleID>
+                                                        
+        
+        
+        
+        
+        
+        <startDate>12/06/2020</startDate>
+                                                        
+        
+        
+        
+        
+        
+        <returnDate>19/06/2020</returnDate>
+                                                        
+        
+        
+        
+        
+        
+        <license>B,C</license>
+                                                        
+        
+        
+        
+        
+        
+        <rentType>Week</rentType>
+                                                        
+        
+        
+        
+        
+        
+        <totalCost>840.0</totalCost>
+                                                        
+        
+        
+        
+        
+        
+        <status>pending</status>
+                                                    
     
     
     
@@ -230,32 +439,116 @@
     </order>
                         
 
-
-
-
+    
+    
+    
     
     <order>
-                
-        <orderID>O2006</orderID>
-                
-        <customerID>M104</customerID>
-                
-        <name>John</name>
-                
-        <vehicleID>C1002</vehicleID>
-                
-        <startDate>12/06/2020</startDate>
-                
-        <returnDate>19/06/2020</returnDate>
-                
-        <license>B,C</license>
-                
+                                        
+        
+        
+        
+        <orderID>O2000</orderID>
+                                        
+        
+        
+        
+        <customerID>M108</customerID>
+                                        
+        
+        
+        
+        <name>Le Ton Huy</name>
+                                        
+        
+        
+        
+        <vehicleID>C1006</vehicleID>
+                                        
+        
+        
+        
+        <startDate>13/06/2020</startDate>
+                                        
+        
+        
+        
+        <returnDate>15/08/2020</returnDate>
+                                        
+        
+        
+        
+        <license>B</license>
+                                        
+        
+        
+        
         <rentType>Week</rentType>
-                
-        <totalCost>840.0</totalCost>
-                
-        <status>pending</status>
-            
-    </order>
+                                        
+        
+        
+        
+        <totalCost>4660.0</totalCost>
+                                        
+        
+        
+        
+        <status>finished</status>
+                                    
     
+    
+    
+    </order>
+                
+    
+    
+    
+    <order>
+                                
+        
+        
+        <orderID>O2000</orderID>
+                                
+        
+        
+        <customerID>M104</customerID>
+                                
+        
+        
+        <name>John</name>
+                                
+        
+        
+        <vehicleID>T3000</vehicleID>
+                                
+        
+        
+        <startDate>13/06/2020</startDate>
+                                
+        
+        
+        <returnDate>04/07/2020</returnDate>
+                                
+        
+        
+        <license>B,C</license>
+                                
+        
+        
+        <rentType>Week</rentType>
+                                
+        
+        
+        <totalCost>1970.0</totalCost>
+                                
+        
+        
+        <status>pending</status>
+                            
+    
+    
+    </order>
+            
+
+
 </data>

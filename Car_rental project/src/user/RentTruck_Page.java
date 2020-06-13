@@ -118,7 +118,7 @@ class RentTruck extends JFrame{
 		
 		//////
 		JLabel text = new JLabel("Making you most comfortable is our obligation ");
-		JLabel intro = new JLabel("-- Use |< button| or |> button| to start looking --");
+		JLabel intro = new JLabel("-- Use |< previous| or |next >| to start looking --");
 		text.setSize(200,200);
 		text.setFont(new Font("Arial", Font.BOLD, 17));
 		text.setForeground(Color.DARK_GRAY);

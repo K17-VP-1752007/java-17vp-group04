@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -28,7 +29,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -56,7 +58,8 @@
         
         
         <vehicleID>C1000</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -84,7 +87,8 @@
         
         
         <km>20.3</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -112,7 +116,8 @@
         
         
         <totalRent>4</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -140,7 +145,8 @@
         
         
         <lastRent>07/07/2020</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -168,7 +174,8 @@
         
         
         <income>3170.0</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -196,7 +203,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -224,7 +232,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -252,7 +261,8 @@
         
         
         <vehicleID>C1001</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -280,7 +290,8 @@
         
         
         <km>10</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -308,7 +319,8 @@
         
         
         <totalRent>7</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -336,7 +348,8 @@
         
         
         <lastRent>30/06/2020</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -364,7 +377,8 @@
         
         
         <income>3850.0</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -392,7 +406,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -420,7 +435,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -448,7 +464,8 @@
         
         
         <vehicleID>C1002</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -476,7 +493,8 @@
         
         
         <km>140</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -504,7 +522,8 @@
         
         
         <totalRent>5</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -532,7 +551,8 @@
         
         
         <lastRent>19/06/2020</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -560,7 +580,8 @@
         
         
         <income>2240.0</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -588,7 +609,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -616,7 +638,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -644,7 +667,8 @@
         
         
         <vehicleID>C1003</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -672,7 +696,8 @@
         
         
         <km>12</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -700,7 +725,8 @@
         
         
         <totalRent>1</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -728,7 +754,8 @@
         
         
         <lastRent>08/09/2003</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -756,7 +783,8 @@
         
         
         <income>300</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -784,7 +812,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -812,7 +841,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -840,7 +870,8 @@
         
         
         <vehicleID>C1004</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -868,7 +899,8 @@
         
         
         <km>50</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -896,7 +928,8 @@
         
         
         <totalRent>3</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -924,7 +957,8 @@
         
         
         <lastRent>01/08/1999</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -952,7 +986,8 @@
         
         
         <income>1200</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -980,7 +1015,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -1008,7 +1044,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1036,7 +1073,8 @@
         
         
         <vehicleID>C1005</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1064,7 +1102,8 @@
         
         
         <km>37</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1092,7 +1131,8 @@
         
         
         <totalRent>1</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1120,7 +1160,8 @@
         
         
         <lastRent>23/02/2000</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1148,7 +1189,8 @@
         
         
         <income>200</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -1176,7 +1218,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -1204,7 +1247,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1232,7 +1276,8 @@
         
         
         <vehicleID>C1006</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1260,7 +1305,7 @@
         
         
         <km>0</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
         
         
         
@@ -1287,9 +1332,9 @@
         
         
         
-        <totalRent>1</totalRent>
-                                                                                                                                                                                                                                
         
+        <totalRent>2</totalRent>
+                                                                                                                                                                                                                                        
         
         
         
@@ -1315,10 +1360,10 @@
         
         
         
-        <lastRent>10/07/2020</lastRent>
-                                                                                                                                                                                                                                
         
         
+        <lastRent>15/08/2020</lastRent>
+                                                                                                                                                                                                                                        
         
         
         
@@ -1343,8 +1388,12 @@
         
         
         
-        <income>2420.0</income>
-                                                                                                                                                                                                                            
+        
+        
+        
+        <income>7080.0</income>
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -1372,7 +1421,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -1400,7 +1450,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1428,7 +1479,8 @@
         
         
         <vehicleID>C1007</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1456,7 +1508,8 @@
         
         
         <km>300</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1484,7 +1537,8 @@
         
         
         <totalRent>10</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1512,7 +1566,8 @@
         
         
         <lastRent>10/07/2020</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1540,7 +1595,8 @@
         
         
         <income>4170.0</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -1568,7 +1624,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -1596,7 +1653,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1624,7 +1682,8 @@
         
         
         <vehicleID>C1008</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1652,7 +1711,8 @@
         
         
         <km>250</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1680,7 +1740,8 @@
         
         
         <totalRent>5</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1708,7 +1769,8 @@
         
         
         <lastRent>11/07/2020</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1736,7 +1798,8 @@
         
         
         <income>2920.0</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -1764,7 +1827,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -1792,7 +1856,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1820,7 +1885,8 @@
         
         
         <vehicleID>C1009</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1848,7 +1914,8 @@
         
         
         <km>450</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1876,7 +1943,8 @@
         
         
         <totalRent>10</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1904,7 +1972,8 @@
         
         
         <lastRent>22/12/1999</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -1932,7 +2001,8 @@
         
         
         <income>1500</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -1960,7 +2030,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -1988,7 +2059,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2016,7 +2088,8 @@
         
         
         <vehicleID>C1010</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2044,7 +2117,8 @@
         
         
         <km>50</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2072,7 +2146,8 @@
         
         
         <totalRent>1</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2100,7 +2175,8 @@
         
         
         <lastRent>03/08/2010</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2128,7 +2204,8 @@
         
         
         <income>350</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -2156,7 +2233,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -2184,7 +2262,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2212,7 +2291,8 @@
         
         
         <vehicleID>C1011</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2240,7 +2320,8 @@
         
         
         <km>70</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2268,7 +2349,8 @@
         
         
         <totalRent>1</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2296,7 +2378,8 @@
         
         
         <lastRent>01/08/2012</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2324,7 +2407,8 @@
         
         
         <income>150</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -2352,7 +2436,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -2380,7 +2465,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2408,7 +2494,8 @@
         
         
         <vehicleID>C1012</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2436,7 +2523,8 @@
         
         
         <km>30</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2464,7 +2552,8 @@
         
         
         <totalRent>1</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2492,7 +2581,8 @@
         
         
         <lastRent>12/12/2012</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2520,7 +2610,8 @@
         
         
         <income>450</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -2548,7 +2639,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -2576,7 +2668,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2604,7 +2697,8 @@
         
         
         <vehicleID>C1013</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2632,7 +2726,8 @@
         
         
         <km>200</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2660,7 +2755,8 @@
         
         
         <totalRent>3</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2688,7 +2784,8 @@
         
         
         <lastRent>10/07/2020</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2716,7 +2813,8 @@
         
         
         <income>3520.0</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -2744,7 +2842,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -2772,7 +2871,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2800,7 +2900,8 @@
         
         
         <vehicleID>C1014</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2828,7 +2929,8 @@
         
         
         <km>270</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2856,7 +2958,8 @@
         
         
         <totalRent>4</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2884,7 +2987,8 @@
         
         
         <lastRent>09/09/2019</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2912,7 +3016,8 @@
         
         
         <income>2000</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -2940,7 +3045,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -2968,7 +3074,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -2996,7 +3103,8 @@
         
         
         <vehicleID>C1015</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3024,7 +3132,8 @@
         
         
         <km>99</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3052,7 +3161,8 @@
         
         
         <totalRent>3</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3080,7 +3190,8 @@
         
         
         <lastRent>20/11/2014</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3108,7 +3219,8 @@
         
         
         <income>900</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -3136,7 +3248,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -3164,7 +3277,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3192,7 +3306,8 @@
         
         
         <vehicleID>C1016</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3220,7 +3335,8 @@
         
         
         <km>85</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3248,7 +3364,8 @@
         
         
         <totalRent>2</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3276,7 +3393,8 @@
         
         
         <lastRent>17/07/2017</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3304,7 +3422,8 @@
         
         
         <income>700</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -3332,7 +3451,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -3360,7 +3480,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3388,7 +3509,8 @@
         
         
         <vehicleID>C1017</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3416,7 +3538,8 @@
         
         
         <km>125</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3444,7 +3567,8 @@
         
         
         <totalRent>2</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3472,7 +3596,8 @@
         
         
         <lastRent>07/07/2020</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3500,7 +3625,8 @@
         
         
         <income>2870.0</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -3528,7 +3654,8 @@
     
     
     </record>
-                                                                                                                
+                                                                                                                    
+    
     
     
     
@@ -3556,7 +3683,8 @@
     
     
     <record>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3584,7 +3712,8 @@
         
         
         <vehicleID>C1018</vehicleID>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3612,7 +3741,8 @@
         
         
         <km>370</km>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3640,7 +3770,8 @@
         
         
         <totalRent>3</totalRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3668,7 +3799,8 @@
         
         
         <lastRent>27/06/2020</lastRent>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        
+        
         
         
         
@@ -3696,7 +3828,211 @@
         
         
         <income>2970.0</income>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </record>
+                                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <record>
+                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <vehicleID>C1019</vehicleID>
+                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <km>0</km>
+                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <totalRent>1</totalRent>
+                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <lastRent>22/08/2020</lastRent>
+                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <income>5890.0</income>
+                                                                                                                                                                                                                                    
+    
     
     
     
@@ -3725,202 +4061,6 @@
     
     </record>
                                                                                                                 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <record>
-                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <vehicleID>C1019</vehicleID>
-                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <km>0</km>
-                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <totalRent>1</totalRent>
-                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <lastRent>22/08/2020</lastRent>
-                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <income>5890.0</income>
-                                                                                                                                                                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </record>
-                                                                                                            
 
 
 
@@ -3943,6 +4083,7 @@
     
     
     
+
 
 
 

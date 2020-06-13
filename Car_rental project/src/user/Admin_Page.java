@@ -111,7 +111,7 @@ class cardlay extends JFrame{
 		box.setBorder(LineBorder.createBlackLineBorder());
 		
 		content.add(cont);
-		JLabel line = new JLabel("_______________________________________");
+		JLabel line = new JLabel("");
 		down.add(car);
 		down.add(truck);
 		down.add(order);

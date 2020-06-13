@@ -141,8 +141,9 @@ class Image extends Thread
 		pic.setBounds(200, 190, 470, 360);
 		
 		
+		String licen = User.getLicence();
 		car.addActionListener(new ActionListener() {
-			
+
 			@Override
 			
 				public void actionPerformed(ActionEvent ae) {
@@ -156,8 +157,16 @@ class Image extends Thread
 			@Override
 			
 				public void actionPerformed(ActionEvent ae) {
+				
+				if(licen.equals("B"))
+				{
+					JOptionPane.showMessageDialog(frame, "Your licence can't not rent truck!");
+				}
+				else
+				{
 					RentTruck T = new RentTruck();
 					frame.dispose();
+				}
 			}
 			});
 		

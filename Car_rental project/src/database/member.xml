@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
-                                                    
+                                                            
+    
+    
     
     
     
@@ -13,7 +15,9 @@
     
     
     <member>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -26,7 +30,9 @@
         
         
         <id>M100</id>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -39,7 +45,9 @@
         
         
         <username>Nguyen Van A</username>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -52,7 +60,9 @@
         
         
         <phonenumber>0548721015</phonenumber>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -65,7 +75,9 @@
         
         
         <loginname>nva_A100</loginname>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -78,7 +90,7 @@
         
         
         <password>abc123</password>
-                                                                                                        
+                                                                                                                        
         
         
         
@@ -90,8 +102,12 @@
         
         
         
-        <licence>B2</licence>
-                                                                                                        
+        
+        
+        <licence>B</licence>
+                                                                                                                        
+        
+        
         
         
         
@@ -104,7 +120,9 @@
         
         
         <CMND>012458741</CMND>
-                                                                                                    
+                                                                                                                    
+    
+    
     
     
     
@@ -117,7 +135,9 @@
     
     
     </member>
-                                                    
+                                                            
+    
+    
     
     
     
@@ -130,7 +150,9 @@
     
     
     <member>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -143,7 +165,9 @@
         
         
         <id>M101</id>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -156,7 +180,9 @@
         
         
         <username>Tran Van B</username>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -169,7 +195,9 @@
         
         
         <phonenumber>0352854752</phonenumber>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -182,7 +210,9 @@
         
         
         <loginname>tvb_A101</loginname>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -195,7 +225,7 @@
         
         
         <password>123abc</password>
-                                                                                                        
+                                                                                                                        
         
         
         
@@ -207,8 +237,12 @@
         
         
         
-        <licence>B2</licence>
-                                                                                                        
+        
+        
+        <licence>B</licence>
+                                                                                                                        
+        
+        
         
         
         
@@ -221,7 +255,9 @@
         
         
         <CMND>025874125</CMND>
-                                                                                                    
+                                                                                                                    
+    
+    
     
     
     
@@ -234,7 +270,9 @@
     
     
     </member>
-                                                    
+                                                            
+    
+    
     
     
     
@@ -247,7 +285,9 @@
     
     
     <member>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -260,7 +300,9 @@
         
         
         <id>M102</id>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -273,7 +315,9 @@
         
         
         <username>Vo Thi C</username>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -286,7 +330,9 @@
         
         
         <phonenumber>0258741236</phonenumber>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -299,7 +345,9 @@
         
         
         <loginname>vtc_A102</loginname>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -312,7 +360,7 @@
         
         
         <password>1a2b3c</password>
-                                                                                                        
+                                                                                                                        
         
         
         
@@ -324,8 +372,12 @@
         
         
         
-        <licence>B2</licence>
-                                                                                                        
+        
+        
+        <licence>B</licence>
+                                                                                                                        
+        
+        
         
         
         
@@ -338,7 +390,271 @@
         
         
         <CMND>014785212</CMND>
-                                                                                                    
+                                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </member>
+                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <member>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <id>M103</id>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <username>Nguyen Hoang D</username>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <phonenumber>0287456321</phonenumber>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <loginname>nhd_A103</loginname>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <password>c3b2a1</password>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <licence>B</licence>
+                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <CMND>087563214</CMND>
+                                                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </member>
+                                                        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <member>
+                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <id>M104</id>
+                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <username>John</username>
+                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <phonenumber>0901612023</phonenumber>
+                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <licence>B,C</licence>
+                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <loginname>wick123</loginname>
+                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <password>wick</password>
+                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <CMND>090871234</CMND>
+                                                                                                            
+    
     
     
     
@@ -363,6 +679,7 @@
     
     
     
+    
     <member>
                                                                                                         
         
@@ -376,7 +693,7 @@
         
         
         
-        <id>M103</id>
+        <id>M105</id>
                                                                                                         
         
         
@@ -389,7 +706,7 @@
         
         
         
-        <username>Nguyen Hoang D</username>
+        <username>Nam</username>
                                                                                                         
         
         
@@ -402,7 +719,7 @@
         
         
         
-        <phonenumber>0287456321</phonenumber>
+        <phonenumber>0933220970</phonenumber>
                                                                                                         
         
         
@@ -415,7 +732,7 @@
         
         
         
-        <loginname>nhd_A103</loginname>
+        <licence>C</licence>
                                                                                                         
         
         
@@ -428,7 +745,7 @@
         
         
         
-        <password>c3b2a1</password>
+        <loginname>nam123</loginname>
                                                                                                         
         
         
@@ -441,7 +758,7 @@
         
         
         
-        <licence>B2</licence>
+        <password>nam</password>
                                                                                                         
         
         
@@ -454,7 +771,7 @@
         
         
         
-        <CMND>087563214</CMND>
+        <CMND>090128734</CMND>
                                                                                                     
     
     
@@ -492,7 +809,7 @@
         
         
         
-        <id>M104</id>
+        <id>M106</id>
                                                                                                 
         
         
@@ -504,7 +821,7 @@
         
         
         
-        <username>John</username>
+        <username>di huy nam</username>
                                                                                                 
         
         
@@ -516,7 +833,7 @@
         
         
         
-        <phonenumber>0901612023</phonenumber>
+        <phonenumber>7889123456</phonenumber>
                                                                                                 
         
         
@@ -528,7 +845,7 @@
         
         
         
-        <licence>B,C</licence>
+        <licence>C</licence>
                                                                                                 
         
         
@@ -540,7 +857,7 @@
         
         
         
-        <loginname>wick123</loginname>
+        <loginname>numduden</loginname>
                                                                                                 
         
         
@@ -552,7 +869,7 @@
         
         
         
-        <password>wick</password>
+        <password>654321</password>
                                                                                                 
         
         
@@ -564,7 +881,7 @@
         
         
         
-        <CMND>090871234</CMND>
+        <CMND>856555849</CMND>
                                                                                             
     
     
@@ -577,195 +894,33 @@
     
     
     </member>
-                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        
     
     <member>
-                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>M105</id>
-                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <username>Nam</username>
-                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <phonenumber>0933220970</phonenumber>
-                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <licence>C</licence>
-                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <loginname>nam123</loginname>
-                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <password>nam</password>
-                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <CMND>090128734</CMND>
-                                                                                    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+                
+        <id>M107</id>
+                
+        <username>ASD</username>
+                
+        <phonenumber>0909555444</phonenumber>
+                
+        <licence>B</licence>
+                
+        <loginname>QWE</loginname>
+                
+        <password>123456</password>
+                
+        <CMND>085098774</CMND>
+            
     </member>
-                                        
-    
-    
-    
-    
-    
-    
-    
-    
     
     <member>
-                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        <id>M106</id>
-                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        <username>di huy nam</username>
-                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        <phonenumber>7889123456</phonenumber>
-                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        <licence>C</licence>
-                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        <loginname>numduden</loginname>
-                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        <password>654321</password>
-                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        <CMND>856555849</CMND>
-                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
+        <id>M108</id>
+        <username>Le Ton Huy</username>
+        <phonenumber>0703218384</phonenumber>
+        <licence>B</licence>
+        <loginname>HuyLe</loginname>
+        <password>123456</password>
+        <CMND>025960339</CMND>
     </member>
 </data>
